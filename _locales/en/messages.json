@@ -541,7 +541,7 @@
     "description": "Tooltip shown when the dictionary fails to load"
   },
   "extension_description": {
-    "message": "Translate Japanese by hovering over words.",
+    "message": "Translate Chinese by hovering over words.",
     "description": "Description of the what the extension does."
   },
   "field_label_agric": {

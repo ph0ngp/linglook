@@ -176,7 +176,7 @@ Pre-release checks:
   ```
   pnpm zip-src
   mkdir ~/test-src
-  cp dist-src/10ten-ja-reader-<version>-src.zip ~/test-src/test.zip
+  cp dist-src/wenzi-<version>-src.zip ~/test-src/test.zip
   cd ~/test-src
   unzip test.zip
   # Check it builds
