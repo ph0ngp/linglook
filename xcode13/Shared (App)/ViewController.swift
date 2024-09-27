@@ -16,7 +16,7 @@ import SafariServices
 typealias PlatformViewController = NSViewController
 #endif
 
-let extensionBundleIdentifier = "jp.co.birchill.tenten-ja-reader.Extension"
+let extensionBundleIdentifier = "com.phongp.wenzi.Extension"
 
 #if os(iOS)
 struct Device {

@@ -802,7 +802,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader Extension";
@@ -814,7 +814,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
 				PRODUCT_NAME = "10ten Japanese Reader Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -829,7 +829,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader Extension";
@@ -841,7 +841,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
 				PRODUCT_NAME = "10ten Japanese Reader Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -860,7 +860,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader";
@@ -882,7 +882,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
 				PRODUCT_NAME = "10ten Japanese Reader";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -899,7 +899,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader";
@@ -921,7 +921,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
 				PRODUCT_NAME = "10ten Japanese Reader";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -938,7 +938,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -953,7 +953,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
 				PRODUCT_NAME = "10ten Japanese Reader Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -969,7 +969,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -984,7 +984,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
 				PRODUCT_NAME = "10ten Japanese Reader Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1004,7 +1004,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -1023,7 +1023,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
 				PRODUCT_NAME = "10ten Japanese Reader";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1042,7 +1042,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = H3RB7C8768;
+				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -1061,7 +1061,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.birchill.tenten-ja-reader";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
 				PRODUCT_NAME = "10ten Japanese Reader";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
