@@ -129,7 +129,7 @@ should be able to run using Xcode.
 
 Note that Xcode will default to signing with Brian Birtles' ([@birtles](https://github.com/birtles)) team. Running on Simulator does not require a team set, but to run on a physical device, you may need to override the team name to your personal team—however, please don't commit the configuration files this will change to this repo. This is clunky, but unavoidable for open source projects with Xcode. An [Apple Developer Program](https://developer.apple.com/programs/enroll/) account may also be required.
 
-If you already have 10ten Japanese Reader installed on your device, you may get signing errors when trying to test the development version. An uninstall and reinstall should fix these.
+If you already have Wenzi installed on your device, you may get signing errors when trying to test the development version. An uninstall and reinstall should fix these.
 
 ## Testing
 
@@ -246,7 +246,7 @@ If that succeeds then it's time to update the App Store.
 Note that it will take several minutes to process the uploaded build so there's
 no hurry.
 
-1. Go to https://appstoreconnect.apple.com/apps and choose 10ten Japanese Reader
+1. Go to https://appstoreconnect.apple.com/apps and choose Wenzi
 1. Choose the MacOS/iOS app and copy the Promotional Text.
 1. Press the blue + next to the macOS/iOS App and enter the new version number
 1. Fill out the changes field / promotional text and save

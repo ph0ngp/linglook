@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/10ten-ja-reader.svg" alt="10ten Japanese Reader" width="200" height="200" />
+  <img src="images/10ten-ja-reader.svg" alt="Wenzi" width="200" height="200" />
   <h1>Wenzi</h1>
 
   <p>
@@ -97,7 +97,7 @@
 
 ## Usage
 
-By default, you can enable the 10ten Japanese Reader by either:
+By default, you can enable the Wenzi by either:
 
 - Pressing the toolbar button (you may need to add it to the browser toolbar yourself in some browsers)
 - Pressing <kbd>Alt</kbd>+<kbd>R</kbd>
