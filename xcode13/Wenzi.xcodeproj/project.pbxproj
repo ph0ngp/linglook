@@ -103,14 +103,14 @@
 			containerPortal = D306F42B2692C54F002FA4FD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D306F45C2692C553002FA4FD;
-			remoteInfo = "10ten Japanese Reader Extension (iOS)";
+			remoteInfo = "Wenzi Extension (iOS)";
 		};
 		D306F4692692C553002FA4FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D306F42B2692C54F002FA4FD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D306F4662692C553002FA4FD;
-			remoteInfo = "10ten Japanese Reader Extension (macOS)";
+			remoteInfo = "Wenzi Extension (macOS)";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -381,7 +381,7 @@
 				D306F4602692C553002FA4FD /* PBXTargetDependency */,
 			);
 			name = "Wenzi (iOS)";
-			productName = "10ten Japanese Reader (iOS)";
+			productName = "Wenzi (iOS)";
 			productReference = D306F43E2692C553002FA4FD /* Wenzi.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -400,7 +400,7 @@
 				D306F46A2692C553002FA4FD /* PBXTargetDependency */,
 			);
 			name = "Wenzi (macOS)";
-			productName = "10ten Japanese Reader (macOS)";
+			productName = "Wenzi (macOS)";
 			productReference = D306F4502692C553002FA4FD /* Wenzi.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -417,7 +417,7 @@
 			dependencies = (
 			);
 			name = "Wenzi Extension (iOS)";
-			productName = "10ten Japanese Reader Extension (iOS)";
+			productName = "Wenzi Extension (iOS)";
 			productReference = D306F45D2692C553002FA4FD /* Wenzi Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
@@ -434,7 +434,7 @@
 			dependencies = (
 			);
 			name = "Wenzi Extension (macOS)";
-			productName = "10ten Japanese Reader Extension (macOS)";
+			productName = "Wenzi Extension (macOS)";
 			productReference = D306F4672692C553002FA4FD /* Wenzi Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
@@ -807,7 +807,7 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -834,7 +834,7 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -864,9 +864,9 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader";
-				INFOPLIST_KEY_CFBundleExecutable = "10ten Japanese Reader";
-				INFOPLIST_KEY_CFBundleName = "10ten Japanese Reader";
+				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
+				INFOPLIST_KEY_CFBundleExecutable = Wenzi;
+				INFOPLIST_KEY_CFBundleName = Wenzi;
 				INFOPLIST_KEY_CFBundleVersion = 7;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -902,9 +902,9 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader";
-				INFOPLIST_KEY_CFBundleExecutable = "10ten Japanese Reader";
-				INFOPLIST_KEY_CFBundleName = "10ten Japanese Reader";
+				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
+				INFOPLIST_KEY_CFBundleExecutable = Wenzi;
+				INFOPLIST_KEY_CFBundleName = Wenzi;
 				INFOPLIST_KEY_CFBundleVersion = 7;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -944,7 +944,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -975,7 +975,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1009,7 +1009,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader";
+				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1035,7 +1035,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/10ten Japanese Reader.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Wenzi.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
@@ -1046,7 +1046,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "10ten Japanese Reader";
+				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
