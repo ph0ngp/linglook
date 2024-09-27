@@ -13,8 +13,8 @@
 		D306F44A2692C553002FA4FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4482692C553002FA4FD /* Main.storyboard */; };
 		D306F4532692C553002FA4FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4522692C553002FA4FD /* AppDelegate.swift */; };
 		D306F4562692C553002FA4FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4542692C553002FA4FD /* Main.storyboard */; };
-		D306F45E2692C553002FA4FD /* 10ten Japanese Reader Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F45D2692C553002FA4FD /* 10ten Japanese Reader Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D306F4682692C553002FA4FD /* 10ten Japanese Reader Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F4672692C553002FA4FD /* 10ten Japanese Reader Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D306F45E2692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F45D2692C553002FA4FD /* Wenzi Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D306F4682692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F4672692C553002FA4FD /* Wenzi Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D306F46D2692C553002FA4FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4312692C54F002FA4FD /* Main.html */; };
 		D306F46E2692C553002FA4FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4312692C54F002FA4FD /* Main.html */; };
 		D306F46F2692C553002FA4FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D306F4332692C54F002FA4FD /* Icon.png */; };
@@ -121,7 +121,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D306F45E2692C553002FA4FD /* 10ten Japanese Reader Extension.appex in Embed Foundation Extensions */,
+				D306F45E2692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +132,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D306F4682692C553002FA4FD /* 10ten Japanese Reader Extension.appex in Embed Foundation Extensions */,
+				D306F4682692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,20 +147,20 @@
 		D306F4362692C54F002FA4FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D306F4372692C552002FA4FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D306F4392692C552002FA4FD /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		D306F43E2692C553002FA4FD /* 10ten Japanese Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "10ten Japanese Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F43E2692C553002FA4FD /* Wenzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wenzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4412692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D306F4432692C553002FA4FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D306F4462692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D306F4492692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F44B2692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4502692C553002FA4FD /* 10ten Japanese Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "10ten Japanese Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F4502692C553002FA4FD /* Wenzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wenzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4522692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D306F4552692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F4572692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4582692C553002FA4FD /* 10ten Japanese Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "10ten Japanese Reader.entitlements"; sourceTree = "<group>"; };
-		D306F45D2692C553002FA4FD /* 10ten Japanese Reader Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "10ten Japanese Reader Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F45D2692C553002FA4FD /* Wenzi Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wenzi Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4622692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4672692C553002FA4FD /* 10ten Japanese Reader Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "10ten Japanese Reader Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F4672692C553002FA4FD /* Wenzi Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wenzi Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F46C2692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F48E2692C556002FA4FD /* 10ten-ja-jpdict.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-jpdict.js"; path = "../../dist-safari/10ten-ja-jpdict.js"; sourceTree = "<group>"; };
 		D306F48F2692C556002FA4FD /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "../../dist-safari/css"; sourceTree = "<group>"; };
@@ -296,10 +296,10 @@
 		D306F43F2692C553002FA4FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D306F43E2692C553002FA4FD /* 10ten Japanese Reader.app */,
-				D306F4502692C553002FA4FD /* 10ten Japanese Reader.app */,
-				D306F45D2692C553002FA4FD /* 10ten Japanese Reader Extension.appex */,
-				D306F4672692C553002FA4FD /* 10ten Japanese Reader Extension.appex */,
+				D306F43E2692C553002FA4FD /* Wenzi.app */,
+				D306F4502692C553002FA4FD /* Wenzi.app */,
+				D306F45D2692C553002FA4FD /* Wenzi Extension.appex */,
+				D306F4672692C553002FA4FD /* Wenzi Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -366,9 +366,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D306F43D2692C553002FA4FD /* 10ten Japanese Reader (iOS) */ = {
+		D306F43D2692C553002FA4FD /* Wenzi (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader (iOS)" */;
+			buildConfigurationList = D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (iOS)" */;
 			buildPhases = (
 				D306F43A2692C553002FA4FD /* Sources */,
 				D306F43B2692C553002FA4FD /* Frameworks */,
@@ -380,14 +380,14 @@
 			dependencies = (
 				D306F4602692C553002FA4FD /* PBXTargetDependency */,
 			);
-			name = "10ten Japanese Reader (iOS)";
+			name = "Wenzi (iOS)";
 			productName = "10ten Japanese Reader (iOS)";
-			productReference = D306F43E2692C553002FA4FD /* 10ten Japanese Reader.app */;
+			productReference = D306F43E2692C553002FA4FD /* Wenzi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D306F44F2692C553002FA4FD /* 10ten Japanese Reader (macOS) */ = {
+		D306F44F2692C553002FA4FD /* Wenzi (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader (macOS)" */;
+			buildConfigurationList = D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (macOS)" */;
 			buildPhases = (
 				D306F44C2692C553002FA4FD /* Sources */,
 				D306F44D2692C553002FA4FD /* Frameworks */,
@@ -399,14 +399,14 @@
 			dependencies = (
 				D306F46A2692C553002FA4FD /* PBXTargetDependency */,
 			);
-			name = "10ten Japanese Reader (macOS)";
+			name = "Wenzi (macOS)";
 			productName = "10ten Japanese Reader (macOS)";
-			productReference = D306F4502692C553002FA4FD /* 10ten Japanese Reader.app */;
+			productReference = D306F4502692C553002FA4FD /* Wenzi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D306F45C2692C553002FA4FD /* 10ten Japanese Reader Extension (iOS) */ = {
+		D306F45C2692C553002FA4FD /* Wenzi Extension (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader Extension (iOS)" */;
+			buildConfigurationList = D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (iOS)" */;
 			buildPhases = (
 				D306F4592692C553002FA4FD /* Sources */,
 				D306F45A2692C553002FA4FD /* Frameworks */,
@@ -416,14 +416,14 @@
 			);
 			dependencies = (
 			);
-			name = "10ten Japanese Reader Extension (iOS)";
+			name = "Wenzi Extension (iOS)";
 			productName = "10ten Japanese Reader Extension (iOS)";
-			productReference = D306F45D2692C553002FA4FD /* 10ten Japanese Reader Extension.appex */;
+			productReference = D306F45D2692C553002FA4FD /* Wenzi Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		D306F4662692C553002FA4FD /* 10ten Japanese Reader Extension (macOS) */ = {
+		D306F4662692C553002FA4FD /* Wenzi Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader Extension (macOS)" */;
+			buildConfigurationList = D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (macOS)" */;
 			buildPhases = (
 				D306F4632692C553002FA4FD /* Sources */,
 				D306F4642692C553002FA4FD /* Frameworks */,
@@ -433,9 +433,9 @@
 			);
 			dependencies = (
 			);
-			name = "10ten Japanese Reader Extension (macOS)";
+			name = "Wenzi Extension (macOS)";
 			productName = "10ten Japanese Reader Extension (macOS)";
-			productReference = D306F4672692C553002FA4FD /* 10ten Japanese Reader Extension.appex */;
+			productReference = D306F4672692C553002FA4FD /* Wenzi Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -462,7 +462,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "10ten Japanese Reader" */;
+			buildConfigurationList = D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "Wenzi" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -475,10 +475,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D306F43D2692C553002FA4FD /* 10ten Japanese Reader (iOS) */,
-				D306F44F2692C553002FA4FD /* 10ten Japanese Reader (macOS) */,
-				D306F45C2692C553002FA4FD /* 10ten Japanese Reader Extension (iOS) */,
-				D306F4662692C553002FA4FD /* 10ten Japanese Reader Extension (macOS) */,
+				D306F43D2692C553002FA4FD /* Wenzi (iOS) */,
+				D306F44F2692C553002FA4FD /* Wenzi (macOS) */,
+				D306F45C2692C553002FA4FD /* Wenzi Extension (iOS) */,
+				D306F4662692C553002FA4FD /* Wenzi Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -634,12 +634,12 @@
 /* Begin PBXTargetDependency section */
 		D306F4602692C553002FA4FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D306F45C2692C553002FA4FD /* 10ten Japanese Reader Extension (iOS) */;
+			target = D306F45C2692C553002FA4FD /* Wenzi Extension (iOS) */;
 			targetProxy = D306F45F2692C553002FA4FD /* PBXContainerItemProxy */;
 		};
 		D306F46A2692C553002FA4FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D306F4662692C553002FA4FD /* 10ten Japanese Reader Extension (macOS) */;
+			target = D306F4662692C553002FA4FD /* Wenzi Extension (macOS) */;
 			targetProxy = D306F4692692C553002FA4FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -814,8 +814,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
-				PRODUCT_NAME = "10ten Japanese Reader Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
+				PRODUCT_NAME = "Wenzi Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -841,8 +841,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
-				PRODUCT_NAME = "10ten Japanese Reader Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
+				PRODUCT_NAME = "Wenzi Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -882,8 +882,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
-				PRODUCT_NAME = "10ten Japanese Reader";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
+				PRODUCT_NAME = Wenzi;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -921,8 +921,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
-				PRODUCT_NAME = "10ten Japanese Reader";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
+				PRODUCT_NAME = Wenzi;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -953,8 +953,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
-				PRODUCT_NAME = "10ten Japanese Reader Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
+				PRODUCT_NAME = "Wenzi Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -984,8 +984,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi.Extension";
-				PRODUCT_NAME = "10ten Japanese Reader Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
+				PRODUCT_NAME = "Wenzi Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1023,8 +1023,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
-				PRODUCT_NAME = "10ten Japanese Reader";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
+				PRODUCT_NAME = Wenzi;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1061,8 +1061,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.phongp.wenzi";
-				PRODUCT_NAME = "10ten Japanese Reader";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
+				PRODUCT_NAME = Wenzi;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1072,7 +1072,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "10ten Japanese Reader" */ = {
+		D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "Wenzi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F47B2692C553002FA4FD /* Debug */,
@@ -1081,7 +1081,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader Extension (iOS)" */ = {
+		D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F47E2692C553002FA4FD /* Debug */,
@@ -1090,7 +1090,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader (iOS)" */ = {
+		D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F4822692C553002FA4FD /* Debug */,
@@ -1099,7 +1099,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader Extension (macOS)" */ = {
+		D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F4852692C553002FA4FD /* Debug */,
@@ -1108,7 +1108,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "10ten Japanese Reader (macOS)" */ = {
+		D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F4892692C553002FA4FD /* Debug */,

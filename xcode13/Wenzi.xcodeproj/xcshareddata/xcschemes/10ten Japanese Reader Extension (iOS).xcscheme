@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D306F4662692C553002FA4FD"
+               BlueprintIdentifier = "D306F45C2692C553002FA4FD"
                BuildableName = "10ten Japanese Reader Extension.appex"
-               BlueprintName = "10ten Japanese Reader Extension (macOS)"
-               ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+               BlueprintName = "Wenzi Extension (iOS)"
+               ReferencedContainer = "container:Wenzi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,10 +29,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D306F44F2692C553002FA4FD"
+               BlueprintIdentifier = "D306F43D2692C553002FA4FD"
                BuildableName = "10ten Japanese Reader.app"
-               BlueprintName = "10ten Japanese Reader (macOS)"
-               ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+               BlueprintName = "Wenzi (iOS)"
+               ReferencedContainer = "container:Wenzi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D306F44F2692C553002FA4FD"
+            BlueprintIdentifier = "D306F43D2692C553002FA4FD"
             BuildableName = "10ten Japanese Reader.app"
-            BlueprintName = "10ten Japanese Reader (macOS)"
-            ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+            BlueprintName = "Wenzi (iOS)"
+            ReferencedContainer = "container:Wenzi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -80,10 +80,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D306F44F2692C553002FA4FD"
+            BlueprintIdentifier = "D306F43D2692C553002FA4FD"
             BuildableName = "10ten Japanese Reader.app"
-            BlueprintName = "10ten Japanese Reader (macOS)"
-            ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+            BlueprintName = "Wenzi (iOS)"
+            ReferencedContainer = "container:Wenzi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

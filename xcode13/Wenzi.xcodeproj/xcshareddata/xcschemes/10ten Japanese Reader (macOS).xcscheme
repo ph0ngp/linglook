@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D306F44F2692C553002FA4FD"
                BuildableName = "10ten Japanese Reader.app"
-               BlueprintName = "10ten Japanese Reader (macOS)"
-               ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+               BlueprintName = "Wenzi (macOS)"
+               ReferencedContainer = "container:Wenzi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D306F44F2692C553002FA4FD"
             BuildableName = "10ten Japanese Reader.app"
-            BlueprintName = "10ten Japanese Reader (macOS)"
-            ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+            BlueprintName = "Wenzi (macOS)"
+            ReferencedContainer = "container:Wenzi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D306F44F2692C553002FA4FD"
             BuildableName = "10ten Japanese Reader.app"
-            BlueprintName = "10ten Japanese Reader (macOS)"
-            ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+            BlueprintName = "Wenzi (macOS)"
+            ReferencedContainer = "container:Wenzi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

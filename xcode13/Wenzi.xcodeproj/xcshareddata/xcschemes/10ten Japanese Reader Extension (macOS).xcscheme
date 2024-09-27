@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1540"
-   version = "1.3">
+   wasCreatedForAppExtension = "YES"
+   version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,10 +15,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D306F43D2692C553002FA4FD"
+               BlueprintIdentifier = "D306F4662692C553002FA4FD"
+               BuildableName = "10ten Japanese Reader Extension.appex"
+               BlueprintName = "Wenzi Extension (macOS)"
+               ReferencedContainer = "container:Wenzi.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D306F44F2692C553002FA4FD"
                BuildableName = "10ten Japanese Reader.app"
-               BlueprintName = "10ten Japanese Reader (iOS)"
-               ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+               BlueprintName = "Wenzi (macOS)"
+               ReferencedContainer = "container:Wenzi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,22 +47,24 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
+      askForAppToLaunch = "Yes"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D306F43D2692C553002FA4FD"
+            BlueprintIdentifier = "D306F44F2692C553002FA4FD"
             BuildableName = "10ten Japanese Reader.app"
-            BlueprintName = "10ten Japanese Reader (iOS)"
-            ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+            BlueprintName = "Wenzi (macOS)"
+            ReferencedContainer = "container:Wenzi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -56,15 +73,17 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES">
+      debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes"
+      launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D306F43D2692C553002FA4FD"
+            BlueprintIdentifier = "D306F44F2692C553002FA4FD"
             BuildableName = "10ten Japanese Reader.app"
-            BlueprintName = "10ten Japanese Reader (iOS)"
-            ReferencedContainer = "container:10ten Japanese Reader.xcodeproj">
+            BlueprintName = "Wenzi (macOS)"
+            ReferencedContainer = "container:Wenzi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
