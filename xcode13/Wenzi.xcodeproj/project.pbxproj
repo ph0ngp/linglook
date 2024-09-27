@@ -157,7 +157,7 @@
 		D306F4522692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D306F4552692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F4572692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4582692C553002FA4FD /* 10ten Japanese Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "10ten Japanese Reader.entitlements"; sourceTree = "<group>"; };
+		D306F4582692C553002FA4FD /* Wenzi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wenzi.entitlements; sourceTree = "<group>"; };
 		D306F45D2692C553002FA4FD /* Wenzi Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wenzi Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4622692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4672692C553002FA4FD /* Wenzi Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wenzi Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +322,7 @@
 				D306F4522692C553002FA4FD /* AppDelegate.swift */,
 				D306F4542692C553002FA4FD /* Main.storyboard */,
 				D306F4572692C553002FA4FD /* Info.plist */,
-				D306F4582692C553002FA4FD /* 10ten Japanese Reader.entitlements */,
+				D306F4582692C553002FA4FD /* Wenzi.entitlements */,
 			);
 			path = "macOS (App)";
 			sourceTree = "<group>";
@@ -998,7 +998,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/10ten Japanese Reader.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Wenzi.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
