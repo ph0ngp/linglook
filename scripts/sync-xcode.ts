@@ -20,10 +20,7 @@ async function main() {
   // Note that if we're updating this path, we'll want to update the 'git add'
   // command in package.json too.
   const projectPath = url.fileURLToPath(
-    new URL(
-      '../xcode13/10ten Japanese Reader.xcodeproj/project.pbxproj',
-      import.meta.url
-    )
+    new URL('../xcode13/Wenzi.xcodeproj/project.pbxproj', import.meta.url)
   );
   const originalContents = fs.readFileSync(projectPath, 'utf8');
 
