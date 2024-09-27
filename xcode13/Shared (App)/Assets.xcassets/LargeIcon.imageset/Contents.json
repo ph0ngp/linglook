@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "10ten-ja-reader-128.png",
+      "filename" : "wenzi-128.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "10ten-ja-reader-256.png",
+      "filename" : "wenzi-256.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "10ten-ja-reader-384.png",
+      "filename" : "wenzi-384.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -36,19 +36,19 @@
   /*#endif*/
   /*#if supports_svg_icons*/
   "icons": {
-    "16": "images/10ten-ja-reader.svg",
-    "32": "images/10ten-ja-reader.svg",
-    "48": "images/10ten-ja-reader.svg",
-    "96": "images/10ten-ja-reader.svg",
-    "128": "images/10ten-ja-reader.svg"
+    "16": "images/wenzi.svg",
+    "32": "images/wenzi.svg",
+    "48": "images/wenzi.svg",
+    "96": "images/wenzi.svg",
+    "128": "images/wenzi.svg"
   },
   /*#else*/
   "icons": {
-    "16": "images/10ten-ja-reader-16.png",
-    "32": "images/10ten-ja-reader-32.png",
-    "48": "images/10ten-ja-reader-48.png",
-    "96": "images/10ten-ja-reader-96.png",
-    "128": "images/10ten-ja-reader-128.png"
+    "16": "images/wenzi-16.png",
+    "32": "images/wenzi-32.png",
+    "48": "images/wenzi-48.png",
+    "96": "images/wenzi-96.png",
+    "128": "images/wenzi-128.png"
   },
   /*#endif*/
   "permissions": [

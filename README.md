@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/10ten-ja-reader.svg" alt="Wenzi" width="200" height="200" />
+  <img src="images/wenzi.svg" alt="Wenzi" width="200" height="200" />
   <h1>Wenzi</h1>
 
   <p>
