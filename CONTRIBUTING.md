@@ -33,7 +33,7 @@ If you have the [`gh` CLI tool](https://cli.github.com/) installed,
 you can fork and clone in one command:
 
 ```
-gh repo fork birchill/10ten-ja-reader --clone=true
+gh repo fork ph0ngp/wenzi --clone=true
 ```
 
 However, because we store snapshots of the dictionary data in the repository, it
@@ -41,8 +41,8 @@ might take a while so you might prefer a
 [blobless clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/):
 
 ```
-gh repo fork birchill/10ten-ja-reader
-git clone --filter=blob:none birchill/10ten-ja-reader
+gh repo fork ph0ngp/wenzi
+git clone --filter=blob:none ph0ngp/wenzi
 ```
 
 Then install the dependencies:
@@ -195,7 +195,7 @@ Pre-release checks:
   running `pnpm tsx scripts/release-notes.js`.
 
 We trigger releases by running the release workflow from
-[Actions](https://github.com/birchill/10ten-ja-reader/actions/workflows/release.yml).
+[Actions](https://github.com/ph0ngp/wenzi/actions/workflows/release.yml).
 
 That will create a draft release that you need to publish before anything gets
 uploaded.

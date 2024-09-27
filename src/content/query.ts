@@ -152,7 +152,7 @@ async function queryWords(
     searchResult = await browser.runtime.sendMessage(message);
   } catch (e) {
     console.error(
-      '[10ten-ja-reader] Failed to call query. The page might need to be refreshed.',
+      '[wenzi] Failed to call query. The page might need to be refreshed.',
       e
     );
     searchResult = null;
@@ -229,7 +229,7 @@ async function queryOther(
     searchResult = await browser.runtime.sendMessage(message);
   } catch (e) {
     console.error(
-      '[10ten-ja-reader] Failed to call searchOther. The page might need to be refreshed.',
+      '[wenzi] Failed to call searchOther. The page might need to be refreshed.',
       e
     );
     searchResult = null;

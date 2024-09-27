@@ -491,7 +491,7 @@ function getExtConfig(options) {
           apiKey: process.env.BUGSNAG_API_KEY,
           appVersion: pjson.version,
           ignoredBundleExtensions: ['.css', '.json', '.idx', '.svg', '.html'],
-          publicPath: `https://github.com/birchill/10ten-ja-reader/releases/download/v${pjson.version}/`,
+          publicPath: `https://github.com/ph0ngp/wenzi/releases/download/v${pjson.version}/`,
           overwrite: true,
         },
         {}

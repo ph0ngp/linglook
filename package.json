@@ -1,25 +1,25 @@
 {
-  "name": "10ten-ja-reader",
-  "version": "1.21.1",
-  "description": "Translate Japanese by hovering over words.",
+  "name": "wenzi",
+  "version": "1.0.0",
+  "description": "Translate Chinese by hovering over words.",
   "keywords": [
     "rikaichamp",
     "rikaichan",
     "rikaikun",
-    "japanese",
+    "chinese",
     "dictionary",
     "translation"
   ],
-  "homepage": "https://github.com/birchill/10ten-ja-reader#readme",
+  "homepage": "https://github.com/ph0ngp/wenzi#readme",
   "bugs": {
-    "url": "https://github.com/birchill/10ten-ja-reader/issues"
+    "url": "https://github.com/ph0ngp/wenzi/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/birchill/10ten-ja-reader.git"
+    "url": "https://github.com/ph0ngp/wenzi.git"
   },
   "license": "GPL-3.0-or-later",
-  "author": "Birchill, Inc.",
+  "author": "Phong Phan",
   "type": "module",
   "scripts": {
     "build:chrome": "rspack --env target=chrome",
