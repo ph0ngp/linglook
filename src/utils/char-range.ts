@@ -1,99 +1,41 @@
-/** @public */
-export const halfWidthNumbers = /[0-9]/;
-
-// U+FF01~U+FF5E is for full-width alphanumerics (includes some punctuation
-// like ＆ and ～ because they appear in the kanji headwords for some entries)
-//
-// Note that U+FF5E is full-width tilde ～ (not 〜 which is a wave dash).
-//
-// U+FF61~U+FF65 is some halfwidth ideographic symbols, e.g. ｡ but we skip them
-// (although previous rikai-tachi included them) since they're mostly going to
-// be delimiters
-/** @public */
-export const fullWidthAlphanumerics = /[\uff01-\uff5e]/;
-
-// On some platforms, Google Docs puts zero-width joiner characters between
-// _all_ the characters so we need to match on them in order to match runs of
-// characters.
-/** @public */
-export const zeroWidthNonJoiner = /[\u200c]/;
-
-// * U+25CB is 'white circle' often used to represent a blank
-//   (U+3007 is an ideographic zero that is also sometimes used for this
-//   purpose, but this is included in the U+3001~U+30FF range.)
-/** @public */
-export const whiteCircle = /[\u25cb]/;
+const halfWidthNumbers = /[0-9]/;
 
 // U+2E80~U+2EF3 is the CJK radicals supplement block
 // U+2F00~U+2FD5 is the Kangxi radicals block
-/** @public */
-export const radicals = /[\u2e80-\u2ef3\u2f00-\u2fd5]/u;
+const radicals = /[\u2e80-\u2ef3\u2f00-\u2fd5]/;
 
-// * U+3000~U+3039 is ideographic punctuation but we skip:
-//
-//    U+3000 (ideographic space),
-//    U+3001 (、 ideographic comma),
-//    U+3002 (。 ideographic full stop),
-//    U+3003 (〃 ditto mark),
-//    U+3008,U+3009 (〈〉),
-//    U+300A,U+300B (《》),
-//    U+300C,U+300D (「」 corner brackets for quotations),
-//                  [ENAMDICT actually uses this in one entry,
-//                  "ウィリアム「バッファロービル」コーディ", but I think we
-//                  can live without being able to recognize that)
-//    U+300E,U+300F (『 』), and
-//    U+3010,U+3011 (【 】),
-//
-//   since these are typically only going to delimit words.
-/** @public */
-export const nonDelimitingIdeographicPunctuation =
-  /[\u3004-\u3007\u3012-\u3039]/;
+// export const fullWidthAlphanumerics = /[\uff01-\uff5e]/;
 
-// U+3041~U+309F is the hiragana range
-/** @public */
-export const hiragana = /[\u3041-\u309f\u{1b001}]/u;
+const specialChars =
+  /[\u3005\u3021-\u3029\u3038\u303B\uFF0C\u25cb\u200c\u337B-\u337E]/;
+// Here's a breakdown of the Unicode ranges:
+// 々 (U+3005) Iteration mark
+// 〡-〩 (U+3021-U+3029) Ideographic tally marks (1 through 9)
+// 〸 (U+3038) Tally mark 10
+// 〻 (U+303B) Ideographic iteration mark
+// ， (U+FF0C) Full-width comma
+// ○ (U+25CB) white circle
+//   (U+200C) zero-width non-joiner:
+// On some platforms, Google Docs puts zero-width joiner characters between
+// _all_ the characters so we need to match on them in order to match runs of
+// characters.
+// U+337B~U+337E is various Japanese era names e.g. ㍻
 
-// U+30A0~U+30FF is the katakana range
-/** @public */
-export const katakana = /[\u30a0-\u30ff\u{1b000}]/u;
+const cjk =
+  /[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF\u3007\u{20000}-\u{2A6DF}\u{2A700}-\u{2B73F}\u{2B740}-\u{2B81F}\u{2B820}-\u{2CEAF}\u{2CEB0}-\u{2EBEF}\u{30000}-\u{3134F}\u{31350}-\u{323AF}\u{2F800}-\u{2FA1F}]/u;
 
-// * U+3220~U+3247 is various enclosed characters like ㈵
-// * U+3280~U+32B0 is various enclosed characters like ㊞
-// * U+32D0~U+32FF is various enclosed characters like ㋐ and ㋿.
-const enclosedChars = /[\u3220-\u3247\u3280-\u32b0\u32d0-\u32ff]/;
-
-// U+3300~U+3357 is various shorthand characters from the CJK compatibility
-// block like ㍍
-const shorthandChars = /[\u3300-\u3357]/;
-
-// U+3358~U+3370 is numbers composed with 点 e.g. ㍘
-const tenChars = /[\u3358-\u3370]/;
-
-// U+337B~U+337E is various era names e.g. ㍻
-const eraChars = /[\u337B-\u337E]/;
-
-// U+337F is ㍿
-const kabushikiGaisha = /[\u337F]/;
-
-// U+4E00~U+9FFF is the CJK Unified Ideographs block ("the kanji")
-/** @public */
-export const kanji = /[\u4e00-\u9fff]/;
-
-// * U+3400~U+4DBF is the CJK Unified Ideographs Extension A block (rare
-//   kanji)
-// * U+F900~U+FAFF is the CJK Compatibility Ideographs block (random odd
-//   kanji, because standards)
-// * U+20000~U+2A6DF is CJK Unified Ideographs Extension B (more rare kanji)
-/** @public */
-export const rareKanji = /[\u3400-\u4dbf\uf900-\ufaff\u{20000}-\u{2a6df}]/u;
-
-// U+FF66~U+FF9F is halfwidth katakana
-/** @public */
-export const halfwidthKatakanaChar = /[\uff66-\uff9f]/;
-
-// U+1B002-U+1B0FF is hentaigana
-/** @public */
-export const hentaigana = /[\u{1b002}-\u{1b0ff}]/u;
+// [U+4E00, U+9FFF],  // CJK Unified Ideographs
+// [U+3400, U+4DBF],  // CJK Unified Ideographs Extension A
+// [U+F900, U+FAFF],  // CJK Compatibility Ideographs
+// [U+3007],  // Ideographic Number Zero
+// [U+20000, U+2A6DF],  // CJK Unified Ideographs Extension B
+// [U+2A700, U+2B73F],  // CJK Unified Ideographs Extension C
+// [U+2B740, U+2B81F],  // CJK Unified Ideographs Extension D
+// [U+2B820, U+2CEAF],  // CJK Unified Ideographs Extension E
+// [U+2CEB0, U+2EBEF],  // CJK Unified Ideographs Extension F
+// [U+30000, U+3134F],  // CJK Unified Ideographs Extension G
+// [U+31350, U+323AF],  // CJK Unified Ideographs Extension H
+// [U+2F800, U+2FA1F]   // CJK Compatibility Ideographs Supplement
 
 export function getCombinedCharRange(ranges: Array<RegExp>): RegExp {
   let source = '[';
@@ -129,33 +71,18 @@ function isCharacterClassRange(re: RegExp): boolean {
   return (
     re.source.length >= 2 &&
     re.source.startsWith('[') &&
-    re.source.endsWith(']')
+    re.source.endsWith(']') &&
+    !re.source.includes(']|[')
   );
 }
 
-// "Japanese" here simply means any character we treat as worth attempting to
-// translate, including full-width alphanumerics etc. but NOT characters that
-// typically delimit words.
-/** @public */
-export const japaneseChar = getCombinedCharRange([
-  // We include half-width numbers so we can recognize things like 小1
+// "Chinese" here simply means any character we treat as worth attempting to
+// translate. but NOT characters that typically delimit words.
+const chineseChar = getCombinedCharRange([
   halfWidthNumbers,
-  fullWidthAlphanumerics,
-  zeroWidthNonJoiner,
-  whiteCircle,
   radicals,
-  nonDelimitingIdeographicPunctuation,
-  hiragana,
-  katakana,
-  enclosedChars,
-  shorthandChars,
-  tenChars,
-  eraChars,
-  kabushikiGaisha,
-  kanji,
-  rareKanji,
-  halfwidthKatakanaChar,
-  hentaigana,
+  specialChars,
+  cjk,
 ]);
 
 export function getNegatedCharRange(range: RegExp): RegExp {
@@ -174,18 +101,21 @@ export function getNegatedCharRange(range: RegExp): RegExp {
   return new RegExp(source, range.flags);
 }
 
-export const nonJapaneseChar = getNegatedCharRange(japaneseChar);
+export const nonChineseChar = getNegatedCharRange(chineseChar);
 
 export function hasKatakana(text: string): boolean {
-  return katakana.test(text);
+  text = text + 'hi';
+  return text === 'WTF'; // return false; just to suppress lint error
 }
 
+// check if starts with 0-9 or full-width 0-9
 export function startsWithDigit(input: string): boolean {
   const c = input.length ? input.charCodeAt(0) : 0;
   return (c >= 48 && c <= 57) || (c >= 65296 && c <= 65305);
 }
 
-const kanjiNumerals = [
+// TODOP: remove all numeral, currency support
+const hanziNumerals = [
   '〇',
   '一',
   '二',
@@ -201,19 +131,20 @@ const kanjiNumerals = [
   '千',
   '万',
   '億',
-  '兆',
-  '京',
 ];
 
+// check if starts with 0-9 or full-width 0-9 or hanzi numerals
 export function startsWithNumeral(input: string): boolean {
   return (
     startsWithDigit(input) ||
-    (!!input.length && kanjiNumerals.includes(input[0]))
+    (!!input.length && hanziNumerals.includes(input[0]))
   );
 }
 
 const onlyDigits = /^[0-9０-９,，、.．]+$/;
 
+// checks for only digits and decimal separators
+// CY: currently among these chars, chineseChar only covers 0-9 and full width comma ，
 export function isOnlyDigits(input: string): boolean {
   return onlyDigits.test(input);
 }

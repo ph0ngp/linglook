@@ -1,4 +1,4 @@
-import { nonJapaneseChar } from '../utils/char-range';
+import { nonChineseChar } from '../utils/char-range';
 
 import { CursorPosition } from './get-cursor-position';
 import { GetTextAtPointResult } from './get-text';
@@ -77,7 +77,7 @@ export function scanText({
     textRange: [],
   };
 
-  let textDelimiter = nonJapaneseChar;
+  let textDelimiter = nonChineseChar;
 
   // Look for range ends
   do {
@@ -86,7 +86,7 @@ export function scanText({
 
     // Check if we are looking at a special string that accepts a different
     // range of characters.
-    if (textDelimiter === nonJapaneseChar) {
+    if (textDelimiter === nonChineseChar) {
       const currentText =
         result.text +
         nodeText.substring(0, textEnd === -1 ? undefined : textEnd);
