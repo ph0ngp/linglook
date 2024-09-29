@@ -104,8 +104,7 @@ export function getNegatedCharRange(range: RegExp): RegExp {
 export const nonChineseChar = getNegatedCharRange(chineseChar);
 
 export function hasKatakana(text: string): boolean {
-  text = text + 'hi';
-  return text === 'WTF'; // return false; just to suppress lint error
+  return false;
 }
 
 // check if starts with 0-9 or full-width 0-9

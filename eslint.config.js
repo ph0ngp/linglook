@@ -75,6 +75,8 @@ export default [
           lib: 'never',
         },
       ],
+      // TODOP: remove this when ready
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   {
