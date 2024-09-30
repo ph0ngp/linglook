@@ -5,7 +5,7 @@ import {
   clearPreviousResult,
   getTextAtPoint,
 } from '../src/content/get-text';
-import { empty } from '../src/utils/dom-utils';
+// import { empty } from '../src/utils/dom-utils';
 import { isChromium } from '../src/utils/ua-utils';
 
 mocha.setup('bdd');
@@ -29,7 +29,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should find a range in a div', () => {
-    testDiv.append('あいうえお');
+    testDiv.append('你我他她它');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -40,11 +40,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いうえお', [textNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textNode, 1, 5]);
   });
 
   it('should find a range in a div when the point is part-way through a character', () => {
-    testDiv.append('あいうえお');
+    testDiv.append('你我他她它');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
 
@@ -57,16 +57,16 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あいうえお', [textNode, 0, 5]);
+    assertTextResultEqual(result, '你我他她它', [textNode, 0, 5]);
   });
 
   it('should NOT find a range in a div when the point is a long way away (but caretPositionFromPoint lands us in the wrong place)', () => {
     // Create two divs so we can select the parent div between them
     const div1 = document.createElement('div');
-    div1.append('あいうえお');
+    div1.append('你我他她它');
 
     const div2 = document.createElement('div');
-    div2.append('あいうえお');
+    div2.append('你我他她它');
 
     testDiv.append(div1);
     testDiv.append(div2);
@@ -103,7 +103,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should find text in an inline sibling', () => {
-    testDiv.innerHTML = 'あい<span>うえ</span>お';
+    testDiv.innerHTML = '你我<span>他她</span>它';
     const firstTextNode = testDiv.firstChild as Text;
     const middleTextNode = testDiv.childNodes[1].firstChild as Text;
     const lastTextNode = testDiv.lastChild as Text;
@@ -118,7 +118,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'いうえお',
+      '我他她它',
       [firstTextNode, 1, 2],
       [middleTextNode, 0, 2],
       [lastTextNode, 0, 1]
@@ -126,7 +126,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should NOT find text in a block sibling', () => {
-    testDiv.innerHTML = 'あい<div>うえ</div>お';
+    testDiv.innerHTML = '你我<div>他她</div>它';
     const firstTextNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(firstTextNode, 1);
 
@@ -137,7 +137,7 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'い', [firstTextNode, 1, 2]);
+    assertTextResultEqual(result, '我', [firstTextNode, 1, 2]);
   });
 
   it('should find text in a block sibling if we only have one character', () => {
@@ -181,7 +181,7 @@ describe('getTextAtPoint', () => {
   it('should find text in a block cousin if the grandparent is inline-block', () => {
     // Based on https://www.kanshudo.com/grammar/%E3%81%AA%E3%81%84%E3%81%A7%E3%83%BB%E3%81%AA%E3%81%8F%E3%81%A6%E3%83%BB%E3%81%9A%E3%81%AB
     testDiv.innerHTML =
-      '<a><span style="display: inline-block"><div>あら</div><div>洗</div></span>わないで</a>';
+      '<a><span style="display: inline-block"><div>哎呀</div><div>洗</div></span>不要这样</a>';
 
     const baseTextNode = testDiv.firstElementChild?.firstElementChild
       ?.children[1]?.firstChild as Text;
@@ -193,12 +193,12 @@ describe('getTextAtPoint', () => {
         y: bbox.top + bbox.height / 2,
       },
     });
-    assert.strictEqual(result?.text, '洗わないで');
+    assert.strictEqual(result?.text, '洗不要这样');
   });
 
   it('should find text in a cousin for an inline node', () => {
     testDiv.innerHTML =
-      '<span><span>あい</span></span>う<span>え<span>お</span></span>';
+      '<span><span>你我</span></span>他<span>她<span>它</span></span>';
     const firstTextNode = testDiv.firstChild!.firstChild!.firstChild as Text;
     const secondTextNode = testDiv.childNodes[1] as Text;
     const thirdTextNode = testDiv.lastChild!.firstChild as Text;
@@ -214,7 +214,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'あいうえお',
+      '你我他她它',
       [firstTextNode, 0, 2],
       [secondTextNode, 0, 1],
       [thirdTextNode, 0, 1],
@@ -223,7 +223,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('moves onto the next node if we are at the end of the current one', () => {
-    testDiv.innerHTML = '<span>あい</span><span>うえお</span>';
+    testDiv.innerHTML = '<span>你我</span><span>他她它</span>';
     const firstTextNode = testDiv.firstChild!.firstChild as Text;
     const lastTextNode = testDiv.lastChild!.firstChild as Text;
     const bbox = getBboxForOffset(firstTextNode, 1);
@@ -235,14 +235,14 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'うえお', [lastTextNode, 0, 3]);
+    assertTextResultEqual(result, '他她它', [lastTextNode, 0, 3]);
   });
 
   it('should dig into the content behind covering links hidden with geometry', () => {
     // The following is based very heavily on the structure of article previews
     // in asahi.com as of 2021-05-22.
     testDiv.innerHTML =
-      '<div><a href="/articles/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1"><span aria-hidden="true" style="display: block; width: 1px; height: 1px; overflow: hidden">あいうえお</span></a><div><div style="position: relative; width: 100%"><h2 style="z-index: auto"><a href="/articles/" id="innerLink">あいうえお</a></h2></div></div>';
+      '<div><a href="/articles/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1"><span aria-hidden="true" style="display: block; width: 1px; height: 1px; overflow: hidden">你我他她它</span></a><div><div style="position: relative; width: 100%"><h2 style="z-index: auto"><a href="/articles/" id="innerLink">你我他她它</a></h2></div></div>';
 
     const textNode = testDiv.querySelector('#innerLink')!.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
@@ -254,14 +254,14 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いうえお', [textNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textNode, 1, 5]);
   });
 
   it('should dig into the content behind covering links hidden with opacity', () => {
     // The following is based on the structure of article previews from
     // nikkei.com
     testDiv.innerHTML =
-      '<a href="/articles/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; opacity: 0">オーバーレイ</a><div style="padding-left: 20px"><h2 style="width: 100%"><a href="/articles/"><span id="innerSpan">あいうえお</span></a></h2></div>';
+      '<a href="/articles/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; opacity: 0">オーバーレイ</a><div style="padding-left: 20px"><h2 style="width: 100%"><a href="/articles/"><span id="innerSpan">你我他她它</span></a></h2></div>';
 
     const textNode = testDiv.querySelector('#innerSpan')!.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
@@ -273,11 +273,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いうえお', [textNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textNode, 1, 5]);
   });
 
   it('should find text in user-select: all content', () => {
-    testDiv.innerHTML = '<span style="user-select: all">あいうえお</span>';
+    testDiv.innerHTML = '<span style="user-select: all">你我他她它</span>';
     const textNode = testDiv.firstChild!.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -288,11 +288,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いうえお', [textNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textNode, 1, 5]);
   });
 
   it('should find text in user-select: none content', () => {
-    testDiv.innerHTML = '<span style="user-select: none">あいうえお</span>';
+    testDiv.innerHTML = '<span style="user-select: none">你我他她它</span>';
     const textNode = testDiv.firstChild!.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -303,7 +303,7 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いうえお', [textNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textNode, 1, 5]);
   });
 
   it('should read shadow DOM content', () => {
@@ -313,7 +313,7 @@ describe('getTextAtPoint', () => {
     container.attachShadow({ mode: 'open' });
     testDiv.append(container);
 
-    container.shadowRoot!.innerHTML = '<div>テスト</div>';
+    container.shadowRoot!.innerHTML = '<div>测验吧</div>';
 
     const textNode = container.shadowRoot!.firstElementChild!
       .firstChild as Text;
@@ -326,7 +326,7 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'テスト', [textNode, 0, 3]);
+    assertTextResultEqual(result, '测验吧', [textNode, 0, 3]);
   });
 
   it('should read nested shadow DOM content', () => {
@@ -364,7 +364,7 @@ describe('getTextAtPoint', () => {
     const innerElem = document.createElement('div');
     innerShadowRoot.append(innerElem);
     innerElem.innerHTML =
-      '<div><div><p><a>今日の天気は曇り、23度です。</a><a href="https://bing.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AE%E3%81%8A%E5%A4%A9%E6%B0%97" target="_blank"><sup>1</sup></a><a>今日の最高気温は23.49度、最低気温は17.99度です。</a><a href="https://bing.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AE%E3%81%8A%E5%A4%A9%E6%B0%97" target="_blank"><sup>1</sup></a><a>降水確率は0%です。</a><a href="https://bing.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AE%E3%81%8A%E5%A4%A9%E6%B0%97" target="_blank"><sup>1</sup></a><a class="target">明日は晴れ、最高気温は23.93度、最低気温は13.13度です。</a></p></div></div>';
+      '<div><div><p><a>今天的天气是多云、23度哎呀。</a><a href="https://bing.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AE%E3%81%8A%E5%A4%A9%E6%B0%97" target="_blank"><sup>1</sup></a><a>今天的最高气温是23.49度、最低气温是17.99度哎呀。</a><a href="https://bing.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AE%E3%81%8A%E5%A4%A9%E6%B0%97" target="_blank"><sup>1</sup></a><a>降水概率是0%哎呀。</a><a href="https://bing.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AE%E3%81%8A%E5%A4%A9%E6%B0%97" target="_blank"><sup>1</sup></a><a class="target">明天晴朗啊、最高气温是23.93度、最低气温是13.13度哎呀。</a></p></div></div>';
 
     const textNode = innerShadowRoot.querySelector('.target')!
       .firstChild as Text;
@@ -377,11 +377,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, '晴れ', [textNode, 3, 5]);
+    assertTextResultEqual(result, '朗啊', [textNode, 3, 5]);
   });
 
   it('should ignore non-Japanese characters', () => {
-    testDiv.append('あいabc');
+    testDiv.append('你我abc');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
 
@@ -392,11 +392,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あい', [textNode, 0, 2]);
+    assertTextResultEqual(result, '你我', [textNode, 0, 2]);
   });
 
   it('should ignore non-Japanese characters when starting mid node', () => {
-    testDiv.append('abcあいdef');
+    testDiv.append('abc你我def');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 3);
 
@@ -407,11 +407,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あい', [textNode, 3, 5]);
+    assertTextResultEqual(result, '你我', [textNode, 3, 5]);
   });
 
   it('should ignore non-Japanese characters even if the first character is such', () => {
-    testDiv.append('abcあい');
+    testDiv.append('abc你我');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 2);
 
@@ -426,7 +426,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should stop at full-width delimiters', () => {
-    testDiv.append('あい。');
+    testDiv.append('你我。');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
 
@@ -437,11 +437,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あい', [textNode, 0, 2]);
+    assertTextResultEqual(result, '你我', [textNode, 0, 2]);
   });
 
-  it('should include halfwidth katakana, rare kanji, compatibility kanji etc.', () => {
-    testDiv.append('ｷﾞﾝｺｳ㘆豈');
+  it('should include rare kanji, compatibility kanji etc.', () => {
+    testDiv.append('㘆豈');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
 
@@ -452,11 +452,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'ｷﾞﾝｺｳ㘆豈', [textNode, 0, 7]);
+    assertTextResultEqual(result, '㘆豈', [textNode, 0, 2]);
   });
 
   it('should include zero-width non-joiner characters', () => {
-    testDiv.append('あ\u200cい\u200cう\u200c。');
+    testDiv.append('你\u200c我\u200c他\u200c。');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
 
@@ -467,7 +467,7 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あ\u200cい\u200cう\u200c', [textNode, 0, 6]);
+    assertTextResultEqual(result, '你\u200c我\u200c他\u200c', [textNode, 0, 6]);
   });
 
   it('should include trailing half-width numerals', () => {
@@ -485,574 +485,576 @@ describe('getTextAtPoint', () => {
     assertTextResultEqual(result, '小1', [textNode, 0, 2]);
   });
 
-  it('should include the year when recognizing years', () => {
-    testDiv.append('昭和56年に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和56年に', [textNode, 0, 6]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 5,
-    });
-  });
-
-  it('should include the year when recognizing years (full-width)', () => {
-    testDiv.append('昭和５６年に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和５６年に', [textNode, 0, 6]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 5,
-    });
-  });
-
-  it('should include the year when recognizing years (mixed full-width and half-width)', () => {
-    testDiv.append('昭和５6年に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和５6年に', [textNode, 0, 6]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 5,
-    });
-  });
-
-  it('should include the year when recognizing years and there are spaces', () => {
-    // Some publishers like to put spaces around stuffs
-    testDiv.append('昭和 56 年に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和 56 年に', [textNode, 0, 8]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 7,
-    });
-  });
-
-  it('should include the year when recognizing years and there is no 年', () => {
-    // Who knows, someone might try this...
-    testDiv.append('昭和56に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和56に', [textNode, 0, 5]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 4,
-    });
-  });
-
-  it('should include the year when recognizing years and the numbers are in a separate span', () => {
-    testDiv.innerHTML = '昭和<span>56</span>年に';
-    const firstTextNode = testDiv.firstChild as Text;
-    const middleTextNode = testDiv.childNodes[1].firstChild as Text;
-    const lastTextNode = testDiv.childNodes[2] as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(
-      result,
-      '昭和56年に',
-      [firstTextNode, 0, 2],
-      [middleTextNode, 0, 2],
-      [lastTextNode, 0, 2]
-    );
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 5,
-    });
-  });
-
-  it('should include the year when recognizing years and the numbers are in a separate span and there is whitespace too', () => {
-    testDiv.innerHTML = '昭和 <span> 56年に</span>';
-    const firstTextNode = testDiv.firstChild as Text;
-    const middleTextNode = testDiv.childNodes[1].firstChild as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(
-      result,
-      '昭和  56年に',
-      [firstTextNode, 0, 3],
-      [middleTextNode, 0, 5]
-    );
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 7,
-    });
-  });
-
-  it('should include the year when recognizing years and era description finishes exactly at the end of a span', () => {
-    testDiv.innerHTML = '昭和<span>56年</span>に';
-    const firstTextNode = testDiv.firstChild as Text;
-    const middleTextNode = testDiv.childNodes[1].firstChild as Text;
-    const finalTextNode = testDiv.lastChild as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(
-      result,
-      '昭和56年に',
-      [firstTextNode, 0, 2],
-      [middleTextNode, 0, 3],
-      [finalTextNode, 0, 1]
-    );
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 5,
-    });
-  });
-
-  it('should recognize 元年 after an era name', () => {
-    testDiv.append('令和元年に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '令和元年に', [textNode, 0, 5]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '令和',
-      year: 0,
-      matchLen: 4,
-    });
-  });
-
-  it('should recognize 元年 after an era name even with interleaving whitespace and spans', () => {
-    testDiv.innerHTML = '昭和　<span>元年</span>';
-    const firstTextNode = testDiv.firstChild as Text;
-    const spanTextNode = testDiv.childNodes[1].firstChild as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(
-      result,
-      '昭和　元年',
-      [firstTextNode, 0, 3],
-      [spanTextNode, 0, 2]
-    );
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 0,
-      matchLen: 5,
-    });
-  });
-
-  it('should recognize kanji year numbers when recognizing years', () => {
-    testDiv.append('昭和五十六年に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和五十六年に', [textNode, 0, 7]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 56,
-      matchLen: 6,
-    });
-  });
-
-  it('should stop at delimiters (even when matching years)', () => {
-    testDiv.append('昭和三大馬鹿査定」発言に');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '昭和三大馬鹿査定', [textNode, 0, 8]);
-    assert.deepEqual(result!.meta, {
-      type: 'era',
-      era: '昭和',
-      year: 3,
-      matchLen: 3,
-    });
-  });
-
-  it('should recognize Japanese yen values', () => {
-    testDiv.append('価格8万8千円です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 2);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '8万8千円です', [textNode, 2, 9]);
-    assert.deepEqual(result!.meta, {
-      type: 'currency',
-      value: 88000,
-      matchLen: 5,
-    });
-  });
-
-  it('should recognize slightly odd Japanese yen values', () => {
-    testDiv.innerHTML = '<span>39,800</span><span>万円</span>';
-    const firstTextNode = testDiv.firstChild!.firstChild as Text;
-    const secondTextNode = testDiv.childNodes[1].firstChild as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(
-      result,
-      '39,800万円',
-      [firstTextNode, 0, 6],
-      [secondTextNode, 0, 2]
-    );
-    assert.deepEqual(result!.meta, {
-      type: 'currency',
-      value: 398000000,
-      matchLen: 8,
-    });
-  });
-
-  it('should recognize Japanese yen values that start with ￥ (full-width)', () => {
-    testDiv.append('価格￥8万8千です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 2);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '￥8万8千です', [textNode, 2, 9]);
-    assert.deepEqual(result!.meta, {
-      type: 'currency',
-      value: 88000,
-      matchLen: 5,
-    });
-  });
-
-  it('should recognize Japanese yen values that start with ¥ (half-width)', () => {
-    testDiv.append('価格¥ 8万8千です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 2);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '¥ 8万8千です', [textNode, 2, 10]);
-    assert.deepEqual(result!.meta, {
-      type: 'currency',
-      value: 88000,
-      matchLen: 6,
-    });
-  });
-
-  it('should recognize Japanese yen values that start with ¥ in a separate span', () => {
-    testDiv.innerHTML = '<span>¥</span> 88,000です';
-    const firstTextNode = testDiv.childNodes[0].firstChild as Text;
-    const secondTextNode = testDiv.childNodes[1] as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(
-      result,
-      '¥ 88,000です',
-      [firstTextNode, 0, 1],
-      [secondTextNode, 0, 9]
-    );
-    assert.deepEqual(result!.meta, {
-      type: 'currency',
-      value: 88000,
-      matchLen: 8,
-    });
-  });
-
-  it('should recognize Japanese yen values that include commas', () => {
-    testDiv.append('価格8,800円です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 2);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '8,800円です', [textNode, 2, 10]);
-    assert.deepEqual(result?.meta, {
-      type: 'currency',
-      value: 8800,
-      matchLen: 6,
-    });
-  });
-
-  it('should recognize 畳 measurements', () => {
-    testDiv.append('面積：6畳です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 3);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '6畳です', [textNode, 3, 7]);
-    assert.deepEqual(result!.meta, {
-      type: 'measure',
-      unit: '畳',
-      value: 6,
-      matchLen: 2,
-    });
-  });
-
-  it('should recognize square metre measurements', () => {
-    testDiv.append('面積：4.5 m²です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 3);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '4.5 m²です', [textNode, 3, 11]);
-    assert.deepEqual(result!.meta, {
-      type: 'measure',
-      unit: 'm2',
-      value: 4.5,
-      matchLen: 6,
-    });
-  });
-
-  it('should recognize number values', () => {
-    testDiv.append('距離：8万8千キロメートル');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 3);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-
-    assertTextResultEqual(result, '8万8千キロメートル', [textNode, 3, 13]);
-    assert.deepEqual(result!.meta, {
-      type: 'number',
-      value: 88000,
-      src: '8万8千',
-      matchLen: 4,
-    });
-  });
-
-  it('should recognize shogi moves', () => {
-    const moves = ['☗８三銀', '８三銀', '8三銀', '☗83銀', '☗八三銀'];
-
-    for (const move of moves) {
-      empty(testDiv);
-      clearPreviousResult();
-      testDiv.append(`${move}です`);
-      const textNode = testDiv.firstChild as Text;
-      const bbox = getBboxForOffset(textNode, 0);
-
-      const result = getTextAtPoint({
-        point: {
-          x: bbox.left,
-          y: bbox.top + bbox.height / 2,
-        },
-      });
-
-      assert.deepEqual(
-        result!.meta,
-        {
-          type: 'shogi',
-          matchLen: move.length,
-          side: move.startsWith('☗') ? 'black' : undefined,
-          dest: [8, 3],
-          piece: 's',
-          movement: undefined,
-          promotion: undefined,
-        },
-        `move: ${move}`
-      );
-    }
-  });
-
-  it('should NOT recognize ambiguous shogi-like moves', () => {
-    testDiv.append('83銀です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    let result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-    assert.isUndefined(result?.meta);
-
-    // Try again with an all kanji match that should be treated as a number
-    empty(testDiv);
-    clearPreviousResult();
-    testDiv.append('八三銀です');
-    result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-    assert.deepEqual(result!.meta, {
-      type: 'number',
-      value: 83,
-      src: '八三',
-      matchLen: 2,
-    });
-  });
-
-  it('should recognize shogi moves that use shorthand characters', () => {
-    testDiv.append('８三↑です');
-    const textNode = testDiv.firstChild as Text;
-    const bbox = getBboxForOffset(textNode, 0);
-
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
-    assert.deepEqual(result!.meta, {
-      type: 'shogi',
-      matchLen: 3,
-      side: undefined,
-      dest: [8, 3],
-      piece: 'l',
-      movement: undefined,
-      promotion: undefined,
-    });
-  });
+  // it('should include the year when recognizing years', () => {
+  //   testDiv.append('昭和56年に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和56年に', [textNode, 0, 6]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years (full-width)', () => {
+  //   testDiv.append('昭和５６年に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和５６年に', [textNode, 0, 6]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years (mixed full-width and half-width)', () => {
+  //   testDiv.append('昭和５6年に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和５6年に', [textNode, 0, 6]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years and there are spaces', () => {
+  //   // Some publishers like to put spaces around stuffs
+  //   testDiv.append('昭和 56 年に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和 56 年に', [textNode, 0, 8]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 7,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years and there is no 年', () => {
+  //   // Who knows, someone might try this...
+  //   testDiv.append('昭和56に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和56に', [textNode, 0, 5]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 4,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years and the numbers are in a separate span', () => {
+  //   testDiv.innerHTML = '昭和<span>56</span>年に';
+  //   const firstTextNode = testDiv.firstChild as Text;
+  //   const middleTextNode = testDiv.childNodes[1].firstChild as Text;
+  //   const lastTextNode = testDiv.childNodes[2] as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(
+  //     result,
+  //     '昭和56年に',
+  //     [firstTextNode, 0, 2],
+  //     [middleTextNode, 0, 2],
+  //     [lastTextNode, 0, 2]
+  //   );
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years and the numbers are in a separate span and there is whitespace too', () => {
+  //   testDiv.innerHTML = '昭和 <span> 56年に</span>';
+  //   const firstTextNode = testDiv.firstChild as Text;
+  //   const middleTextNode = testDiv.childNodes[1].firstChild as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(
+  //     result,
+  //     '昭和  56年に',
+  //     [firstTextNode, 0, 3],
+  //     [middleTextNode, 0, 5]
+  //   );
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 7,
+  //   });
+  // });
+
+  // it('should include the year when recognizing years and era description finishes exactly at the end of a span', () => {
+  //   testDiv.innerHTML = '昭和<span>56年</span>に';
+  //   const firstTextNode = testDiv.firstChild as Text;
+  //   const middleTextNode = testDiv.childNodes[1].firstChild as Text;
+  //   const finalTextNode = testDiv.lastChild as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(
+  //     result,
+  //     '昭和56年に',
+  //     [firstTextNode, 0, 2],
+  //     [middleTextNode, 0, 3],
+  //     [finalTextNode, 0, 1]
+  //   );
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should recognize 元年 after an era name', () => {
+  //   testDiv.append('令和元年に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '令和元年に', [textNode, 0, 5]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '令和',
+  //     year: 0,
+  //     matchLen: 4,
+  //   });
+  // });
+
+  // it('should recognize 元年 after an era name even with interleaving whitespace and spans', () => {
+  // eslint-disable-next-line no-irregular-whitespace
+  //   testDiv.innerHTML = '昭和　<span>元年</span>';
+  //   const firstTextNode = testDiv.firstChild as Text;
+  //   const spanTextNode = testDiv.childNodes[1].firstChild as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(
+  //     result,
+  // eslint-disable-next-line no-irregular-whitespace
+  //     '昭和　元年',
+  //     [firstTextNode, 0, 3],
+  //     [spanTextNode, 0, 2]
+  //   );
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 0,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should recognize kanji year numbers when recognizing years', () => {
+  //   testDiv.append('昭和五十六年に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和五十六年に', [textNode, 0, 7]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 56,
+  //     matchLen: 6,
+  //   });
+  // });
+
+  // it('should stop at delimiters (even when matching years)', () => {
+  //   testDiv.append('昭和三大馬鹿査定」発言に');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '昭和三大馬鹿査定', [textNode, 0, 8]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'era',
+  //     era: '昭和',
+  //     year: 3,
+  //     matchLen: 3,
+  //   });
+  // });
+
+  // it('should recognize Japanese yen values', () => {
+  //   testDiv.append('価格8万8千円です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 2);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '8万8千円です', [textNode, 2, 9]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'currency',
+  //     value: 88000,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should recognize slightly odd Japanese yen values', () => {
+  //   testDiv.innerHTML = '<span>39,800</span><span>万円</span>';
+  //   const firstTextNode = testDiv.firstChild!.firstChild as Text;
+  //   const secondTextNode = testDiv.childNodes[1].firstChild as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(
+  //     result,
+  //     '39,800万円',
+  //     [firstTextNode, 0, 6],
+  //     [secondTextNode, 0, 2]
+  //   );
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'currency',
+  //     value: 398000000,
+  //     matchLen: 8,
+  //   });
+  // });
+
+  // it('should recognize Japanese yen values that start with ￥ (full-width)', () => {
+  //   testDiv.append('価格￥8万8千です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 2);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '￥8万8千です', [textNode, 2, 9]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'currency',
+  //     value: 88000,
+  //     matchLen: 5,
+  //   });
+  // });
+
+  // it('should recognize Japanese yen values that start with ¥ (half-width)', () => {
+  //   testDiv.append('価格¥ 8万8千です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 2);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '¥ 8万8千です', [textNode, 2, 10]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'currency',
+  //     value: 88000,
+  //     matchLen: 6,
+  //   });
+  // });
+
+  // it('should recognize Japanese yen values that start with ¥ in a separate span', () => {
+  //   testDiv.innerHTML = '<span>¥</span> 88,000です';
+  //   const firstTextNode = testDiv.childNodes[0].firstChild as Text;
+  //   const secondTextNode = testDiv.childNodes[1] as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(
+  //     result,
+  //     '¥ 88,000です',
+  //     [firstTextNode, 0, 1],
+  //     [secondTextNode, 0, 9]
+  //   );
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'currency',
+  //     value: 88000,
+  //     matchLen: 8,
+  //   });
+  // });
+
+  // it('should recognize Japanese yen values that include commas', () => {
+  //   testDiv.append('価格8,800円です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 2);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '8,800円です', [textNode, 2, 10]);
+  //   assert.deepEqual(result?.meta, {
+  //     type: 'currency',
+  //     value: 8800,
+  //     matchLen: 6,
+  //   });
+  // });
+
+  // it('should recognize 畳 measurements', () => {
+  //   testDiv.append('面積：6畳です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 3);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '6畳です', [textNode, 3, 7]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'measure',
+  //     unit: '畳',
+  //     value: 6,
+  //     matchLen: 2,
+  //   });
+  // });
+
+  // it('should recognize square metre measurements', () => {
+  //   testDiv.append('面積：4.5 m²です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 3);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '4.5 m²です', [textNode, 3, 11]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'measure',
+  //     unit: 'm2',
+  //     value: 4.5,
+  //     matchLen: 6,
+  //   });
+  // });
+
+  // it('should recognize number values', () => {
+  //   testDiv.append('距離：8万8千キロメートル');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 3);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+
+  //   assertTextResultEqual(result, '8万8千キロメートル', [textNode, 3, 13]);
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'number',
+  //     value: 88000,
+  //     src: '8万8千',
+  //     matchLen: 4,
+  //   });
+  // });
+
+  // it('should recognize shogi moves', () => {
+  //   const moves = ['☗８三銀', '８三銀', '8三銀', '☗83銀', '☗八三銀'];
+
+  //   for (const move of moves) {
+  //     empty(testDiv);
+  //     clearPreviousResult();
+  //     testDiv.append(`${move}です`);
+  //     const textNode = testDiv.firstChild as Text;
+  //     const bbox = getBboxForOffset(textNode, 0);
+
+  //     const result = getTextAtPoint({
+  //       point: {
+  //         x: bbox.left,
+  //         y: bbox.top + bbox.height / 2,
+  //       },
+  //     });
+
+  //     assert.deepEqual(
+  //       result!.meta,
+  //       {
+  //         type: 'shogi',
+  //         matchLen: move.length,
+  //         side: move.startsWith('☗') ? 'black' : undefined,
+  //         dest: [8, 3],
+  //         piece: 's',
+  //         movement: undefined,
+  //         promotion: undefined,
+  //       },
+  //       `move: ${move}`
+  //     );
+  //   }
+  // });
+
+  // it('should NOT recognize ambiguous shogi-like moves', () => {
+  //   testDiv.append('83銀です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   let result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+  //   assert.isUndefined(result?.meta);
+
+  //   // Try again with an all kanji match that should be treated as a number
+  //   empty(testDiv);
+  //   clearPreviousResult();
+  //   testDiv.append('八三銀です');
+  //   result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'number',
+  //     value: 83,
+  //     src: '八三',
+  //     matchLen: 2,
+  //   });
+  // });
+
+  // it('should recognize shogi moves that use shorthand characters', () => {
+  //   testDiv.append('８三↑です');
+  //   const textNode = testDiv.firstChild as Text;
+  //   const bbox = getBboxForOffset(textNode, 0);
+
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
+  //   assert.deepEqual(result!.meta, {
+  //     type: 'shogi',
+  //     matchLen: 3,
+  //     side: undefined,
+  //     dest: [8, 3],
+  //     piece: 'l',
+  //     movement: undefined,
+  //     promotion: undefined,
+  //   });
+  // });
 
   // Test shorthand symbols etc. are recognized -- they're not part of the
   // usual delimiter regex but we're assuming they are.
 
   it('should stop at the maximum number of characters', () => {
-    testDiv.append('あいうえお');
+    testDiv.append('你我他她它');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -1061,11 +1063,11 @@ describe('getTextAtPoint', () => {
       maxLength: 3,
     });
 
-    assertTextResultEqual(result, 'いうえ', [textNode, 1, 4]);
+    assertTextResultEqual(result, '我他她', [textNode, 1, 4]);
   });
 
   it('should stop at the maximum number of characters even when navigating siblings', () => {
-    testDiv.innerHTML = 'あい<span>うえ</span>お';
+    testDiv.innerHTML = '你我<span>他她</span>它';
     const firstTextNode = testDiv.firstChild as Text;
     const middleTextNode = testDiv.childNodes[1].firstChild as Text;
     const bbox = getBboxForOffset(firstTextNode, 1);
@@ -1077,14 +1079,14 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'いう',
+      '我他',
       [firstTextNode, 1, 2],
       [middleTextNode, 0, 1]
     );
   });
 
   it('should stop at the maximum number of characters even that lines up exactly with the end of a text node', () => {
-    testDiv.innerHTML = 'あい<span>うえ</span>お';
+    testDiv.innerHTML = '你我<span>他她</span>它';
     const firstTextNode = testDiv.firstChild as Text;
     const middleTextNode = testDiv.childNodes[1].firstChild as Text;
     const bbox = getBboxForOffset(firstTextNode, 1);
@@ -1096,14 +1098,14 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'いうえ',
+      '我他她',
       [firstTextNode, 1, 2],
       [middleTextNode, 0, 2]
     );
   });
 
   it('should stop at the maximum number of characters even when it is zero', () => {
-    testDiv.append('あいうえお');
+    testDiv.append('你我他她它');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 2);
 
@@ -1116,7 +1118,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should stop at the maximum number of characters if it comes before the end of the Japanese text', () => {
-    testDiv.append('あいうabc');
+    testDiv.append('你我他abc');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -1125,11 +1127,11 @@ describe('getTextAtPoint', () => {
       maxLength: 1,
     });
 
-    assertTextResultEqual(result, 'い', [textNode, 1, 2]);
+    assertTextResultEqual(result, '我', [textNode, 1, 2]);
   });
 
   it('should stop at the end of the Japanese text if it comes before the maximum number of characters', () => {
-    testDiv.append('あいうabc');
+    testDiv.append('你我他abc');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -1138,11 +1140,11 @@ describe('getTextAtPoint', () => {
       maxLength: 3,
     });
 
-    assertTextResultEqual(result, 'いう', [textNode, 1, 3]);
+    assertTextResultEqual(result, '我他', [textNode, 1, 3]);
   });
 
   it('should skip leading whitespace', () => {
-    testDiv.append('  　\tあいうえお');
+    testDiv.append('  　\t你我他她它');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 1);
 
@@ -1151,11 +1153,11 @@ describe('getTextAtPoint', () => {
       maxLength: 3,
     });
 
-    assertTextResultEqual(result, 'あいう', [textNode, 4, 7]);
+    assertTextResultEqual(result, '你我他', [textNode, 4, 7]);
   });
 
   it('should skip empty nodes', () => {
-    testDiv.innerHTML = '<span></span>あい<span></span>うえお';
+    testDiv.innerHTML = '<span></span>你我<span></span>他她它';
     const firstEmptyNode = testDiv.firstChild as HTMLSpanElement;
     const firstTextNode = testDiv.childNodes[1] as Text;
     const lastTextNode = testDiv.lastChild as Text;
@@ -1170,14 +1172,14 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'あいうえお',
+      '你我他她它',
       [firstTextNode, 0, 2],
       [lastTextNode, 0, 3]
     );
   });
 
   it('should skip leading whitespace only nodes', () => {
-    testDiv.innerHTML = '<span>  　</span>　あい<span></span>うえお';
+    testDiv.innerHTML = '<span>  　</span>　你我<span></span>他她它';
     const whitespaceOnlyTextNode = testDiv.firstChild!.firstChild as Text;
     const firstRealTextNode = testDiv.childNodes[1] as Text;
     const lastTextNode = testDiv.lastChild as Text;
@@ -1192,7 +1194,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'あいうえお',
+      '你我他她它',
       [firstRealTextNode, 1, 3],
       [lastTextNode, 0, 3]
     );
@@ -1202,7 +1204,7 @@ describe('getTextAtPoint', () => {
     // This is a rather complicated example including rp tags, nested ruby,
     // whitespace in rp elements, and trailing punctuation.
     testDiv.innerHTML =
-      '<ruby>仙<rp> (<rt>せん<rp>) </rp>台<rp>（<rt>だい<rp>）</ruby>の<ruby><ruby>牧<rt>ぼく</ruby><rt>まき</ruby><ruby><ruby>場<rt>じょう</ruby><rt>ば</ruby>です。';
+      '<ruby>仙<rp> (<rt>せん<rp>) </rp>台<rp>（<rt>だい<rp>）</ruby>的<ruby><ruby>牧<rt>ぼく</ruby><rt>まき</ruby><ruby><ruby>场<rt>じょう</ruby><rt>ば</ruby>是大。';
     const firstTextNode = testDiv.firstChild!.firstChild as Text;
     const daiNode = testDiv.firstChild!.childNodes[4] as Text;
     const noNode = testDiv.childNodes[1];
@@ -1220,7 +1222,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      '仙台の牧場です',
+      '仙台的牧场是大',
       [firstTextNode, 0, 1],
       [daiNode, 0, 1],
       [noNode, 0, 1],
@@ -1232,7 +1234,7 @@ describe('getTextAtPoint', () => {
 
   it('should skip content in ruby transcriptions that have nested spans', () => {
     testDiv.innerHTML =
-      '<p><span>次々と</span><ruby>仕<rt><span>し</span></rt>掛<rt><span>か</span></rt></ruby><span>けられる。</span></p>';
+      '<p><span>接二连</span><ruby>三<rt><span>san</span></rt>被<rt><span>bei</span></rt></ruby><span>设置哎呀。</span></p>';
     const shiNode = testDiv.firstChild!.childNodes[1].firstChild as Text;
     const kaNode = testDiv.firstChild!.childNodes[1].childNodes[2] as Text;
     const kerareruNode = testDiv.firstChild!.childNodes[2].firstChild as Text;
@@ -1247,7 +1249,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      '仕掛けられる',
+      '三被设置哎呀',
       [shiNode, 0, 1],
       [kaNode, 0, 1],
       [kerareruNode, 0, 4]
@@ -1256,7 +1258,7 @@ describe('getTextAtPoint', () => {
 
   it('should return the ruby base text when rb elements are used', () => {
     testDiv.innerHTML =
-      '<ruby><rb>振</rb><rp>(</rp><rt>ふ</rt><rp>)</rp>り<rb>仮</rb><rp>(</rp><rt>が</rt><rp>)</rp><rb>名</rb><rp>(</rp><rt>な</rt><rp>)</rp></ruby>';
+      '<ruby><rb>注</rb><rp>(</rp><rt>ふ</rt><rp>)</rp>音<rb>假</rb><rp>(</rp><rt>が</rt><rp>)</rp><rb>名</rb><rp>(</rp><rt>な</rt><rp>)</rp></ruby>';
     const fuNode = testDiv.firstChild!.firstChild!.firstChild as Text;
     const riNode = testDiv.firstChild!.childNodes[4] as Text;
     const gaNode = testDiv.firstChild!.childNodes[5].firstChild as Text;
@@ -1271,7 +1273,7 @@ describe('getTextAtPoint', () => {
     });
     assertTextResultEqual(
       result,
-      '振り仮名',
+      '注音假名',
       [fuNode, 0, 1],
       [riNode, 0, 1],
       [gaNode, 0, 1],
@@ -1281,7 +1283,7 @@ describe('getTextAtPoint', () => {
 
   it('should return the ruby base text even across different ruby elements', () => {
     testDiv.innerHTML =
-      '<ruby><rb>振</rb><rp>(</rp><rt>ふ</rt><rp>)</rp>り</ruby><ruby><rb>仮</rb><rp>(</rp><rt>が</rt><rp>)</rp><rb>名</rb><rp>(</rp><rt>な</rt><rp>)</rp></ruby>';
+      '<ruby><rb>注</rb><rp>(</rp><rt>ふ</rt><rp>)</rp>音</ruby><ruby><rb>假</rb><rp>(</rp><rt>が</rt><rp>)</rp><rb>名</rb><rp>(</rp><rt>な</rt><rp>)</rp></ruby>';
     const fuNode = testDiv.firstChild!.firstChild!.firstChild as Text;
     const riNode = testDiv.firstChild!.childNodes[4] as Text;
     const gaNode = testDiv.childNodes[1].firstChild!.firstChild as Text;
@@ -1296,7 +1298,7 @@ describe('getTextAtPoint', () => {
     });
     assertTextResultEqual(
       result,
-      '振り仮名',
+      '注音假名',
       [fuNode, 0, 1],
       [riNode, 0, 1],
       [gaNode, 0, 1],
@@ -1341,7 +1343,7 @@ describe('getTextAtPoint', () => {
     //
     // See https://github.com/birchill/10ten-ja-reader/issues/535
     testDiv.innerHTML =
-      '<p><ruby><span>疲</span><rt>つか</rt></ruby><span style="display: inline-block">れた</span></p>';
+      '<p><ruby><span>你</span><rt>つか</rt></ruby><span style="display: inline-block">好吗</span></p>';
 
     const kanjiNode = testDiv.firstChild!.firstChild!.firstChild!
       .firstChild as Text;
@@ -1357,7 +1359,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      '疲れた',
+      '你好吗',
       [kanjiNode, 0, 1],
       [okuriganaNode, 0, 2]
     );
@@ -1366,7 +1368,7 @@ describe('getTextAtPoint', () => {
   it('should treat rb elements elements as inline regardless of their computed style', () => {
     // Based on the markup in renshuu.org
     testDiv.innerHTML =
-      '<div><ruby style="display:inline-table"><rb style="display:table-row-group"><span>引</span></rb><rt style="display:table-header-group">ひ</rt></ruby><ruby style="display:inline-table"><rb style="display:table-row-group">く</rb><rt style="display:table-header-group">&nbsp;</rt></ruby></div>';
+      '<div><ruby style="display:inline-table"><rb style="display:table-row-group"><span>你</span></rb><rt style="display:table-header-group">ひ</rt></ruby><ruby style="display:inline-table"><rb style="display:table-row-group">好</rb><rt style="display:table-header-group">&nbsp;</rt></ruby></div>';
     const hiNode = testDiv.firstChild!.firstChild!.firstChild!.firstChild!
       .firstChild as Text;
     const kuNode = testDiv.firstChild!.childNodes[1].firstChild!
@@ -1380,7 +1382,7 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, '引く', [hiNode, 0, 1], [kuNode, 0, 1]);
+    assertTextResultEqual(result, '你好', [hiNode, 0, 1], [kuNode, 0, 1]);
   });
 
   it('should parse base text from simulated mono ruby', () => {
@@ -1410,7 +1412,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should find text in SVG content', function () {
-    testDiv.innerHTML = '<svg><text y="1em">あいうえお</text></svg>';
+    testDiv.innerHTML = '<svg><text y="1em">你我他她它</text></svg>';
     const textNode = testDiv.firstChild!.firstChild!.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
 
@@ -1421,12 +1423,12 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いうえお', [textNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textNode, 1, 5]);
   });
 
   it('should find text in nested SVG elements', () => {
     testDiv.innerHTML =
-      '<svg><text y="1em">あ<tspan><tspan id=inner-tspan>いう</tspan></tspan>え<a id=inner-a>お</a></text></svg>';
+      '<svg><text y="1em">你<tspan><tspan id=inner-tspan>我他</tspan></tspan>她<a id=inner-a>它</a></text></svg>';
     const firstTextNode = testDiv.firstChild!.firstChild!.firstChild as Text;
     const innerTspan = testDiv.querySelector('#inner-tspan')!
       .firstChild as Text;
@@ -1444,7 +1446,7 @@ describe('getTextAtPoint', () => {
 
     assertTextResultEqual(
       result,
-      'あいうえお',
+      '你我他她它',
       [firstTextNode, 0, 1],
       [innerTspan, 0, 2],
       [middleTextNode, 0, 1],
@@ -1453,7 +1455,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should find text in input elements', () => {
-    testDiv.innerHTML = '<input type="text" value="あいうえお">';
+    testDiv.innerHTML = '<input type="text" value="你我他她它">';
     const inputNode = testDiv.firstChild as HTMLInputElement;
 
     // There doesn't seem to be any API for getting the character offsets inside
@@ -1483,11 +1485,11 @@ describe('getTextAtPoint', () => {
       point: { x: bbox.left + offset, y: bbox.top + bbox.height / 2 },
     });
 
-    assertTextResultEqual(result, 'いうえお', [inputNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [inputNode, 1, 5]);
   });
 
   it('should find text from the start of input elements', () => {
-    testDiv.innerHTML = '<input type="text" value="あいうえお">';
+    testDiv.innerHTML = '<input type="text" value="你我他她它">';
     const inputNode = testDiv.firstChild as HTMLInputElement;
 
     inputNode.style.padding = '0px';
@@ -1502,11 +1504,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あいうえお', [inputNode, 0, 5]);
+    assertTextResultEqual(result, '你我他她它', [inputNode, 0, 5]);
   });
 
   it('should NOT read beyond the bounds of the input element', () => {
-    testDiv.innerHTML = '<div><input type="text" value="あいう">えお</div>';
+    testDiv.innerHTML = '<div><input type="text" value="你我他">她它</div>';
     const inputNode = testDiv.firstChild!.firstChild as HTMLInputElement;
 
     inputNode.style.padding = '0px';
@@ -1524,11 +1526,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'いう', [inputNode, 1, 3]);
+    assertTextResultEqual(result, '我他', [inputNode, 1, 3]);
   });
 
   it('should NOT find text in input[type=password] elements', () => {
-    testDiv.innerHTML = '<input type="password" value="あいうえお">';
+    testDiv.innerHTML = '<input type="password" value="你我他她它">';
     const inputNode = testDiv.firstChild as HTMLInputElement;
 
     inputNode.style.padding = '0px';
@@ -1551,7 +1553,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should find text in textarea elements', () => {
-    testDiv.innerHTML = '<textarea>あいうえお</textarea>';
+    testDiv.innerHTML = '<textarea>你我他她它</textarea>';
     const textAreaNode = testDiv.firstChild as HTMLTextAreaElement;
 
     textAreaNode.style.padding = '0px';
@@ -1564,11 +1566,11 @@ describe('getTextAtPoint', () => {
 
     const result = getTextAtPoint({ point: { x: bbox.left + offset, y: 5 } });
 
-    assertTextResultEqual(result, 'いうえお', [textAreaNode, 1, 5]);
+    assertTextResultEqual(result, '我他她它', [textAreaNode, 1, 5]);
   });
 
   it('should NOT report results in textarea elements when at the end', () => {
-    testDiv.innerHTML = '<textarea cols=80>あいうえお</textarea>';
+    testDiv.innerHTML = '<textarea cols=80>你我他她它</textarea>';
     const textAreaNode = testDiv.firstChild as HTMLTextAreaElement;
 
     textAreaNode.style.padding = '0px';
@@ -1581,7 +1583,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should NOT report results in textarea elements when the mouse is outside', () => {
-    testDiv.innerHTML = '<textarea cols=80>あいうえお</textarea>';
+    testDiv.innerHTML = '<textarea cols=80>你我他她它</textarea>';
     const textAreaNode = testDiv.firstChild as HTMLTextAreaElement;
 
     // The display: block part is important here since it will cause
@@ -1599,7 +1601,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should pull the text out of a title attribute', () => {
-    testDiv.innerHTML = '<img src="" title="あいうえお">';
+    testDiv.innerHTML = '<img src="" title="你我他她它">';
     const imgNode = testDiv.firstChild as HTMLImageElement;
     imgNode.style.width = '200px';
     imgNode.style.height = '200px';
@@ -1612,11 +1614,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'あいうえお');
+    assertTextResultEqual(result, '你我他她它');
   });
 
   it('should pull the text out of a title attribute on an image even when matchText is false', () => {
-    testDiv.innerHTML = '<img src="" title="あいうえお">';
+    testDiv.innerHTML = '<img src="" title="你我他她它">';
     const imgNode = testDiv.firstChild as HTMLImageElement;
     imgNode.style.width = '200px';
     imgNode.style.height = '200px';
@@ -1631,11 +1633,11 @@ describe('getTextAtPoint', () => {
       matchImages: true,
     });
 
-    assertTextResultEqual(result, 'あいうえお');
+    assertTextResultEqual(result, '你我他她它');
   });
 
   it('should NOT pull the text out of a title attribute on a text node when matchText is false', () => {
-    testDiv.innerHTML = '<span title="あいうえお">Not Japanese text</span>';
+    testDiv.innerHTML = '<span title="你我他她它">Not Japanese text</span>';
     const span = testDiv.firstChild as HTMLSpanElement;
     const bbox = span.getBoundingClientRect();
 
@@ -1652,7 +1654,7 @@ describe('getTextAtPoint', () => {
   });
 
   it("should use the last result if there's no result but we haven't moved far", () => {
-    testDiv.append('abcdefあいうえお');
+    testDiv.append('abcdef你我他她它');
     const textNode = testDiv.firstChild as Text;
 
     // Fetch once
@@ -1663,7 +1665,7 @@ describe('getTextAtPoint', () => {
         y: bboxJP.top + bboxJP.height / 2,
       },
     });
-    assertTextResultEqual(result, 'あいうえお', [textNode, 6, 11]);
+    assertTextResultEqual(result, '你我他她它', [textNode, 6, 11]);
 
     // Fetch again
     const bboxEN = getBboxForOffset(textNode, 5);
@@ -1681,7 +1683,7 @@ describe('getTextAtPoint', () => {
   });
 
   it("should NOT use the last result if there's no result and we've moved far", () => {
-    testDiv.append('abcdefあいうえお');
+    testDiv.append('abcdef你我他她它');
     const textNode = testDiv.firstChild as Text;
 
     // Fetch once
@@ -1692,7 +1694,7 @@ describe('getTextAtPoint', () => {
         y: bboxJP.top + bboxJP.height / 2,
       },
     });
-    assertTextResultEqual(result, 'あいうえお', [textNode, 6, 11]);
+    assertTextResultEqual(result, '你我他她它', [textNode, 6, 11]);
 
     // Fetch again
     const bboxEN = getBboxForOffset(textNode, 0);

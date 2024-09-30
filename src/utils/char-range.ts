@@ -37,6 +37,8 @@ const cjk =
 // [U+31350, U+323AF],  // CJK Unified Ideographs Extension H
 // [U+2F800, U+2FA1F]   // CJK Compatibility Ideographs Supplement
 
+// const hiragana_katakana = /[\u3041-\u309f\u{1b001}\u30a0-\u30ff\u{1b000}]/u;
+
 function getCombinedCharRange(ranges: Array<RegExp>): RegExp {
   let source = '[';
   let flags = '';
