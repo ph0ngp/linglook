@@ -152,6 +152,7 @@ export function scanText({
     return null;
   }
 
+  // CY: can extract some minimal metadata here
   // result.meta = extractGetTextMetadata({ text: result.text, matchCurrency });
   result.meta = undefined;
 
