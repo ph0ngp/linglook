@@ -37,7 +37,7 @@ const cjk =
 // [U+31350, U+323AF],  // CJK Unified Ideographs Extension H
 // [U+2F800, U+2FA1F]   // CJK Compatibility Ideographs Supplement
 
-export function getCombinedCharRange(ranges: Array<RegExp>): RegExp {
+function getCombinedCharRange(ranges: Array<RegExp>): RegExp {
   let source = '[';
   let flags = '';
 
@@ -85,7 +85,7 @@ const chineseChar = getCombinedCharRange([
   cjk,
 ]);
 
-export function getNegatedCharRange(range: RegExp): RegExp {
+function getNegatedCharRange(range: RegExp): RegExp {
   // Check if we got a character class range
   if (!isCharacterClassRange(range)) {
     throw new Error(`Expected a character class range, got: ${range.source}`);
@@ -107,38 +107,38 @@ export function hasKatakana(text: string): boolean {
   return false;
 }
 
-// check if starts with 0-9 or full-width 0-9
-export function startsWithDigit(input: string): boolean {
-  const c = input.length ? input.charCodeAt(0) : 0;
-  return (c >= 48 && c <= 57) || (c >= 65296 && c <= 65305);
-}
+// // check if starts with 0-9 or full-width 0-9
+// export function startsWithDigit(input: string): boolean {
+//   const c = input.length ? input.charCodeAt(0) : 0;
+//   return (c >= 48 && c <= 57) || (c >= 65296 && c <= 65305);
+// }
 
-// TODOP: remove all numeral, currency support
-const hanziNumerals = [
-  '〇',
-  '一',
-  '二',
-  '三',
-  '四',
-  '五',
-  '六',
-  '七',
-  '八',
-  '九',
-  '十',
-  '百',
-  '千',
-  '万',
-  '億',
-];
+// // TODOP: remove all numeral, currency support
+// const hanziNumerals = [
+//   '〇',
+//   '一',
+//   '二',
+//   '三',
+//   '四',
+//   '五',
+//   '六',
+//   '七',
+//   '八',
+//   '九',
+//   '十',
+//   '百',
+//   '千',
+//   '万',
+//   '億',
+// ];
 
-// check if starts with 0-9 or full-width 0-9 or hanzi numerals
-export function startsWithNumeral(input: string): boolean {
-  return (
-    startsWithDigit(input) ||
-    (!!input.length && hanziNumerals.includes(input[0]))
-  );
-}
+// // check if starts with 0-9 or full-width 0-9 or hanzi numerals
+// export function startsWithNumeral(input: string): boolean {
+//   return (
+//     startsWithDigit(input) ||
+//     (!!input.length && hanziNumerals.includes(input[0]))
+//   );
+// }
 
 const onlyDigits = /^[0-9０-９,，、.．]+$/;
 

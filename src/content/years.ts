@@ -1,43 +1,43 @@
-import { getCombinedCharRange, getNegatedCharRange } from '../utils/char-range';
+// import { getCombinedCharRange, getNegatedCharRange } from '../utils/char-range';
 
-import { parseNumber } from './numbers';
+// import { parseNumber } from './numbers';
 
-export function lookForEra({
-  currentText,
-  nodeText,
-  textDelimiter: originalTextDelimiter,
-  textEnd,
-}: {
-  currentText: string;
-  nodeText: string;
-  textDelimiter: RegExp;
-  textEnd: number;
-}): {
-  textDelimiter: RegExp;
-  textEnd: number;
-} | null {
-  // We only want to _extend_ the current range so if `textEnd` is already -1
-  // (i.e. end of the text) then we don't need to do anything.
-  if (textEnd < 0 || !startsWithEraName(currentText)) {
-    return null;
-  }
+// export function lookForEra({
+//   currentText,
+//   nodeText,
+//   textDelimiter: originalTextDelimiter,
+//   textEnd,
+// }: {
+//   currentText: string;
+//   nodeText: string;
+//   textDelimiter: RegExp;
+//   textEnd: number;
+// }): {
+//   textDelimiter: RegExp;
+//   textEnd: number;
+// } | null {
+//   // We only want to _extend_ the current range so if `textEnd` is already -1
+//   // (i.e. end of the text) then we don't need to do anything.
+//   if (textEnd < 0 || !startsWithEraName(currentText)) {
+//     return null;
+//   }
 
-  // The original text delimiter should include all the characters needed to
-  // match Japanese years except spaces between the era and the year, and
-  // spaces between the year and the final 年 character, if any.
-  const japaneseOrSpace = getCombinedCharRange([
-    getNegatedCharRange(originalTextDelimiter),
-    /[\s]/,
-  ]);
-  const textDelimiter = getNegatedCharRange(japaneseOrSpace);
+//   // The original text delimiter should include all the characters needed to
+//   // match Japanese years except spaces between the era and the year, and
+//   // spaces between the year and the final 年 character, if any.
+//   const japaneseOrSpace = getCombinedCharRange([
+//     getNegatedCharRange(originalTextDelimiter),
+//     /[\s]/,
+//   ]);
+//   const textDelimiter = getNegatedCharRange(japaneseOrSpace);
 
-  const endOfEra = nodeText.substring(textEnd).search(textDelimiter);
+//   const endOfEra = nodeText.substring(textEnd).search(textDelimiter);
 
-  return {
-    textDelimiter,
-    textEnd: endOfEra === -1 ? -1 : textEnd + endOfEra,
-  };
-}
+//   return {
+//     textDelimiter,
+//     textEnd: endOfEra === -1 ? -1 : textEnd + endOfEra,
+//   };
+// }
 
 export function startsWithEraName(text: string): boolean {
   const maxEraLength = Math.max(
@@ -337,44 +337,44 @@ export type EraMeta = {
   matchLen: number;
 };
 
-// This is a bit complicated because for a numeric year we don't require the
-// 年 but for 元年 we do. i.e. '令和2' is valid but '令和元' is not.
-const yearRegex = /(?:([0-9０-９〇一二三四五六七八九十百]+)\s*年?|(?:元\s*年))/;
+// // This is a bit complicated because for a numeric year we don't require the
+// // 年 but for 元年 we do. i.e. '令和2' is valid but '令和元' is not.
+// const yearRegex = /(?:([0-9０-９〇一二三四五六七八九十百]+)\s*年?|(?:元\s*年))/;
 
-export function extractEraMetadata(text: string): EraMeta | undefined {
-  // Look for a year
-  const matches = yearRegex.exec(text);
-  if (!matches || matches.index === 0) {
-    return undefined;
-  }
+// export function extractEraMetadata(text: string): EraMeta | undefined {
+//   // Look for a year
+//   const matches = yearRegex.exec(text);
+//   if (!matches || matches.index === 0) {
+//     return undefined;
+//   }
 
-  // Look for an era
-  const era = text.substring(0, matches.index).trim();
-  if (!isEraName(era)) {
-    return undefined;
-  }
+//   // Look for an era
+//   const era = text.substring(0, matches.index).trim();
+//   if (!isEraName(era)) {
+//     return undefined;
+//   }
 
-  // Parse year
-  let year: number | null = 0;
-  if (typeof matches[1] !== 'undefined') {
-    year = parseNumber(matches[1]);
-    if (typeof year === 'number' && year < 1) {
-      year = null;
-    }
-  }
+//   // Parse year
+//   let year: number | null = 0;
+//   if (typeof matches[1] !== 'undefined') {
+//     year = parseNumber(matches[1]);
+//     if (typeof year === 'number' && year < 1) {
+//       year = null;
+//     }
+//   }
 
-  if (year === null) {
-    return undefined;
-  }
+//   if (year === null) {
+//     return undefined;
+//   }
 
-  const matchLen = matches.index + matches[0].length;
+//   const matchLen = matches.index + matches[0].length;
 
-  return { type: 'era', era, year, matchLen };
-}
+//   return { type: 'era', era, year, matchLen };
+// }
 
-function isEraName(text: string): boolean {
-  return yearMap.has(text);
-}
+// function isEraName(text: string): boolean {
+//   return yearMap.has(text);
+// }
 
 export function getEraInfo(text: string): EraInfo | undefined {
   return yearMap.get(text);

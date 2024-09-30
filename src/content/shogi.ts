@@ -1,5 +1,4 @@
-import { getCombinedCharRange, getNegatedCharRange } from '../utils/char-range';
-
+// import { getCombinedCharRange, getNegatedCharRange } from '../utils/char-range';
 import { parseNumber } from './numbers';
 
 // ---------------------------------------------------------------------------
@@ -65,54 +64,54 @@ export type ShogiMeta = {
 //
 // ---------------------------------------------------------------------------
 
-export function lookForShogi({
-  nodeText,
-  textDelimiter: originalTextDelimiter,
-}: {
-  nodeText: string;
-  textDelimiter: RegExp;
-}): {
-  textDelimiter: RegExp;
-  textEnd: number;
-} | null {
-  if (!nodeText.length) {
-    return null;
-  }
+// export function lookForShogi({
+//   nodeText,
+//   textDelimiter: originalTextDelimiter,
+// }: {
+//   nodeText: string;
+//   textDelimiter: RegExp;
+// }): {
+//   textDelimiter: RegExp;
+//   textEnd: number;
+// } | null {
+//   if (!nodeText.length) {
+//     return null;
+//   }
 
-  // If the test starts with one of the shogi side indicators, then we assume
-  // that the text is a shogi move and we can use the shogi delimiter.
-  if (['▲', '△', '☗', '☖'].includes(nodeText[0])) {
-    return {
-      textDelimiter: shogiDelimiter,
-      textEnd: nodeText.search(shogiDelimiter),
-    };
-  }
+//   // If the test starts with one of the shogi side indicators, then we assume
+//   // that the text is a shogi move and we can use the shogi delimiter.
+//   if (['▲', '△', '☗', '☖'].includes(nodeText[0])) {
+//     return {
+//       textDelimiter: shogiDelimiter,
+//       textEnd: nodeText.search(shogiDelimiter),
+//     };
+//   }
 
-  // Otherwise, if it starts with an Arabic number followed by a kanji number
-  // OR it starts with one of the characters meaning "same position" then
-  // expand the delimiter range to include all the shogi characters.
-  if (!unprefixedShogiStart.test(nodeText)) {
-    return null;
-  }
+//   // Otherwise, if it starts with an Arabic number followed by a kanji number
+//   // OR it starts with one of the characters meaning "same position" then
+//   // expand the delimiter range to include all the shogi characters.
+//   if (!unprefixedShogiStart.test(nodeText)) {
+//     return null;
+//   }
 
-  const expandedDelimiter = getCombinedCharRange([
-    getNegatedCharRange(originalTextDelimiter),
-    /[↑]/,
-    // All the other characters such as 𠔼丶フゝ・○ etc. should already be
-    // covered by `japaneseChar` so we don't need to add them here.
-  ]);
-  const textDelimiter = getNegatedCharRange(expandedDelimiter);
+//   const expandedDelimiter = getCombinedCharRange([
+//     getNegatedCharRange(originalTextDelimiter),
+//     /[↑]/,
+//     // All the other characters such as 𠔼丶フゝ・○ etc. should already be
+//     // covered by `japaneseChar` so we don't need to add them here.
+//   ]);
+//   const textDelimiter = getNegatedCharRange(expandedDelimiter);
 
-  return {
-    textDelimiter,
-    textEnd: nodeText.search(textDelimiter),
-  };
-}
+//   return {
+//     textDelimiter,
+//     textEnd: nodeText.search(textDelimiter),
+//   };
+// }
 
-// This needs to be kept in sync with the regexes below.
-const shogiDelimiter =
-  /[^▲△☗☖1-9１-９一二三四五六七八九同仝－𠔼ド歩兵丶フゝ・香禾キ↑桂土銀ヨ角ク飛ヒ乙金人と成ナ馬マウ龍竜立リ玉王○打引寄上行入右左直行入不生]/u;
-const unprefixedShogiStart = /^[1-9１-９][一二三四五六七八九]|[同仝－𠔼ド]/u;
+// // This needs to be kept in sync with the regexes below.
+// const shogiDelimiter =
+//   /[^▲△☗☖1-9１-９一二三四五六七八九同仝－𠔼ド歩兵丶フゝ・香禾キ↑桂土銀ヨ角ク飛ヒ乙金人と成ナ馬マウ龍竜立リ玉王○打引寄上行入右左直行入不生]/u;
+// const unprefixedShogiStart = /^[1-9１-９][一二三四五六七八九]|[同仝－𠔼ド]/u;
 
 // Based on https://devurandom.xyz/shogi_parser.html by @devurandom
 // which in turn is based on the description at

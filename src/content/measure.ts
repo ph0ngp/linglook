@@ -1,38 +1,37 @@
-import {
-  getCombinedCharRange,
-  getNegatedCharRange,
-  startsWithDigit,
-  startsWithNumeral,
-} from '../utils/char-range';
-
+// import {
+//   getCombinedCharRange,
+//   getNegatedCharRange,
+//   startsWithDigit,
+//   startsWithNumeral,
+// } from '../utils/char-range';
 import { parseNumber } from './numbers';
 
-export function lookForMeasure({
-  nodeText,
-  textDelimiter: originalTextDelimiter,
-}: {
-  nodeText: string;
-  textDelimiter: RegExp;
-}): {
-  textDelimiter: RegExp;
-  textEnd: number;
-} | null {
-  if (!startsWithNumeral(nodeText)) {
-    return null;
-  }
+// export function lookForMeasure({
+//   nodeText,
+//   textDelimiter: originalTextDelimiter,
+// }: {
+//   nodeText: string;
+//   textDelimiter: RegExp;
+// }): {
+//   textDelimiter: RegExp;
+//   textEnd: number;
+// } | null {
+//   if (!startsWithNumeral(nodeText)) {
+//     return null;
+//   }
 
-  const includeSeparators = startsWithDigit(nodeText);
-  const japaneseOrUnit = getCombinedCharRange([
-    getNegatedCharRange(originalTextDelimiter),
-    includeSeparators ? /[\sm2㎡²,、.．]/ : /[\sm2㎡²]/,
-  ]);
-  const textDelimiter = getNegatedCharRange(japaneseOrUnit);
+//   const includeSeparators = startsWithDigit(nodeText);
+//   const japaneseOrUnit = getCombinedCharRange([
+//     getNegatedCharRange(originalTextDelimiter),
+//     includeSeparators ? /[\sm2㎡²,、.．]/ : /[\sm2㎡²]/,
+//   ]);
+//   const textDelimiter = getNegatedCharRange(japaneseOrUnit);
 
-  return {
-    textDelimiter,
-    textEnd: nodeText.search(textDelimiter),
-  };
-}
+//   return {
+//     textDelimiter,
+//     textEnd: nodeText.search(textDelimiter),
+//   };
+// }
 
 export type MeasureMeta = {
   type: 'measure';
