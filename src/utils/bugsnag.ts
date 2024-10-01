@@ -115,7 +115,7 @@ export function startBugsnag() {
   }
 
   Bugsnag.start({
-    apiKey: 'e707c9ae84265d122b019103641e6462',
+    apiKey: 'bugsnag_api_key_placeholder',
     appVersion: manifest.version_name || manifest.version,
     collectUserIp: false,
     onError: async (event: BugsnagEvent) => {

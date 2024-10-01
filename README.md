@@ -13,53 +13,9 @@
 
 ## Table of Contents
 
-- [Installing](#installing)
-- [Features](#features)
 - [Usage](#usage)
 - [Building from source](#building-a-release-from-source)
 - [Contributing](#contributing)
-
-## Features
-
-- Pitch accent information
-
-- Support for non-English dictionaries
-
-- Dictionaries that update automatically twice a week by fetching just the updated entries
-- Easy to read dictionary entries
-
-- Automatic translation of Japanese-era years into Gregorian years (e.g. 昭和５６年、令和元年、平成三十一年)
-
-- Automatic translation between 畳/帖 measurements and square meters (e.g. 四畳半、12.6 帖、25 平米、6m<sup>2</sup>)
-
-- Recognition of a wide range of grammatical forms
-  (e.g. vs-c verbs like 兼した,
-  irregular verbs like いらっしゃいます,
-  continuous forms like 食べてた,
-  ん as a negative form like 分からん、知らん,
-  words with ー like じーちゃん、頑張ろー、そーゆー,
-  ぬ verbs,
-  とく・どく forms like 買っとく,
-  causative passive, させる for verbs ending in す e.g. 起こさせる)
-- Automatic preview of name entries when there is a better match in the name dictionary
-
-- Handling of a wide range of characters including ㋕, ㌀, ㋿, 𠏹沢, ８月, Ｂ級グルメ, オーサカ
-
-- Localized into Japanese (so you can study Japanese while you study Japanese!) and Simplified Chinese
-
-- Prioritization of common matches
-- Support for displaying romaji
-- Copy feature that allows selecting which entry and in what format to copy to the clipboard
-
-- Smart popup positioning
-- Support for vertical text and text in SVG images
-- Minimal memory usage
-- Kanji data for Kanji kentei, Conning references, updated educational levels, heavily reworked kanji components etc.
-
-- Intuitive settings window
-
-- Isolation of styles so that the popup always looks correct
-- Handling of ruby text in YouTube
 
 ## Usage
 
@@ -88,6 +44,8 @@ The other keys are as follows:
 | (Copy mode) Select next entry             | <kbd>c</kbd>                                        |
 
 ## Building a release from source
+
+First replace `bugsnag_api_key_placeholder` in `bugsnag.ts` with your Bugsnag API key.
 
 You may also build the add-ons using a source package from the
 [Releases](https://github.com/ph0ngp/wenzi/releases) page and running the
