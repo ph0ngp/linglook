@@ -1307,7 +1307,7 @@ describe('getTextAtPoint', () => {
   });
 
   it('should return the rt text if it is positioned over an rt element', () => {
-    testDiv.innerHTML = '<ruby>仙<rt>せん</rt>台<rt>だい</ruby>';
+    testDiv.innerHTML = '<ruby>仙<rt>你好</rt>台<rt>狗毛</ruby>';
     const senNode = testDiv.firstChild!.childNodes[1].firstChild as Text;
     const bbox = getBboxForOffset(senNode, 0);
 
@@ -1318,11 +1318,11 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'せん', [senNode, 0, 2]);
+    assertTextResultEqual(result, '你好', [senNode, 0, 2]);
   });
 
   it('should return the rt text if it is positioned over a child of an rt element', () => {
-    testDiv.innerHTML = '<ruby>仙<rt><b>せ</b>ん</rt>台<rt>だい</ruby>';
+    testDiv.innerHTML = '<ruby>仙<rt><b>你</b>好</rt>台<rt>狗毛</ruby>';
     const seNode = testDiv.firstChild!.childNodes[1].firstChild!
       .firstChild as Text;
     const nNode = testDiv.firstChild!.childNodes[1].lastChild as Text;
@@ -1335,7 +1335,7 @@ describe('getTextAtPoint', () => {
       },
     });
 
-    assertTextResultEqual(result, 'せん', [seNode, 0, 1], [nNode, 0, 1]);
+    assertTextResultEqual(result, '你好', [seNode, 0, 1], [nNode, 0, 1]);
   });
 
   it('should traverse okurigana in inline-block elements too', () => {

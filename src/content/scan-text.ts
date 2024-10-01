@@ -2,9 +2,7 @@ import { nonChineseChar } from '../utils/char-range';
 
 import { CursorPosition } from './get-cursor-position';
 import { GetTextAtPointResult } from './get-text';
-
-// import { extractGetTextMetadata, lookForMetadata } from './meta';
-// import { extractGetTextMetadata} from './meta';
+import { extractGetTextMetadata, lookForMetadata } from './meta';
 
 export function scanText({
   startPosition,
@@ -79,31 +77,31 @@ export function scanText({
     textRange: [],
   };
 
-  const textDelimiter = nonChineseChar;
+  let textDelimiter = nonChineseChar;
 
   // Look for range ends
   do {
     const nodeText = node.data.substring(offset);
     let textEnd = nodeText.search(textDelimiter);
 
-    // // Check if we are looking at a special string that accepts a different
-    // // range of characters.
-    // if (textDelimiter === nonChineseChar) {
-    //   const currentText =
-    //     result.text +
-    //     nodeText.substring(0, textEnd === -1 ? undefined : textEnd);
+    // Check if we are looking at a special string that accepts a different
+    // range of characters.
+    if (textDelimiter === nonChineseChar) {
+      const currentText =
+        result.text +
+        nodeText.substring(0, textEnd === -1 ? undefined : textEnd);
 
-    //   // Check if we should further expand the set of allowed characters in
-    //   // order to recognize certain types of metadata-type strings (e.g. years
-    //   // or floor space measurements).
-    //   ({ textDelimiter, textEnd } = lookForMetadata({
-    //     currentText,
-    //     matchCurrency,
-    //     nodeText,
-    //     textDelimiter,
-    //     textEnd,
-    //   }));
-    // }
+      // Check if we should further expand the set of allowed characters in
+      // order to recognize certain types of metadata-type strings (e.g. years
+      // or floor space measurements).
+      ({ textDelimiter, textEnd } = lookForMetadata({
+        currentText,
+        matchCurrency,
+        nodeText,
+        textDelimiter,
+        textEnd,
+      }));
+    }
 
     if (typeof maxLength === 'number' && maxLength >= 0) {
       const maxEnd = maxLength - result.text.length;
@@ -152,9 +150,7 @@ export function scanText({
     return null;
   }
 
-  // CY: can extract some minimal metadata here
-  // result.meta = extractGetTextMetadata({ text: result.text, matchCurrency });
-  result.meta = undefined;
+  result.meta = extractGetTextMetadata({ text: result.text, matchCurrency });
 
   return result;
 }
