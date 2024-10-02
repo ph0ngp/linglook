@@ -20,6 +20,7 @@ import { ExtensionStorageError } from '../common/extension-storage-error';
 
 import { isObject } from './is-object';
 import { getReleaseStage } from './release-stage';
+import { MY_BUGSNAG_API_KEY } from './secrets';
 
 const getExtensionInstallId = async (): Promise<string> => {
   let internalUuid: string | undefined;
@@ -115,7 +116,7 @@ export function startBugsnag() {
   }
 
   Bugsnag.start({
-    apiKey: 'bugsnag_api_key_placeholder',
+    apiKey: MY_BUGSNAG_API_KEY,
     appVersion: manifest.version_name || manifest.version,
     collectUserIp: false,
     onError: async (event: BugsnagEvent) => {
