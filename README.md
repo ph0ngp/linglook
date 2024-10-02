@@ -45,7 +45,7 @@ The other keys are as follows:
 
 ## Building a release from source
 
-First replace `bugsnag_api_key_placeholder` in `src/utils/secrets.ts` with your Bugsnag API key.
+First replace `bugsnag_api_key_placeholder` in `src/utils/secrets.ts` with your Bugsnag API key. You can run `git update-index --assume-unchanged src/utils/secrets.ts` to prevent it from being shown in diffs and from being committed.
 
 You may also build the add-ons using a source package from the
 [Releases](https://github.com/ph0ngp/wenzi/releases) page and running the
