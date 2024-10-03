@@ -39,7 +39,11 @@ class FlatFileDatabase {
   loaded: Promise<any>;
   lookupCache = new LRUMap<string, Array<number>>(500);
   wordDict: string;
+  cedictWordDict: string;
   wordIndex: string;
+  cedictWordIndex: string;
+  idsDict: string;
+  cache = new Map();
 
   constructor(options: FlatFileDatabaseOptions) {
     this.bugsnag = options.bugsnag;
@@ -58,6 +62,15 @@ class FlatFileDatabase {
       );
       this.wordIndex = await this.readFileWithAutoRetry(
         browser.runtime.getURL('data/words.idx')
+      );
+      this.cedictWordDict = await this.readFileWithAutoRetry(
+        browser.runtime.getURL('data/cedict.u8')
+      );
+      this.cedictWordIndex = await this.readFileWithAutoRetry(
+        browser.runtime.getURL('data/cedict.idx')
+      );
+      this.idsDict = await this.readFileWithAutoRetry(
+        browser.runtime.getURL('data/ids.data')
       );
 
       this.notifyListeners({ type: 'loaded' });
@@ -160,7 +173,7 @@ class FlatFileDatabase {
   // Searching
   //
 
-  async getWords({
+  async getWords1({
     input,
     maxResults,
   }: {
@@ -202,6 +215,99 @@ class FlatFileDatabase {
     return result;
   }
 
+  // CY: very important: word must start with chinese otherwise （ ） will cause silent and unexplained and frustrated error: causing background service worker to stop unexpectedly
+
+  async getWords({
+    input,
+    maxResults,
+  }: {
+    input: string;
+    maxResults: number;
+  }): Promise<Array<DictionaryWordResult>> {
+    await this.loaded;
+    const matchedEntries: {
+      data: Array<[string, string, string | null, number]>;
+      matchLen?: number;
+    } = { data: [] };
+    let maxLen = 0;
+
+    if (!this.cache.has(input)) {
+      const found = findNeedle(input + '_', this.cedictWordIndex);
+      if (found) {
+        const parts = found.split('_').slice(1);
+        this.cache.set(input, {
+          cedict_id: parts[0].split(','),
+          ids_id: parts.length > 1 ? parts[1] : null,
+        });
+      } else {
+        this.cache.set(input, null);
+      }
+    }
+
+    const word_data = this.cache.get(input);
+    if (word_data) {
+      const cedict_indices = word_data.cedict_id;
+      const idsEntry: string | null =
+        word_data.ids_id !== null
+          ? this.idsDict.slice(
+              word_data.ids_id,
+              this.idsDict.indexOf('\n', word_data.ids_id)
+            )
+          : null;
+      for (let i = 0; i < cedict_indices.length; i++) {
+        const dataEntry: string = this.cedictWordDict.slice(
+          cedict_indices[i],
+          this.cedictWordDict.indexOf('\n', cedict_indices[i])
+        );
+        const entry = dataEntry.match(
+          /^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+)\//
+        );
+        if (!entry) {
+          // This definition's format is wrong
+          continue;
+        }
+        matchedEntries.data.push([
+          entry[4].replace(/\//g, '; '),
+          entry[3].trim(),
+          idsEntry,
+          cedict_indices[i],
+        ]);
+        maxLen = maxLen || input.length;
+      }
+    }
+
+    const result: Array<DictionaryWordResult> = [];
+
+    if (!matchedEntries.data.length) {return result;}
+
+    matchedEntries.matchLen = maxLen;
+
+    for (let i = 0; i < matchedEntries.data.length; i++) {
+      const rawWordRecord: RawWordRecord = {
+        k: [input],
+        r: [matchedEntries.data[i][1]],
+        s: [
+          {
+            g: [matchedEntries.data[i][0]],
+          },
+        ],
+      };
+      result.push(
+        toDictionaryWordResult({
+          entry: rawWordRecord,
+          matchingText: input,
+          offset: matchedEntries.data[i][3],
+        })
+      );
+    }
+
+    // Sort before capping the number of results
+    sortWordResults(result);
+    result.splice(maxResults);
+
+    return result;
+  }
+
   //
   // Listeners
   //
@@ -224,6 +330,28 @@ class FlatFileDatabase {
       listener(event);
     }
   }
+}
+
+function findNeedle(needle: string, haystack: string): string | null {
+  let start = 0;
+  let end = haystack.length - 1;
+
+  // TODO2: can there be problems with first line (because not started with \n) or last line (because not ended with \n)?
+  while (start < end) {
+    const mid = Math.floor((start + end) / 2);
+    const newLineIndex = haystack.lastIndexOf('\n', mid) + 1; // Find the start of the line containing 'mid'
+    const slice = haystack.slice(newLineIndex, newLineIndex + needle.length); // Extract the potential match
+
+    if (needle < slice) {
+      end = newLineIndex - 1; // Adjust the end to just before the start of the current line
+    } else if (needle > slice) {
+      start = haystack.indexOf('\n', mid + 1) + 1; // Move the start to the beginning of the next line
+    } else {
+      return haystack.slice(newLineIndex, haystack.indexOf('\n', mid + 1)); // Return the matching line
+    }
+  }
+
+  return null; // If no match is found
 }
 
 // Performs a binary search of a linefeed delimited string, |data|, for |text|.

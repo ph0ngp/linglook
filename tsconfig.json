@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false, // TODOP: turn this to true when ready
     "outDir": "extension",
     "pretty": true,
     "sourceMap": true,

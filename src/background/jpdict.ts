@@ -107,22 +107,24 @@ let dbState: JpdictStateWithFallback = {
 function getDataSeriesStatus(
   series: DataSeries
 ): 'ok' | 'updating' | 'unavailable' {
-  // If we're unavailable or initializing, treat the database as unavailable
-  // regardless of whether or not we're updating.
-  if (
-    dbState[series].state === 'unavailable' ||
-    dbState[series].state === 'init'
-  ) {
-    return 'unavailable';
-  }
+  //TODOP: temporarily disable the IDB database and exclusively use the flat-file database. Will deal with this later.
+  return 'unavailable';
+  // // If we're unavailable or initializing, treat the database as unavailable
+  // // regardless of whether or not we're updating.
+  // if (
+  //   dbState[series].state === 'unavailable' ||
+  //   dbState[series].state === 'init'
+  // ) {
+  //   return 'unavailable';
+  // }
 
-  // Otherwise, whether we're empty or ok, check if we're updating.
-  if (dbState.updateState.type !== 'idle') {
-    return 'updating';
-  }
+  // // Otherwise, whether we're empty or ok, check if we're updating.
+  // if (dbState.updateState.type !== 'idle') {
+  //   return 'updating';
+  // }
 
-  // Otherwise treat empty as unavailable.
-  return dbState[series].state === 'ok' ? 'ok' : 'unavailable';
+  // // Otherwise treat empty as unavailable.
+  // return dbState[series].state === 'ok' ? 'ok' : 'unavailable';
 }
 
 // Fallback words database to use if we can't read the IndexedDB one (e.g.
