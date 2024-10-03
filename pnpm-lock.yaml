@@ -32,6 +32,9 @@ importers:
       lru_map:
         specifier: 0.4.1
         version: 0.4.1
+      pinyin-converter:
+        specifier: github:quizlet/pinyin-converter
+        version: https://codeload.github.com/quizlet/pinyin-converter/tar.gz/e9a4fe774142d8bdcf37c6e13fe69ccab93562fb
       preact:
         specifier: 10.24.0
         version: 10.24.0
@@ -4449,6 +4452,10 @@ packages:
   pino@9.4.0:
     resolution: {integrity: sha512-nbkQb5+9YPhQRz/BeQmrWpEknAaqjpAqRK8NwJpmrX/JHu7JuZC5G1CeAwJDJfGes4h+YihC6in3Q2nGb+Y09w==}
     hasBin: true
+
+  pinyin-converter@https://codeload.github.com/quizlet/pinyin-converter/tar.gz/e9a4fe774142d8bdcf37c6e13fe69ccab93562fb:
+    resolution: {tarball: https://codeload.github.com/quizlet/pinyin-converter/tar.gz/e9a4fe774142d8bdcf37c6e13fe69ccab93562fb}
+    version: 0.0.2
 
   pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
@@ -10628,6 +10635,8 @@ snapshots:
       safe-stable-stringify: 2.5.0
       sonic-boom: 4.1.0
       thread-stream: 3.1.0
+
+  pinyin-converter@https://codeload.github.com/quizlet/pinyin-converter/tar.gz/e9a4fe774142d8bdcf37c6e13fe69ccab93562fb: {}
 
   pirates@4.0.6: {}
 

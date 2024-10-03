@@ -6,6 +6,7 @@ import {
   groupSenses,
 } from '@birchill/jpdict-idb';
 import { countMora, moraSubstring } from '@birchill/normal-jp';
+import PinyinConverter from 'pinyin-converter';
 import browser from 'webextension-polyfill';
 
 import { Sense, WordResult } from '../../background/search-result';
@@ -266,46 +267,50 @@ export function renderWordEntries({
             !r.i?.includes('sk')))
     );
 
-    if (matchingKana.length) {
-      const kanaSpan = html('span', { class: 'w-kana', lang: 'ja' });
-      for (const [i, kana] of matchingKana.entries()) {
-        if (i) {
-          kanaSpan.append(html('span', { class: 'separator' }, '、'));
-        }
+    // if (matchingKana.length) {
+    //   const kanaSpan = html('span', { class: 'w-kana', lang: 'ja' });
+    //   for (const [i, kana] of matchingKana.entries()) {
+    //     if (i) {
+    //       kanaSpan.append(html('span', { class: 'separator' }, '、'));
+    //     }
 
-        // Dim irrelevant headwords
-        let headwordSpan = kanaSpan;
-        if (
-          // If we looked up by kanji, dim any kana headwords that are
-          // irregular, old, or rare.
-          !matchedOnKana &&
-          (kana.i?.includes('ik') ||
-            kana.i?.includes('ok') ||
-            kana.i?.includes('rk'))
-        ) {
-          const dimmedSpan = html('span', { class: 'dimmed' });
-          kanaSpan.append(dimmedSpan);
-          headwordSpan = dimmedSpan;
-        }
+    //     // Dim irrelevant headwords
+    //     let headwordSpan = kanaSpan;
+    //     if (
+    //       // If we looked up by kanji, dim any kana headwords that are
+    //       // irregular, old, or rare.
+    //       !matchedOnKana &&
+    //       (kana.i?.includes('ik') ||
+    //         kana.i?.includes('ok') ||
+    //         kana.i?.includes('rk'))
+    //     ) {
+    //       const dimmedSpan = html('span', { class: 'dimmed' });
+    //       kanaSpan.append(dimmedSpan);
+    //       headwordSpan = dimmedSpan;
+    //     }
 
-        headwordSpan.append(renderKana(kana, options));
-        appendHeadwordInfo(kana.i, headwordSpan);
-        if (options.showPriority) {
-          appendPriorityMark(kana.p, headwordSpan);
-        }
-        if (options.bunproDisplay && kana.bv) {
-          appendBunproTag(kana.bv, 'vocab', headwordSpan);
-        }
-        if (options.bunproDisplay && kana.bg) {
-          appendBunproTag(kana.bg, 'grammar', headwordSpan);
-        }
-      }
-      headingDiv.append(kanaSpan);
-    }
+    //     headwordSpan.append(renderKana(kana, options));
+    //     appendHeadwordInfo(kana.i, headwordSpan);
+    //     if (options.showPriority) {
+    //       appendPriorityMark(kana.p, headwordSpan);
+    //     }
+    //     if (options.bunproDisplay && kana.bv) {
+    //       appendBunproTag(kana.bv, 'vocab', headwordSpan);
+    //     }
+    //     if (options.bunproDisplay && kana.bg) {
+    //       appendBunproTag(kana.bg, 'grammar', headwordSpan);
+    //     }
+    //   }
+    //   headingDiv.append(kanaSpan);
+    // }
 
     if (entry.romaji?.length) {
       headingDiv.append(
-        html('span', { class: 'w-romaji', lang: 'ja' }, entry.romaji.join(', '))
+        html(
+          'span',
+          { class: 'w-romaji', lang: 'ja' },
+          convert_to_toned_pinyin(entry.romaji[0])
+        )
       );
     }
 
@@ -338,6 +343,12 @@ export function renderWordEntries({
   }
 
   return container;
+}
+
+function convert_to_toned_pinyin(text: string): string {
+  // in cases like xx5 and r5, PinyinConverter does not delete digit 5 so we manually delete them
+  text = text.replace(/u:/g, 'v').replace(/xx5/g, '??5').replace(/5/g, '');
+  return PinyinConverter.convert(text);
 }
 
 function renderNamePreview(
