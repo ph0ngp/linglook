@@ -127,16 +127,17 @@ export function getTextAtPoint({
     }
   }
 
-  // Otherwise just pull whatever text we can off the element
-  const elem = elements[0];
-  if (elem) {
-    const text = getTextFromRandomElement({ elem, matchImages, matchText });
-    if (text) {
-      const result = { text, textRange: null };
-      previousResult = { point, position: undefined, result };
-      return result;
-    }
-  }
+  // CY: here we disable image searching, title searching, and other random element searching
+  // // Otherwise just pull whatever text we can off the element
+  // const elem = elements[0];
+  // if (elem) {
+  //   const text = getTextFromRandomElement({ elem, matchImages, matchText });
+  //   if (text) {
+  //     const result = { text, textRange: null };
+  //     previousResult = { point, position: undefined, result };
+  //     return result;
+  //   }
+  // }
 
   // We haven't found anything, but if the cursor hasn't moved far we should
   // just re-use the last result so the user doesn't have try to keep the
