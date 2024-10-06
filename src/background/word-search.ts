@@ -47,7 +47,7 @@ export async function wordSearch({
     more: false,
     matchLen: 0,
   };
-  let includeVariants = true;
+  let includeVariants = false;
 
   while (input.length) {
     // Check if we have been aborted

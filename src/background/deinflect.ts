@@ -411,7 +411,7 @@ export interface CandidateWord {
 
 // Returns an array of possible de-inflected versions of |word|.
 export function deinflect(word: string): CandidateWord[] {
-  let result: Array<CandidateWord> = [];
+  const result: Array<CandidateWord> = [];
   const resultIndex: { [index: string]: number } = {};
   const ruleGroups = getDeinflectRuleGroups();
 
@@ -423,166 +423,167 @@ export function deinflect(word: string): CandidateWord[] {
     reasonChains: [],
   };
   result.push(original);
-  resultIndex[word] = 0;
-
-  let i = 0;
-  do {
-    const thisCandidate = result[i];
-
-    // Don't deinflect masu-stem results of Ichidan verbs any further since
-    // they should already be the plain form.
-    //
-    // Without this we would take something like 食べて, try deinflecting it as
-    // a masu stem into 食べてる and then try de-inflecting it as a continuous
-    // form. However, we should just stop immediately after de-inflecting to
-    // the plain form.
-    if (
-      thisCandidate.type & Type.IchidanVerb &&
-      thisCandidate.reasonChains.length === 1 &&
-      thisCandidate.reasonChains[0].length === 1 &&
-      thisCandidate.reasonChains[0][0] === Reason.MasuStem
-    ) {
-      continue;
-    }
-
-    const word = thisCandidate.word;
-    const type = thisCandidate.type;
-
-    // Ichidan verbs have only one stem, which is the plain form minus the
-    // final る. Since the stem is shorter than the plain form, to avoid
-    // adding multiple entries for all possible stem variations to the rule
-    // data array, we forward the stem to the plain form programmatically.
-    if (type & (Type.MasuStem | Type.TaTeStem | Type.IrrealisStem)) {
-      const reason = [];
-
-      // Add the "masu" reason only if the word is solely the masu stem.
-      if (type & Type.MasuStem && !thisCandidate.reasonChains.length) {
-        reason.push([Reason.MasuStem]);
-      }
-
-      // Ichidan verbs attach the auxiliary verbs られる and させる instead of
-      // れる and せる for the passive and causative forms to their stem. Since
-      // られる and させる exist as separate rules that bypass the irrealis stem
-      // type, we ignore the the rules with a to-type of IrrealisStem for the
-      // passive and causative, i.e. the rules for れる and せる.
-      // Similarly, we need to ignore the rule for the causative passive, as
-      // the contraction of せられる to される is incorrect for Ichidan verbs.
-      const inapplicableForm =
-        type & Type.IrrealisStem &&
-        (thisCandidate.reasonChains[0][0] == Reason.Passive ||
-          thisCandidate.reasonChains[0][0] == Reason.Causative ||
-          thisCandidate.reasonChains[0][0] == Reason.CausativePassive);
-
-      if (!inapplicableForm) {
-        result.push({
-          word: word + 'る',
-          type: Type.IchidanVerb | Type.KuruVerb,
-          reasonChains: [...thisCandidate.reasonChains, ...reason],
-        });
-      }
-    }
-
-    for (const ruleGroup of ruleGroups) {
-      if (ruleGroup.fromLen > word.length) {
-        continue;
-      }
-
-      const ending = word.slice(-ruleGroup.fromLen);
-      const hiraganaEnding = kanaToHiragana(ending);
-
-      for (const rule of ruleGroup.rules) {
-        if (!(type & rule.fromType)) {
-          continue;
-        }
-
-        if (ending !== rule.from && hiraganaEnding !== rule.from) {
-          continue;
-        }
-
-        const newWord =
-          word.substring(0, word.length - rule.from.length) + rule.to;
-        if (!newWord.length) {
-          continue;
-        }
-
-        // If we already have a candidate for this word with the same
-        // 'to' type(s), expand the possible reasons by starting a new
-        // reason chain.
-        //
-        // We do not want to start a new reason chain with a pure forwarding
-        // rule, represented by an empty reasons array, as it cannot stand on
-        // its own and needs a preceding rule to make sense.
-        //
-        // If the 'to' type(s) differ, then we'll add a separate candidate
-        // and just hope that when we go to match against dictionary words
-        // we'll filter out the mismatching one(s).
-        if (resultIndex[newWord]) {
-          const candidate = result[resultIndex[newWord]];
-          if (candidate.type === rule.toType) {
-            if (rule.reasons.length) {
-              // Start a new reason chain
-              candidate.reasonChains.unshift([...rule.reasons]);
-            }
-            continue;
-          }
-        }
-        resultIndex[newWord] = result.length;
-
-        //
-        // Start a new candidate
-        //
-
-        // Deep clone multidimensional array
-        const reasonChains = [];
-        for (const array of thisCandidate.reasonChains) {
-          reasonChains.push([...array]);
-        }
-
-        // We only need to add something to the reason chain if the rule is
-        // not a pure forwarding rule, i.e. the reasons array is not empty.
-        if (rule.reasons.length) {
-          // Add our new reason in
-          //
-          // If we already have reason chains, prepend to the first chain
-          if (reasonChains.length) {
-            const firstReasonChain = reasonChains[0];
-
-            // Rather having causative + passive, combine the two rules into
-            // "causative passive":
-            if (
-              rule.reasons[0] === Reason.Causative &&
-              firstReasonChain.length &&
-              firstReasonChain[0] === Reason.PotentialOrPassive
-            ) {
-              firstReasonChain.splice(0, 1, Reason.CausativePassive);
-            } else if (
-              // Add the "masu" reason only if the word is solely the masu stem.
-              rule.reasons[0] === Reason.MasuStem &&
-              firstReasonChain.length
-            ) {
-              // Do nothing
-            } else {
-              firstReasonChain.unshift(...rule.reasons);
-            }
-          } else {
-            // Add new reason to the start of the chain
-            reasonChains.push([...rule.reasons]);
-          }
-        }
-
-        const candidate: CandidateWord = {
-          reasonChains,
-          type: rule.toType,
-          word: newWord,
-        };
-
-        result.push(candidate);
-      }
-    }
-  } while (++i < result.length);
-
-  // Post-process to filter out any lingering intermediate forms
-  result = result.filter((r) => r.type & Type.All);
-
   return result;
+  // resultIndex[word] = 0;
+
+  // let i = 0;
+  // do {
+  //   const thisCandidate = result[i];
+
+  //   // Don't deinflect masu-stem results of Ichidan verbs any further since
+  //   // they should already be the plain form.
+  //   //
+  //   // Without this we would take something like 食べて, try deinflecting it as
+  //   // a masu stem into 食べてる and then try de-inflecting it as a continuous
+  //   // form. However, we should just stop immediately after de-inflecting to
+  //   // the plain form.
+  //   if (
+  //     thisCandidate.type & Type.IchidanVerb &&
+  //     thisCandidate.reasonChains.length === 1 &&
+  //     thisCandidate.reasonChains[0].length === 1 &&
+  //     thisCandidate.reasonChains[0][0] === Reason.MasuStem
+  //   ) {
+  //     continue;
+  //   }
+
+  //   const word = thisCandidate.word;
+  //   const type = thisCandidate.type;
+
+  //   // Ichidan verbs have only one stem, which is the plain form minus the
+  //   // final る. Since the stem is shorter than the plain form, to avoid
+  //   // adding multiple entries for all possible stem variations to the rule
+  //   // data array, we forward the stem to the plain form programmatically.
+  //   if (type & (Type.MasuStem | Type.TaTeStem | Type.IrrealisStem)) {
+  //     const reason = [];
+
+  //     // Add the "masu" reason only if the word is solely the masu stem.
+  //     if (type & Type.MasuStem && !thisCandidate.reasonChains.length) {
+  //       reason.push([Reason.MasuStem]);
+  //     }
+
+  //     // Ichidan verbs attach the auxiliary verbs られる and させる instead of
+  //     // れる and せる for the passive and causative forms to their stem. Since
+  //     // られる and させる exist as separate rules that bypass the irrealis stem
+  //     // type, we ignore the the rules with a to-type of IrrealisStem for the
+  //     // passive and causative, i.e. the rules for れる and せる.
+  //     // Similarly, we need to ignore the rule for the causative passive, as
+  //     // the contraction of せられる to される is incorrect for Ichidan verbs.
+  //     const inapplicableForm =
+  //       type & Type.IrrealisStem &&
+  //       (thisCandidate.reasonChains[0][0] == Reason.Passive ||
+  //         thisCandidate.reasonChains[0][0] == Reason.Causative ||
+  //         thisCandidate.reasonChains[0][0] == Reason.CausativePassive);
+
+  //     if (!inapplicableForm) {
+  //       result.push({
+  //         word: word + 'る',
+  //         type: Type.IchidanVerb | Type.KuruVerb,
+  //         reasonChains: [...thisCandidate.reasonChains, ...reason],
+  //       });
+  //     }
+  //   }
+
+  //   for (const ruleGroup of ruleGroups) {
+  //     if (ruleGroup.fromLen > word.length) {
+  //       continue;
+  //     }
+
+  //     const ending = word.slice(-ruleGroup.fromLen);
+  //     const hiraganaEnding = kanaToHiragana(ending);
+
+  //     for (const rule of ruleGroup.rules) {
+  //       if (!(type & rule.fromType)) {
+  //         continue;
+  //       }
+
+  //       if (ending !== rule.from && hiraganaEnding !== rule.from) {
+  //         continue;
+  //       }
+
+  //       const newWord =
+  //         word.substring(0, word.length - rule.from.length) + rule.to;
+  //       if (!newWord.length) {
+  //         continue;
+  //       }
+
+  //       // If we already have a candidate for this word with the same
+  //       // 'to' type(s), expand the possible reasons by starting a new
+  //       // reason chain.
+  //       //
+  //       // We do not want to start a new reason chain with a pure forwarding
+  //       // rule, represented by an empty reasons array, as it cannot stand on
+  //       // its own and needs a preceding rule to make sense.
+  //       //
+  //       // If the 'to' type(s) differ, then we'll add a separate candidate
+  //       // and just hope that when we go to match against dictionary words
+  //       // we'll filter out the mismatching one(s).
+  //       if (resultIndex[newWord]) {
+  //         const candidate = result[resultIndex[newWord]];
+  //         if (candidate.type === rule.toType) {
+  //           if (rule.reasons.length) {
+  //             // Start a new reason chain
+  //             candidate.reasonChains.unshift([...rule.reasons]);
+  //           }
+  //           continue;
+  //         }
+  //       }
+  //       resultIndex[newWord] = result.length;
+
+  //       //
+  //       // Start a new candidate
+  //       //
+
+  //       // Deep clone multidimensional array
+  //       const reasonChains = [];
+  //       for (const array of thisCandidate.reasonChains) {
+  //         reasonChains.push([...array]);
+  //       }
+
+  //       // We only need to add something to the reason chain if the rule is
+  //       // not a pure forwarding rule, i.e. the reasons array is not empty.
+  //       if (rule.reasons.length) {
+  //         // Add our new reason in
+  //         //
+  //         // If we already have reason chains, prepend to the first chain
+  //         if (reasonChains.length) {
+  //           const firstReasonChain = reasonChains[0];
+
+  //           // Rather having causative + passive, combine the two rules into
+  //           // "causative passive":
+  //           if (
+  //             rule.reasons[0] === Reason.Causative &&
+  //             firstReasonChain.length &&
+  //             firstReasonChain[0] === Reason.PotentialOrPassive
+  //           ) {
+  //             firstReasonChain.splice(0, 1, Reason.CausativePassive);
+  //           } else if (
+  //             // Add the "masu" reason only if the word is solely the masu stem.
+  //             rule.reasons[0] === Reason.MasuStem &&
+  //             firstReasonChain.length
+  //           ) {
+  //             // Do nothing
+  //           } else {
+  //             firstReasonChain.unshift(...rule.reasons);
+  //           }
+  //         } else {
+  //           // Add new reason to the start of the chain
+  //           reasonChains.push([...rule.reasons]);
+  //         }
+  //       }
+
+  //       const candidate: CandidateWord = {
+  //         reasonChains,
+  //         type: rule.toType,
+  //         word: newWord,
+  //       };
+
+  //       result.push(candidate);
+  //     }
+  //   }
+  // } while (++i < result.length);
+
+  // // Post-process to filter out any lingering intermediate forms
+  // result = result.filter((r) => r.type & Type.All);
+
+  // return result;
 }
