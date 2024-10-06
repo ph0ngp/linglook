@@ -231,9 +231,10 @@ class FlatFileDatabase {
     let maxLen = 0;
 
     if (!this.cache.has(input)) {
-      const found = findNeedle(input + '_', this.cedictWordIndex);
+      const separatorChar = ' ';
+      const found = findNeedle(input + separatorChar, this.cedictWordIndex);
       if (found) {
-        const parts = found.split('_').slice(1);
+        const parts = found.split(separatorChar).slice(1);
         this.cache.set(input, {
           cedict_id: parts[0].split(','),
           ids_id: parts.length > 1 ? parts[1] : null,
