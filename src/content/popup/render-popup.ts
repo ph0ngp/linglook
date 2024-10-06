@@ -244,15 +244,17 @@ export function renderPopup(
     windowElem.append(contentWrapper);
   }
 
-  // Collapse expandable containers
-  for (const expandable of contentContainer.querySelectorAll<HTMLElement>(
-    '.expandable'
-  )) {
-    updateExpandable(expandable, {
-      ...options,
-      showKeyboardShortcut: options.displayMode === 'static',
-    });
-  }
+  // CY: any downsides when disabling collapse?
+  // // Collapse expandable containers
+  // for (const expandable of contentContainer.querySelectorAll<HTMLElement>(
+  //   '.expandable'
+  // )) {
+  //   updateExpandable(expandable, {
+  //     ...options,
+  //     showKeyboardShortcut: options.displayMode === 'static',
+  //   });
+  //   console.log('renderPopup options', options);
+  // }
 
   // Scroll any selected items into view.
   //
