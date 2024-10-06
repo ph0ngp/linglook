@@ -13,6 +13,7 @@ import { kanaToHiragana } from '@birchill/normal-jp';
 import { LRUMap } from 'lru_map';
 import browser from 'webextension-polyfill';
 
+import { hskData } from '../content/hsk';
 import { stripFields } from '../utils/strip-fields';
 import { Overwrite } from '../utils/type-helpers';
 
@@ -288,6 +289,13 @@ class FlatFileDatabase {
     for (let i = 0; i < matchedEntries.length; i++) {
       const rawWordRecord: RawWordRecord = {
         k: [matchedEntries[i][5], matchedEntries[i][4]],
+        km: Object.prototype.hasOwnProperty.call(hskData, matchedEntries[i][5])
+          ? [
+              {
+                p: ['wk' + hskData[matchedEntries[i][5]]],
+              },
+            ]
+          : undefined,
         r: [matchedEntries[i][1]],
         s: [
           {

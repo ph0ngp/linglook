@@ -205,6 +205,7 @@ export function renderWordEntries({
     // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));
     if (matchingKanji.length) {
       const kanjiSpan = html('span', { class: 'w-kanji', lang: 'ja' });
+      let wkElement = null;
       for (const [i, kanji] of matchingKanji.entries()) {
         if (i) {
           // TODOP: use css?
@@ -244,7 +245,7 @@ export function renderWordEntries({
           appendPriorityMark(kanji.p, headwordSpan);
         }
         if (options.waniKaniVocabDisplay !== 'hide' && kanji.wk) {
-          appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
+          wkElement = appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
         }
         if (options.bunproDisplay && kanji.bv) {
           appendBunproTag(kanji.bv, 'vocab', headwordSpan);
@@ -252,6 +253,19 @@ export function renderWordEntries({
         if (options.bunproDisplay && kanji.bg) {
           appendBunproTag(kanji.bg, 'grammar', headwordSpan);
         }
+      }
+      if (wkElement) {
+        kanjiSpan.append(
+          html(
+            'span',
+            {
+              class: 'separator',
+              style: 'display: inline-block; width: 0.5em;',
+            },
+            ' '
+          )
+        );
+        kanjiSpan.append(wkElement);
       }
       headingDiv.append(kanjiSpan);
     }
@@ -498,19 +512,11 @@ function appendWaniKaniLevelTag(
   level: number,
   ent: string,
   parent: ParentNode
-) {
-  parent.append(
-    html(
-      'a',
-      {
-        class: 'wk-level',
-        href: `https://wanikani.com/vocabulary/${encodeURIComponent(ent)}`,
-        target: '_blank',
-        rel: 'noreferrer',
-        title: browser.i18n.getMessage('content_wk_link_title', ent),
-      },
-      html('span', {}, String(level))
-    )
+): Element {
+  return html(
+    'span',
+    { class: 'wk-level' },
+    String(level === 7 ? '7-9' : level)
   );
 }
 

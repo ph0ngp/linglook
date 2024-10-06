@@ -690,14 +690,14 @@
     text-decoration: none;
   }
 
-  .container.interactive .w-kanji .wk-level,
+  /* .container.interactive .w-kanji .wk-level,
   .container.interactive .w-kanji .wk-level::before {
     text-decoration: underline dotted;
-  }
+  } */
 
   .w-kanji .wk-level::before {
     display: inline-block;
-    content: 'WK';
+    content: 'HSK';
     margin-right: 0.2em;
   }
 

@@ -1242,10 +1242,10 @@ export class Config {
     }
   }
 
-  // waniKaniVocabDisplay: Defaults to 'hide'
+  // waniKaniVocabDisplay: Defaults to 'show-matches'
 
   get waniKaniVocabDisplay(): 'hide' | 'show-matches' {
-    return this.settings.waniKaniVocabDisplay || 'hide';
+    return this.settings.waniKaniVocabDisplay || 'show-matches';
   }
 
   set waniKaniVocabDisplay(value: 'hide' | 'show-matches') {
