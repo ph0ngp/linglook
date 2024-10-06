@@ -1,16 +1,8 @@
+/* TODOP: kaiti, traditional font? */
 @font-face {
-  font-family: '10ten Inter';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal italic;
-  font-named-instance: 'Regular';
-  src: url('/fonts/Inter-4.0.woff2') format(woff2);
-}
-
-@font-face {
-  font-family: '10ten Noto Sans JP';
+  font-family: 'Noto Sans SC';
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
-  src: url('/fonts/NotoSansJP.woff2') format(woff2);
+  src: url('/fonts/NotoSansSC-VariableFont_wght.woff2') format(woff2);
 }
