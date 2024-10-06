@@ -313,7 +313,8 @@ export function deleteDb() {
 //
 // ---------------------------------------------------------------------------
 
-const WORDS_MAX_ENTRIES = 7;
+// CY: any downsides to setting this really high?
+const WORDS_MAX_ENTRIES = 100;
 
 export async function searchWords({
   input,
