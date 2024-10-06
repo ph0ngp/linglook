@@ -1,6 +1,6 @@
 {
   "name": "wenzi",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Translate Chinese by hovering over words.",
   "keywords": [
     "chinese",
@@ -65,15 +65,16 @@
     "@birchill/jpdict-idb": "2.6.0",
     "@birchill/normal-jp": "1.5.0",
     "classname-variants": "1.5.0",
+    "hanviet-pinyin-words": "^2.1.0",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "lru_map": "0.4.1",
+    "pinyin-converter": "github:quizlet/pinyin-converter",
     "preact": "10.24.0",
     "superstruct": "2.0.2",
     "typescript": "5.6.2",
     "web-ext": "8.3.0",
-    "webextension-polyfill": "0.12.0",
-    "pinyin-converter": "github:quizlet/pinyin-converter"
+    "webextension-polyfill": "0.12.0"
   },
   "devDependencies": {
     "@actions/core": "1.10.1",

@@ -6,6 +6,7 @@ import {
   groupSenses,
 } from '@birchill/jpdict-idb';
 import { countMora, moraSubstring } from '@birchill/normal-jp';
+import { getHanviet } from 'hanviet-pinyin-words';
 import PinyinConverter from 'pinyin-converter';
 import browser from 'webextension-polyfill';
 
@@ -188,17 +189,35 @@ export function renderWordEntries({
     // 截断、切断  さいだん
     //
     // which would be misleading since 切断 can never have that reading.
-    const matchingKanji = matchedOnKana
+    let matchingKanji = matchedOnKana
       ? kanjiHeadwords.filter((k) => k.match)
       : kanjiHeadwords;
 
+    // Remove duplicates based on 'ent' value while preserving order
+    // (if there is no separate simplified and traditional char, display only 1 form)
+    matchingKanji = matchingKanji.filter(
+      (kanji, index, self) =>
+        index === self.findIndex((t) => t.ent === kanji.ent)
+    );
+
     // Sort matched kanji entries first
-    matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));
+    // disable sort because we want to keep the order of them: simplified, traditional
+    // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));
     if (matchingKanji.length) {
       const kanjiSpan = html('span', { class: 'w-kanji', lang: 'ja' });
       for (const [i, kanji] of matchingKanji.entries()) {
         if (i) {
-          kanjiSpan.append(html('span', { class: 'separator' }, '、'));
+          // TODOP: use css?
+          kanjiSpan.append(
+            html(
+              'span',
+              {
+                class: 'separator',
+                style: 'display: inline-block; width: 0.5em;',
+              },
+              ' '
+            )
+          );
         }
 
         let headwordSpan = kanjiSpan;
@@ -305,6 +324,7 @@ export function renderWordEntries({
     // }
 
     if (entry.romaji?.length) {
+      const pinyin_words = entry.romaji[0].split(/\s+/);
       headingDiv.append(
         html(
           'span',
@@ -312,6 +332,25 @@ export function renderWordEntries({
           convert_to_toned_pinyin(entry.romaji[0])
         )
       );
+      if (entry.k[1].ent.length === pinyin_words.length) {
+        headingDiv.append(
+          html(
+            'span',
+            {
+              class: 'separator',
+              style: 'display: inline-block; width: 0.5em;',
+            },
+            ' '
+          )
+        );
+        headingDiv.append(
+          html(
+            'span',
+            { class: 'w-romaji', style: 'color: orange;', lang: 'ja' }, //TODOP: light mode color
+            getHanviet(entry.k[1].ent, pinyin_words)
+          )
+        );
+      }
     }
 
     if (entry.reason) {

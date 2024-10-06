@@ -23,6 +23,9 @@ importers:
       classname-variants:
         specifier: 1.5.0
         version: 1.5.0
+      hanviet-pinyin-words:
+        specifier: ^2.1.0
+        version: 2.1.0
       husky:
         specifier: 9.1.6
         version: 9.1.6
@@ -3095,6 +3098,9 @@ packages:
 
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
+
+  hanviet-pinyin-words@2.1.0:
+    resolution: {integrity: sha512-LrFANqig3zDdcMaeIVQ23o5r/LfdKRtB+yjdzFjJsXqvidsy09JvKEtLiAoIm20ZFSieXZaPrUnKUd3KaHoyiw==}
 
   hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
@@ -9293,6 +9299,8 @@ snapshots:
       duplexer: 0.1.2
 
   handle-thing@2.0.1: {}
+
+  hanviet-pinyin-words@2.1.0: {}
 
   hard-rejection@2.1.0: {}
 

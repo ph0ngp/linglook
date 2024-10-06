@@ -4,3 +4,7 @@ declare module 'pinyin-converter' {
   };
   export default PinyinConverter;
 }
+
+declare module 'hanviet-pinyin-words' {
+  export function getHanviet(tradHanzi: string, pinyinArray: string[]): string;
+}

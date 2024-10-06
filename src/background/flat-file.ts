@@ -225,10 +225,9 @@ class FlatFileDatabase {
     maxResults: number;
   }): Promise<Array<DictionaryWordResult>> {
     await this.loaded;
-    const matchedEntries: {
-      data: Array<[string, string, string | null, number]>;
-      matchLen?: number;
-    } = { data: [] };
+    const matchedEntries: Array<
+      [string, string, string | null, number, string, string]
+    > = [];
     let maxLen = 0;
 
     if (!this.cache.has(input)) {
@@ -246,6 +245,7 @@ class FlatFileDatabase {
 
     const word_data = this.cache.get(input);
     if (word_data) {
+      // if this input is found in cedict
       const cedict_indices = word_data.cedict_id;
       const idsEntry: string | null =
         word_data.ids_id !== null
@@ -266,11 +266,13 @@ class FlatFileDatabase {
           // This definition's format is wrong
           continue;
         }
-        matchedEntries.data.push([
-          entry[4].replace(/\//g, '; '),
-          entry[3].trim(),
+        matchedEntries.push([
+          entry[4].replace(/\//g, '; '), // def
+          entry[3].trim(), //pinyin
           idsEntry,
-          cedict_indices[i],
+          cedict_indices[i], //index offset
+          entry[1], //traditional
+          entry[2], //simplified
         ]);
         maxLen = maxLen || input.length;
       }
@@ -278,17 +280,17 @@ class FlatFileDatabase {
 
     const result: Array<DictionaryWordResult> = [];
 
-    if (!matchedEntries.data.length) {return result;}
+    if (!matchedEntries.length) {
+      return result;
+    }
 
-    matchedEntries.matchLen = maxLen;
-
-    for (let i = 0; i < matchedEntries.data.length; i++) {
+    for (let i = 0; i < matchedEntries.length; i++) {
       const rawWordRecord: RawWordRecord = {
-        k: [input],
-        r: [matchedEntries.data[i][1]],
+        k: [matchedEntries[i][5], matchedEntries[i][4]],
+        r: [matchedEntries[i][1]],
         s: [
           {
-            g: [matchedEntries.data[i][0]],
+            g: [matchedEntries[i][0]],
           },
         ],
       };
@@ -296,7 +298,7 @@ class FlatFileDatabase {
         toDictionaryWordResult({
           entry: rawWordRecord,
           matchingText: input,
-          offset: matchedEntries.data[i][3],
+          offset: matchedEntries[i][3],
         })
       );
     }
