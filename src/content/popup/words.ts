@@ -859,7 +859,39 @@ function appendGlosses(glosses: Array<Gloss>, parent: ParentNode) {
       }
     }
 
-    parent.append(gloss.str);
+    const pinyin_in_definition_regex =
+      /\[(([a-zA-Z:]+[1-5]*\s*)*?([a-zA-Z:]+[1-5]*))\]/;
+    let newEnDef = gloss.str;
+    let pinyin_match = newEnDef.match(pinyin_in_definition_regex);
+
+    // loop until there is no [pinyin with tone inside square brackets]
+    let start_searching_index = 0;
+    // console.log('endef', enDef)
+    while (pinyin_match) {
+      // console.log('start index', start_searching_index)
+      // console.log('pinyin match', pinyin_match)
+      const processed_match = pinyin_match[1];
+      // make the english definition from our data dictionary to have proper pinyin
+      // CY: typescript compiler bug: pinyin_match.index is always defined but the type definition says it might be undefined, that's why we need to use !
+      const before_part = newEnDef.substring(
+        0,
+        start_searching_index + pinyin_match.index! + 1
+      );
+      const converted_part = convert_to_toned_pinyin(processed_match);
+      // console.log('processed_match, converted_part', processed_match, converted_part)
+      const after_part = newEnDef.substring(
+        start_searching_index + pinyin_match.index! + 1 + pinyin_match[1].length
+      );
+      newEnDef = before_part + converted_part + after_part;
+      // console.log('before', before_part.slice(-10))
+      // console.log('after', after_part)
+      start_searching_index = before_part.length + converted_part.length;
+      // search again to find out if the remaning definition has any pinyin tone mark
+      pinyin_match = after_part.match(pinyin_in_definition_regex);
+    }
+
+    // console.log('newEnDef', newEnDef)
+    parent.append(newEnDef);
     if (gloss.type === 'tm') {
       parent.append('™');
     }
