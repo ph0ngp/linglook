@@ -164,6 +164,7 @@
       "css/popup-fonts.css",
       "css/selection.css",
       "docs/introducing-the-mouse.html",
+      "data/hanzi-writer-data/*.json",
       "fonts/*.woff2"
     ],
     "matches": [ "<all_urls>" ]
@@ -173,6 +174,7 @@
     "css/popup-fonts.css",
     "css/selection.css",
     "docs/introducing-the-mouse.html",
+    "data/hanzi-writer-data/*.json",
     "fonts/*.woff2"
   ],
   /*#endif*/

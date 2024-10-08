@@ -26,6 +26,9 @@ importers:
       hanviet-pinyin-words:
         specifier: ^2.1.0
         version: 2.1.0
+      hanzi-writer:
+        specifier: ^3.7.1
+        version: 3.7.1
       husky:
         specifier: 9.1.6
         version: 9.1.6
@@ -3101,6 +3104,9 @@ packages:
 
   hanviet-pinyin-words@2.1.0:
     resolution: {integrity: sha512-LrFANqig3zDdcMaeIVQ23o5r/LfdKRtB+yjdzFjJsXqvidsy09JvKEtLiAoIm20ZFSieXZaPrUnKUd3KaHoyiw==}
+
+  hanzi-writer@3.7.1:
+    resolution: {integrity: sha512-YECugdbARwXfqFqqm/Xmq39ZsjI1zTLBXvpI1h23XoS5sak+5JbXPZYb72zWaLKXzWcP9vClXbUw91tnvvCFxA==}
 
   hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
@@ -9301,6 +9307,8 @@ snapshots:
   handle-thing@2.0.1: {}
 
   hanviet-pinyin-words@2.1.0: {}
+
+  hanzi-writer@3.7.1: {}
 
   hard-rejection@2.1.0: {}
 

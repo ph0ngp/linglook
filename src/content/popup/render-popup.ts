@@ -1,4 +1,7 @@
 /// <reference path="../../common/css.d.ts" />
+import { WordResult } from '@birchill/jpdict-idb';
+
+import { KanjiSearchResult } from '../../background/search-result';
 import type { FontFace, FontSize } from '../../common/content-config-params';
 import { html } from '../../utils/builder';
 import { Point } from '../../utils/geometry';
@@ -52,11 +55,36 @@ export function renderPopup(
   const contentContainer = html('div', { class: 'content' });
 
   const hasResult = result && (result.words || result.kanji || result.names);
-  const showTabs =
+  let showTabs =
     hasResult &&
     result.resultType !== 'db-unavailable' &&
     !result.title &&
     options.tabDisplay !== 'none';
+
+  // TODOP: change this to the return value of background dict, not created here. (because it will be recreated everytime a new tab is rendered)
+  const allCharsToShowStrokes: Array<string> = [];
+  if (hasResult && result.words && result.words.data?.[0]) {
+    const wordResult: WordResult = result.words.data[0];
+    // we only consider the longest (first) match
+    // loop over simplified and traditional forms
+    for (const word of wordResult.k) {
+      if (word.match) {
+        for (const char of word.ent) {
+          allCharsToShowStrokes.push(char);
+        }
+        // there is only one match (simplified or traditional)
+        showTabs = true;
+        result.kanji = {
+          type: 'kanji',
+          data: allCharsToShowStrokes.map((char) => ({
+            c: char,
+          })),
+          matchLen: result.words.matchLen,
+        } as KanjiSearchResult;
+        break;
+      }
+    }
+  }
 
   if (showTabs) {
     const enabledTabs = {
@@ -81,6 +109,7 @@ export function renderPopup(
 
     windowElem.dataset.tabSide = options.tabDisplay || 'top';
 
+    // TODOP: disable swipe horizontally
     onHorizontalSwipe(contentContainer, (direction) => {
       options.onSwitchDictionary?.(direction === 'left' ? 'prev' : 'next');
     });
@@ -380,5 +409,5 @@ export function renderPopupArrow(options: {
     }
   }
 
-  renderArrow({ ...options, popupContainer, target });
+  // renderArrow({ ...options, popupContainer, target });
 }

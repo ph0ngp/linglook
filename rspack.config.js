@@ -419,6 +419,7 @@ function getExtConfig(options) {
     'css/*',
     options.supportsSvgIcons ? 'images/*.svg' : 'images/*',
     'data/*',
+    'data/hanzi-writer-data/*',
     'fonts/*',
     '_locales/**/*',
     // Update page assets

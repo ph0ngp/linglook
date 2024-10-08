@@ -44,7 +44,7 @@ class FlatFileDatabase {
   wordIndex: string;
   cedictWordIndex: string;
   idsDict: string;
-  cache = new Map();
+  cache = new Map(); //TODOP: limit size of cache
 
   constructor(options: FlatFileDatabaseOptions) {
     this.bugsnag = options.bugsnag;

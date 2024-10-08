@@ -346,7 +346,8 @@ export function renderWordEntries({
           convert_to_toned_pinyin(entry.romaji[0])
         )
       );
-      if (entry.k[1].ent.length === pinyin_words.length) {
+      // CY: entry.k.length > 1 is only for the original japanese dict testing. For chinese dict, entry.k.length always = 2
+      if (entry.k.length > 1 && entry.k[1].ent.length === pinyin_words.length) {
         headingDiv.append(
           html(
             'span',
