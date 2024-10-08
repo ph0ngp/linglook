@@ -39,9 +39,9 @@ class FlatFileDatabase {
   listeners: Array<FlatFileDatabaseListener> = [];
   loaded: Promise<any>;
   lookupCache = new LRUMap<string, Array<number>>(500);
-  wordDict: string;
+  // wordDict: string;
   cedictWordDict: string;
-  wordIndex: string;
+  // wordIndex: string;
   cedictWordIndex: string;
   idsDict: string;
   cache = new Map(); //TODOP: limit size of cache
@@ -58,12 +58,12 @@ class FlatFileDatabase {
   private async loadData(): Promise<void> {
     try {
       // Read in series to reduce contention
-      this.wordDict = await this.readFileWithAutoRetry(
-        browser.runtime.getURL('data/words.ljson')
-      );
-      this.wordIndex = await this.readFileWithAutoRetry(
-        browser.runtime.getURL('data/words.idx')
-      );
+      // this.wordDict = await this.readFileWithAutoRetry(
+      //   browser.runtime.getURL('data/words.ljson')
+      // );
+      // this.wordIndex = await this.readFileWithAutoRetry(
+      //   browser.runtime.getURL('data/words.idx')
+      // );
       this.cedictWordDict = await this.readFileWithAutoRetry(
         browser.runtime.getURL('data/cedict.u8')
       );
@@ -174,49 +174,47 @@ class FlatFileDatabase {
   // Searching
   //
 
-  async getWords1({
-    input,
-    maxResults,
-  }: {
-    input: string;
-    maxResults: number;
-  }): Promise<Array<DictionaryWordResult>> {
-    await this.loaded;
+  // async getWords1({
+  //   input,
+  //   maxResults,
+  // }: {
+  //   input: string;
+  //   maxResults: number;
+  // }): Promise<Array<DictionaryWordResult>> {
+  //   await this.loaded;
 
-    let offsets = this.lookupCache.get(input);
-    if (!offsets) {
-      const lookupResult = findLineStartingWith({
-        source: this.wordIndex,
-        text: input + ',',
-      });
-      if (!lookupResult) {
-        this.lookupCache.set(input, []);
-        return [];
-      }
-      offsets = lookupResult.split(',').slice(1).map(Number);
-      this.lookupCache.set(input, offsets);
-    }
+  //   let offsets = this.lookupCache.get(input);
+  //   if (!offsets) {
+  //     const lookupResult = findLineStartingWith({
+  //       source: this.wordIndex,
+  //       text: input + ',',
+  //     });
+  //     if (!lookupResult) {
+  //       this.lookupCache.set(input, []);
+  //       return [];
+  //     }
+  //     offsets = lookupResult.split(',').slice(1).map(Number);
+  //     this.lookupCache.set(input, offsets);
+  //   }
 
-    const result: Array<DictionaryWordResult> = [];
+  //   const result: Array<DictionaryWordResult> = [];
 
-    for (const offset of offsets) {
-      const entry = JSON.parse(
-        this.wordDict.substring(offset, this.wordDict.indexOf('\n', offset))
-      ) as RawWordRecord;
+  //   for (const offset of offsets) {
+  //     const entry = JSON.parse(
+  //       this.wordDict.substring(offset, this.wordDict.indexOf('\n', offset))
+  //     ) as RawWordRecord;
 
-      result.push(
-        toDictionaryWordResult({ entry, matchingText: input, offset })
-      );
-    }
+  //     result.push(
+  //       toDictionaryWordResult({ entry, matchingText: input, offset })
+  //     );
+  //   }
 
-    // Sort before capping the number of results
-    sortWordResults(result);
-    result.splice(maxResults);
+  //   // Sort before capping the number of results
+  //   sortWordResults(result);
+  //   result.splice(maxResults);
 
-    return result;
-  }
-
-  // CY: very important: word must start with chinese otherwise （ ） will cause silent and unexplained and frustrated error: causing background service worker to stop unexpectedly
+  //   return result;
+  // }
 
   async getWords({
     input,
@@ -365,34 +363,34 @@ function findNeedle(needle: string, haystack: string): string | null {
   return null; // If no match is found
 }
 
-// Performs a binary search of a linefeed delimited string, |data|, for |text|.
-function findLineStartingWith({
-  source,
-  text,
-}: {
-  source: string;
-  text: string;
-}): string | null {
-  const tlen = text.length;
-  let start = 0;
-  let end: number = source.length - 1;
+// // Performs a binary search of a linefeed delimited string, |data|, for |text|.
+// function findLineStartingWith({
+//   source,
+//   text,
+// }: {
+//   source: string;
+//   text: string;
+// }): string | null {
+//   const tlen = text.length;
+//   let start = 0;
+//   let end: number = source.length - 1;
 
-  while (start < end) {
-    const midpoint: number = (start + end) >> 1;
-    const i: number = source.lastIndexOf('\n', midpoint) + 1;
+//   while (start < end) {
+//     const midpoint: number = (start + end) >> 1;
+//     const i: number = source.lastIndexOf('\n', midpoint) + 1;
 
-    const candidate: string = source.substring(i, i + tlen);
-    if (text < candidate) {
-      end = i - 1;
-    } else if (text > candidate) {
-      start = source.indexOf('\n', midpoint + 1) + 1;
-    } else {
-      return source.substring(i, source.indexOf('\n', midpoint + 1));
-    }
-  }
+//     const candidate: string = source.substring(i, i + tlen);
+//     if (text < candidate) {
+//       end = i - 1;
+//     } else if (text > candidate) {
+//       start = source.indexOf('\n', midpoint + 1) + 1;
+//     } else {
+//       return source.substring(i, source.indexOf('\n', midpoint + 1));
+//     }
+//   }
 
-  return null;
-}
+//   return null;
+// }
 
 // This type matches the structure of the records in the flat file database
 // (which, incidentally, differ slightly from the data format used by jpdict-idb
