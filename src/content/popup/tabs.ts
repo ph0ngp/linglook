@@ -52,7 +52,7 @@ export function renderTabBar({
   }> = [
     { series: 'words', renderIcon: renderBook },
     { series: 'kanji', renderIcon: renderKanjiIcon },
-    { series: 'names', renderIcon: renderPerson },
+    // { series: 'names', renderIcon: renderPerson },
   ];
   for (const { series, renderIcon } of sections) {
     const li = html('li', { class: 'tab', role: 'presentation' });

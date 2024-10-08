@@ -2671,15 +2671,15 @@
     "message": "white"
   },
   "tabs_kanji_label": {
-    "message": "Kanji",
-    "description": "The label for the kanji dictionary tab"
+    "message": "Strokes",
+    "description": "The label for the strokes tab"
   },
   "tabs_names_label": {
     "message": "Names",
     "description": "The label for the names dictionary tab"
   },
   "tabs_words_label": {
-    "message": "Words",
-    "description": "The label for the words dictionary tab"
+    "message": "Meaning",
+    "description": "The label for the meaning tab"
   }
 }
