@@ -34,17 +34,21 @@ type FlatFileDatabaseEvent =
 
 type FlatFileDatabaseListener = (event: FlatFileDatabaseEvent) => void;
 
+interface CacheEntry {
+  cedict_id: number[];
+  ids_id: number | null;
+}
+
 class FlatFileDatabase {
   bugsnag?: BugsnagClient;
   listeners: Array<FlatFileDatabaseListener> = [];
   loaded: Promise<any>;
-  lookupCache = new LRUMap<string, Array<number>>(500);
+  cache = new LRUMap<string, CacheEntry | null>(500);
   // wordDict: string;
   cedictWordDict: string;
   // wordIndex: string;
   cedictWordIndex: string;
   idsDict: string;
-  cache = new Map(); //TODOP: limit size of cache
 
   constructor(options: FlatFileDatabaseOptions) {
     this.bugsnag = options.bugsnag;
@@ -235,8 +239,8 @@ class FlatFileDatabase {
       if (found) {
         const parts = found.split(separatorChar).slice(1);
         this.cache.set(input, {
-          cedict_id: parts[0].split(','),
-          ids_id: parts.length > 1 ? parts[1] : null,
+          cedict_id: parts[0].split(',').map(Number),
+          ids_id: parts.length > 1 ? Number(parts[1]) : null,
         });
       } else {
         this.cache.set(input, null);
