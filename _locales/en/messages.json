@@ -2679,7 +2679,7 @@
     "description": "The label for the names dictionary tab"
   },
   "tabs_words_label": {
-    "message": "Meaning",
+    "message": "Definitions",
     "description": "The label for the meaning tab"
   }
 }
