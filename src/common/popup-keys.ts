@@ -23,15 +23,15 @@ export const PopupKeys: KeySetting[] = [
   {
     name: 'nextDictionary',
     keys: ['Shift', 'Enter', 'n'],
-    enabledKeys: ['Shift', 'Enter'],
+    enabledKeys: ['Shift'],
     l10nKey: 'options_popup_switch_dictionaries',
   },
-  {
-    name: 'kanjiLookup',
-    keys: ['Shift'],
-    enabledKeys: [],
-    l10nKey: 'options_popup_kanji_lookup',
-  },
+  // {
+  //   name: 'kanjiLookup',
+  //   keys: ['Shift'],
+  //   enabledKeys: [],
+  //   l10nKey: 'options_popup_kanji_lookup',
+  // },
   {
     name: 'toggleDefinition',
     keys: ['d'],
@@ -41,7 +41,7 @@ export const PopupKeys: KeySetting[] = [
   {
     name: 'expandPopup',
     keys: ['x'],
-    enabledKeys: ['x'],
+    enabledKeys: [],
     l10nKey: 'options_popup_expand_popup',
   },
   {
@@ -65,7 +65,7 @@ export const PopupKeys: KeySetting[] = [
   {
     name: 'startCopy',
     keys: ['c'],
-    enabledKeys: ['c'],
+    enabledKeys: [],
     l10nKey: 'options_popup_start_copy',
   },
 ];

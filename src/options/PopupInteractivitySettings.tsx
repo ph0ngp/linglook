@@ -44,24 +44,28 @@ export function PopupInteractivitySettings(props: Props) {
     [props.config]
   );
 
-  return (
-    <>
-      <SectionHeading>
-        {t('options_popup_interactivity_heading')}
-      </SectionHeading>
-      <div class="py-4">
-        <PopupInteractivitySettingsForm
-          enableTapLookup={enableTapLookup}
-          hasMouse={hasMouse}
-          hasTouch={hasTouch}
-          mouseInteractivity={mouseInteractivity}
-          onChangeEnableTapLookup={onChangeEnableTapLookup}
-          onChangeMouseInteractivity={onChangeMouseInteractivity}
-          onChangeTabDisplay={onChangeTabDisplay}
-          tabDisplay={tabDisplay}
-          theme={theme}
-        />
-      </div>
-    </>
-  );
+  if (hasTouch) {
+    return (
+      <>
+        <SectionHeading>
+          {t('options_popup_interactivity_heading')}
+        </SectionHeading>
+        <div class="py-4">
+          <PopupInteractivitySettingsForm
+            enableTapLookup={enableTapLookup}
+            hasMouse={hasMouse}
+            hasTouch={hasTouch}
+            mouseInteractivity={mouseInteractivity}
+            onChangeEnableTapLookup={onChangeEnableTapLookup}
+            onChangeMouseInteractivity={onChangeMouseInteractivity}
+            onChangeTabDisplay={onChangeTabDisplay}
+            tabDisplay={tabDisplay}
+            theme={theme}
+          />
+        </div>
+      </>
+    );
+  } else {
+    return null;
+  }
 }

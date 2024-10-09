@@ -24,7 +24,7 @@ export function PopupInteractivitySettingsForm(props: Props) {
 
   return (
     <div class="flex flex-col gap-4">
-      {props.hasMouse && (
+      {/* {props.hasMouse && (
         <div class="flex flex-col gap-4">
           <p class="m-0">{t('options_mouse_interactivity_label')}</p>
           <MouseInteractivityRadio
@@ -33,7 +33,7 @@ export function PopupInteractivitySettingsForm(props: Props) {
             value={props.mouseInteractivity}
           />
         </div>
-      )}
+      )} */}
       {props.hasTouch && (
         <div class="my-1">
           <CheckboxRow>
@@ -52,14 +52,14 @@ export function PopupInteractivitySettingsForm(props: Props) {
           </CheckboxRow>
         </div>
       )}
-      <div class="flex flex-col gap-4">
+      {/* <div class="flex flex-col gap-4">
         <p class="m-0">{t('options_tab_position_label')}</p>
         <TabDisplayRadio
           onChange={props.onChangeTabDisplay}
           theme={props.theme}
           value={props.tabDisplay}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

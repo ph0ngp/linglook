@@ -30,15 +30,15 @@ export function ShowPopupKeysForm(props: Props) {
           value={props.holdToShowKeys}
           onChange={props.onChangeHoldToShowKeys}
         />
-        <div>
+        {/* <div>
           <svg
             viewBox="0 0 120 90"
             class="w-24 text-zinc-400 dark:text-zinc-300"
           >
             <use href="#text-with-cursor" />
           </svg>
-        </div>
-        <div class="col-span-2">
+        </div> */}
+        {/* <div class="col-span-2">
           {t('options_show_popup_images_subheading')}
         </div>
         <KeyCheckboxes
@@ -53,7 +53,7 @@ export function ShowPopupKeysForm(props: Props) {
           >
             <use href="#image-with-cursor" />
           </svg>
-        </div>
+        </div> */}
       </div>
     </fieldset>
   );

@@ -1219,10 +1219,13 @@ export class Config {
     void browser.storage.local.set({ settings: localSettings });
   }
 
-  // showRomaji: Defaults to false
+  // showRomaji: Defaults to true
 
   get showRomaji(): boolean {
-    return !!this.settings.showRomaji;
+    return (
+      typeof this.settings.showRomaji === 'undefined' ||
+      this.settings.showRomaji
+    );
   }
 
   set showRomaji(value: boolean) {

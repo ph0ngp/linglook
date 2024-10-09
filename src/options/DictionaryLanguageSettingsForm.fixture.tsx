@@ -7,6 +7,7 @@ import './options.css';
 
 export default {
   default: () => {
+    // TODP: support vietnamese add here
     const [dictLang, setDictLang] = useState<DbLanguageId>('en');
 
     return (

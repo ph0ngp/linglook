@@ -57,7 +57,7 @@ export function PopupStyleForm(props: Props) {
           />
           <label for="showPriority">{t('options_show_priority')}</label>
         </CheckboxRow>
-        <CheckboxRow>
+        {/* <CheckboxRow>
           <input
             id="showWaniKaniLevel"
             name="showWaniKaniLevel"
@@ -155,7 +155,7 @@ export function PopupStyleForm(props: Props) {
           <option value="none" selected={props.posDisplay === 'none'}>
             {t('options_pos_display_none')}
           </option>
-        </select>
+        </select> */}
         <label for="fontSize">{t('options_font_size_label')}</label>
         <select
           id="fontSize"
@@ -204,7 +204,7 @@ export function PopupStyleForm(props: Props) {
                 props.onChangeAutoExpand('words', e.currentTarget.checked)
               }
             />
-            <label for="expandWords">{t('options_expand_words_label')}</label>
+            <label for="expandWords">{t('tabs_words_label')}</label>
           </CheckboxRow>
           <CheckboxRow>
             <input
@@ -216,7 +216,7 @@ export function PopupStyleForm(props: Props) {
                 props.onChangeAutoExpand('kanji', e.currentTarget.checked)
               }
             />
-            <label for="expandKanji">{t('options_expand_kanji_label')}</label>
+            <label for="expandKanji">{t('tabs_kanji_label')}</label>
           </CheckboxRow>
         </div>
       </div>

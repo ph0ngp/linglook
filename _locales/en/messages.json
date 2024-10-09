@@ -1935,7 +1935,7 @@
     "description": "Heading for options to configure popup display"
   },
   "options_popup_switch_dictionaries": {
-    "message": "Switch dictionaries"
+    "message": "Switch tabs"
   },
   "options_popup_toggle_definition": {
     "message": "Toggle definition"

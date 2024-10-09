@@ -12,8 +12,8 @@ export type KeyboardKeys = {
   // The key(s) to cycle through the available dictionaries.
   nextDictionary: string[];
 
-  // The key(s) to force kanji-only lookup.
-  kanjiLookup: string[];
+  // // The key(s) to force kanji-only lookup.
+  // kanjiLookup: string[];
 
   // The key(s) to expand the popup content.
   expandPopup: string[];

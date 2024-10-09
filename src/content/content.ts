@@ -781,11 +781,11 @@ export class ContentHandler {
       return;
     }
 
-    let dictMode: 'default' | 'kanji' = 'default';
-    if (event.shiftKey && this.config.keys.kanjiLookup.includes('Shift')) {
-      this.kanjiLookupMode = event.shiftKey;
-      dictMode = 'kanji';
-    }
+    const dictMode: 'default' | 'kanji' = 'default';
+    // if (event.shiftKey && this.config.keys.kanjiLookup.includes('Shift')) {
+    //   this.kanjiLookupMode = event.shiftKey;
+    //   dictMode = 'kanji';
+    // }
 
     // Record the last mouse target in case we need to trigger the popup
     // again.

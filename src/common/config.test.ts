@@ -202,7 +202,7 @@ describe('Config', () => {
     expect(config.keys).toEqual({
       toggleDefinition: [],
       nextDictionary: ['Shift', 'Enter'],
-      kanjiLookup: [],
+      // kanjiLookup: [],
       expandPopup: ['x'],
       closePopup: ['Esc'],
       pinPopup: ['Ctrl'],
@@ -212,7 +212,7 @@ describe('Config', () => {
     expect(config.keysNormalized).toEqual({
       toggleDefinition: [],
       nextDictionary: ['Shift', 'Enter'],
-      kanjiLookup: [],
+      // kanjiLookup: [],
       expandPopup: ['x'],
       closePopup: ['Esc'],
       pinPopup: ['Ctrl'],

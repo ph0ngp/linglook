@@ -1,6 +1,7 @@
 import type { Config } from '../common/config';
 import { I18nProvider } from '../common/i18n';
 import { possiblyHasPhysicalKeyboard } from '../utils/device';
+import { useHasMouse } from '../utils/use-has-mouse';
 
 import { CopySettings } from './CopySettings';
 import { CurrencySettings } from './CurrencySettings';
@@ -20,6 +21,7 @@ type Props = {
 
 export function OptionsPage(props: Props) {
   const hasKeyboard = possiblyHasPhysicalKeyboard();
+  const hasMouse = useHasMouse();
 
   return (
     <I18nProvider>
@@ -27,14 +29,14 @@ export function OptionsPage(props: Props) {
         <GeneralSettings config={props.config} />
         <PopupStyleSettings config={props.config} />
         <PopupInteractivitySettings config={props.config} />
-        <CurrencySettings config={props.config} />
-        <UnitSettings config={props.config} />
+        {/* <CurrencySettings config={props.config} /> */}
+        {/* <UnitSettings config={props.config} /> */}
         {hasKeyboard && <KeyboardSettings config={props.config} />}
-        <CopySettings config={props.config} />
-        <PuckSettings config={props.config} />
-        <DictionaryLanguageSettings config={props.config} />
-        <KanjiReferenceSettings config={props.config} />
-        <DictionaryDataSettings />
+        {/* <CopySettings config={props.config} /> */}
+        {hasMouse && <PuckSettings config={props.config} />}
+        {/* <DictionaryLanguageSettings config={props.config} /> */}
+        {/* <KanjiReferenceSettings config={props.config} /> */}
+        {/* <DictionaryDataSettings /> */}
       </div>
     </I18nProvider>
   );
