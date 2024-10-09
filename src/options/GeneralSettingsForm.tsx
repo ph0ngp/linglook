@@ -20,11 +20,11 @@ export function GeneralSettingsForm(props: Props) {
 
   return (
     <div class="flex flex-col gap-3">
-      <p class="m-0">{t('options_toolbar_icon_label')}</p>
+      {/* <p class="m-0">{t('options_toolbar_icon_label')}</p>
       <ToolbarIconRadio
         value={props.toolbarIcon}
         onChange={props.onChangeToolbarIcon}
-      />
+      /> */}
       {props.supportsCssHighlight && (
         <>
           <p class="m-0">{t('options_highlight_style_label')}</p>
@@ -55,7 +55,7 @@ export function GeneralSettingsForm(props: Props) {
           </label>
         </CheckboxRow>
       )}
-      <CheckboxRow>
+      {/* <CheckboxRow>
         <input
           id="contextMenuEnable"
           name="contextMenuEnable"
@@ -68,7 +68,7 @@ export function GeneralSettingsForm(props: Props) {
         <label for="contextMenuEnable">
           {t('options_show_context_menu_item')}
         </label>
-      </CheckboxRow>
+      </CheckboxRow> */}
     </div>
   );
 }

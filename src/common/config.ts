@@ -516,13 +516,14 @@ export class Config {
     }
   }
 
-  // contextMenuEnable: Defaults to true
+  // contextMenuEnable: Defaults to false
 
   get contextMenuEnable(): boolean {
-    return (
-      typeof this.settings.contextMenuEnable === 'undefined' ||
-      this.settings.contextMenuEnable
-    );
+    return !!this.settings.contextMenuEnable;
+    // return (
+    //   typeof this.settings.contextMenuEnable === 'undefined' ||
+    //   this.settings.contextMenuEnable
+    // );
   }
 
   set contextMenuEnable(value: boolean) {
