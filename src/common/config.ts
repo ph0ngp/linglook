@@ -1147,13 +1147,10 @@ export class Config {
     void browser.storage.sync.set({ showKanjiComponents: value });
   }
 
-  // showPriority: Defaults to true
+  // showPriority: Defaults to false
 
   get showPriority(): boolean {
-    return (
-      typeof this.settings.showPriority === 'undefined' ||
-      this.settings.showPriority
-    );
+    return !!this.settings.showPriority;
   }
 
   set showPriority(value: boolean) {

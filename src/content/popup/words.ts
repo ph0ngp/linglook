@@ -241,18 +241,19 @@ export function renderWordEntries({
         headwordSpan.append(kanji.ent);
 
         appendHeadwordInfo(kanji.i, headwordSpan);
-        if (options.showPriority) {
-          appendPriorityMark(kanji.p, headwordSpan);
-        }
+        // if (options.showPriority) {
+        //   appendPriorityMark(kanji.p, headwordSpan);
+        // }
         if (options.waniKaniVocabDisplay !== 'hide' && kanji.wk) {
+          // TODOP: this option is not working
           wkElement = appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
         }
-        if (options.bunproDisplay && kanji.bv) {
-          appendBunproTag(kanji.bv, 'vocab', headwordSpan);
-        }
-        if (options.bunproDisplay && kanji.bg) {
-          appendBunproTag(kanji.bg, 'grammar', headwordSpan);
-        }
+        // if (options.bunproDisplay && kanji.bv) {
+        //   appendBunproTag(kanji.bv, 'vocab', headwordSpan);
+        // }
+        // if (options.bunproDisplay && kanji.bg) {
+        //   appendBunproTag(kanji.bg, 'grammar', headwordSpan);
+        // }
       }
       if (wkElement) {
         kanjiSpan.append(
@@ -346,25 +347,30 @@ export function renderWordEntries({
           convert_to_toned_pinyin(entry.romaji[0])
         )
       );
-      // CY: entry.k.length > 1 is only for the original japanese dict testing. For chinese dict, entry.k.length always = 2
-      if (entry.k.length > 1 && entry.k[1].ent.length === pinyin_words.length) {
-        headingDiv.append(
-          html(
-            'span',
-            {
-              class: 'separator',
-              style: 'display: inline-block; width: 0.5em;',
-            },
-            ' '
-          )
-        );
-        headingDiv.append(
-          html(
-            'span',
-            { class: 'w-romaji', style: 'color: orange;', lang: 'ja' }, //TODOP: light mode color
-            getHanviet(entry.k[1].ent, pinyin_words)
-          )
-        );
+      if (options.showPriority) {
+        // CY: entry.k.length > 1 is only for the original japanese dict testing. For chinese dict, entry.k.length always = 2
+        if (
+          entry.k.length > 1 &&
+          entry.k[1].ent.length === pinyin_words.length
+        ) {
+          headingDiv.append(
+            html(
+              'span',
+              {
+                class: 'separator',
+                style: 'display: inline-block; width: 0.5em;',
+              },
+              ' '
+            )
+          );
+          headingDiv.append(
+            html(
+              'span',
+              { class: 'w-romaji', style: 'color: orange;', lang: 'ja' }, //TODOP: light mode color
+              getHanviet(entry.k[1].ent, pinyin_words)
+            )
+          );
+        }
       }
     }
 
