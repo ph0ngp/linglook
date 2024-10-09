@@ -204,7 +204,7 @@ export function renderWordEntries({
     // disable sort because we want to keep the order of them: simplified, traditional
     // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));
     if (matchingKanji.length) {
-      const kanjiSpan = html('span', { class: 'w-kanji', lang: 'ja' });
+      const kanjiSpan = html('span', { class: 'w-kanji', lang: 'zh' });
       let wkElement = null;
       for (const [i, kanji] of matchingKanji.entries()) {
         if (i) {
@@ -343,7 +343,7 @@ export function renderWordEntries({
       headingDiv.append(
         html(
           'span',
-          { class: 'w-romaji', lang: 'ja' },
+          { class: 'w-romaji', lang: 'zh' },
           convert_to_toned_pinyin(entry.romaji[0])
         )
       );
@@ -366,7 +366,7 @@ export function renderWordEntries({
           headingDiv.append(
             html(
               'span',
-              { class: 'w-romaji', style: 'color: orange;', lang: 'ja' }, //TODOP: light mode color
+              { class: 'w-romaji', style: 'color: orange;', lang: 'vi' }, //TODOP: light mode color
               getHanviet(entry.k[1].ent, pinyin_words)
             )
           );
