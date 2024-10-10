@@ -109,10 +109,10 @@ export function renderPopup(
 
     windowElem.dataset.tabSide = options.tabDisplay || 'top';
 
-    // TODOP: disable swipe horizontally
-    onHorizontalSwipe(contentContainer, (direction) => {
-      options.onSwitchDictionary?.(direction === 'left' ? 'prev' : 'next');
-    });
+    // CY: disable swipe horizontally because it's an awkward gesture
+    // onHorizontalSwipe(contentContainer, (direction) => {
+    //   options.onSwitchDictionary?.(direction === 'left' ? 'prev' : 'next');
+    // });
   }
 
   const resultToShow = result?.[options.dictToShow];
