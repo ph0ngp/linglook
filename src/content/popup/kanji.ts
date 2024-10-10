@@ -1,5 +1,6 @@
 import { KanjiResult } from '@birchill/jpdict-idb';
 import { h, render } from 'preact';
+import browser from 'webextension-polyfill';
 
 import { html } from '../../utils/builder';
 
@@ -20,7 +21,9 @@ export function renderKanjiEntries({
     style:
       'display: flex; justify-content: center; align-items: center; margin: 0.5em',
   });
-  descriptionText.textContent = 'Click on character to play stroke animation.'; //TODOP: localize message
+  descriptionText.textContent = browser.i18n.getMessage(
+    'stroke_animation_hint'
+  );
   bigContainer.append(descriptionText);
 
   const container = html('div', { class: 'kanjilist entry-data' });

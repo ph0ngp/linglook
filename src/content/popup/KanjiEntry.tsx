@@ -72,7 +72,11 @@ export function KanjiEntry(props: Props) {
           // console.log(props.entry.c, 'onLoadCharDataSuccess', data);
         },
         onLoadCharDataError: function (reason) {
-          status.textContent = props.entry.c + ' not found 😥'; //TODOP: localize message
+          status.textContent =
+            props.entry.c +
+            ': ' +
+            browser.i18n.getMessage('char_stroke_animation_not_found') +
+            ' 😥';
           // hide the svg with size 200 200 for the status to display vertically centered
           svgContainer.style.display = 'none';
           // console.log(props.entry.c, 'onLoadCharDataError', reason);

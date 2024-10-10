@@ -1,4 +1,8 @@
 {
+  "char_stroke_animation_not_found": {
+    "message": "not found",
+    "description": "The message for the stroke animation not found"
+  },
   "command_toggle_checking": {
     "message": "Checking for updated dictionary data...",
     "description": "Tooltip for toolbar button when checking for updates."
@@ -2669,6 +2673,10 @@
   },
   "shogi_side_white": {
     "message": "white"
+  },
+  "stroke_animation_hint": {
+    "message": "Click on character to play stroke animation.",
+    "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
     "message": "Strokes",

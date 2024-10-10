@@ -1,4 +1,8 @@
 {
+  "char_stroke_animation_not_found": {
+    "message": "未找到",
+    "description": "The message for the stroke animation not found"
+  },
   "command_toggle_checking": {
     "message": "正在检查词典更新……",
     "description": "Tooltip for toolbar button when checking for updates."
@@ -2669,6 +2673,10 @@
   },
   "shogi_side_white": {
     "message": "後手"
+  },
+  "stroke_animation_hint": {
+    "message": "点击字符播放笔顺动画",
+    "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
     "message": "汉字",

@@ -1,4 +1,8 @@
 {
+  "char_stroke_animation_not_found": {
+    "message": "が見つかりません",
+    "description": "The message for the stroke animation not found"
+  },
   "command_toggle_checking": {
     "message": "辞書データの更新を確認中...",
     "description": "Tooltip for toolbar button when checking for updates."
@@ -2669,6 +2673,10 @@
   },
   "shogi_side_white": {
     "message": "後手"
+  },
+  "stroke_animation_hint": {
+    "message": "クリックして筆順を見る",
+    "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
     "message": "漢字",
