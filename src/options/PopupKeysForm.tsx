@@ -16,6 +16,13 @@ type Props = {
   onUpdateKey: (key: keyof StoredKeyboardKeys, value: Array<string>) => void;
 };
 
+const excludedKeys = [
+  'toggleDefinition',
+  // 'expandPopup',
+  'movePopupDownOrUp',
+  'startCopy',
+];
+
 export function PopupKeysForm(props: Props) {
   const hasClipboardApi =
     navigator.clipboard && typeof navigator.clipboard.writeText === 'function';
@@ -23,7 +30,9 @@ export function PopupKeysForm(props: Props) {
   return (
     <div class="grid-cols-keys grid items-baseline gap-x-8 gap-y-2">
       {PopupKeys.filter(
-        (key) => key.name !== 'startCopy' || hasClipboardApi
+        (key) =>
+          (key.name !== 'startCopy' || hasClipboardApi) &&
+          !excludedKeys.includes(key.name)
       ).map((key) => (
         <PopupKey
           isMac={props.isMac}
