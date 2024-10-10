@@ -48,7 +48,7 @@ function HighlightPreview(props: { rangeClass?: string }) {
   return (
     <div class="flex items-center justify-center px-2 py-4 text-[15px] min-[300px]:text-[20px] min-[400px]:min-h-[calc(48px+16px*2)] min-[400px]:min-w-[calc(48px+32px*2)] min-[400px]:text-[25px]">
       <span class="fade-ends-x">
-        に<span class={props.rangeClass}>点々</span>と
+        于<span class={props.rangeClass}>文字</span>和
       </span>
     </div>
   );
