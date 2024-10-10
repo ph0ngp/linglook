@@ -4,11 +4,11 @@
     "description": "Tooltip for toolbar button when checking for updates."
   },
   "command_toggle_description": {
-    "message": "Toggle 10ten reader on/off",
+    "message": "Toggle Wenzi on/off",
     "description": "Tooltip for toolbar button to turn the extension on or off"
   },
   "command_toggle_disabled": {
-    "message": "10ten reader disabled",
+    "message": "Wenzi disabled",
     "description": "Tooltip for toolbar button when disabled."
   },
   "command_toggle_downloading": {
@@ -26,11 +26,11 @@
     }
   },
   "command_toggle_enabled": {
-    "message": "10ten reader enabled",
+    "message": "Wenzi enabled",
     "description": "Tooltip for toolbar button when enabled."
   },
   "command_toggle_loading": {
-    "message": "10ten reader loading...",
+    "message": "Wenzi loading...",
     "description": "Tooltip for toolbar button when loading."
   },
   "command_toggle_update_error": {
@@ -1306,7 +1306,7 @@
     "description": "Parenthetical explanation used when presenting alternative conversions between 畳 and square metres"
   },
   "menu_enable_extension": {
-    "message": "Enable 10ten reader",
+    "message": "Enable Wenzi",
     "description": "Context menu item to enable the extension."
   },
   "menu_enable_puck": {
@@ -1965,7 +1965,7 @@
     "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_show_context_menu_item": {
-    "message": "Show “Enable 10ten reader” in context menu",
+    "message": "Show “Enable Wenzi” in context menu",
     "description": "Option to enable context menu item with label `menu_enable_extension`"
   },
   "options_show_definitions": {
@@ -1993,7 +1993,7 @@
   },
   "options_show_puck_option_auto": {
     "message": "Auto",
-    "description": "Option to have 10ten automatically determine when to show the puck"
+    "description": "Option to have Wenzi automatically determine when to show the puck"
   },
   "options_show_puck_option_hide": {
     "message": "Hide",
