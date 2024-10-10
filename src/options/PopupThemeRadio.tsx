@@ -120,32 +120,46 @@ function PopupPreview(props: PopupPreviewProps) {
         <div>
           <span class="w-kanji">
             理解
-            {props.showPriority && <Star />}
+            {/* {props.showPriority && <Star />} */}
+            <span
+              class="separator"
+              style="display: inline-block; width: 0.5em;"
+            >
+              {' '}
+            </span>
             {props.showWaniKaniLevel && (
               <span class="wk-level">
-                <span>21</span>
+                <span>3</span>
               </span>
             )}
-            {props.showBunproDecks && (
+            {/* {props.showBunproDecks && (
               <span class="bp-tag -vocab">
                 <span>{t('popup_bp_vocab_tag', ['3'])}</span>
               </span>
-            )}
+            )} */}
           </span>
-          <span class="w-kana">
+          {/* <span class="w-kana">
             {renderKana(props.accentDisplay)}
             {props.showPriority && <Star />}
-          </span>
+          </span> */}
           {props.showRomaji && (
-            <span class="w-romaji" lang="ja">
-              rikai
+            <span class="w-romaji" lang="zh">
+              lǐ jiě
+            </span>
+          )}
+          <span class="separator" style="display: inline-block; width: 0.5em;">
+            {' '}
+          </span>
+          {props.showPriority && (
+            <span class="w-romaji" lang="vi" style="color: orange;">
+              lý giải
             </span>
           )}
         </div>
         {props.showDefinitions && (
           <span class="w-def" lang="en">
-            {renderPos(props.posDisplay)}
-            {'\u200bunderstanding'}
+            {/* {renderPos(props.posDisplay)} */}
+            {'\u200bto comprehend; to understand'}
           </span>
         )}
       </div>
