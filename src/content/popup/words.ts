@@ -208,7 +208,6 @@ export function renderWordEntries({
       let wkElement = null;
       for (const [i, kanji] of matchingKanji.entries()) {
         if (i) {
-          // TODOP: use css?
           kanjiSpan.append(
             html(
               'span',

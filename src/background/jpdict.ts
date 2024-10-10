@@ -107,7 +107,6 @@ export type JpdictStateWithFallback = Omit<JpdictState, 'words'> & {
 function getDataSeriesStatus(
   series: DataSeries
 ): 'ok' | 'updating' | 'unavailable' {
-  //TODOP: temporarily disable the IDB database and exclusively use the flat-file database. Will deal with this later.
   return 'unavailable';
   // // If we're unavailable or initializing, treat the database as unavailable
   // // regardless of whether or not we're updating.
