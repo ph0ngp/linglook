@@ -115,32 +115,31 @@ export function startsWithDigit(input: string): boolean {
   return (c >= 48 && c <= 57) || (c >= 65296 && c <= 65305);
 }
 
-// TODOP: remove all numeral, currency support
-const hanziNumerals = [
-  '〇',
-  '一',
-  '二',
-  '三',
-  '四',
-  '五',
-  '六',
-  '七',
-  '八',
-  '九',
-  '十',
-  '百',
-  '千',
-  '万',
-  '億',
-];
+// const hanziNumerals = [
+//   '〇',
+//   '一',
+//   '二',
+//   '三',
+//   '四',
+//   '五',
+//   '六',
+//   '七',
+//   '八',
+//   '九',
+//   '十',
+//   '百',
+//   '千',
+//   '万',
+//   '億',
+// ];
 
-// check if starts with 0-9 or full-width 0-9 or hanzi numerals
-export function startsWithNumeral(input: string): boolean {
-  return (
-    startsWithDigit(input) ||
-    (!!input.length && hanziNumerals.includes(input[0]))
-  );
-}
+// // check if starts with 0-9 or full-width 0-9 or hanzi numerals
+// export function startsWithNumeral(input: string): boolean {
+//   return (
+//     startsWithDigit(input) ||
+//     (!!input.length && hanziNumerals.includes(input[0]))
+//   );
+// }
 
 const onlyDigits = /^[0-9０-９,，、.．]+$/;
 

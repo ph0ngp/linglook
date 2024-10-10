@@ -2,7 +2,7 @@ import {
   CurrencyMeta, // extractCurrencyMetadata,
   // lookForCurrency,
 } from './currency';
-import { MeasureMeta, extractMeasureMetadata, lookForMeasure } from './measure';
+import { MeasureMeta } from './measure';
 // import { MeasureMeta } from './measure';
 import { NumberMeta } from './numbers';
 import { ShogiMeta } from './shogi';
@@ -41,7 +41,8 @@ export function lookForMetadata({
     //   : undefined) ||
     // lookForEra({ currentText, nodeText, textEnd, textDelimiter }) ||
     // lookForShogi({ nodeText, textDelimiter }) ||
-    lookForMeasure({ nodeText, textDelimiter }) || {
+    // lookForMeasure({ nodeText, textDelimiter }) ||
+    {
       textDelimiter,
       textEnd,
     }
@@ -59,7 +60,8 @@ export function extractGetTextMetadata({
     // (matchCurrency ? extractCurrencyMetadata(text) : undefined) ||
     // extractEraMetadata(text) ||
     // extractShogiMetadata(text) ||
-    extractMeasureMetadata(text)
+    // extractMeasureMetadata(text)
     // extractNumberMetadata(text)
+    undefined
   );
 }

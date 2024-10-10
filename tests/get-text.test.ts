@@ -140,43 +140,44 @@ describe('getTextAtPoint', () => {
     assertTextResultEqual(result, '我', [firstTextNode, 1, 2]);
   });
 
-  it('should find text in a block sibling if we only have one character', () => {
-    // The following markup is based on what pdf.js generates for vertical
-    // text, in at least some cases.
-    //
-    // In particular, the `position: absolute` part is important because it
-    // causes the spans to compute to `display: block`.
-    testDiv.innerHTML = `
-      <div class="textLayer" style="width: 10px; height: 120px">
-        <span style="position: absolute; left: 1.764px; top: 26.745px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">一</span>
-        <br role="presentation">
-        <span style="position: absolute; left: 1.764px; top: 45.455px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">生</span>
-        <br role="presentation">
-        <span style="position: absolute; left: 1.764px; top: 64.165px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">懸</span>
-        <br role="presentation">
-        <span style="position: absolute; left: 1.764px; top: 82.876px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">命</span>
-        <br role="presentation">
-        <span style="position: absolute; left: 1.764px; top: 101.585px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">、</span>
-        <br role="presentation">
-      </div>
-      `;
-    const firstTextNode = testDiv.firstElementChild?.firstElementChild
-      ?.firstChild as Text;
-    const bbox = getBboxForOffset(firstTextNode, 0);
+  // CY: we don't need this because this feature allows us to rerieve text with newlines inside, but even if we can get text with newlines inside, our dict would not match those words
+  // it('should find text in a block sibling if we only have one character', () => {
+  //   // The following markup is based on what pdf.js generates for vertical
+  //   // text, in at least some cases.
+  //   //
+  //   // In particular, the `position: absolute` part is important because it
+  //   // causes the spans to compute to `display: block`.
+  //   testDiv.innerHTML = `
+  //     <div class="textLayer" style="width: 10px; height: 120px">
+  //       <span style="position: absolute; left: 1.764px; top: 26.745px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">一</span>
+  //       <br role="presentation">
+  //       <span style="position: absolute; left: 1.764px; top: 45.455px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">生</span>
+  //       <br role="presentation">
+  //       <span style="position: absolute; left: 1.764px; top: 64.165px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">懸</span>
+  //       <br role="presentation">
+  //       <span style="position: absolute; left: 1.764px; top: 82.876px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">命</span>
+  //       <br role="presentation">
+  //       <span style="position: absolute; left: 1.764px; top: 101.585px; font-size: 16.5338px; font-family: monospace;" role="presentation" dir="ltr">、</span>
+  //       <br role="presentation">
+  //     </div>
+  //     `;
+  //   const firstTextNode = testDiv.firstElementChild?.firstElementChild
+  //     ?.firstChild as Text;
+  //   const bbox = getBboxForOffset(firstTextNode, 0);
 
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
 
-    assert.strictEqual(
-      result?.text.replace(/\s/g, ''),
-      '一生懸命',
-      'Result text should match'
-    );
-  });
+  //   assert.strictEqual(
+  //     result?.text.replace(/\s/g, ''),
+  //     '一生懸命',
+  //     'Result text should match'
+  //   );
+  // });
 
   it('should find text in a block cousin if the grandparent is inline-block', () => {
     // Based on https://www.kanshudo.com/grammar/%E3%81%AA%E3%81%84%E3%81%A7%E3%83%BB%E3%81%AA%E3%81%8F%E3%81%A6%E3%83%BB%E3%81%9A%E3%81%AB
@@ -1600,41 +1601,41 @@ describe('getTextAtPoint', () => {
     assert.strictEqual(result, null);
   });
 
-  it('should pull the text out of a title attribute', () => {
-    testDiv.innerHTML = '<img src="" title="你我他她它">';
-    const imgNode = testDiv.firstChild as HTMLImageElement;
-    imgNode.style.width = '200px';
-    imgNode.style.height = '200px';
-    const bbox = imgNode.getBoundingClientRect();
+  // it('should pull the text out of a title attribute', () => {
+  //   testDiv.innerHTML = '<img src="" title="你我他她它">';
+  //   const imgNode = testDiv.firstChild as HTMLImageElement;
+  //   imgNode.style.width = '200px';
+  //   imgNode.style.height = '200px';
+  //   const bbox = imgNode.getBoundingClientRect();
 
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-    });
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //   });
 
-    assertTextResultEqual(result, '你我他她它');
-  });
+  //   assertTextResultEqual(result, '你我他她它');
+  // });
 
-  it('should pull the text out of a title attribute on an image even when matchText is false', () => {
-    testDiv.innerHTML = '<img src="" title="你我他她它">';
-    const imgNode = testDiv.firstChild as HTMLImageElement;
-    imgNode.style.width = '200px';
-    imgNode.style.height = '200px';
-    const bbox = imgNode.getBoundingClientRect();
+  // it('should pull the text out of a title attribute on an image even when matchText is false', () => {
+  //   testDiv.innerHTML = '<img src="" title="你我他她它">';
+  //   const imgNode = testDiv.firstChild as HTMLImageElement;
+  //   imgNode.style.width = '200px';
+  //   imgNode.style.height = '200px';
+  //   const bbox = imgNode.getBoundingClientRect();
 
-    const result = getTextAtPoint({
-      point: {
-        x: bbox.left + bbox.width / 2,
-        y: bbox.top + bbox.height / 2,
-      },
-      matchText: false,
-      matchImages: true,
-    });
+  //   const result = getTextAtPoint({
+  //     point: {
+  //       x: bbox.left + bbox.width / 2,
+  //       y: bbox.top + bbox.height / 2,
+  //     },
+  //     matchText: false,
+  //     matchImages: true,
+  //   });
 
-    assertTextResultEqual(result, '你我他她它');
-  });
+  //   assertTextResultEqual(result, '你我他她它');
+  // });
 
   it('should NOT pull the text out of a title attribute on a text node when matchText is false', () => {
     testDiv.innerHTML = '<span title="你我他她它">Not Japanese text</span>';

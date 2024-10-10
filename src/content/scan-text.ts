@@ -2,7 +2,8 @@ import { nonChineseChar } from '../utils/char-range';
 
 import { CursorPosition } from './get-cursor-position';
 import { GetTextAtPointResult } from './get-text';
-import { extractGetTextMetadata, lookForMetadata } from './meta';
+
+// import { extractGetTextMetadata, lookForMetadata } from './meta';
 
 export function scanText({
   startPosition,
@@ -77,7 +78,7 @@ export function scanText({
     textRange: [],
   };
 
-  let textDelimiter = nonChineseChar;
+  const textDelimiter = nonChineseChar;
 
   // Look for range ends
   do {
@@ -86,22 +87,22 @@ export function scanText({
 
     // Check if we are looking at a special string that accepts a different
     // range of characters.
-    if (textDelimiter === nonChineseChar) {
-      const currentText =
-        result.text +
-        nodeText.substring(0, textEnd === -1 ? undefined : textEnd);
+    // if (textDelimiter === nonChineseChar) {
+    //   const currentText =
+    //     result.text +
+    //     nodeText.substring(0, textEnd === -1 ? undefined : textEnd);
 
-      // Check if we should further expand the set of allowed characters in
-      // order to recognize certain types of metadata-type strings (e.g. years
-      // or floor space measurements).
-      ({ textDelimiter, textEnd } = lookForMetadata({
-        currentText,
-        matchCurrency,
-        nodeText,
-        textDelimiter,
-        textEnd,
-      }));
-    }
+    //   // Check if we should further expand the set of allowed characters in
+    //   // order to recognize certain types of metadata-type strings (e.g. years
+    //   // or floor space measurements).
+    //   ({ textDelimiter, textEnd } = lookForMetadata({
+    //     currentText,
+    //     matchCurrency,
+    //     nodeText,
+    //     textDelimiter,
+    //     textEnd,
+    //   }));
+    // }
 
     if (typeof maxLength === 'number' && maxLength >= 0) {
       const maxEnd = maxLength - result.text.length;
@@ -150,7 +151,8 @@ export function scanText({
     return null;
   }
 
-  result.meta = extractGetTextMetadata({ text: result.text, matchCurrency });
+  // result.meta = extractGetTextMetadata({ text: result.text, matchCurrency });
+  result.meta = undefined;
 
   return result;
 }
