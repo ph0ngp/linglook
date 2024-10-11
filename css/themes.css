@@ -49,6 +49,7 @@
   --selected-highlight: var(--primary-highlight);
   --selected-bg: #fff8bf;
   --hover-bg: rgb(255, 250, 210);
+  --stroke-outline: rgb(230, 225, 190);
   --selected-conj-color: hsl(356, 70%, 40%);
   --selected-reading-highlight: #3e3a39;
 
@@ -124,6 +125,7 @@
   --selected-highlight: var(--bg-color);
   --selected-bg: rgb(220, 225, 255);
   --hover-bg: rgb(233, 238, 255, 0.8);
+  --stroke-outline: rgb(91, 128, 174);
 
   --status-bg: rgba(255, 255, 255, 0.2);
   --meta-bg: rgba(255, 255, 255, 0.2);
@@ -175,6 +177,7 @@
 
   --selected-bg: #555;
   --hover-bg: #484844;
+  --stroke-outline: var(--hover-bg);
 
   /* Reset selection styles */
   --selected-highlight: var(--primary-highlight);
@@ -240,6 +243,7 @@
   --selected-highlight: var(--primary-highlight);
   --selected-bg: #fffac5;
   --hover-bg: #fffde5;
+  --stroke-outline: rgb(190, 213, 231);
 
   --meta-bg: var(--cell-highlight-bg);
   --status-bg: var(--cell-highlight-bg);
@@ -291,6 +295,7 @@
 
   --selected-bg: #e3f2fe;
   --hover-bg: #fdfdf4;
+  --stroke-outline: rgb(234, 225, 154);
   --selected-highlight: var(--primary-highlight);
 
   --meta-bg: var(--cell-highlight-bg);

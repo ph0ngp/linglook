@@ -5,6 +5,7 @@ import browser from 'webextension-polyfill';
 
 import type { ReferenceAbbreviation } from '../../common/refs';
 import { classes } from '../../utils/classes';
+import { getCSSVariable, standardize_color } from '../../utils/themes';
 
 import { KanjiInfo } from './KanjiInfo';
 import { KanjiReferencesTable } from './KanjiReferencesTable';
@@ -45,9 +46,15 @@ export function KanjiEntry(props: Props) {
         width: HANZI_WRITER_SIZE,
         height: HANZI_WRITER_SIZE,
         padding: HANZI_WRITER_SIZE / 40,
-        strokeColor: 'rgb(255,255,255)', //TODOP: css; light mode
-        outlineColor: 'rgb(90,90,90)',
-        radicalColor: 'rgb(117,255,116)',
+        strokeColor: standardize_color(
+          getCSSVariable(hanziContainerRef.current, '--text-color')
+        ),
+        outlineColor: standardize_color(
+          getCSSVariable(hanziContainerRef.current, '--stroke-outline')
+        ),
+        radicalColor: standardize_color(
+          getCSSVariable(hanziContainerRef.current, '--primary-highlight')
+        ),
         showCharacter: true,
         showOutline: true,
         delayBetweenStrokes: 200,
