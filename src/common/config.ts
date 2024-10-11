@@ -445,11 +445,11 @@ export class Config {
     void browser.storage.sync.set({ accentDisplay: value });
   }
 
-  // autoExpand: Defaults to an empty array
+  // autoExpand: Defaults to always expand words and kanji
 
   get autoExpand(): Array<AutoExpandableEntry> {
     return typeof this.settings.autoExpand === 'undefined'
-      ? []
+      ? (['words', 'kanji'] as Array<AutoExpandableEntry>)
       : [...new Set(this.settings.autoExpand)];
   }
 
