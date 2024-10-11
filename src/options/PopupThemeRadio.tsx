@@ -151,7 +151,7 @@ function PopupPreview(props: PopupPreviewProps) {
             {' '}
           </span>
           {props.showPriority && (
-            <span class="w-romaji" lang="vi" style="color: orange;">
+            <span class="w-hanviet" lang="vi">
               lý giải
             </span>
           )}

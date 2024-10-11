@@ -365,7 +365,7 @@ export function renderWordEntries({
           headingDiv.append(
             html(
               'span',
-              { class: 'w-romaji', style: 'color: orange;', lang: 'vi' }, //TODOP: light mode color
+              { class: 'w-hanviet', lang: 'vi' },
               getHanviet(entry.k[1].ent, pinyin_words)
             )
           );

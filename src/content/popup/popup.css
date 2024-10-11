@@ -781,6 +781,7 @@
     border-bottom-width: var(--border-width);
   }
 
+  .w-hanviet,
   .w-romaji {
     font-size: var(--base-font-size);
     margin-right: 0.3em;
@@ -793,6 +794,10 @@
   .w-kana,
   .w-romaji {
     color: var(--reading-highlight);
+  }
+
+  .w-hanviet {
+    color: var(--bunpro-grammar);
   }
 
   .w-kanji .w-head-info,
@@ -980,6 +985,16 @@
     .container.interactive .entry:hover .w-kana,
     .container.interactive .entry:hover .w-romaji {
       color: var(--selected-reading-highlight);
+    }
+  }
+
+  .window .entry.-selected .w-hanviet {
+    color: var(--selected-bunpro-grammar);
+  }
+
+  @media (hover) {
+    .container.interactive .entry:hover .w-hanviet {
+      color: var(--selected-bunpro-grammar);
     }
   }
 
