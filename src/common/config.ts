@@ -445,7 +445,7 @@ export class Config {
     void browser.storage.sync.set({ accentDisplay: value });
   }
 
-  // autoExpand: Defaults to always expand words and kanji
+  // autoExpand: Defaults to always expand words and kanji. If change this must also change toggleAutoExpand.
 
   get autoExpand(): Array<AutoExpandableEntry> {
     return typeof this.settings.autoExpand === 'undefined'
@@ -454,8 +454,9 @@ export class Config {
   }
 
   toggleAutoExpand(type: AutoExpandableEntry, value: boolean) {
-    const enabled = new Set(this.settings.autoExpand);
+    const enabled = new Set(this.autoExpand);
     if (value === enabled.has(type)) {
+      // do nothing if this is the same as current setting
       return;
     }
 
@@ -465,7 +466,7 @@ export class Config {
       enabled.delete(type);
     }
 
-    if (enabled.size) {
+    if (enabled.size < 2) {
       this.settings.autoExpand = [...enabled];
       void browser.storage.sync.set({ autoExpand: [...enabled] });
     } else {
@@ -1148,15 +1149,20 @@ export class Config {
     void browser.storage.sync.set({ showKanjiComponents: value });
   }
 
-  // showPriority: Defaults to false
+  // showPriority: Defaults to false. Change default must also change set showPriority.
 
   get showPriority(): boolean {
     return !!this.settings.showPriority;
   }
 
   set showPriority(value: boolean) {
-    this.settings.showPriority = value;
-    void browser.storage.sync.set({ showPriority: value });
+    if (value) {
+      this.settings.showPriority = value;
+      void browser.storage.sync.set({ showPriority: value });
+    } else {
+      delete this.settings.showPriority;
+      void browser.storage.sync.remove('showPriority');
+    }
   }
 
   // showPuck (local): Defaults to 'auto'
