@@ -98,13 +98,28 @@ export function KanjiEntry(props: Props) {
 
   return (
     <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+      class={classes(
+        // 'tp-flex tp-flex-col tp-gap-3.5 tp-px-5 tp-py-3 tp-h-[120px]',
+        `tp-flex tp-flex-col tp-gap-3.5 tp-px-5 tp-py-3 tp-h-[${HANZI_WRITER_SIZE}px]`,
+        // Set the -selected / -flash class since we use that we scroll into
+        // view any selected item during / after copying.
+        //
+        // Once everything is converted to Preact we hopefully won't need this
+        // anymore (since we'll do minimal DOM updates) but if we do, then we
+        // should prefer using a data attribute to a CSS class.
+        props.selectState === 'selected' && '-selected',
+        props.selectState === 'flash' && '-flash'
+      )}
     >
-      <div ref={hanziContainerRef} />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <div ref={hanziContainerRef} />
+      </div>
     </div>
   );
 

@@ -16,18 +16,18 @@ export function renderKanjiEntries({
   entries: ReadonlyArray<KanjiResult>;
   options: ShowPopupOptions;
 }): HTMLElement {
-  const bigContainer = html('div');
-  const descriptionText = html('div', {
-    style:
-      'display: flex; justify-content: center; align-items: center; margin: 0.5em',
-  });
-  descriptionText.textContent = browser.i18n.getMessage(
-    'stroke_animation_hint'
-  );
-  bigContainer.append(descriptionText);
+  // const bigContainer = html('div');
+  // const descriptionText = html('div', {
+  //   style:
+  //     'display: flex; justify-content: center; align-items: center; margin: 0.5em',
+  // });
+  // descriptionText.textContent = browser.i18n.getMessage(
+  //   'stroke_animation_hint'
+  // );
+  // bigContainer.append(descriptionText);
 
   const container = html('div', { class: 'kanjilist entry-data' });
-  bigContainer.append(container);
+  // bigContainer.append(container);
 
   const selectedIndex = getSelectedIndex(options.copyState, entries.length);
   for (const [i, entry] of entries.entries()) {
@@ -49,7 +49,7 @@ export function renderKanjiEntries({
     );
   }
 
-  return bigContainer;
+  return container;
 }
 
 function renderKanjiEntry({
