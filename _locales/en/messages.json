@@ -42,11 +42,11 @@
     "description": "Tooltip for toolbar button when we failed to update."
   },
   "content_copied_entry": {
-    "message": "Copied entry",
+    "message": "Copied",
     "description": "Overlay shown after copying an entry to the clipboard."
   },
   "content_copied_fields": {
-    "message": "Copied tab-delimited fields",
+    "message": "Image search initiated",
     "description": "Overlay shown after copying entry as a tab-delimited fields to the clipboard."
   },
   "content_copied_word": {
@@ -100,7 +100,7 @@
     }
   },
   "content_copy_overlay_entry_button": {
-    "message": "Entry",
+    "message": "Copy",
     "description": "Label for the button to copy an entire entry"
   },
   "content_copy_overlay_kanji_button": {
@@ -108,7 +108,7 @@
     "description": "Fallback label used for the button to copy a kanji character when we fail to look up the kanji"
   },
   "content_copy_overlay_tab_separated_button": {
-    "message": "Tab-separated",
+    "message": "Search images",
     "description": "Label for the button to copy an entry with fields separated by tabs"
   },
   "content_copy_overlay_word_button": {

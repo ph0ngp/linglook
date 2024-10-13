@@ -1769,7 +1769,19 @@ export class ContentHandler {
     const fixPopup = this.shouldFixPopupWhenExitingCopyMode();
     const { index, mode } = this.copyState;
     try {
-      await copyText(message);
+      switch (copyType) {
+        case 'tab':
+          // TODOP: make this link configurable
+          window.open(
+            `https://google.com/search?q=${message}&tbm=isch`,
+            '_blank'
+          );
+          break;
+        case 'entry':
+        default:
+          await copyText(message);
+          break;
+      }
       this.copyState = { kind: 'finished', type: copyType, index, mode };
     } catch (e) {
       console.error(e);

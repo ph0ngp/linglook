@@ -42,11 +42,11 @@
     "description": "Tooltip for toolbar button when we failed to update."
   },
   "content_copied_entry": {
-    "message": "已复制词条",
+    "message": "已复制",
     "description": "Overlay shown after copying an entry to the clipboard."
   },
   "content_copied_fields": {
-    "message": "已复制以制表符分隔的内容",
+    "message": "已启动图像搜索",
     "description": "Overlay shown after copying entry as a tab-delimited fields to the clipboard."
   },
   "content_copied_word": {
@@ -100,7 +100,7 @@
     }
   },
   "content_copy_overlay_entry_button": {
-    "message": "词条",
+    "message": "复制",
     "description": "Label for the button to copy an entire entry"
   },
   "content_copy_overlay_kanji_button": {
@@ -108,7 +108,7 @@
     "description": "Fallback label used for the button to copy a kanji character when we fail to look up the kanji"
   },
   "content_copy_overlay_tab_separated_button": {
-    "message": "以制表符分隔",
+    "message": "图像搜索",
     "description": "Label for the button to copy an entry with fields separated by tabs"
   },
   "content_copy_overlay_word_button": {

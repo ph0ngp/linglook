@@ -39,30 +39,37 @@ export function getTextToCopy({
   kanjiReferences?: Array<ReferenceAbbreviation>;
   showKanjiComponents?: boolean;
 }): string {
-  switch (copyType) {
-    case 'entry':
-      return getEntryToCopy(entry, {
-        getMessage,
-        includeAllSenses,
-        includeLessCommonHeadwords,
-        includePartOfSpeech,
-        kanjiReferences,
-        showKanjiComponents,
-      });
-
-    case 'tab':
-      return getFieldsToCopy(entry, {
-        getMessage,
-        includeAllSenses,
-        includeLessCommonHeadwords,
-        includePartOfSpeech,
-        kanjiReferences,
-        showKanjiComponents,
-      });
-
-    case 'word':
-      return getWordToCopy(entry);
+  if (entry.type === 'word') {
+    // this is the only entry type
+    return getWordToCopy(entry);
+  } else {
+    return '';
   }
+
+  // switch (copyType) {
+  //   case 'entry':
+  //     return getEntryToCopy(entry, {
+  //       getMessage,
+  //       includeAllSenses,
+  //       includeLessCommonHeadwords,
+  //       includePartOfSpeech,
+  //       kanjiReferences,
+  //       showKanjiComponents,
+  //     });
+
+  //   case 'tab':
+  //     return getFieldsToCopy(entry, {
+  //       getMessage,
+  //       includeAllSenses,
+  //       includeLessCommonHeadwords,
+  //       includePartOfSpeech,
+  //       kanjiReferences,
+  //       showKanjiComponents,
+  //     });
+
+  //   case 'word':
+  //     return getWordToCopy(entry);
+  // }
 }
 
 export function getWordToCopy(entry: CopyEntry): string {
@@ -80,6 +87,9 @@ export function getWordToCopy(entry: CopyEntry): string {
         if (headwords.some((h) => h.match)) {
           headwords = headwords.filter((entry) => entry.match);
         }
+
+        // Only show the first match if there are multiple identical matches
+        headwords.splice(1);
 
         result = headwords.map((entry) => entry.ent).join(', ');
       }

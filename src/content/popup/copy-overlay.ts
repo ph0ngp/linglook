@@ -48,30 +48,30 @@ export function renderCopyOverlay({
     : null;
 
   // Heading
-  const wordToCopy = entryToCopy
-    ? getTextToCopy({
-        entry: entryToCopy,
-        copyType: 'word',
-        getMessage: browser.i18n.getMessage.bind(browser.i18n),
-      })
-    : null;
-  const heading = wordToCopy
-    ? browser.i18n.getMessage(
-        'content_copy_overlay_copy_title_with_word',
-        wordToCopy
-      )
-    : browser.i18n.getMessage('content_copy_overlay_copy_title');
-  copyOverlay.append(
-    html(
-      'div',
-      {
-        role: 'heading',
-        class: 'copy-heading',
-        lang: getLangTag(),
-      },
-      heading
-    )
-  );
+  // const wordToCopy = entryToCopy
+  //   ? getTextToCopy({
+  //       entry: entryToCopy,
+  //       copyType: 'word',
+  //       getMessage: browser.i18n.getMessage.bind(browser.i18n),
+  //     })
+  //   : null;
+  // const heading = wordToCopy
+  //   ? browser.i18n.getMessage(
+  //       'content_copy_overlay_copy_title_with_word',
+  //       wordToCopy
+  //     )
+  //   : browser.i18n.getMessage('content_copy_overlay_copy_title');
+  // copyOverlay.append(
+  //   html(
+  //     'div',
+  //     {
+  //       role: 'heading',
+  //       class: 'copy-heading',
+  //       lang: getLangTag(),
+  //     },
+  //     heading
+  //   )
+  // );
 
   // Options
   const list = copyOverlay.appendChild(html('ul', { class: 'copy-options' }));
@@ -122,34 +122,34 @@ export function renderCopyOverlay({
     list.append(html('li', {}, button));
   }
 
-  // Word button
-  {
-    const copyWordButton = list
-      .appendChild(html('li'))
-      .appendChild(html('button', { class: '-icon-label' }));
+  // // Word button
+  // {
+  //   const copyWordButton = list
+  //     .appendChild(html('li'))
+  //     .appendChild(html('button', { class: '-icon-label' }));
 
-    if (wordToCopy) {
-      const icon = renderClipboard();
-      icon.classList.add('icon');
-      copyWordButton.append(icon);
-    }
-    const copyWordLabel = html('span');
-    if (wordToCopy) {
-      copyWordLabel.append(wordToCopy);
-      copyWordLabel.lang = 'ja';
-    } else {
-      copyWordLabel.append(
-        browser.i18n.getMessage(
-          series === 'kanji'
-            ? 'content_copy_overlay_kanji_button'
-            : 'content_copy_overlay_word_button'
-        )
-      );
-      copyWordLabel.lang = getLangTag();
-    }
-    copyWordButton.append(copyWordLabel);
-    copyWordButton.addEventListener('click', () => onCopy?.('word'));
-  }
+  //   if (wordToCopy) {
+  //     const icon = renderClipboard();
+  //     icon.classList.add('icon');
+  //     copyWordButton.append(icon);
+  //   }
+  //   const copyWordLabel = html('span');
+  //   if (wordToCopy) {
+  //     copyWordLabel.append(wordToCopy);
+  //     copyWordLabel.lang = 'ja';
+  //   } else {
+  //     copyWordLabel.append(
+  //       browser.i18n.getMessage(
+  //         series === 'kanji'
+  //           ? 'content_copy_overlay_kanji_button'
+  //           : 'content_copy_overlay_word_button'
+  //       )
+  //     );
+  //     copyWordLabel.lang = getLangTag();
+  //   }
+  //   copyWordButton.append(copyWordLabel);
+  //   copyWordButton.addEventListener('click', () => onCopy?.('word'));
+  // }
 
   // Cancel button
   const cancelButton = html(
@@ -189,13 +189,14 @@ function renderButtonWithPreview({
     const previewRow = html('div', {
       class: 'copy-preview',
       role: 'presentation',
+      style: 'display: flex; justify-content: center; align-items: center;',
     });
 
-    const icon = renderClipboard();
-    icon.classList.add('icon');
-    previewRow.append(icon);
+    // const icon = renderClipboard();
+    // icon.classList.add('icon');
+    // previewRow.append(icon);
 
-    previewRow.append(html('span', { lang: 'ja' }, previewText));
+    previewRow.append(html('span', { lang: 'zh' }, previewText));
 
     button.append(previewRow);
   }
