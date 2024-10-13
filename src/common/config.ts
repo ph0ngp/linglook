@@ -685,19 +685,19 @@ export class Config {
     }
   }
 
-  // enableTapLookup: Defaults to true
+  // enableTapLookup: Defaults to false
 
   get enableTapLookup(): boolean {
-    return this.settings.enableTapLookup ?? true;
+    return !!this.settings.enableTapLookup;
   }
 
   set enableTapLookup(value: boolean) {
-    const storedSetting = this.settings.enableTapLookup;
+    const storedSetting = this.enableTapLookup;
     if (storedSetting === value) {
       return;
     }
 
-    if (value) {
+    if (!value) {
       void browser.storage.sync.remove('enableTapLookup');
       delete this.settings.enableTapLookup;
     } else {

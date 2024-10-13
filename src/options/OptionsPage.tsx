@@ -28,7 +28,7 @@ export function OptionsPage(props: Props) {
       <div class="mx-auto max-w-[780px] px-6 pt-6">
         <GeneralSettings config={props.config} />
         <PopupStyleSettings config={props.config} />
-        <PopupInteractivitySettings config={props.config} />
+        {/* <PopupInteractivitySettings config={props.config} /> */}
         {/* <CurrencySettings config={props.config} /> */}
         {/* <UnitSettings config={props.config} /> */}
         {hasKeyboard && <KeyboardSettings config={props.config} />}
