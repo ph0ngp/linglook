@@ -1236,11 +1236,11 @@ export class Config {
   }
 
   set showRomaji(value: boolean) {
-    if (this.settings.showRomaji === value) {
+    if (this.showRomaji === value) {
       return;
     }
 
-    if (!value) {
+    if (value) {
       delete this.settings.showRomaji;
       void browser.storage.sync.remove('showRomaji');
     } else {
