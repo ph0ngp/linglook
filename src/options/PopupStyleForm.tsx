@@ -47,18 +47,6 @@ export function PopupStyleForm(props: Props) {
       <div class="flex flex-col gap-3 pb-6">
         <CheckboxRow>
           <input
-            id="showPriority"
-            name="showPriority"
-            type="checkbox"
-            checked={props.showPriority}
-            onChange={(e) =>
-              props.onChangeShowPriority(e.currentTarget.checked)
-            }
-          />
-          <label for="showPriority">{t('options_show_priority')}</label>
-        </CheckboxRow>
-        {/* <CheckboxRow>
-          <input
             id="showWaniKaniLevel"
             name="showWaniKaniLevel"
             type="checkbox"
@@ -72,6 +60,18 @@ export function PopupStyleForm(props: Props) {
           </label>
         </CheckboxRow>
         <CheckboxRow>
+          <input
+            id="showPriority"
+            name="showPriority"
+            type="checkbox"
+            checked={props.showPriority}
+            onChange={(e) =>
+              props.onChangeShowPriority(e.currentTarget.checked)
+            }
+          />
+          <label for="showPriority">{t('options_show_priority')}</label>
+        </CheckboxRow>
+        {/* <CheckboxRow>
           <input
             id="showBunproDecks"
             name="showBunproDecks"

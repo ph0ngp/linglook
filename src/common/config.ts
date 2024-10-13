@@ -1256,11 +1256,11 @@ export class Config {
   }
 
   set waniKaniVocabDisplay(value: 'hide' | 'show-matches') {
-    if (this.settings.waniKaniVocabDisplay === value) {
+    if (this.waniKaniVocabDisplay === value) {
       return;
     }
 
-    if (value === 'hide') {
+    if (value === 'show-matches') {
       delete this.settings.waniKaniVocabDisplay;
       void browser.storage.sync.remove('waniKaniVocabDisplay');
     } else {

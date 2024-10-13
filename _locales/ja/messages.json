@@ -2011,7 +2011,7 @@
     "message": "ローマ字を表示"
   },
   "options_show_wanikani_levels": {
-    "message": "WaniKaniレベル情報を表示",
+    "message": "HSKレベル情報を表示",
     "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_simplified_copy": {

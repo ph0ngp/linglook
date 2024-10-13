@@ -243,8 +243,7 @@ export function renderWordEntries({
         // if (options.showPriority) {
         //   appendPriorityMark(kanji.p, headwordSpan);
         // }
-        if (options.waniKaniVocabDisplay !== 'hide' && kanji.wk) {
-          // TODOP: this option is not working
+        if (options.waniKaniVocabDisplay === 'show-matches' && kanji.wk) {
           wkElement = appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
         }
         // if (options.bunproDisplay && kanji.bv) {

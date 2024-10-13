@@ -121,16 +121,18 @@ function PopupPreview(props: PopupPreviewProps) {
           <span class="w-kanji">
             理解
             {/* {props.showPriority && <Star />} */}
-            <span
-              class="separator"
-              style="display: inline-block; width: 0.5em;"
-            >
-              {' '}
-            </span>
             {props.showWaniKaniLevel && (
-              <span class="wk-level">
-                <span>3</span>
-              </span>
+              <>
+                <span
+                  class="separator"
+                  style="display: inline-block; width: 0.5em;"
+                >
+                  {' '}
+                </span>
+                <span class="wk-level">
+                  <span>3</span>
+                </span>
+              </>
             )}
             {/* {props.showBunproDecks && (
               <span class="bp-tag -vocab">

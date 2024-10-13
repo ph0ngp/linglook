@@ -2011,7 +2011,7 @@
     "message": "显示罗马字"
   },
   "options_show_wanikani_levels": {
-    "message": "显示 WaniKani 等级信息",
+    "message": "显示 HSK 级别信息",
     "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_simplified_copy": {

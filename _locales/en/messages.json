@@ -2011,7 +2011,7 @@
     "message": "Show romaji"
   },
   "options_show_wanikani_levels": {
-    "message": "Show WaniKani levels",
+    "message": "Show HSK levels",
     "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_simplified_copy": {
