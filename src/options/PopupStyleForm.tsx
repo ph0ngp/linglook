@@ -61,18 +61,6 @@ export function PopupStyleForm(props: Props) {
         </CheckboxRow>
         <CheckboxRow>
           <input
-            id="showPriority"
-            name="showPriority"
-            type="checkbox"
-            checked={props.showPriority}
-            onChange={(e) =>
-              props.onChangeShowPriority(e.currentTarget.checked)
-            }
-          />
-          <label for="showPriority">{t('options_show_priority')}</label>
-        </CheckboxRow>
-        {/* <CheckboxRow>
-          <input
             id="showBunproDecks"
             name="showBunproDecks"
             type="checkbox"
@@ -84,6 +72,18 @@ export function PopupStyleForm(props: Props) {
           <label for="showBunproDecks">{t('options_show_bunpro_decks')}</label>
         </CheckboxRow>
         <CheckboxRow>
+          <input
+            id="showPriority"
+            name="showPriority"
+            type="checkbox"
+            checked={props.showPriority}
+            onChange={(e) =>
+              props.onChangeShowPriority(e.currentTarget.checked)
+            }
+          />
+          <label for="showPriority">{t('options_show_priority')}</label>
+        </CheckboxRow>
+        {/* <CheckboxRow>
           <input
             id="showRomaji"
             name="showRomaji"

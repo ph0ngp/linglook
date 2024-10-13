@@ -200,6 +200,11 @@ export function renderWordEntries({
         index === self.findIndex((t) => t.ent === kanji.ent)
     );
 
+    // Show traditional form before simplified form if enabled
+    if (options.bunproDisplay) {
+      matchingKanji = matchingKanji.reverse();
+    }
+
     // Sort matched kanji entries first
     // disable sort because we want to keep the order of them: simplified, traditional
     // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));

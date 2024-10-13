@@ -1965,7 +1965,7 @@
     "description": "Label for button to restore the toggle shortcut"
   },
   "options_show_bunpro_decks": {
-    "message": "显示 Bunpro 套牌信息",
+    "message": "繁体字在简体字之前显示",
     "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_show_context_menu_item": {

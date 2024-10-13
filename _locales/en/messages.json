@@ -1965,7 +1965,7 @@
     "description": "Label for button to restore the toggle shortcut"
   },
   "options_show_bunpro_decks": {
-    "message": "Show Bunpro deck information",
+    "message": "Show traditional form before simplified form",
     "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_show_context_menu_item": {
