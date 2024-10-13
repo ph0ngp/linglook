@@ -119,7 +119,29 @@ function PopupPreview(props: PopupPreviewProps) {
       <div class="entry">
         <div>
           <span class="w-kanji">
-            理解
+            {props.showBunproDecks ? (
+              <>
+                <span class="dimmed">中國</span>
+                <span
+                  class="separator"
+                  style="display: inline-block; width: 0.5em;"
+                >
+                  {' '}
+                </span>
+                <span>中国</span>
+              </>
+            ) : (
+              <>
+                <span>中国</span>
+                <span
+                  class="separator"
+                  style="display: inline-block; width: 0.5em;"
+                >
+                  {' '}
+                </span>
+                <span class="dimmed">中國</span>
+              </>
+            )}
             {/* {props.showPriority && <Star />} */}
             {props.showWaniKaniLevel && (
               <>
@@ -130,7 +152,7 @@ function PopupPreview(props: PopupPreviewProps) {
                   {' '}
                 </span>
                 <span class="wk-level">
-                  <span>3</span>
+                  <span>1</span>
                 </span>
               </>
             )}
@@ -146,7 +168,7 @@ function PopupPreview(props: PopupPreviewProps) {
           </span> */}
           {props.showRomaji && (
             <span class="w-romaji" lang="zh">
-              lǐ jiě
+              Zhōng guó
             </span>
           )}
           <span class="separator" style="display: inline-block; width: 0.5em;">
@@ -154,14 +176,14 @@ function PopupPreview(props: PopupPreviewProps) {
           </span>
           {props.showPriority && (
             <span class="w-hanviet" lang="vi">
-              lý giải
+              trung quốc
             </span>
           )}
         </div>
         {props.showDefinitions && (
           <span class="w-def" lang="en">
             {/* {renderPos(props.posDisplay)} */}
-            {'\u200bto comprehend; to understand'}
+            {'\u200bChina'}
           </span>
         )}
       </div>
