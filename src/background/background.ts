@@ -2,6 +2,11 @@
 /// <reference path="./mail-extensions.d.ts" />
 
 /*
+  Originally based on Wenzi
+  by Phong Phan
+  https://github.com/ph0ngp/wenzi
+
+  ---
 
   Originally based on 10ten Japanese Reader
   by Brian Birtles
