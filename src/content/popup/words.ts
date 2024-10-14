@@ -42,10 +42,22 @@ export function renderWordEntries({
   options: ShowPopupOptions;
   title: string | undefined;
 }): HTMLElement {
+  // console.log(
+  //   'getUILanguage',
+  //   browser.i18n.getUILanguage(),
+  //   '\nnavigator.language',
+  //   navigator.language,
+  //   '\nnavigator.languages',
+  //   navigator.languages,
+  //   '\ngetMessage lang_tag',
+  //   browser.i18n.getMessage('lang_tag'),
+  //   '\ngetMessage ui_locale',
+  //   browser.i18n.getMessage('@@ui_locale')
+  // );
   const container = html('div', { class: 'wordlist entry-data' });
 
   if (title) {
-    container.append(html('div', { class: 'title', lang: 'ja' }, title));
+    container.append(html('div', { class: 'title', lang: 'zh' }, title));
   }
 
   // Pre-filter metadata
