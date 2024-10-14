@@ -8,11 +8,11 @@
     "description": "Tooltip for toolbar button when checking for updates."
   },
   "command_toggle_description": {
-    "message": "10ten readerオン・オフを切り替える",
-    "description": "Explanation of toolbar button to turn 10ten reader on or off"
+    "message": "Wenziオン・オフを切り替える",
+    "description": "Explanation of toolbar button to turn Wenzi on or off"
   },
   "command_toggle_disabled": {
-    "message": "10ten reader オフ",
+    "message": "Wenzi オフ",
     "description": "Tooltip for toolbar button when disabled."
   },
   "command_toggle_downloading": {
@@ -30,11 +30,11 @@
     }
   },
   "command_toggle_enabled": {
-    "message": "10ten reader オン",
+    "message": "Wenzi オン",
     "description": "Tooltip for toolbar button when enabled."
   },
   "command_toggle_loading": {
-    "message": "10ten reader ロード中...",
+    "message": "Wenzi ロード中...",
     "description": "Tooltip for toolbar button when loading."
   },
   "command_toggle_update_error": {
@@ -1310,7 +1310,7 @@
     "description": "Parenthetical explanation used when presenting alternative conversions between 畳 and square metres"
   },
   "menu_enable_extension": {
-    "message": "10ten readerを有効にする",
+    "message": "Wenziを有効にする",
     "description": "Context menu item to enable the extension."
   },
   "menu_enable_puck": {
@@ -1985,7 +1985,7 @@
     "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_show_context_menu_item": {
-    "message": "コンテキストメニューに「10ten readerを有効にする」を表示",
+    "message": "コンテキストメニューに「Wenziを有効にする」を表示",
     "description": "Option to enable context menu item with label `menu_enable_extension`"
   },
   "options_show_definitions": {
@@ -2004,7 +2004,7 @@
     "message": "テキスト"
   },
   "options_show_priority": {
-    "message": "頻度の高い（★）又はある程度の高い（☆）のマーカーを表示",
+    "message": "漢越語の音訳を表示",
     "description": "Label for enabling the ★ and ☆ markers next to dictionary headwords to indicate they occur frequently  or somewhat frequently respectively"
   },
   "options_show_puck_label": {
@@ -2013,7 +2013,7 @@
   },
   "options_show_puck_option_auto": {
     "message": "自動",
-    "description": "Option to have 10ten automatically determine when to show the puck"
+    "description": "Option to have Wenzi automatically determine when to show the puck"
   },
   "options_show_puck_option_hide": {
     "message": "非表示",
@@ -2695,7 +2695,7 @@
     "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
-    "message": "漢字",
+    "message": "筆順",
     "description": "The label for the kanji dictionary tab"
   },
   "tabs_names_label": {
@@ -2703,7 +2703,7 @@
     "description": "The label for the names dictionary tab"
   },
   "tabs_words_label": {
-    "message": "単語",
+    "message": "定義",
     "description": "The label for the words dictionary tab"
   }
 }
