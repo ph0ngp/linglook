@@ -1546,7 +1546,7 @@
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
   "options_accent_data_source": {
-    "message": "The pitch accent data was provided by Uros Ozvatic through his free database.",
+    "message": "Hán-Việt Pinyin wordlist, licensed under the MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_accent_display_binary": {
@@ -1605,6 +1605,10 @@
     "message": "Preview",
     "description": "Label preceding the copy text preview"
   },
+  "options_creative_commons_license": {
+    "message": "Creative Commons Attribution-ShareAlike 4.0 International License",
+    "description": "Creative Commons Attribution-ShareAlike 4.0 International License"
+  },
   "options_currency_conversion_heading": {
     "message": "Currency conversion",
     "description": "Heading for the section for configuring currency conversion"
@@ -1648,7 +1652,7 @@
     }
   },
   "options_data_source": {
-    "message": "Includes data from JMdict/EDICT, KANJIDIC and JMnedict/ENAMDICT.",
+    "message": "CC-CEDICT, licensed under the Creative Commons Attribution-ShareAlike 4.0 International License",
     "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
@@ -1773,6 +1777,14 @@
     "message": "General",
     "description": "Heading for common preferences."
   },
+  "options_hanviet_pinyin_project": {
+    "message": "Hán-Việt Pinyin wordlist",
+    "description": "Han-Viet Pinyin wordlist"
+  },
+  "options_hanzi_writer_project": {
+    "message": "Hanzi Writer project",
+    "description": "Hanzi Writer project"
+  },
   "options_highlight_matched_text": {
     "message": "Highlight matched text"
   },
@@ -1858,6 +1870,10 @@
   "options_lookup_puck_heading": {
     "message": "Lookup puck",
     "description": "Heading for the section containing options controlling the lookup puck used on touch devices"
+  },
+  "options_mit_license": {
+    "message": "MIT License",
+    "description": "MIT License"
   },
   "options_mouse_interactivity_disable": {
     "message": "Disable"
@@ -2019,7 +2035,7 @@
     "description": "Heading for the section for configuring the copy to clipboard feature"
   },
   "options_stroke_data_source": {
-    "message": "The kanji stroke data is provided by the KanjiVG project, which is copyright Ulrich Apel. The data is released under the Creative Commons Attribution-Share Alike 3.0 license.",
+    "message": "Hanzi Writer project, licensed under the MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {

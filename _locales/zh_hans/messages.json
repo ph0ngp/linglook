@@ -1546,7 +1546,7 @@
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
   "options_accent_data_source": {
-    "message": "声调数据来源于 Uros Ozvatic 的免费数据库。",
+    "message": "汉越拼音词表, 依据MIT许可证授权。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_accent_display_binary": {
@@ -1605,6 +1605,10 @@
     "message": "预览",
     "description": "Label preceding the copy text preview"
   },
+  "options_creative_commons_license": {
+    "message": "署名—相同方式共享 4.0 协议国际版",
+    "description": "Creative Commons Attribution-ShareAlike 4.0 International License"
+  },
   "options_currency_conversion_heading": {
     "message": "货币转换",
     "description": "Heading for the section for configuring currency conversion"
@@ -1648,7 +1652,7 @@
     }
   },
   "options_data_source": {
-    "message": "本词典含有来自 JMdict/EDICT，KANJIDIC 和 JMnedict/ENAMDICT 的资料。",
+    "message": "CC-CEDICT, 依据署名—相同方式共享 4.0 协议国际版授权。",
     "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
@@ -1773,6 +1777,14 @@
     "message": "一般",
     "description": "Heading for common preferences."
   },
+  "options_hanviet_pinyin_project": {
+    "message": "汉越拼音词表",
+    "description": "Han-Viet Pinyin wordlist"
+  },
+  "options_hanzi_writer_project": {
+    "message": "汉字书写项目",
+    "description": "Hanzi Writer project"
+  },
   "options_highlight_matched_text": {
     "message": "匹配词条高亮显示"
   },
@@ -1858,6 +1870,10 @@
   "options_lookup_puck_heading": {
     "message": "用于触摸屏的圆形按钮",
     "description": "Heading for the section containing options controlling the lookup puck used on touch devices"
+  },
+  "options_mit_license": {
+    "message": "MIT许可证",
+    "description": "MIT License"
   },
   "options_mouse_interactivity_disable": {
     "message": "禁用"
@@ -2019,7 +2035,7 @@
     "description": "Heading for the section for configuring the copy to clipboard feature"
   },
   "options_stroke_data_source": {
-    "message": "本应用程序中的汉字笔画数据由Ulrich Apel版权所有的KanjiVG项目提供。该数据根据Creative Commons Attribution-Share Alike 3.0许可证发布。",
+    "message": "汉字书写项目, 依据MIT许可证授权。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {

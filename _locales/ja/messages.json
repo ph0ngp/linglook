@@ -1546,7 +1546,7 @@
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
   "options_accent_data_source": {
-    "message": "高低アクセントデータはUros Ozvatic氏の無料データベースにより使用しております。",
+    "message": "漢越ピンイン単語表, MIT Licenseに基づいてライセンスされています。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_accent_display_binary": {
@@ -1605,6 +1605,10 @@
     "message": "プレビュー",
     "description": "Label preceding the copy text preview"
   },
+  "options_creative_commons_license": {
+    "message": "表示-継承 4.0 国際",
+    "description": "Creative Commons Attribution-ShareAlike 4.0 International License"
+  },
   "options_currency_conversion_heading": {
     "message": "通貨換算",
     "description": "Heading for the section for configuring currency conversion"
@@ -1648,7 +1652,7 @@
     }
   },
   "options_data_source": {
-    "message": "使用しているデータにJMdict/EDICT、KANJIDICおよびJMnedict/ENAMDICTのデータが含まれております。",
+    "message": "CC-CEDICT, 表示-継承 4.0 国際のライセンスに基づいてライセンスされています。",
     "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
@@ -1773,6 +1777,14 @@
     "message": "一般",
     "description": "Heading for common preferences."
   },
+  "options_hanviet_pinyin_project": {
+    "message": "漢越ピンイン単語表",
+    "description": "Han-Viet Pinyin wordlist"
+  },
+  "options_hanzi_writer_project": {
+    "message": "Hanzi Writer project",
+    "description": "Hanzi Writer project"
+  },
   "options_highlight_matched_text": {
     "message": "照合される文字列をハイライト"
   },
@@ -1858,6 +1870,10 @@
   "options_lookup_puck_heading": {
     "message": "検索用の丸いボタン",
     "description": "Heading for the section containing options controlling the lookup puck used on touch devices"
+  },
+  "options_mit_license": {
+    "message": "MIT License",
+    "description": "MIT License"
   },
   "options_mouse_interactivity_disable": {
     "message": "無効"
@@ -2019,7 +2035,7 @@
     "description": "Heading for the section for configuring the copy to clipboard feature"
   },
   "options_stroke_data_source": {
-    "message": "このアプリで使用されている漢字の筆順データは、Ulrich Apel氏が著作権を有するKanjiVGプロジェクトから提供されています。このデータはCreative Commons Attribution-Share Alike 3.0ライセンスの下で提供されています。",
+    "message": "Hanzi Writer project, MIT Licenseに基づいてライセンスされています。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {

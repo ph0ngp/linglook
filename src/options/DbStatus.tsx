@@ -30,7 +30,7 @@ export function DbStatus(props: Props) {
   return (
     <div class="flex flex-col gap-4 py-4">
       <DbSummaryBlurb />
-      <DbSummaryStatus
+      {/* <DbSummaryStatus
         dbState={props.dbState}
         onCancelDbUpdate={props.onCancelDbUpdate}
         onUpdateDb={props.onUpdateDb}
@@ -40,7 +40,7 @@ export function DbStatus(props: Props) {
           <span>Database testing features: </span>
           <button onClick={props.onDeleteDb}>Delete database</button>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
@@ -49,10 +49,14 @@ function DbSummaryBlurb() {
   const { t } = useLocale();
 
   const attribution = t('options_data_source');
-  const license = t('options_edrdg_license');
-  const licenseKeyword = t('options_edrdg_license_keyword');
+  // const license = t('options_edrdg_license');
+  // const licenseKeyword = t('options_edrdg_license_keyword');
   const accentAttribution = t('options_accent_data_source');
   const strokeAttribution = t('options_stroke_data_source');
+  const mitLicense = t('options_mit_license');
+  const creativeCommonsLicense = t('options_creative_commons_license');
+  const hanziWriterProject = t('options_hanzi_writer_project');
+  const hanvietPinyinProject = t('options_hanviet_pinyin_project');
 
   return (
     <>
@@ -61,45 +65,42 @@ function DbSummaryBlurb() {
           text={attribution}
           links={[
             {
-              keyword: 'JMdict/EDICT',
-              href: 'https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project',
+              keyword: 'CC-CEDICT',
+              href: 'https://www.mdbg.net/chinese/dictionary?page=cedict',
             },
             {
-              keyword: 'KANJIDIC',
-              href: 'https://www.edrdg.org/wiki/index.php/KANJIDIC_Project',
-            },
-            {
-              keyword: 'JMnedict/ENAMDICT',
-              href: 'https://www.edrdg.org/enamdict/enamdict_doc.html',
-            },
-          ]}
-        />
-        <Linkify
-          text={license}
-          links={[
-            {
-              keyword: 'Electronic Dictionary Research and Development Group',
-              href: 'https://www.edrdg.org/',
-            },
-            {
-              keyword: licenseKeyword,
-              href: 'https://www.edrdg.org/edrdg/licence.html',
+              keyword: creativeCommonsLicense,
+              href: 'https://creativecommons.org/licenses/by-sa/4.0/',
             },
           ]}
         />
       </p>
-      <p class="m-0">{accentAttribution}</p>
       <p class="m-0">
         <Linkify
           text={strokeAttribution}
           links={[
             {
-              keyword: 'KanjiVG',
-              href: 'https://kanjivg.tagaini.net',
+              keyword: hanziWriterProject,
+              href: 'https://hanziwriter.org',
             },
             {
-              keyword: 'Creative Commons Attribution-Share Alike 3.0',
-              href: 'https://creativecommons.org/licenses/by-sa/3.0/',
+              keyword: mitLicense,
+              href: 'https://hanziwriter.org/license.html',
+            },
+          ]}
+        />
+      </p>
+      <p class="m-0">
+        <Linkify
+          text={accentAttribution}
+          links={[
+            {
+              keyword: hanvietPinyinProject,
+              href: 'https://github.com/ph0ngp/hanviet-pinyin-wordlist',
+            },
+            {
+              keyword: mitLicense,
+              href: 'https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE',
             },
           ]}
         />
