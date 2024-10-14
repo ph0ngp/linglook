@@ -189,10 +189,10 @@
     /*#endif*/
       "suggested_key": {
         /*#if is_safari*/
-        "default": "Alt+R",
-        "mac": "MacCtrl+Ctrl+R"
+        "default": "Alt+E",
+        "mac": "MacCtrl+Ctrl+E"
         /*#else*/
-        "default": "Alt+R"
+        "default": "Alt+E"
         /*#endif*/
       },
       "description": "__MSG_command_toggle_description__"
