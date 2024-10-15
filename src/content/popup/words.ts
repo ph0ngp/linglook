@@ -223,6 +223,7 @@ export function renderWordEntries({
     if (matchingKanji.length) {
       const kanjiSpan = html('span', { class: 'w-kanji', lang: 'zh' });
       let wkElement = null;
+      let bvElement = null;
       for (const [i, kanji] of matchingKanji.entries()) {
         if (i) {
           kanjiSpan.append(
@@ -263,14 +264,14 @@ export function renderWordEntries({
         if (options.waniKaniVocabDisplay === 'show-matches' && kanji.wk) {
           wkElement = appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
         }
-        // if (options.bunproDisplay && kanji.bv) {
-        //   appendBunproTag(kanji.bv, 'vocab', headwordSpan);
-        // }
+        if (options.bunproDisplay && kanji.bv) {
+          bvElement = appendBunproTag(kanji.bv, 'vocab', headwordSpan);
+        }
         // if (options.bunproDisplay && kanji.bg) {
         //   appendBunproTag(kanji.bg, 'grammar', headwordSpan);
         // }
       }
-      if (wkElement) {
+      if (wkElement || bvElement) {
         kanjiSpan.append(
           html(
             'span',
@@ -281,7 +282,12 @@ export function renderWordEntries({
             ' '
           )
         );
-        kanjiSpan.append(wkElement);
+        if (wkElement) {
+          kanjiSpan.append(wkElement);
+        }
+        if (bvElement) {
+          kanjiSpan.append(bvElement);
+        }
       }
       headingDiv.append(kanjiSpan);
     }
@@ -538,7 +544,7 @@ function appendWaniKaniLevelTag(
   return html(
     'span',
     { class: 'wk-level' },
-    String(level === 7 ? '7-9' : level)
+    html('span', {}, String(level === 7 ? '7-9' : level))
   );
 }
 
@@ -546,7 +552,7 @@ function appendBunproTag(
   data: { l: number; src?: string },
   type: 'vocab' | 'grammar',
   parent: ParentNode
-) {
+): Element {
   const label = browser.i18n.getMessage(
     type === 'vocab' ? 'popup_bp_vocab_tag' : 'popup_bp_grammar_tag',
     [String(data.l)]
@@ -559,7 +565,7 @@ function appendBunproTag(
   if (data.src) {
     outerSpan.append(html('span', { class: 'bp-src' }, data.src));
   }
-  parent.append(outerSpan);
+  return outerSpan;
 }
 
 function renderKana(

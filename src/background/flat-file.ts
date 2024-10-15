@@ -14,6 +14,7 @@ import { LRUMap } from 'lru_map';
 import browser from 'webextension-polyfill';
 
 import { hskData } from '../content/hsk';
+import { tocflData } from '../content/tocfl';
 import { stripFields } from '../utils/strip-fields';
 import { Overwrite } from '../utils/type-helpers';
 
@@ -289,15 +290,32 @@ class FlatFileDatabase {
     }
 
     for (let i = 0; i < matchedEntries.length; i++) {
+      const hasHSK = Object.prototype.hasOwnProperty.call(
+        hskData,
+        matchedEntries[i][5]
+      );
+      const hasTOCFL = Object.prototype.hasOwnProperty.call(
+        tocflData,
+        matchedEntries[i][4]
+      );
+      const pField = [];
+      if (hasHSK) {
+        pField.push('wk' + hskData[matchedEntries[i][5]]);
+      }
+      if (hasTOCFL) {
+        pField.push('bv' + tocflData[matchedEntries[i][4]]);
+      }
+
       const rawWordRecord: RawWordRecord = {
         k: [matchedEntries[i][5], matchedEntries[i][4]],
-        km: Object.prototype.hasOwnProperty.call(hskData, matchedEntries[i][5])
-          ? [
-              {
-                p: ['wk' + hskData[matchedEntries[i][5]]],
-              },
-            ]
-          : undefined,
+        km:
+          pField.length > 0
+            ? [
+                {
+                  p: pField,
+                },
+              ]
+            : undefined,
         r: [matchedEntries[i][1]],
         s: [
           {

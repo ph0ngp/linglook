@@ -1981,7 +1981,7 @@
     "description": "Label for button to restore the toggle shortcut"
   },
   "options_show_bunpro_decks": {
-    "message": "Show traditional form before simplified form",
+    "message": "Show TOCFL levels",
     "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_show_context_menu_item": {
@@ -2133,7 +2133,7 @@
     }
   },
   "popup_bp_vocab_tag": {
-    "message": "BP N​$level$​ Vocab",
+    "message": "TOCFL $level$",
     "description": "The tag shown alongside a headword that is part of a Bunpro vocab deck indicating what level deck it is from",
     "placeholders": {
       "level": {

@@ -143,24 +143,24 @@ function PopupPreview(props: PopupPreviewProps) {
               </>
             )}
             {/* {props.showPriority && <Star />} */}
-            {props.showWaniKaniLevel && (
-              <>
-                <span
-                  class="separator"
-                  style="display: inline-block; width: 0.5em;"
-                >
-                  {' '}
-                </span>
-                <span class="wk-level">
-                  <span>1</span>
-                </span>
-              </>
-            )}
-            {/* {props.showBunproDecks && (
-              <span class="bp-tag -vocab">
-                <span>{t('popup_bp_vocab_tag', ['3'])}</span>
+            {(props.showWaniKaniLevel || props.showBunproDecks) && (
+              <span
+                class="separator"
+                style="display: inline-block; width: 0.5em;"
+              >
+                {' '}
               </span>
-            )} */}
+            )}
+            {props.showWaniKaniLevel && (
+              <span class="wk-level">
+                <span>1</span>
+              </span>
+            )}
+            {props.showBunproDecks && (
+              <span class="bp-tag -vocab">
+                <span>{t('popup_bp_vocab_tag', ['1'])}</span>
+              </span>
+            )}
           </span>
           {/* <span class="w-kana">
             {renderKana(props.accentDisplay)}
