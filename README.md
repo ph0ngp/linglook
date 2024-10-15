@@ -74,6 +74,7 @@ install `husky` but fail so you will need to run `pnpm install --ignore-scripts`
 To build the latest trunk version please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Data sources
+
 - [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict), licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 - [Hanzi Writer project](https://hanziwriter.org), licensed under the [MIT License](https://hanziwriter.org/license.html)
 - [Hán-Việt Pinyin wordlist](https://github.com/ph0ngp/hanviet-pinyin-wordlist), licensed under the [MIT License](https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE)
