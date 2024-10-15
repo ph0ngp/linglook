@@ -212,11 +212,21 @@ export function renderWordEntries({
         index === self.findIndex((t) => t.ent === kanji.ent)
     );
 
-    // Show traditional form before simplified form if enabled
-    if (options.accentDisplay === 'downstep') {
+    // binary: simplified before traditional
+    // downstep: traditional before simplified
+    // binary-hi-contrast: simplified only
+    // none: only show traditional
+    if (
+      options.accentDisplay === 'downstep' ||
+      options.accentDisplay === 'none'
+    ) {
+      // Show traditional form before simplified form if enabled
       matchingKanji = matchingKanji.reverse();
     }
 
+    const showBothSimplifiedTraditional =
+      options.accentDisplay === 'downstep' ||
+      options.accentDisplay === 'binary';
     // Sort matched kanji entries first
     // disable sort because we want to keep the order of them: simplified, traditional
     // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));
@@ -225,7 +235,7 @@ export function renderWordEntries({
       let wkElement = null;
       let bvElement = null;
       for (const [i, kanji] of matchingKanji.entries()) {
-        if (i) {
+        if (i && showBothSimplifiedTraditional) {
           kanjiSpan.append(
             html(
               'span',
@@ -241,21 +251,26 @@ export function renderWordEntries({
         let headwordSpan = kanjiSpan;
         const ki = new Set(kanji.i || []);
         if (
+          // only dim if we show both simplified and traditional characters
+          showBothSimplifiedTraditional &&
           // Always dim search-only kanji
-          ki.has('sK') ||
-          // Dim the non-matching kanji unless there are none because we
-          // matched only on search-only kanji headwords.
-          (!kanji.match && !matchedOnlyOnSearchOnlyKanji) ||
-          // If we matched on the reading, dim any kanji headwords that are
-          // irregular, old, or rare.
-          (matchedOnKana && (ki.has('iK') || ki.has('oK') || ki.has('rK')))
+          (ki.has('sK') ||
+            // Dim the non-matching kanji unless there are none because we
+            // matched only on search-only kanji headwords.
+            (!kanji.match && !matchedOnlyOnSearchOnlyKanji) ||
+            // If we matched on the reading, dim any kanji headwords that are
+            // irregular, old, or rare.
+            (matchedOnKana && (ki.has('iK') || ki.has('oK') || ki.has('rK'))))
         ) {
           const dimmedSpan = html('span', { class: 'dimmed' });
           kanjiSpan.append(dimmedSpan);
           headwordSpan = dimmedSpan;
         }
 
-        headwordSpan.append(kanji.ent);
+        if (i === 0 || showBothSimplifiedTraditional) {
+          // always display the first one but for the second one, only display if the option is to show both
+          headwordSpan.append(kanji.ent);
+        }
 
         appendHeadwordInfo(kanji.i, headwordSpan);
         // if (options.showPriority) {

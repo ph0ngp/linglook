@@ -62,27 +62,43 @@ export function renderPopup(
     options.tabDisplay !== 'none';
 
   // TODOP: change this to the return value of background dict, not created here. (because it will be recreated everytime a new tab is rendered)
-  const allCharsToShowStrokes: Array<string> = [];
   if (hasResult && result.words && result.words.data?.[0]) {
+    const allCharsToShowStrokes: Array<string> = [];
     const wordResult: WordResult = result.words.data[0];
     // we only consider the longest (first) match
-    // loop over simplified and traditional forms
-    for (const word of wordResult.k) {
-      if (word.match) {
-        for (const char of word.ent) {
-          allCharsToShowStrokes.push(char);
+    let chosenWord = undefined;
+    switch (options.accentDisplay) {
+      case 'binary':
+      case 'downstep':
+        for (const word of wordResult.k) {
+          if (word.match) {
+            chosenWord = word;
+            break;
+          }
         }
-        // there is only one match (simplified or traditional)
-        showTabs = true;
-        result.kanji = {
-          type: 'kanji',
-          data: allCharsToShowStrokes.map((char) => ({
-            c: char,
-          })),
-          matchLen: result.words.matchLen,
-        } as KanjiSearchResult;
         break;
+      case 'binary-hi-contrast':
+        // always choose simplified
+        chosenWord = wordResult.k.length === 2 ? wordResult.k[0] : undefined;
+        break;
+      case 'none':
+        // always choose traditional
+        chosenWord = wordResult.k.length === 2 ? wordResult.k[1] : undefined;
+        break;
+    }
+    if (chosenWord) {
+      for (const char of chosenWord.ent) {
+        allCharsToShowStrokes.push(char);
       }
+      // there is only one match (simplified or traditional)
+      showTabs = true;
+      result.kanji = {
+        type: 'kanji',
+        data: allCharsToShowStrokes.map((char) => ({
+          c: char,
+        })),
+        matchLen: result.words.matchLen,
+      } as KanjiSearchResult;
     }
   }
 
@@ -207,6 +223,7 @@ export function renderPopup(
           result: resultToShow ? result : undefined,
           series: options.dictToShow,
           showKanjiComponents: options.showKanjiComponents,
+          accentDisplay: options.accentDisplay,
         })
       )
     );

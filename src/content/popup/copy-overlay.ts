@@ -1,6 +1,7 @@
 import { MajorDataSeries } from '@birchill/jpdict-idb';
 import browser from 'webextension-polyfill';
 
+import { AccentDisplay } from '../../common/content-config-params';
 import { CopyType } from '../../common/copy-keys';
 import { ReferenceAbbreviation } from '../../common/refs';
 import { html, svg } from '../../utils/builder';
@@ -24,6 +25,7 @@ export function renderCopyOverlay({
   result,
   series,
   showKanjiComponents,
+  accentDisplay,
 }: {
   copyState: CopyState;
   includeAllSenses: boolean;
@@ -35,6 +37,7 @@ export function renderCopyOverlay({
   result?: QueryResult;
   series: MajorDataSeries;
   showKanjiComponents?: boolean;
+  accentDisplay: AccentDisplay;
 }): HTMLDivElement {
   const copyOverlay = html('div', { class: 'copy-overlay' });
 
@@ -88,6 +91,7 @@ export function renderCopyOverlay({
           includePartOfSpeech,
           kanjiReferences,
           showKanjiComponents,
+          accentDisplay,
         })
       : undefined;
     const button = renderButtonWithPreview({
@@ -110,6 +114,7 @@ export function renderCopyOverlay({
           includePartOfSpeech,
           kanjiReferences,
           showKanjiComponents,
+          accentDisplay,
         }).replace(/\t/g, ' → ')
       : undefined;
     const button = renderButtonWithPreview({

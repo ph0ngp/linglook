@@ -103,6 +103,35 @@ type PopupPreviewProps = {
   theme: string;
 };
 
+const renderHanzi = (accentDisplay: AccentDisplay) => {
+  switch (accentDisplay) {
+    case 'downstep':
+      return (
+        <>
+          <span class="dimmed">中國</span>
+          <span class="separator" style="display: inline-block; width: 0.5em;">
+            {' '}
+          </span>
+          <span>中国</span>
+        </>
+      );
+    case 'binary':
+      return (
+        <>
+          <span>中国</span>
+          <span class="separator" style="display: inline-block; width: 0.5em;">
+            {' '}
+          </span>
+          <span class="dimmed">中國</span>
+        </>
+      );
+    case 'binary-hi-contrast':
+      return <span>中国</span>;
+    case 'none':
+      return <span>中國</span>;
+  }
+};
+
 function PopupPreview(props: PopupPreviewProps) {
   const { t } = useLocale();
   const themeClass = useThemeClass(props.theme);
@@ -119,29 +148,7 @@ function PopupPreview(props: PopupPreviewProps) {
       <div class="entry">
         <div>
           <span class="w-kanji">
-            {props.accentDisplay === 'downstep' ? (
-              <>
-                <span class="dimmed">中國</span>
-                <span
-                  class="separator"
-                  style="display: inline-block; width: 0.5em;"
-                >
-                  {' '}
-                </span>
-                <span>中国</span>
-              </>
-            ) : (
-              <>
-                <span>中国</span>
-                <span
-                  class="separator"
-                  style="display: inline-block; width: 0.5em;"
-                >
-                  {' '}
-                </span>
-                <span class="dimmed">中國</span>
-              </>
-            )}
+            {renderHanzi(props.accentDisplay)}
             {/* {props.showPriority && <Star />} */}
             {(props.showWaniKaniLevel || props.showBunproDecks) && (
               <span

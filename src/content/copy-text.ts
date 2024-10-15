@@ -5,6 +5,7 @@ import type {
   Sense,
   WordResult,
 } from '../background/search-result';
+import { AccentDisplay } from '../common/content-config-params';
 import type { CopyType } from '../common/copy-keys';
 import type { TranslateFunctionType } from '../common/i18n';
 import { highPriorityLabels } from '../common/priority-labels';
@@ -29,6 +30,7 @@ export function getTextToCopy({
   includePartOfSpeech = true,
   kanjiReferences = [] as Array<ReferenceAbbreviation>,
   showKanjiComponents = true,
+  accentDisplay = 'binary',
 }: {
   entry: CopyEntry;
   copyType: CopyType;
@@ -38,10 +40,11 @@ export function getTextToCopy({
   includePartOfSpeech?: boolean;
   kanjiReferences?: Array<ReferenceAbbreviation>;
   showKanjiComponents?: boolean;
+  accentDisplay: AccentDisplay;
 }): string {
   if (entry.type === 'word') {
     // this is the only entry type
-    return getWordToCopy(entry);
+    return getWordToCopy(entry, { accentDisplay });
   } else {
     return '';
   }
@@ -72,7 +75,14 @@ export function getTextToCopy({
   // }
 }
 
-export function getWordToCopy(entry: CopyEntry): string {
+export function getWordToCopy(
+  entry: CopyEntry,
+  {
+    accentDisplay,
+  }: {
+    accentDisplay: AccentDisplay;
+  }
+): string {
   let result: string;
 
   switch (entry.type) {
@@ -84,12 +94,25 @@ export function getWordToCopy(entry: CopyEntry): string {
 
         // Only show matches -- unless our only matches were search-only
         // terms -- in which case we want to include all headwords.
-        if (headwords.some((h) => h.match)) {
-          headwords = headwords.filter((entry) => entry.match);
-        }
+        switch (accentDisplay) {
+          case 'binary':
+          case 'downstep':
+            if (headwords.some((h) => h.match)) {
+              headwords = headwords.filter((entry) => entry.match);
+            }
 
-        // Only show the first match if there are multiple identical matches
-        headwords.splice(1);
+            // Only show the first match if there are multiple identical matches
+            headwords.splice(1);
+            break;
+          case 'none':
+            // remove the first element (simplified)
+            headwords.shift();
+            break;
+          case 'binary-hi-contrast':
+            // remove the last element (traditional)
+            headwords.pop();
+            break;
+        }
 
         result = headwords.map((entry) => entry.ent).join(', ');
       }

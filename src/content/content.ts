@@ -1737,6 +1737,7 @@ export class ContentHandler {
       includeLessCommonHeadwords: this.config.copyHeadwords !== 'common',
       kanjiReferences: this.config.kanjiReferences,
       showKanjiComponents: this.config.showKanjiComponents,
+      accentDisplay: this.config.accentDisplay,
     });
 
     void this.copyString(textToCopy!, copyType);

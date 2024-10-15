@@ -1554,7 +1554,7 @@
     "description": "Label for displaying the pitch accent using box outlines to show high and low"
   },
   "options_accent_display_binary_high_contrast": {
-    "message": "Binary pitch (high contrast)",
+    "message": "Simplified only",
     "description": "Label for displaying the pitch accent using box outlines with higher contrast"
   },
   "options_accent_display_downstep": {
@@ -1566,7 +1566,7 @@
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
   },
   "options_accent_display_none": {
-    "message": "None",
+    "message": "Traditional only",
     "description": "Label for not showing pitch accent information"
   },
   "options_browser_commands_no_toggle_key": {
