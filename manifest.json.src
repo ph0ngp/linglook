@@ -14,7 +14,7 @@
   /*#if supports_browser_specific_settings*/
   "browser_specific_settings": {
     "gecko": {
-      "id": "{59812185-ea92-4cca-8ab7-cfcacee81281}",
+      "id": "{9A46C04D-54D2-4D61-A37C-E0AFB23414D7}",
       /*#if mail_extension */
       "strict_min_version": "91.0"
       /*#else*/

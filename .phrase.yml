@@ -1,5 +1,5 @@
 phrase:
-  project_id: 4cbdf1daf41ca3843803ab087dd141bb
+  project_id: phrase-app-project-id-placeholder
   push:
     sources:
     - file: ./_locales/<locale_name>/messages.json
