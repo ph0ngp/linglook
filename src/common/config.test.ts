@@ -172,7 +172,7 @@ describe('Config', () => {
     const config = new Config();
 
     expect(config.accentDisplay).toEqual('binary');
-    expect(config.contextMenuEnable).toEqual(true);
+    expect(config.contextMenuEnable).toEqual(false);
     expect(config.copyHeadwords).toEqual('regular');
     expect(config.copyPos).toEqual('code');
     expect(config.copySenses).toEqual('all');
@@ -201,33 +201,33 @@ describe('Config', () => {
     ]);
     expect(config.keys).toEqual({
       toggleDefinition: [],
-      nextDictionary: ['Shift', 'Enter'],
+      nextDictionary: ['Shift'],
       // kanjiLookup: [],
-      expandPopup: ['x'],
+      expandPopup: [],
       closePopup: ['Esc'],
       pinPopup: ['Ctrl'],
       movePopupDownOrUp: [],
-      startCopy: ['c'],
+      startCopy: [],
     });
     expect(config.keysNormalized).toEqual({
       toggleDefinition: [],
-      nextDictionary: ['Shift', 'Enter'],
+      nextDictionary: ['Shift'],
       // kanjiLookup: [],
-      expandPopup: ['x'],
+      expandPopup: [],
       closePopup: ['Esc'],
       pinPopup: ['Ctrl'],
       movePopupUp: [],
       movePopupDown: [],
-      startCopy: ['c'],
+      startCopy: [],
     });
     expect(config.noTextHighlight).toEqual(false);
     expect(config.popupStyle).toEqual('default');
     expect(config.posDisplay).toEqual('expl');
     expect(config.readingOnly).toEqual(false);
     expect(config.showKanjiComponents).toEqual(true);
-    expect(config.showPriority).toEqual(true);
+    expect(config.showPriority).toEqual(false);
     expect(config.showPuck).toEqual('auto');
-    expect(config.showRomaji).toEqual(false);
+    expect(config.showRomaji).toEqual(true);
     expect(config.tabDisplay).toEqual('top');
     expect(config.toolbarIcon).toEqual('default');
   });

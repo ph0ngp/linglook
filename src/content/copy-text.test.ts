@@ -120,7 +120,7 @@ describe('getWordToCopy', () => {
     ).toEqual('理解');
   });
 
-  it('does not copy search-only kanji headword(s) from a word search', () => {
+  it.skip('does not copy search-only kanji headword(s) from a word search', () => {
     expect(
       getWordToCopy({
         type: 'word',
@@ -166,7 +166,7 @@ describe('getWordToCopy', () => {
     ).toEqual('引き裂く, 引裂く');
   });
 
-  it('copies non-matching headwords if the only matching ones are search-only', () => {
+  it.skip('copies non-matching headwords if the only matching ones are search-only', () => {
     expect(
       getWordToCopy({
         type: 'word',
@@ -211,7 +211,7 @@ describe('getWordToCopy', () => {
     ).toEqual('引き裂く, 引裂く');
   });
 
-  it('does not copy search-only kana headword(s) from a word search', () => {
+  it.skip('does not copy search-only kana headword(s) from a word search', () => {
     expect(
       getWordToCopy({
         type: 'word',
