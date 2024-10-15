@@ -119,7 +119,7 @@ function PopupPreview(props: PopupPreviewProps) {
       <div class="entry">
         <div>
           <span class="w-kanji">
-            {props.showBunproDecks ? (
+            {props.accentDisplay === 'downstep' ? (
               <>
                 <span class="dimmed">中國</span>
                 <span

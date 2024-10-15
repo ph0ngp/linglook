@@ -1550,7 +1550,7 @@
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_accent_display_binary": {
-    "message": "Binary pitch ⎾⏋",
+    "message": "Simplified before Traditional",
     "description": "Label for displaying the pitch accent using box outlines to show high and low"
   },
   "options_accent_display_binary_high_contrast": {
@@ -1558,11 +1558,11 @@
     "description": "Label for displaying the pitch accent using box outlines with higher contrast"
   },
   "options_accent_display_downstep": {
-    "message": "Downstep ꜜ",
+    "message": "Traditional before Simplified",
     "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_accent_display_label": {
-    "message": "Pitch accent display",
+    "message": "Character display order",
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
   },
   "options_accent_display_none": {

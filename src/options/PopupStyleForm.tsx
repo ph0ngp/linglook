@@ -104,7 +104,7 @@ export function PopupStyleForm(props: Props) {
             }
           />
           <label for="showDefinitions">{t('options_show_definitions')}</label>
-        </CheckboxRow>
+        </CheckboxRow>*/}
       </div>
       <div class="grid w-fit grid-cols-[repeat(2,auto)] items-baseline gap-4">
         <label for="accentDisplay">{t('options_accent_display_label')}</label>
@@ -126,7 +126,7 @@ export function PopupStyleForm(props: Props) {
           <option value="binary" selected={props.accentDisplay === 'binary'}>
             {t('options_accent_display_binary')}
           </option>
-          <option
+          {/* <option
             value="binary-hi-contrast"
             selected={props.accentDisplay === 'binary-hi-contrast'}
           >
@@ -134,9 +134,9 @@ export function PopupStyleForm(props: Props) {
           </option>
           <option value="none" selected={props.accentDisplay === 'none'}>
             {t('options_accent_display_none')}
-          </option>
+          </option> */}
         </select>
-        <label for="posDisplay">{t('options_pos_display_label')}</label>
+        {/* <label for="posDisplay">{t('options_pos_display_label')}</label>
         <select
           id="posDisplay"
           name="posDisplay"

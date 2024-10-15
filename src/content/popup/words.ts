@@ -213,7 +213,7 @@ export function renderWordEntries({
     );
 
     // Show traditional form before simplified form if enabled
-    if (options.bunproDisplay) {
+    if (options.accentDisplay === 'downstep') {
       matchingKanji = matchingKanji.reverse();
     }
 
