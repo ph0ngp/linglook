@@ -16,14 +16,13 @@ export function normalizeInput(input: string): [string, number[]] {
   // stick them between every single character).
   [normalized, inputLengths] = stripZwnj(normalized, inputLengths);
 
-  // TODOP: sync this with char range
   // Truncate if we find characters outside the expected range.
   for (let i = 0; i < fullWidthInput.length; ++i) {
     const char = fullWidthInput.codePointAt(i)!;
     // If we find a character out of range, we need to trim both normalized
     // and inputLengths
     if (
-      (char <= 0x2e80 && char != 0x200c) ||
+      (char <= 0x2e80 && char != 0x200c && char != 0x25cb) ||
       (char >= 0x3000 && char <= 0x3002)
     ) {
       let outputIndex = 0;

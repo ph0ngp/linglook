@@ -1,5 +1,3 @@
-const halfWidthNumbers = /[0-9]/;
-
 // U+2E80~U+2EF3 is the CJK radicals supplement block
 // U+2F00~U+2FD5 is the Kangxi radicals block
 const radicals = /[\u2e80-\u2ef3\u2f00-\u2fd5]/;
@@ -80,12 +78,33 @@ function isCharacterClassRange(re: RegExp): boolean {
 
 // "Chinese" here simply means any character we treat as worth attempting to
 // translate. but NOT characters that typically delimit words.
-const chineseChar = getCombinedCharRange([
-  halfWidthNumbers,
-  radicals,
-  specialChars,
-  cjk,
-]);
+const chineseChar = getCombinedCharRange([radicals, specialChars, cjk]);
+
+//CY: after changing the char range, we need to sync check this with normalize-input.ts
+
+// /[
+//   \u200c              // Zero Width Non-Joiner (ZWNJ)
+//   \u25cb              // White Circle
+//   \u2e80-\u2ef3       // CJK Radicals Supplement
+//   \u2f00-\u2fd5       // Kangxi Radicals
+//   \u3005              // Ideographic Iteration Mark
+//   \u3007              // Ideographic Number Zero
+//   \u3021-\u3029       // Hangzhou Numerals
+//   \u3038\u303B        // Hangzhou Numerals and Ideographic Iteration Mark
+//   \u337B-\u337E       // Square Era Names
+//   \u3400-\u4DBF       // CJK Unified Ideographs Extension A
+//   \u4E00-\u9FFF       // CJK Unified Ideographs
+//   \uF900-\uFAFF       // CJK Compatibility Ideographs
+//   \uFF0C              // Fullwidth Comma
+//   \u{20000}-\u{2A6DF} // CJK Unified Ideographs Extension B
+//   \u{2A700}-\u{2B73F} // CJK Unified Ideographs Extension C
+//   \u{2B740}-\u{2B81F} // CJK Unified Ideographs Extension D
+//   \u{2B820}-\u{2CEAF} // CJK Unified Ideographs Extension E
+//   \u{2CEB0}-\u{2EBEF} // CJK Unified Ideographs Extension F
+//   \u{2F800}-\u{2FA1F} // CJK Compatibility Ideographs Supplement
+//   \u{30000}-\u{3134F} // CJK Unified Ideographs Extension G
+//   \u{31350}-\u{323AF} // CJK Unified Ideographs Extension H
+// ]/u
 
 export function getNegatedCharRange(range: RegExp): RegExp {
   // Check if we got a character class range
