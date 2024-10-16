@@ -375,7 +375,7 @@ export function renderWordEntries({
     // }
 
     if (entry.romaji?.length) {
-      const pinyin_words = entry.romaji[0].split(/\s+/);
+      const pinyin_words = entry.romaji[0].replace(/-/g, '').split(/\s+/);
       headingDiv.append(
         html(
           'span',
