@@ -83,29 +83,47 @@ function getKanaHeadwordType(
   return r.app === 0 ? 1 : 2;
 }
 
+// From lowest to highest priority
+const PRIORITY_DEFINITIONS: Array<Array<string>> = [
+  ['archaic variant of', 'ancient variant of'],
+  ['old variant of'],
+  ['surname'],
+  ['variant of'],
+];
+
 function getPriority(result: WordResult): number {
-  const scores: Array<number> = [0];
+  const def = result.s[0].g[0].str;
 
-  // Scores from kanji readings
-  for (const k of result.k || []) {
-    if (!k.matchRange || !k.p) {
-      continue;
+  for (let priority = 0; priority < PRIORITY_DEFINITIONS.length; priority++) {
+    if (PRIORITY_DEFINITIONS[priority].some((phrase) => def.includes(phrase))) {
+      return priority;
     }
-
-    scores.push(getPrioritySum(k.p));
   }
 
-  // Scores from kana readings
-  for (const r of result.r) {
-    if (!r.matchRange || !r.p) {
-      continue;
-    }
+  return PRIORITY_DEFINITIONS.length; // Default priority if no matches found
 
-    scores.push(getPrioritySum(r.p));
-  }
+  // const scores: Array<number> = [0];
 
-  // Return top score
-  return Math.max(...scores);
+  // // Scores from kanji readings
+  // for (const k of result.k || []) {
+  //   if (!k.matchRange || !k.p) {
+  //     continue;
+  //   }
+
+  //   scores.push(getPrioritySum(k.p));
+  // }
+
+  // // Scores from kana readings
+  // for (const r of result.r) {
+  //   if (!r.matchRange || !r.p) {
+  //     continue;
+  //   }
+
+  //   scores.push(getPrioritySum(r.p));
+  // }
+
+  // // Return top score
+  // return Math.max(...scores);
 }
 
 // Produce an overall priority from a series of priority strings.
