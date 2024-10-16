@@ -28,25 +28,26 @@ def generate_indices(cedict_path, ids_path, output_path, cedict_crlf, cedict_lin
             index_dict[word]['cedict'].append(cedict_idx)
         cedict_idx += number_of_char_in(line, cedict_crlf)
     
-    # store IDS index
-    ids_idx = 0
-    with open(ids_path, "r", encoding="utf-8") as f:
-        ids_data = f.readlines()
-    for line in ids_data:
-        word = line.strip().split(':')[0]
-        if word in index_dict:
-            # only care about word already in cedict
-            index_dict[word]['ids']=ids_idx + number_of_char_in(word) + 1 # +1 for colon symbol
-        ids_idx += number_of_char_in(line)
+    # # store IDS index
+    # ids_idx = 0
+    # with open(ids_path, "r", encoding="utf-8") as f:
+    #     ids_data = f.readlines()
+    # for line in ids_data:
+    #     word = line.strip().split(':')[0]
+    #     if word in index_dict:
+    #         # only care about word already in cedict
+    #         index_dict[word]['ids']=ids_idx + number_of_char_in(word) + 1 # +1 for colon symbol
+    #     ids_idx += number_of_char_in(line)
 
     sorted_index = sorted(index_dict.items())
     
     with open(output_path, "w", encoding="utf-8") as f:
         for headword, values in sorted_index:
             cedict_idx_str = ','.join(map(str, values['cedict']))
-            # must use space instead of other delimiters, because it has the lowest unicode value, so that when compare with other chars in findNeedle, it will always be before other chars
-            ids_idx_str = (' '+str(values['ids'])) if values['ids'] is not None else ''
-            f.write(f"{headword} {cedict_idx_str}{ids_idx_str}\n")
+            # CY: must use space instead of other delimiters, because it has the lowest unicode value, so that when compare with other chars in findNeedle, it will always be before other chars
+            # ids_idx_str = (' '+str(values['ids'])) if values['ids'] is not None else ''
+            # f.write(f"{headword} {cedict_idx_str}{ids_idx_str}\n")
+            f.write(f"{headword} {cedict_idx_str}\n")
 
 if __name__ == "__main__":
     generate_indices('../data/cedict.u8', "../data/ids.data", "../data/cedict.idx", True, 30)

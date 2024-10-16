@@ -37,7 +37,7 @@ type FlatFileDatabaseListener = (event: FlatFileDatabaseEvent) => void;
 
 interface CacheEntry {
   cedict_id: number[];
-  ids_id: number | null;
+  // ids_id: number | null;
 }
 
 class FlatFileDatabase {
@@ -49,7 +49,7 @@ class FlatFileDatabase {
   cedictWordDict: string;
   // wordIndex: string;
   cedictWordIndex: string;
-  idsDict: string;
+  // idsDict: string;
 
   constructor(options: FlatFileDatabaseOptions) {
     this.bugsnag = options.bugsnag;
@@ -75,9 +75,9 @@ class FlatFileDatabase {
       this.cedictWordIndex = await this.readFileWithAutoRetry(
         browser.runtime.getURL('data/cedict.idx')
       );
-      this.idsDict = await this.readFileWithAutoRetry(
-        browser.runtime.getURL('data/ids.data')
-      );
+      // this.idsDict = await this.readFileWithAutoRetry(
+      //   browser.runtime.getURL('data/ids.data')
+      // );
 
       this.notifyListeners({ type: 'loaded' });
     } catch (e) {
@@ -241,7 +241,7 @@ class FlatFileDatabase {
         const parts = found.split(separatorChar).slice(1);
         this.cache.set(input, {
           cedict_id: parts[0].split(',').map(Number),
-          ids_id: parts.length > 1 ? Number(parts[1]) : null,
+          // ids_id: parts.length > 1 ? Number(parts[1]) : null,
         });
       } else {
         this.cache.set(input, null);
@@ -252,13 +252,14 @@ class FlatFileDatabase {
     if (word_data) {
       // if this input is found in cedict
       const cedict_indices = word_data.cedict_id;
-      const idsEntry: string | null =
-        word_data.ids_id !== null
-          ? this.idsDict.slice(
-              word_data.ids_id,
-              this.idsDict.indexOf('\n', word_data.ids_id)
-            )
-          : null;
+      const idsEntry = null;
+      // const idsEntry: string | null =
+      //   word_data.ids_id !== null
+      //     ? this.idsDict.slice(
+      //         word_data.ids_id,
+      //         this.idsDict.indexOf('\n', word_data.ids_id)
+      //       )
+      //     : null;
       for (let i = 0; i < cedict_indices.length; i++) {
         const dataEntry: string = this.cedictWordDict.slice(
           cedict_indices[i],
