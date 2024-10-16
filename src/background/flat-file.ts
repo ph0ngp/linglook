@@ -229,9 +229,13 @@ class FlatFileDatabase {
     maxResults: number;
   }): Promise<Array<DictionaryWordResult>> {
     await this.loaded;
-    const matchedEntries: Array<
-      [string, string, string | null, number, string, string]
-    > = [];
+    const matchedEntries: Array<{
+      def: string;
+      pinyin: string;
+      cedict_idx: number;
+      traditional: string;
+      simplified: string;
+    }> = [];
     let maxLen = 0;
 
     if (!this.cache.has(input)) {
@@ -252,7 +256,6 @@ class FlatFileDatabase {
     if (word_data) {
       // if this input is found in cedict
       const cedict_indices = word_data.cedict_id;
-      const idsEntry = null;
       // const idsEntry: string | null =
       //   word_data.ids_id !== null
       //     ? this.idsDict.slice(
@@ -272,14 +275,13 @@ class FlatFileDatabase {
           // This definition's format is wrong
           continue;
         }
-        matchedEntries.push([
-          entry[4].replace(/\//g, '; '), // def
-          entry[3].trim(), //pinyin
-          idsEntry,
-          cedict_indices[i], //index offset
-          entry[1], //traditional
-          entry[2], //simplified
-        ]);
+        matchedEntries.push({
+          def: entry[4].replace(/\//g, '; '),
+          pinyin: entry[3].trim(),
+          cedict_idx: cedict_indices[i],
+          traditional: entry[1],
+          simplified: entry[2],
+        });
         maxLen = maxLen || input.length;
       }
     }
@@ -293,22 +295,22 @@ class FlatFileDatabase {
     for (let i = 0; i < matchedEntries.length; i++) {
       const hasHSK = Object.prototype.hasOwnProperty.call(
         hskData,
-        matchedEntries[i][5]
+        matchedEntries[i].simplified
       );
       const hasTOCFL = Object.prototype.hasOwnProperty.call(
         tocflData,
-        matchedEntries[i][4]
+        matchedEntries[i].traditional
       );
       const pField = [];
       if (hasHSK) {
-        pField.push('wk' + hskData[matchedEntries[i][5]]);
+        pField.push('wk' + hskData[matchedEntries[i].simplified]);
       }
       if (hasTOCFL) {
-        pField.push('bv' + tocflData[matchedEntries[i][4]]);
+        pField.push('bv' + tocflData[matchedEntries[i].traditional]);
       }
 
       const rawWordRecord: RawWordRecord = {
-        k: [matchedEntries[i][5], matchedEntries[i][4]],
+        k: [matchedEntries[i].simplified, matchedEntries[i].traditional],
         km:
           pField.length > 0
             ? [
@@ -317,10 +319,10 @@ class FlatFileDatabase {
                 },
               ]
             : undefined,
-        r: [matchedEntries[i][1]],
+        r: [matchedEntries[i].pinyin],
         s: [
           {
-            g: [matchedEntries[i][0]],
+            g: [matchedEntries[i].def],
           },
         ],
       };
@@ -328,7 +330,7 @@ class FlatFileDatabase {
         toDictionaryWordResult({
           entry: rawWordRecord,
           matchingText: input,
-          offset: matchedEntries[i][3],
+          offset: matchedEntries[i].cedict_idx,
         })
       );
     }
