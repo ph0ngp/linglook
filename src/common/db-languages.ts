@@ -19,7 +19,7 @@ export const dbLanguageMeta: Array<
 > = [
   // ['de', { name: 'Deutsch', hasWords: true }],
   ['en', { name: 'English', hasKanji: true, hasWords: true }],
-  ['vi', { name: 'Vietnamese - Tiếng Việt', hasKanji: true, hasWords: true }],
+  ['vi', { name: 'Tiếng Việt', hasKanji: true, hasWords: true }],
   // ['es', { name: 'Español', hasKanji: true, hasWords: true }],
   // ['fr', { name: 'Français', hasKanji: true, hasWords: true }],
   // ['hu', { name: 'Magyar', hasWords: true }],
