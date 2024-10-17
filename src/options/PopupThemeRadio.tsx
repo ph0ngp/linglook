@@ -8,6 +8,7 @@ import type {
   FontSize,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
+import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
 import { classes } from '../utils/classes';
 import { useThemeClass } from '../utils/use-theme-class';
@@ -24,6 +25,7 @@ type Props = {
   showRomaji: boolean;
   showWaniKaniLevel: boolean;
   theme: string;
+  dictLang: DbLanguageId;
 };
 
 export function PopupThemeRadio(props: Props) {
@@ -101,6 +103,7 @@ type PopupPreviewProps = {
   showWaniKaniLevel: boolean;
   showRomaji: boolean;
   theme: string;
+  dictLang: DbLanguageId;
 };
 
 const renderHanzi = (accentDisplay: AccentDisplay) => {
@@ -130,6 +133,24 @@ const renderHanzi = (accentDisplay: AccentDisplay) => {
     case 'none':
       return <span>中國</span>;
   }
+};
+
+const renderDefinition = (dictLang: DbLanguageId) => {
+  let dictDef = '';
+  switch (dictLang) {
+    case 'vi':
+      dictDef = 'Trung Quốc';
+      break;
+    case 'en':
+    default:
+      dictDef = 'China';
+      break;
+  }
+  return (
+    <span class="w-def" lang={dictLang}>
+      {'\u200b' + dictDef}
+    </span>
+  );
 };
 
 function PopupPreview(props: PopupPreviewProps) {
@@ -187,12 +208,7 @@ function PopupPreview(props: PopupPreviewProps) {
             </span>
           )}
         </div>
-        {props.showDefinitions && (
-          <span class="w-def" lang="en">
-            {/* {renderPos(props.posDisplay)} */}
-            {'\u200bChina'}
-          </span>
-        )}
+        {props.showDefinitions && renderDefinition(props.dictLang)}
       </div>
     </div>
   );

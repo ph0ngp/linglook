@@ -8,6 +8,7 @@ import type {
   FontSize,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
+import { DbLanguageId, dbLanguages } from '../common/db-languages';
 import '../content/popup/popup.css';
 
 import { PopupThemeRadio } from './PopupThemeRadio';
@@ -51,6 +52,13 @@ export default function PopupThemeRadioFixture() {
     options: ['default', 'light', 'blue', 'lightblue', 'black', 'yellow'],
   });
 
+  const [dictLang] = useSelect<DbLanguageId>('dictLang', {
+    // I suspect the React Cosmos typings here are incorrect with regard to
+    // constness.
+    options: dbLanguages as unknown as DbLanguageId[],
+    defaultValue: 'en',
+  });
+
   return (
     <div class="w-fit">
       <PopupThemeRadio
@@ -65,6 +73,7 @@ export default function PopupThemeRadioFixture() {
         showRomaji={showRomaji}
         showWaniKaniLevel={showWaniKaniLevel}
         theme={theme}
+        dictLang={dictLang}
       />
     </div>
   );

@@ -8,6 +8,7 @@ import type {
   FontSize,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
+import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
 
 import { PopupStyleForm } from './PopupStyleForm';
@@ -20,6 +21,14 @@ type Props = {
 
 export function PopupStyleSettings(props: Props) {
   const { t } = useLocale();
+
+  const dictLang = useConfigValue(props.config, 'dictLang');
+  const onChangeDictLang = useCallback(
+    (value: DbLanguageId) => {
+      props.config.dictLang = value;
+    },
+    [props.config]
+  );
 
   const theme = useConfigValue(props.config, 'popupStyle');
   const onChangeTheme = useCallback(
@@ -139,6 +148,8 @@ export function PopupStyleSettings(props: Props) {
           showRomaji={showRomaji}
           showWaniKaniLevel={waniKaniVocabDisplay === 'show-matches'}
           theme={theme}
+          dictLang={dictLang}
+          onChangeDictLang={onChangeDictLang}
         />
       </div>
     </>

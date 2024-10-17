@@ -9,6 +9,7 @@ import type {
   FontSize,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
+import { DbLanguageId } from '../common/db-languages';
 import '../content/popup/popup.css';
 
 import { PopupStyleForm } from './PopupStyleForm';
@@ -37,6 +38,8 @@ export default function PopupStyleFormFixture() {
   const [fontSize, setFontSize] = useState<FontSize>('normal');
   const [fontFace, setFontFace] = useState<FontFace>('bundled');
 
+  const [dictLang, setDictLang] = useState<DbLanguageId>('en');
+
   return (
     <PopupStyleForm
       accentDisplay={accentDisplay}
@@ -61,6 +64,8 @@ export default function PopupStyleFormFixture() {
       showRomaji={showRomaji}
       showWaniKaniLevel={showWaniKaniLevel}
       theme={theme}
+      dictLang={dictLang}
+      onChangeDictLang={setDictLang}
     />
   );
 }

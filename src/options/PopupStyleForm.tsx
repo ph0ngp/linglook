@@ -5,6 +5,7 @@ import type {
   FontSize,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
+import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
 
 import { CheckboxRow } from './CheckboxRow';
@@ -34,6 +35,8 @@ type Props = {
   showRomaji: boolean;
   showWaniKaniLevel: boolean;
   theme: string;
+  dictLang: DbLanguageId;
+  onChangeDictLang: (value: DbLanguageId) => void;
 };
 
 export function PopupStyleForm(props: Props) {
