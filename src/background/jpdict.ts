@@ -75,26 +75,28 @@ export type JpdictStateWithFallback = Omit<JpdictState, 'words'> & {
 // We track some state locally because we want to avoid querying the database
 // when it is being updated since this can block for several seconds.
 
-// let dbState: JpdictStateWithFallback = {
-//   words: {
-//     state: 'init',
-//     version: null,
-//     fallbackState: 'unloaded',
-//   },
-//   kanji: {
-//     state: 'init',
-//     version: null,
-//   },
-//   radicals: {
-//     state: 'init',
-//     version: null,
-//   },
-//   names: {
-//     state: 'init',
-//     version: null,
-//   },
-//   updateState: { type: 'idle', lastCheck: null },
-// };
+// CY: all of the states are unavailable because we don't use them, except fallbackState of words
+const dbState: JpdictStateWithFallback = {
+  words: {
+    state: 'unavailable',
+    version: null,
+    // CY: this will be updated by fallBackDatabaseLoader when the flat file database is loaded
+    fallbackState: 'unloaded',
+  },
+  kanji: {
+    state: 'unavailable',
+    version: null,
+  },
+  radicals: {
+    state: 'unavailable',
+    version: null,
+  },
+  names: {
+    state: 'unavailable',
+    version: null,
+  },
+  updateState: { type: 'idle', lastCheck: null },
+};
 
 // Is the IDB database available for the given series?
 //
@@ -155,6 +157,7 @@ export async function initDb({
   onUpdate,
 }: {
   lang: string;
+  // this should be called whenever dbState is updated
   onUpdate: (status: JpdictStateWithFallback) => void;
 }) {
   // if (initPromise) {
@@ -234,14 +237,18 @@ export async function initDb({
   //   // But first, reset any loads that might have errored or hung so that the
   //   // user can retry the load by disabling/enabling the add-on.
   fallbackDatabaseLoader.resetIfNotLoaded();
-  // load flat file database right at the beginning
+  fallbackDatabaseLoader.onUpdate = (
+    fallbackDatabaseState: FlatFileDatabaseLoadState
+  ) => {
+    // CY: this is defining the onUpdate function of fallBackDatabaseLoader
+    // after fallBackDatabaseLoader has new state, this onUpdate (of fallBackDatabaseLoader) will be called, then we copy that state to dbState.words.fallbackState, then call onUpdate of dbState, which is onDbStatusUpdated in background.ts
+    // check flat-file.ts for more details on where onUpdate of fallBackDatabaseLoader is called
+    dbState.words.fallbackState = fallbackDatabaseState;
+    // CY: because we don't use idb database, this is the only place where onUpdate of dbState is called
+    onUpdate(dbState);
+  };
+  // load flat file database right at the beginning. This will load and then call onUpdate of fallbackDatabaseLoader, which in turn will call onUpdate of dbState, which is onDbStatusUpdated in background.ts
   await fallbackDatabaseLoader.database;
-  // fallbackDatabaseLoader.onUpdate = (
-  //   fallbackDatabaseState: FlatFileDatabaseLoadState
-  // ) => {
-  //   dbState.words.fallbackState = fallbackDatabaseState;
-  //   onUpdate(dbState);
-  // };
 
   //   // Fetch the initial state
   //   backend.queryState();
