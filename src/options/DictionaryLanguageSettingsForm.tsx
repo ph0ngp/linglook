@@ -35,7 +35,7 @@ export function DictionaryLanguageSettingsForm(props: Props) {
 
   return (
     <>
-      <select id="lang" class="w-40" name="lang" onChange={onChange}>
+      <select id="lang" class="w-60" name="lang" onChange={onChange}>
         {dbLanguageMeta.map(([id, data]) => {
           let label = data.name;
           if (data.hasWords && !data.hasKanji) {
@@ -50,7 +50,7 @@ export function DictionaryLanguageSettingsForm(props: Props) {
           );
         })}
       </select>
-      <div
+      {/* <div
         class={classes(
           'mt-4 rounded-lg border border-solid px-4 py-2 leading-normal',
           'border-yellow-800 bg-yellow-50 text-yellow-800',
@@ -65,7 +65,7 @@ export function DictionaryLanguageSettingsForm(props: Props) {
           <li>{t('options_lang_warning_change_lang_redownload')}</li>
           <li>{t('options_lang_warning_temporary_en_fallback')}</li>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }

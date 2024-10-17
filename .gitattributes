@@ -1,2 +1,2 @@
 data/*.idx text eol=lf
-data/*.ljson text eol=lf
+data/cedict_en.u8 text eol=crlf

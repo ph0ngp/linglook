@@ -51,3 +51,4 @@ def generate_indices(cedict_path, ids_path, output_path, cedict_crlf, cedict_lin
 
 if __name__ == "__main__":
     generate_indices('../data/cedict.u8', "../data/ids.data", "../data/cedict.idx", True, 30)
+    # generate_indices('../data/cedict_vn.u8', "../data/ids.data", "../data/cedict_vn.idx", False, 0)

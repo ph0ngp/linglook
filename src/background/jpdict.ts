@@ -11,6 +11,7 @@ import {
 import { kanaToHiragana } from '@birchill/normal-jp';
 import browser from 'webextension-polyfill';
 
+import { DbLanguageId } from '../common/db-languages';
 import { normalizeInput } from '../utils/normalize-input';
 import { JpdictWorkerBackend } from '../worker/jpdict-worker-backend';
 
@@ -156,7 +157,7 @@ export async function initDb({
   lang,
   onUpdate,
 }: {
-  lang: string;
+  lang: DbLanguageId;
   // this should be called whenever dbState is updated
   onUpdate: (status: JpdictStateWithFallback) => void;
 }) {
@@ -247,6 +248,8 @@ export async function initDb({
     // CY: because we don't use idb database, this is the only place where onUpdate of dbState is called
     onUpdate(dbState);
   };
+  // CY: must setLang before calling loading database the first time
+  fallbackDatabaseLoader.setLang(lang);
   // load flat file database right at the beginning. This will load and then call onUpdate of fallbackDatabaseLoader, which in turn will call onUpdate of dbState, which is onDbStatusUpdated in background.ts
   await fallbackDatabaseLoader.database;
 
@@ -302,7 +305,10 @@ export async function initDb({
 //   }
 // }
 
-export function updateDb(params: { lang: string; force: boolean }) {
+export async function updateDb(params: { lang: DbLanguageId; force: boolean }) {
+  fallbackDatabaseLoader.setLang(params.lang);
+  // will be quick (do nothing) if lang is the same as the current lang. But will wait for load if lang is different.
+  await fallbackDatabaseLoader.database;
   // backend.updateDb(params);
 }
 

@@ -59,6 +59,7 @@ import browser, { Runtime, Tabs } from 'webextension-polyfill';
 import '../../manifest.json.src';
 
 import { Config } from '../common/config';
+import { DbLanguageId } from '../common/db-languages';
 import {
   DbListenerMessage,
   notifyDbStateUpdated,
@@ -218,7 +219,7 @@ config.addChangeListener(async (changes) => {
 
   // Update dictionary language
   if (changes.hasOwnProperty('dictLang')) {
-    const newLang = (changes as any).dictLang.newValue;
+    const newLang: DbLanguageId = (changes as any).dictLang.newValue;
     Bugsnag.leaveBreadcrumb(`Changing language of database to ${newLang}.`);
     updateDb({ lang: newLang, force: true });
   }

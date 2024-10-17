@@ -13,6 +13,7 @@ import { kanaToHiragana } from '@birchill/normal-jp';
 import { LRUMap } from 'lru_map';
 import browser from 'webextension-polyfill';
 
+import { DbLanguageId } from '../common/db-languages';
 import { hskData } from '../content/hsk';
 import { tocflData } from '../content/tocfl';
 import { stripFields } from '../utils/strip-fields';
@@ -51,16 +52,16 @@ class FlatFileDatabase {
   cedictWordIndex: string;
   // idsDict: string;
 
-  constructor(options: FlatFileDatabaseOptions) {
+  constructor(options: FlatFileDatabaseOptions & { lang: DbLanguageId }) {
     this.bugsnag = options.bugsnag;
-    this.loaded = this.loadData();
+    this.loaded = this.loadData(options.lang);
   }
 
   //
   // Loading
   //
 
-  private async loadData(): Promise<void> {
+  private async loadData(lang: DbLanguageId): Promise<void> {
     try {
       // Read in series to reduce contention
       // this.wordDict = await this.readFileWithAutoRetry(
@@ -70,10 +71,10 @@ class FlatFileDatabase {
       //   browser.runtime.getURL('data/words.idx')
       // );
       this.cedictWordDict = await this.readFileWithAutoRetry(
-        browser.runtime.getURL('data/cedict.u8')
+        browser.runtime.getURL(`data/cedict_${lang}.u8`)
       );
       this.cedictWordIndex = await this.readFileWithAutoRetry(
-        browser.runtime.getURL('data/cedict.idx')
+        browser.runtime.getURL(`data/cedict_${lang}.idx`)
       );
       // this.idsDict = await this.readFileWithAutoRetry(
       //   browser.runtime.getURL('data/ids.data')
@@ -632,9 +633,23 @@ export class FlatFileDatabaseLoader {
   private resolveLoad: (db: FlatFileDatabase) => void;
   private rejectLoad: (e: any) => void;
 
+  private lang: DbLanguageId;
+
   constructor(options: FlatFileDatabaseOptions) {
     this.bugsnag = options.bugsnag;
     this.onFlatFileDatabaseUpdated = this.onFlatFileDatabaseUpdated.bind(this);
+  }
+
+  reset(): void {
+    if (this.flatFileDatabase) {
+      this.flatFileDatabase.removeListener(this.onFlatFileDatabaseUpdated);
+      this.flatFileDatabase = undefined;
+    }
+
+    this.loadState = 'unloaded';
+    if (this.onUpdate) {
+      this.onUpdate(this.loadState);
+    }
   }
 
   resetIfNotLoaded(): void {
@@ -642,20 +657,31 @@ export class FlatFileDatabaseLoader {
       return;
     }
 
-    if (this.flatFileDatabase) {
-      this.flatFileDatabase.removeListener(this.onFlatFileDatabaseUpdated);
-      this.flatFileDatabase = undefined;
-    }
-
-    this.loadState = 'unloaded';
+    this.reset();
   }
 
+  // CY: must setLang before calling loading database the first time
+  setLang(lang: DbLanguageId): void {
+    if (typeof this.lang === 'undefined') {
+      this.lang = lang;
+    } else if (this.lang === lang) {
+      return;
+    } else {
+      this.reset();
+      this.lang = lang;
+    }
+  }
+
+  // CY: must setLang before calling load()
   load(): Promise<FlatFileDatabase> {
     if (this.flatFileDatabase && this.loadPromise) {
       return this.loadPromise;
     }
 
-    this.flatFileDatabase = new FlatFileDatabase({ bugsnag: this.bugsnag });
+    this.flatFileDatabase = new FlatFileDatabase({
+      bugsnag: this.bugsnag,
+      lang: this.lang,
+    });
     this.flatFileDatabase.addListener(this.onFlatFileDatabaseUpdated);
 
     this.loadPromise = new Promise<FlatFileDatabase>((resolve, reject) => {
