@@ -125,6 +125,7 @@ export class Config {
     this.onChange = this.onChange.bind(this);
     browser.storage.onChanged.addListener(this.onChange);
 
+    // CY: this might not be neccessary because we use locale, not navigator.languages
     this.onLanguageChange = this.onLanguageChange.bind(this);
     self.addEventListener('languagechange', this.onLanguageChange);
   }
@@ -609,7 +610,7 @@ export class Config {
     }
   }
 
-  // dictLang: Defaults to the first match from navigator.languages found in
+  // dictLang: Defaults to the current locale if found in
   // dbLanguages, or 'en' otherwise.
 
   get dictLang(): DbLanguageId {
@@ -665,14 +666,19 @@ export class Config {
     return true;
   }
 
+  // CY: get default dict lang from our current locale if possible
   private getDefaultLang(): DbLanguageId {
     const availableLanguages = new Set(dbLanguages);
-    for (const lang of navigator.languages) {
-      const langCode = lang.split('-')[0];
-      if (availableLanguages.has(langCode as DbLanguageId)) {
-        return langCode as DbLanguageId;
-      }
+    const langTag = browser.i18n.getMessage('lang_tag').split('-')[0];
+    if (availableLanguages.has(langTag as DbLanguageId)) {
+      return langTag as DbLanguageId;
     }
+    // for (const lang of navigator.languages) {
+    //   const langCode = lang.split('-')[0];
+    //   if (availableLanguages.has(langCode as DbLanguageId)) {
+    //     return langCode as DbLanguageId;
+    //   }
+    // }
 
     return 'en';
   }
