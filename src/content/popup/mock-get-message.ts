@@ -4,7 +4,7 @@ import * as path from 'path';
 import { isObject } from '../../utils/is-object';
 
 export function mockGetMessage(
-  locale: 'en',
+  locale: 'en' | 'vi' | 'zh',
   id: string,
   replacements?: string | Array<string>
 ) {
