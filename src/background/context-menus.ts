@@ -71,20 +71,21 @@ export async function updateContextMenus(options: {
     await removeMenuItem(TOGGLE_MENU_ID);
   }
 
-  // We only show the enable puck menu if the tab is enabled
-  if (tabEnabled) {
-    try {
-      await addEnablePuckMenu(showPuck);
-    } catch {
-      try {
-        await contextMenus.update(ENABLE_PUCK_MENU_ID, { checked: showPuck });
-      } catch {
-        // Ignore
-      }
-    }
-  } else {
-    await removeMenuItem(ENABLE_PUCK_MENU_ID);
-  }
+  // CY: disable enable puck menu in context menu
+  // // We only show the enable puck menu if the tab is enabled
+  // if (tabEnabled) {
+  //   try {
+  //     await addEnablePuckMenu(showPuck);
+  //   } catch {
+  //     try {
+  //       await contextMenus.update(ENABLE_PUCK_MENU_ID, { checked: showPuck });
+  //     } catch {
+  //       // Ignore
+  //     }
+  //   }
+  // } else {
+  //   await removeMenuItem(ENABLE_PUCK_MENU_ID);
+  // }
 }
 
 async function addToggleMenu(enabled: boolean) {
