@@ -30,6 +30,7 @@ async function main() {
   let totalMissingKeys = 0;
   let totalExtraKeys = 0;
 
+  let localeFiles: string[] = [];
   if (args.locale && args.locale !== '*') {
     if (args.locale === 'en') {
       throw new Error(
@@ -48,7 +49,7 @@ async function main() {
     const localeDir = url.fileURLToPath(
       new URL('../_locales', import.meta.url)
     );
-    const localeFiles = fg.sync('**/messages.json', {
+    localeFiles = fg.sync('**/messages.json', {
       cwd: localeDir,
       absolute: true,
     });
@@ -59,11 +60,7 @@ async function main() {
     }
 
     for (const file of localeFiles) {
-      const matches = file.match(/\/([^/]+?)\/messages.json/);
-      if (!matches || matches.length < 2) {
-        throw new Error(`Failed to determine the locale from path ${file}`);
-      }
-      const locale = matches[1];
+      const locale = getLocaleFromFilePath(file);
       if (locale === 'en') {
         continue;
       }
@@ -84,19 +81,98 @@ async function main() {
     }
     process.exit(2);
   }
+
+  console.log('Good job! 🥰 No missing or extra keys found');
+
+  const differentMessageKeys = getDifferentMessageKeys({
+    locale: 'vi',
+    enData,
+  });
+  console.log(
+    `Total ${differentMessageKeys.size} different message keys between en and vi:`
+  );
+  const parsedDatas: Record<string, L18NData> = {};
+  for (const file of localeFiles) {
+    const locale = getLocaleFromFilePath(file);
+    parsedDatas[locale] = readLocaleData(locale).data;
+  }
+  for (const key of differentMessageKeys) {
+    console.log(`  '${key}':`);
+    for (const locale of Object.keys(parsedDatas)) {
+      console.log(`    ${locale}: '${parsedDatas[locale][key].message}'`);
+    }
+    console.log('');
+  }
 }
 
 interface L18NData {
   [key: string]: any;
 }
 
-function readEnData(): L18NData {
-  const messageFile = url.fileURLToPath(
-    new URL('../_locales/en/messages.json', import.meta.url)
-  );
+function getLocaleFromFilePath(file: string): string {
+  const matches = file.match(/\/([^/]+?)\/messages.json/);
+  if (!matches || matches.length < 2) {
+    throw new Error(`Failed to determine the locale from path ${file}`);
+  }
+  return matches[1];
+}
 
-  const data = fs.readFileSync(messageFile, { encoding: 'utf8' });
-  return JSON.parse(data) as L18NData;
+function readEnData(): L18NData {
+  return readLocaleData('en').data;
+}
+
+function readLocaleData(locale: string): {
+  data: L18NData;
+  filePath: string;
+} {
+  const messageFile = url.fileURLToPath(
+    new URL(`../_locales/${locale}/messages.json`, import.meta.url)
+  );
+  if (!fs.existsSync(messageFile)) {
+    throw new Error(`Could not find message file: ${messageFile}`);
+  }
+
+  const fileContent = fs.readFileSync(messageFile, { encoding: 'utf8' });
+  const data = JSON.parse(fileContent) as L18NData;
+  return { data, filePath: messageFile };
+}
+
+// assume that the keys set are identical already
+function getDifferentMessageKeys({
+  locale,
+  enData,
+}: {
+  locale: string;
+  enData: L18NData;
+}): Set<string> {
+  // console.log(`Checking keys for '${locale}' locale...`);
+
+  const parsedData = readLocaleData(locale).data;
+
+  // Look for different message keys
+  const differentMessageKeys = new Set<string>();
+
+  for (const [key, value] of Object.entries(parsedData)) {
+    // Check if the message is identical to the English version
+    if (
+      typeof value === 'object' &&
+      'message' in value &&
+      typeof enData[key] === 'object' &&
+      'message' in enData[key] &&
+      value.message !== enData[key].message
+    ) {
+      differentMessageKeys.add(key);
+    }
+  }
+
+  // console.log('Different key messages:');
+  // for (const key of differentMessageKeys) {
+  //   console.log(`  '${key}':`);
+  //   console.log(`    en: '${enData[key].message}'`);
+  //   console.log(`    ${locale}: '${parsedData[key].message}'`);
+  //   console.log('');
+  // }
+  return differentMessageKeys;
 }
 
 async function checkLocale({
@@ -112,15 +188,7 @@ async function checkLocale({
 }) {
   console.log(`Checking keys for '${locale}' locale...`);
 
-  const messageFile = url.fileURLToPath(
-    new URL(`../_locales/${locale}/messages.json`, import.meta.url)
-  );
-  if (!fs.existsSync(messageFile)) {
-    throw new Error(`Could not find message file: ${messageFile}`);
-  }
-
-  const data = fs.readFileSync(messageFile, { encoding: 'utf8' });
-  const parsedData = JSON.parse(data) as L18NData;
+  const { data: parsedData, filePath: messageFile } = readLocaleData(locale);
 
   // Look for missing keys
   const missingKeys = new Set(Object.keys(enData));
