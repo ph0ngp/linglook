@@ -28,6 +28,7 @@ async function main() {
 
   const enData = readEnData();
   let totalMissingKeys = 0;
+  let totalExtraKeys = 0;
 
   if (args.locale && args.locale !== '*') {
     if (args.locale === 'en') {
@@ -36,11 +37,13 @@ async function main() {
       );
     }
 
-    totalMissingKeys = await checkLocale({
+    const result = await checkLocale({
       ...args,
       locale: args.locale,
       enData,
     });
+    totalMissingKeys = result.missingKeys;
+    totalExtraKeys = result.extraKeys;
   } else {
     const localeDir = url.fileURLToPath(
       new URL('../_locales', import.meta.url)
@@ -65,15 +68,19 @@ async function main() {
         continue;
       }
 
-      totalMissingKeys += await checkLocale({ ...args, locale, enData });
+      const result = await checkLocale({ ...args, locale, enData });
+      totalMissingKeys += result.missingKeys;
+      totalExtraKeys += result.extraKeys;
     }
   }
 
-  // Return a non-zero exit code if there were missing keys
-  if (totalMissingKeys) {
+  // Return a non-zero exit code if there were missing or extra keys
+  if (totalMissingKeys || totalExtraKeys) {
     // Print grand total if we scanned multiple files
     if (!args.locale || args.locale === '*') {
-      console.log(`Got a total of ${totalMissingKeys} missing key(s).`);
+      console.log(
+        `Got a total of ${totalMissingKeys} missing key(s) and ${totalExtraKeys} extra key(s).`
+      );
     }
     process.exit(2);
   }
@@ -117,17 +124,28 @@ async function checkLocale({
 
   // Look for missing keys
   const missingKeys = new Set(Object.keys(enData));
+  const extraKeys = new Set<string>();
   for (const key of Object.keys(parsedData)) {
-    missingKeys.delete(key);
+    if (missingKeys.delete(key)) {
+      // Key exists in both, so it's not missing
+    } else {
+      // Key exists in parsedData but not in enData, so it's extra
+      extraKeys.add(key);
+    }
   }
 
   // Report results
   for (const key of missingKeys) {
     console.log(`  '${key}' is missing`);
   }
+  for (const key of extraKeys) {
+    console.log(`  '${key}' is extra`);
+  }
 
-  if (missingKeys.size) {
-    console.log(`${missingKeys.size} missing key(s) in '${locale}' locale.`);
+  if (missingKeys.size || extraKeys.size) {
+    console.log(
+      `${missingKeys.size} missing key(s) and ${extraKeys.size} extra key(s) in '${locale}' locale.`
+    );
   }
 
   // Copy, if requested
@@ -151,7 +169,7 @@ async function checkLocale({
     });
   }
 
-  return missingKeys.size;
+  return { missingKeys: missingKeys.size, extraKeys: extraKeys.size };
 }
 
 main()
