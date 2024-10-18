@@ -76,7 +76,7 @@ import {
 } from './background-request';
 import { setDefaultToolbarIcon, updateBrowserAction } from './browser-action';
 import { registerMenuListeners, updateContextMenus } from './context-menus';
-import { FxFetcher } from './fx-fetcher';
+// import { FxFetcher } from './fx-fetcher';
 import { isCurrentTabEnabled } from './is-current-tab-enabled';
 import {
   JpdictStateWithFallback,
@@ -103,7 +103,7 @@ startBugsnag();
 //
 
 const tabManager = new TabManager();
-const fxFetcher = new FxFetcher();
+// const fxFetcher = new FxFetcher();
 
 tabManager.addListener(
   async ({
@@ -137,16 +137,16 @@ tabManager.addListener(
       showPuck: config.computedShowPuck === 'show',
     });
 
-    // If we have enabled a tab, make sure we update our FX data.
-    //
-    // We don't do this unless a tab is enabled because some users may have the
-    // add-on installed but never enabled and we shouldn't download FX data each
-    // day in that case.
-    if (anyEnabled) {
-      await fxFetcher.scheduleNextUpdate();
-    } else {
-      await fxFetcher.cancelScheduledUpdate();
-    }
+    // // If we have enabled a tab, make sure we update our FX data.
+    // //
+    // // We don't do this unless a tab is enabled because some users may have the
+    // // add-on installed but never enabled and we shouldn't download FX data each
+    // // day in that case.
+    // if (anyEnabled) {
+    //   await fxFetcher.scheduleNextUpdate();
+    // } else {
+    //   await fxFetcher.cancelScheduledUpdate();
+    // }
   }
 );
 
