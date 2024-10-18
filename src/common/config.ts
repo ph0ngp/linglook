@@ -1165,14 +1165,23 @@ export class Config {
     void browser.storage.sync.set({ showKanjiComponents: value });
   }
 
-  // showPriority: Defaults to false. Change default must also change set showPriority.
+  private getDefaultShowHanviet(): boolean {
+    const langTag = browser.i18n.getMessage('lang_tag').split('-')[0];
+    if (langTag === 'vi') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   get showPriority(): boolean {
-    return !!this.settings.showPriority;
+    return typeof this.settings.showPriority === 'undefined'
+      ? this.getDefaultShowHanviet()
+      : this.settings.showPriority;
   }
 
   set showPriority(value: boolean) {
-    if (value) {
+    if (value !== this.getDefaultShowHanviet()) {
       this.settings.showPriority = value;
       void browser.storage.sync.set({ showPriority: value });
     } else {
