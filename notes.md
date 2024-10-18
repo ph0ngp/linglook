@@ -1,0 +1,78 @@
+## Miscellaneous notes:
+
+- jpdict is always unavailable (dbState and getDataSeriesStatus in jpdict.ts), we only use flat file dict. But we still keep all the old code, not have time yet to prune them.
+    - when ever the flat file dict is loaded, it will notify its updated state to other listeners. Check jpdict.ts initDb function.
+- in many places, variables are used for new purposes but still keep the original names:
+    - wanikani -> hsk, bunpro -> tocfl, priority -> show hanviet transliteration, accent display -> hanzi display order (binary -> simp before trad, binary-hi-contrast: simp only; downstep: trad before simp; none: trad only), romaji -> hanviet transliteration
+    - copy entry -> copy, copy-separate fields -> search images; copy words -> disabled
+    - kanji tab -> stroke order
+- to change config default, must change both getters and setters. Because this project's style is to delete settings key if it's the same as the default config. For detail check config.ts
+- strokes order uses kanji tab: the data is populated not from dictionary search phase but from render phase. Check render-popup.ts
+- disabled from 10ten: metadata (shogi, currency, era, number, measure), Image search, title search, horizontal swiping, downwards arrow, context menu (toggle on off/enable puck), names tab, tap to lookup, jpdict IDB download/updating, fx data, kanji tab content
+- if you want to use bugsnag, should replace in file "secrets.ts": MY_BUGSNAG_API_KEY
+    - to hide from git status: git update-index --assume-unchanged ./src/utils/secrets.ts
+    - to undo: git update-index --no-assume-unchanged ./src/utils/secrets.ts
+- flat file dict mechanism:
+    - read from u8 and idx file
+    - create raw records; then convert to proper record to process. Check flat-file.ts for the record format. We are using 10ten's format to store our dict so many fields are not used.
+    - FlatFileDatabaseLoader is the wrapper around flatFileDatabase.
+        - it holds a lang field. When the dictLang change, it will dump the current lang and current flat file database and adopt the new lang. Then on the next load (await fallbackDatabaseLoader.database; when its loadState is 'unload' will load the new flat file database) it will load the new flat file database of the new lang.
+- pnpm commands:
+    - pnpm check-keys: check for missing/extra keys and if passed, to see important keys
+        - currently in _locales/ dir we hold a lot of unused keys from 10ten. So it's neccessary to just look through the important keys.
+    - to build:
+        - pnpm install --frozen-lockfile
+        - chrome: pnpm build:chrome
+        - safari:
+            - pnpm build:safari
+            - in xcode: add the project under xcode13
+            - use xcode to build to devices.
+    - pass CI:
+        - to test:
+            - pnpm test
+            - pnpm playwright-test "tests/**/*.test.ts" --browser chromium
+            - somehow pnpm playwright-test "tests/**/*.test.ts" --browser firefox fails while the chromium one passed. But on Github both passed so no worry, perhaps it's just a local problem. As long as chromium passed locally, it's fine.
+        - pnpm lint
+    - command list is declared in package.json
+        - devDependencies: only used for development purposes
+- packages and tools:
+    - knip: useful tool for finding unused code
+    - husky: looks like it's for doing things at commit time, like formatting
+    - depends on hanviet-pinyin-words. Everytime we update that package, must run "pnpm update hanviet-pinyin-words" here.
+- cedict.idx separators must be space: because space has the lowest unicode value, it will always be sorted first, so that A\<separator\> will always be before AB... This is needed in flat-file's findNeedle function. For example, if the separator is e.g. _, then cannot find 来 because, then 来\_ will be sorted after 来M (also in the dict) while actually 来 (1 char) should be sorted before 来M (2 chars)
+- data dir:
+    - including all our dicts + stroke order data
+    - if a char is not found in the stroke order data, a char not found message will be shown.
+- rspack:
+    - this is the actual build place config: determines which files to copy into final build
+    - you can swap module here:
+        - for example: by default 10ten uses activeTabOnly: true in Safari, here I changed it to activeTabOnly: false,
+            - this will use all-tab-manager instead of active-tab-manager. Which will avoid the need for always having to enable the extension with every new tab or new web page.
+- currently dictLang is set by default to the locale of users:
+    - locales are set by OS language or browser language, we cannot set it manually
+    - there are 3 locales: en, vi, zh. Locale determines UI language. (UI language is different from dict language). But if users in en and vi locale, which is inside DbLanguageId, then we use 'en' or 'vi' language dict. Check get default dict lang in config.ts
+- default showHanviet (showPriority in the code) also depends on the locale. if it's vi, then default is true
+- when update cedict data:
+    - download new cedict .u8 file. Usually it's CRLF. Must config it to be CRLF in .gitattributes to keep its CRLF
+        - convert it to LF is also ok, but we have to generate its idx file again
+        - we keep it this CRLF way because it's the default format of CEDICT
+        - for the dict to work, it must have its true line ending format because the idx file counts the number of bytes in u8 file
+    - to generate idx files: use scripts/generate_idx.py. Check the parameters
+- we have hsk.ts and tocfl.ts as 2 database for checking if a word is inside those list
+    - they are minified so they are inside .prettierignore
+        - they are generated by two other local projects.
+- TODOP is our TODOs, TODO is original project's TODO
+- I have deleted to the best of my knowledge all URL call so that this project is strictly offline, except Bugsnag (not properly config yet). All the FX, jpdict download have been disabled (even though the source file is still there, not deleted yet).
+- test cases: is not full. Have not covered our project's new features.
+- font: use NOTO sans SC (simplified) of google. Not sure if we should get the traditional version. But this font's coverage is guaranteed to be huge.
+- hanviet depends on having pinyin. Pinyin is in fact romaji in the background.
+    - But if we disable romaji in the config, then the background.ts will not send romaji (pinyin) info content.ts (foreground) so we cannot display hanviet
+    - So, therefore, romaji must always be enabled in order for hanviet to work.
+- To debug:
+    - service worker / background page or settings page:
+        - will debug background.ts
+        - To show current settings:
+            - chrome.storage.sync.get(console.log)
+            - chrome.storage.local.get(console.log)
+    - current web page:
+        - will debug content.ts
