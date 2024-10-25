@@ -86,9 +86,9 @@ function getKanaHeadwordType(
 // From lowest to highest priority
 // TODOP: value of this should be set and updated according to lang
 const PRIORITY_DEFINITIONS: Array<Array<string>> = [
-  ['archaic variant of', 'ancient variant of', 'biến thể cổ xưa của'],
+  ['archaic variant of', 'ancient variant of', 'biến thể cổ của'],
   ['old variant of', 'biến thể cũ của'],
-  ['surname', 'họ '],
+  ['surname', 'họ ['],
   ['variant of', 'biến thể của'],
 ];
 
