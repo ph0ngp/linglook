@@ -6,5 +6,9 @@ declare module 'pinyin-converter' {
 }
 
 declare module 'hanviet-pinyin-words' {
-  export function getHanviet(tradHanzi: string, pinyinArray: string[]): string;
+  export function getHanviet(
+    tradHanzi: string,
+    pinyinArray: string[],
+    firstCharUpperCase?: boolean
+  ): string;
 }

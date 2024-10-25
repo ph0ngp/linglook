@@ -10,7 +10,7 @@ def number_of_char_in(line, crlf=False):
             number_of_char +=1
     return number_of_char
 
-def generate_indices(cedict_path, ids_path, output_path, cedict_crlf, cedict_line_skip):
+def generate_indices(cedict_path, output_path, cedict_crlf, cedict_line_skip):
     cedict_idx = 0
     # store cedict index
     with open(cedict_path, "r", encoding="utf-8") as f:
@@ -50,5 +50,5 @@ def generate_indices(cedict_path, ids_path, output_path, cedict_crlf, cedict_lin
             f.write(f"{headword} {cedict_idx_str}\n")
 
 if __name__ == "__main__":
-    generate_indices('../data/cedict.u8', "../data/ids.data", "../data/cedict.idx", True, 30)
-    # generate_indices('../data/cedict_vn.u8', "../data/ids.data", "../data/cedict_vn.idx", False, 0)
+    # generate_indices('../data/cedict.u8', "../data/cedict.idx", True, 30)
+    generate_indices('../data/cedict_vi.u8', "../data/cedict_vi.idx", False, 0)

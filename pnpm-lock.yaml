@@ -24,8 +24,8 @@ importers:
         specifier: 1.5.0
         version: 1.5.0
       hanviet-pinyin-words:
-        specifier: ^2.1.3
-        version: 2.1.3
+        specifier: ^2.1.4
+        version: 2.1.4
       hanzi-writer:
         specifier: ^3.7.1
         version: 3.7.1
@@ -3102,8 +3102,8 @@ packages:
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
 
-  hanviet-pinyin-words@2.1.3:
-    resolution: {integrity: sha512-l+NAxMJjmx2eX7jWGLFbsD3qkG4mKiZCONYyTCnnfzkahbc8Uam8tUdsKhwa4KWqHZ7YvpRz3EFaTu7Wb62eaw==}
+  hanviet-pinyin-words@2.1.4:
+    resolution: {integrity: sha512-SdNEHBRguYoB/3e9YtYJCRpRIlQIZQCH19f2eKzq4qTNeZbqj4DEOyWSQa+0XmuPKxWsZuBEb/f8udxk6T7uqQ==}
 
   hanzi-writer@3.7.1:
     resolution: {integrity: sha512-YECugdbARwXfqFqqm/Xmq39ZsjI1zTLBXvpI1h23XoS5sak+5JbXPZYb72zWaLKXzWcP9vClXbUw91tnvvCFxA==}
@@ -9306,7 +9306,7 @@ snapshots:
 
   handle-thing@2.0.1: {}
 
-  hanviet-pinyin-words@2.1.3: {}
+  hanviet-pinyin-words@2.1.4: {}
 
   hanzi-writer@3.7.1: {}
 

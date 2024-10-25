@@ -375,7 +375,7 @@ export function renderWordEntries({
     // }
 
     if (entry.romaji?.length) {
-      const pinyin_words = entry.romaji[0].replace(/-/g, '').split(/\s+/);
+      const pinyin_words = preprocess_pinyin(entry.romaji[0]);
       headingDiv.append(
         html(
           'span',
@@ -677,7 +677,7 @@ function renderDefinitions(
   const definitionsDiv = html('div', { class: 'w-def' });
 
   if (senses.length === 1) {
-    definitionsDiv.append(renderSense(senses[0], options));
+    definitionsDiv.append(renderSense(senses[0], options, entry));
     definitionsDiv.lang = senses[0].lang || 'en';
     if (
       options.dictLang &&
@@ -693,7 +693,11 @@ function renderDefinitions(
       const definitionList = html('ul', {});
       for (const sense of nativeSenses) {
         definitionList.append(
-          html('li', { lang: sense.lang || 'en' }, renderSense(sense, options))
+          html(
+            'li',
+            { lang: sense.lang || 'en' },
+            renderSense(sense, options, entry)
+          )
         );
       }
       definitionsDiv.append(definitionList);
@@ -771,7 +775,7 @@ function renderDefinitions(
                 class: isForeign ? 'foreign' : undefined,
                 lang: sense.lang || 'en',
               },
-              renderSense(sense, options)
+              renderSense(sense, options, entry)
             )
           );
           startIndex++;
@@ -785,7 +789,7 @@ function renderDefinitions(
           html(
             'li',
             { class: isForeign ? 'foreign' : '', lang: sense.lang || 'en' },
-            renderSense(sense, options)
+            renderSense(sense, options, entry)
           )
         );
       }
@@ -798,7 +802,8 @@ function renderDefinitions(
 
 function renderSense(
   sense: Sense,
-  options: { posDisplay: PartOfSpeechDisplay }
+  options: { posDisplay: PartOfSpeechDisplay },
+  entry: WordResult
 ): DocumentFragment {
   const fragment = document.createDocumentFragment();
 
@@ -863,7 +868,7 @@ function renderSense(
     }
   }
 
-  appendGlosses(sense.g, fragment);
+  appendGlosses(sense.g, fragment, entry);
 
   if (sense.inf) {
     fragment.append(
@@ -886,7 +891,11 @@ function renderSense(
   return fragment;
 }
 
-function appendGlosses(glosses: Array<Gloss>, parent: ParentNode) {
+function appendGlosses(
+  glosses: Array<Gloss>,
+  parent: ParentNode,
+  entry: WordResult
+) {
   for (const [i, gloss] of glosses.entries()) {
     if (i) {
       parent.append('; ');
@@ -901,36 +910,29 @@ function appendGlosses(glosses: Array<Gloss>, parent: ParentNode) {
       }
     }
 
+    const surname_regex = /họ \[(([a-zA-Z:]+[1-5]*\s*)*?([a-zA-Z:]+[1-5]*))\]/;
+
+    let newEnDef: string = process_all_matches(
+      gloss.str,
+      // "họ [Dong1], hasdfou /họ [Xi1 men2], as;ldfkj hahah fu họ [Yuan2]",
+      surname_regex,
+      entry,
+      process_surname,
+      4,
+      1
+    );
+
     const pinyin_in_definition_regex =
       /\[(([a-zA-Z:]+[1-5]*\s*)*?([a-zA-Z:]+[1-5]*))\]/;
-    let newEnDef = gloss.str;
-    let pinyin_match = newEnDef.match(pinyin_in_definition_regex);
 
-    // loop until there is no [pinyin with tone inside square brackets]
-    let start_searching_index = 0;
-    // console.log('endef', enDef)
-    while (pinyin_match) {
-      // console.log('start index', start_searching_index)
-      // console.log('pinyin match', pinyin_match)
-      const processed_match = pinyin_match[1];
-      // make the english definition from our data dictionary to have proper pinyin
-      // CY: typescript compiler bug: pinyin_match.index is always defined but the type definition says it might be undefined, that's why we need to use !
-      const before_part = newEnDef.substring(
-        0,
-        start_searching_index + pinyin_match.index! + 1
-      );
-      const converted_part = convert_to_toned_pinyin(processed_match);
-      // console.log('processed_match, converted_part', processed_match, converted_part)
-      const after_part = newEnDef.substring(
-        start_searching_index + pinyin_match.index! + 1 + pinyin_match[1].length
-      );
-      newEnDef = before_part + converted_part + after_part;
-      // console.log('before', before_part.slice(-10))
-      // console.log('after', after_part)
-      start_searching_index = before_part.length + converted_part.length;
-      // search again to find out if the remaning definition has any pinyin tone mark
-      pinyin_match = after_part.match(pinyin_in_definition_regex);
-    }
+    newEnDef = process_all_matches(
+      newEnDef,
+      pinyin_in_definition_regex,
+      entry,
+      process_pinyin_wrapper,
+      1,
+      0
+    );
 
     // console.log('newEnDef', newEnDef)
     parent.append(newEnDef);
@@ -938,6 +940,70 @@ function appendGlosses(glosses: Array<Gloss>, parent: ParentNode) {
       parent.append('™');
     }
   }
+}
+
+function preprocess_pinyin(text: string): string[] {
+  return text.replace(/-/g, '').split(/\s+/);
+}
+
+function process_surname(match: string, entry: WordResult): string {
+  const pinyin_words = preprocess_pinyin(match);
+  if (entry.k.length > 1 && entry.k[1].ent.length === pinyin_words.length) {
+    return getHanviet(entry.k[1].ent, pinyin_words, true);
+  } else {
+    // if we can't process this to hanviet, preserve the [ ] because the outer brackets will be pruned by process_all_matches
+    return '[' + match + ']';
+  }
+}
+
+function process_pinyin_wrapper(match: string, entry: WordResult): string {
+  return convert_to_toned_pinyin(match);
+}
+
+function process_all_matches(
+  text: string,
+  regex: RegExp,
+  entry: WordResult,
+  process_callback: (match: string, entry: WordResult) => string,
+  beginning_offset: number,
+  remove_surrounding_chars: number
+): string {
+  let newEnDef = text;
+  let pinyin_match = newEnDef.match(regex);
+
+  // loop until there is no [pinyin with tone inside square brackets]
+  let start_searching_index = 0;
+  // console.log('endef', enDef)
+  while (pinyin_match) {
+    // console.log('start index', start_searching_index)
+    // console.log('pinyin match', pinyin_match)
+    const processed_match = pinyin_match[1];
+    // make the english definition from our data dictionary to have proper pinyin
+    // CY: typescript compiler bug: pinyin_match.index is always defined but the type definition says it might be undefined, that's why we need to use !
+    const before_part = newEnDef.substring(
+      0,
+      start_searching_index +
+        pinyin_match.index! +
+        beginning_offset -
+        remove_surrounding_chars
+    );
+    const converted_part = process_callback(processed_match, entry);
+    // console.log('processed_match, converted_part', processed_match, converted_part)
+    const after_part = newEnDef.substring(
+      start_searching_index +
+        pinyin_match.index! +
+        beginning_offset +
+        remove_surrounding_chars +
+        pinyin_match[1].length
+    );
+    newEnDef = before_part + converted_part + after_part;
+    // console.log('before', before_part.slice(-10))
+    // console.log('after', after_part)
+    start_searching_index = before_part.length + converted_part.length;
+    // search again to find out if the remaning definition has any pinyin tone mark
+    pinyin_match = after_part.match(regex);
+  }
+  return newEnDef;
 }
 
 function renderLangSources(sources: Array<LangSource>): HTMLElement {
