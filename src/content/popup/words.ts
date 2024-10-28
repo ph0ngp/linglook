@@ -910,6 +910,7 @@ function appendGlosses(
       }
     }
 
+    //TODOP: only check this according to current lang
     const surname_regex = /họ \[(([a-zA-Z:]+[1-5]*\s*)*?([a-zA-Z:]+[1-5]*))\]/;
 
     let newEnDef: string = process_all_matches(
@@ -919,6 +920,18 @@ function appendGlosses(
       entry,
       process_surname,
       4,
+      1
+    );
+
+    const double_surname_regex =
+      /họ hai chữ \[(([a-zA-Z:]+[1-5]*\s*)*?([a-zA-Z:]+[1-5]*))\]/;
+
+    newEnDef = process_all_matches(
+      newEnDef,
+      double_surname_regex,
+      entry,
+      process_surname,
+      12,
       1
     );
 
