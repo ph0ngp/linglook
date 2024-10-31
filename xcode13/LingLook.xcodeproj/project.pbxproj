@@ -13,8 +13,8 @@
 		D306F44A2692C553002FA4FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4482692C553002FA4FD /* Main.storyboard */; };
 		D306F4532692C553002FA4FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4522692C553002FA4FD /* AppDelegate.swift */; };
 		D306F4562692C553002FA4FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4542692C553002FA4FD /* Main.storyboard */; };
-		D306F45E2692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F45D2692C553002FA4FD /* Wenzi Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D306F4682692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F4672692C553002FA4FD /* Wenzi Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D306F45E2692C553002FA4FD /* LingLook Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F45D2692C553002FA4FD /* LingLook Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D306F4682692C553002FA4FD /* LingLook Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F4672692C553002FA4FD /* LingLook Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D306F46D2692C553002FA4FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4312692C54F002FA4FD /* Main.html */; };
 		D306F46E2692C553002FA4FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4312692C54F002FA4FD /* Main.html */; };
 		D306F46F2692C553002FA4FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D306F4332692C54F002FA4FD /* Icon.png */; };
@@ -121,7 +121,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D306F45E2692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */,
+				D306F45E2692C553002FA4FD /* LingLook Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +132,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D306F4682692C553002FA4FD /* Wenzi Extension.appex in Embed Foundation Extensions */,
+				D306F4682692C553002FA4FD /* LingLook Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,20 +147,20 @@
 		D306F4362692C54F002FA4FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D306F4372692C552002FA4FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D306F4392692C552002FA4FD /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		D306F43E2692C553002FA4FD /* Wenzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wenzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F43E2692C553002FA4FD /* LingLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4412692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D306F4432692C553002FA4FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D306F4462692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D306F4492692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F44B2692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4502692C553002FA4FD /* Wenzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wenzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F4502692C553002FA4FD /* LingLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4522692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D306F4552692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F4572692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4582692C553002FA4FD /* Wenzi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wenzi.entitlements; sourceTree = "<group>"; };
-		D306F45D2692C553002FA4FD /* Wenzi Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wenzi Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F45D2692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4622692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4672692C553002FA4FD /* Wenzi Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wenzi Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306F4672692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F46C2692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F48E2692C556002FA4FD /* 10ten-ja-jpdict.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-jpdict.js"; path = "../../dist-safari/10ten-ja-jpdict.js"; sourceTree = "<group>"; };
 		D306F48F2692C556002FA4FD /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "../../dist-safari/css"; sourceTree = "<group>"; };
@@ -296,10 +296,10 @@
 		D306F43F2692C553002FA4FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D306F43E2692C553002FA4FD /* Wenzi.app */,
-				D306F4502692C553002FA4FD /* Wenzi.app */,
-				D306F45D2692C553002FA4FD /* Wenzi Extension.appex */,
-				D306F4672692C553002FA4FD /* Wenzi Extension.appex */,
+				D306F43E2692C553002FA4FD /* LingLook.app */,
+				D306F4502692C553002FA4FD /* LingLook.app */,
+				D306F45D2692C553002FA4FD /* LingLook Extension.appex */,
+				D306F4672692C553002FA4FD /* LingLook Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -366,9 +366,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D306F43D2692C553002FA4FD /* Wenzi (iOS) */ = {
+		D306F43D2692C553002FA4FD /* LingLook (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (iOS)" */;
+			buildConfigurationList = D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook (iOS)" */;
 			buildPhases = (
 				D306F43A2692C553002FA4FD /* Sources */,
 				D306F43B2692C553002FA4FD /* Frameworks */,
@@ -380,14 +380,14 @@
 			dependencies = (
 				D306F4602692C553002FA4FD /* PBXTargetDependency */,
 			);
-			name = "Wenzi (iOS)";
+			name = "LingLook (iOS)";
 			productName = "Wenzi (iOS)";
-			productReference = D306F43E2692C553002FA4FD /* Wenzi.app */;
+			productReference = D306F43E2692C553002FA4FD /* LingLook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D306F44F2692C553002FA4FD /* Wenzi (macOS) */ = {
+		D306F44F2692C553002FA4FD /* LingLook (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (macOS)" */;
+			buildConfigurationList = D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook (macOS)" */;
 			buildPhases = (
 				D306F44C2692C553002FA4FD /* Sources */,
 				D306F44D2692C553002FA4FD /* Frameworks */,
@@ -399,14 +399,14 @@
 			dependencies = (
 				D306F46A2692C553002FA4FD /* PBXTargetDependency */,
 			);
-			name = "Wenzi (macOS)";
+			name = "LingLook (macOS)";
 			productName = "Wenzi (macOS)";
-			productReference = D306F4502692C553002FA4FD /* Wenzi.app */;
+			productReference = D306F4502692C553002FA4FD /* LingLook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D306F45C2692C553002FA4FD /* Wenzi Extension (iOS) */ = {
+		D306F45C2692C553002FA4FD /* LingLook Extension (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (iOS)" */;
+			buildConfigurationList = D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook Extension (iOS)" */;
 			buildPhases = (
 				D306F4592692C553002FA4FD /* Sources */,
 				D306F45A2692C553002FA4FD /* Frameworks */,
@@ -416,14 +416,14 @@
 			);
 			dependencies = (
 			);
-			name = "Wenzi Extension (iOS)";
+			name = "LingLook Extension (iOS)";
 			productName = "Wenzi Extension (iOS)";
-			productReference = D306F45D2692C553002FA4FD /* Wenzi Extension.appex */;
+			productReference = D306F45D2692C553002FA4FD /* LingLook Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		D306F4662692C553002FA4FD /* Wenzi Extension (macOS) */ = {
+		D306F4662692C553002FA4FD /* LingLook Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (macOS)" */;
+			buildConfigurationList = D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook Extension (macOS)" */;
 			buildPhases = (
 				D306F4632692C553002FA4FD /* Sources */,
 				D306F4642692C553002FA4FD /* Frameworks */,
@@ -433,9 +433,9 @@
 			);
 			dependencies = (
 			);
-			name = "Wenzi Extension (macOS)";
+			name = "LingLook Extension (macOS)";
 			productName = "Wenzi Extension (macOS)";
-			productReference = D306F4672692C553002FA4FD /* Wenzi Extension.appex */;
+			productReference = D306F4672692C553002FA4FD /* LingLook Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -446,7 +446,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					D306F43D2692C553002FA4FD = {
 						CreatedOnToolsVersion = 13.0;
@@ -462,7 +462,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "Wenzi" */;
+			buildConfigurationList = D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "LingLook" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -475,10 +475,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D306F43D2692C553002FA4FD /* Wenzi (iOS) */,
-				D306F44F2692C553002FA4FD /* Wenzi (macOS) */,
-				D306F45C2692C553002FA4FD /* Wenzi Extension (iOS) */,
-				D306F4662692C553002FA4FD /* Wenzi Extension (macOS) */,
+				D306F43D2692C553002FA4FD /* LingLook (iOS) */,
+				D306F44F2692C553002FA4FD /* LingLook (macOS) */,
+				D306F45C2692C553002FA4FD /* LingLook Extension (iOS) */,
+				D306F4662692C553002FA4FD /* LingLook Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -634,12 +634,12 @@
 /* Begin PBXTargetDependency section */
 		D306F4602692C553002FA4FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D306F45C2692C553002FA4FD /* Wenzi Extension (iOS) */;
+			target = D306F45C2692C553002FA4FD /* LingLook Extension (iOS) */;
 			targetProxy = D306F45F2692C553002FA4FD /* PBXContainerItemProxy */;
 		};
 		D306F46A2692C553002FA4FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D306F4662692C553002FA4FD /* Wenzi Extension (macOS) */;
+			target = D306F4662692C553002FA4FD /* LingLook Extension (macOS) */;
 			targetProxy = D306F4692692C553002FA4FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -807,7 +807,7 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "LingLook Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -816,8 +816,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
-				PRODUCT_NAME = "Wenzi Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
+				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -834,7 +834,7 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "LingLook Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -843,8 +843,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
-				PRODUCT_NAME = "Wenzi Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
+				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -864,10 +864,11 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
-				INFOPLIST_KEY_CFBundleExecutable = Wenzi;
-				INFOPLIST_KEY_CFBundleName = Wenzi;
+				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
+				INFOPLIST_KEY_CFBundleExecutable = LingLook;
+				INFOPLIST_KEY_CFBundleName = LingLook;
 				INFOPLIST_KEY_CFBundleVersion = 7;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -883,8 +884,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
-				PRODUCT_NAME = Wenzi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
+				PRODUCT_NAME = LingLook;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -902,10 +903,11 @@
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
-				INFOPLIST_KEY_CFBundleExecutable = Wenzi;
-				INFOPLIST_KEY_CFBundleName = Wenzi;
+				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
+				INFOPLIST_KEY_CFBundleExecutable = LingLook;
+				INFOPLIST_KEY_CFBundleName = LingLook;
 				INFOPLIST_KEY_CFBundleVersion = 7;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -921,8 +923,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
-				PRODUCT_NAME = Wenzi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
+				PRODUCT_NAME = LingLook;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -944,7 +946,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "LingLook Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -953,8 +955,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
-				PRODUCT_NAME = "Wenzi Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
+				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -975,7 +977,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Wenzi Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "LingLook Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -984,8 +986,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.21.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi.Extension;
-				PRODUCT_NAME = "Wenzi Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
+				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1009,7 +1011,8 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
+				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1022,8 +1025,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
-				PRODUCT_NAME = Wenzi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
+				PRODUCT_NAME = LingLook;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1046,7 +1049,8 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Wenzi;
+				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1059,8 +1063,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.wenzi;
-				PRODUCT_NAME = Wenzi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
+				PRODUCT_NAME = LingLook;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1070,7 +1074,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "Wenzi" */ = {
+		D306F42E2692C54F002FA4FD /* Build configuration list for PBXProject "LingLook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F47B2692C553002FA4FD /* Debug */,
@@ -1079,7 +1083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (iOS)" */ = {
+		D306F47D2692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook Extension (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F47E2692C553002FA4FD /* Debug */,
@@ -1088,7 +1092,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (iOS)" */ = {
+		D306F4812692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F4822692C553002FA4FD /* Debug */,
@@ -1097,7 +1101,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi Extension (macOS)" */ = {
+		D306F4842692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F4852692C553002FA4FD /* Debug */,
@@ -1106,7 +1110,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "Wenzi (macOS)" */ = {
+		D306F4882692C553002FA4FD /* Build configuration list for PBXNativeTarget "LingLook (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D306F4892692C553002FA4FD /* Debug */,

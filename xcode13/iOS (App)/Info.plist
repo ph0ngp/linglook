@@ -4,10 +4,6 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.reference</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>SFSafariWebExtensionConverterVersion</key>
 	<string>13.0</string>
 	<key>UIApplicationSceneManifest</key>
