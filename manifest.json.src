@@ -80,9 +80,9 @@
     "persistent": false,
     /*#endif*/
     /*#if use_service_worker*/
-    "service_worker": "10ten-ja-background.js"
+    "service_worker": "linglook-background.js"
     /*#else*/
-    "scripts": ["10ten-ja-background.js"]
+    "scripts": ["linglook-background.js"]
     /*#endif*/
   },
   /*#if mv3*/
@@ -145,13 +145,13 @@
       /*#if supports_match_about_blank*/
       "match_about_blank": true,
       /*#endif*/
-      "js": ["10ten-ja-content.js"],
+      "js": ["linglook-content.js"],
       "all_frames": true,
       "run_at": "document_start"
     },
     {
       "matches": ["https://docs.google.com/*"],
-      "js": ["10ten-ja-gdocs-bootstrap.js"],
+      "js": ["linglook-gdocs-bootstrap.js"],
       "all_frames": true,
       "run_at": "document_start",
       "world": "MAIN"

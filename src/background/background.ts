@@ -831,10 +831,10 @@ void (async () => {
   if (browser.messageDisplayScripts || browser.composeScripts) {
     try {
       await browser.messageDisplayScripts?.register({
-        js: [{ file: '/10ten-ja-content.js' }],
+        js: [{ file: '/linglook-content.js' }],
       });
       await browser.composeScripts?.register({
-        js: [{ file: '/10ten-ja-content.js' }],
+        js: [{ file: '/linglook-content.js' }],
       });
     } catch (e) {
       console.error('Failed to register message display or compose scripts', e);

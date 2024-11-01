@@ -74,7 +74,7 @@ RELEASE_BUILD=1 pnpm zip-src
 mv dist-src/linglook-${version}-src.zip release-assets/
 
 # Copy raw source files too
-cp dist-firefox/10ten-ja-*.js release-assets/
+cp dist-firefox/linglook-*.js release-assets/
 
 # Restore current working directory
 cd -

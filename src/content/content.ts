@@ -1361,7 +1361,7 @@ export class ContentHandler {
     // https://github.com/birchill/10ten-ja-reader/issues/747#issuecomment-918774588
     //
     const PuckMovedMessageSchema = s.type({
-      type: s.literal('10ten(ja):puckMoved'),
+      type: s.literal('linglook:puckMoved'),
       clientX: s.number(),
       clientY: s.number(),
     });

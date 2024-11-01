@@ -29,28 +29,28 @@
 		D306F4782692C553002FA4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D306F4372692C552002FA4FD /* Assets.xcassets */; };
 		D306F4792692C553002FA4FD /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4392692C552002FA4FD /* SafariWebExtensionHandler.swift */; };
 		D306F47A2692C553002FA4FD /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4392692C552002FA4FD /* SafariWebExtensionHandler.swift */; };
-		D306F49A2692C556002FA4FD /* 10ten-ja-jpdict.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F48E2692C556002FA4FD /* 10ten-ja-jpdict.js */; };
+		D306F49A2692C556002FA4FD /* linglook-jpdict.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F48E2692C556002FA4FD /* linglook-jpdict.js */; };
 		D306F49B2692C556002FA4FD /* css in Resources */ = {isa = PBXBuildFile; fileRef = D306F48F2692C556002FA4FD /* css */; };
 		D306F49C2692C556002FA4FD /* images in Resources */ = {isa = PBXBuildFile; fileRef = D306F4902692C556002FA4FD /* images */; };
-		D306F49D2692C556002FA4FD /* 10ten-ja-background.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4912692C556002FA4FD /* 10ten-ja-background.js */; };
-		D306F49E2692C556002FA4FD /* 10ten-ja-options.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4922692C556002FA4FD /* 10ten-ja-options.js */; };
+		D306F49D2692C556002FA4FD /* linglook-background.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4912692C556002FA4FD /* linglook-background.js */; };
+		D306F49E2692C556002FA4FD /* linglook-options.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4922692C556002FA4FD /* linglook-options.js */; };
 		D306F49F2692C556002FA4FD /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = D306F4942692C556002FA4FD /* manifest.json */; };
 		D306F4A02692C556002FA4FD /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4952692C556002FA4FD /* options.html */; };
-		D306F4A12692C556002FA4FD /* 10ten-ja-content.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4962692C556002FA4FD /* 10ten-ja-content.js */; };
+		D306F4A12692C556002FA4FD /* linglook-content.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4962692C556002FA4FD /* linglook-content.js */; };
 		D306F4A22692C556002FA4FD /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = D306F4972692C556002FA4FD /* _locales */; };
 		D306F4A32692C556002FA4FD /* data in Resources */ = {isa = PBXBuildFile; fileRef = D306F4982692C556002FA4FD /* data */; };
-		D306F4A42692C556002FA4FD /* 10ten-ja-jpdict.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F48E2692C556002FA4FD /* 10ten-ja-jpdict.js */; };
+		D306F4A42692C556002FA4FD /* linglook-jpdict.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F48E2692C556002FA4FD /* linglook-jpdict.js */; };
 		D306F4A52692C556002FA4FD /* css in Resources */ = {isa = PBXBuildFile; fileRef = D306F48F2692C556002FA4FD /* css */; };
 		D306F4A62692C556002FA4FD /* images in Resources */ = {isa = PBXBuildFile; fileRef = D306F4902692C556002FA4FD /* images */; };
-		D306F4A72692C556002FA4FD /* 10ten-ja-background.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4912692C556002FA4FD /* 10ten-ja-background.js */; };
-		D306F4A82692C556002FA4FD /* 10ten-ja-options.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4922692C556002FA4FD /* 10ten-ja-options.js */; };
+		D306F4A72692C556002FA4FD /* linglook-background.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4912692C556002FA4FD /* linglook-background.js */; };
+		D306F4A82692C556002FA4FD /* linglook-options.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4922692C556002FA4FD /* linglook-options.js */; };
 		D306F4A92692C556002FA4FD /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = D306F4942692C556002FA4FD /* manifest.json */; };
 		D306F4AA2692C556002FA4FD /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4952692C556002FA4FD /* options.html */; };
-		D306F4AB2692C556002FA4FD /* 10ten-ja-content.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4962692C556002FA4FD /* 10ten-ja-content.js */; };
+		D306F4AB2692C556002FA4FD /* linglook-content.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4962692C556002FA4FD /* linglook-content.js */; };
 		D306F4AC2692C556002FA4FD /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = D306F4972692C556002FA4FD /* _locales */; };
 		D306F4AD2692C556002FA4FD /* data in Resources */ = {isa = PBXBuildFile; fileRef = D306F4982692C556002FA4FD /* data */; };
-		D34BCE9B273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D34BCE99273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js */; };
-		D34BCE9C273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D34BCE99273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js */; };
+		D34BCE9B273550DF00955778 /* linglook-gdocs-bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D34BCE99273550DF00955778 /* linglook-gdocs-bootstrap.js */; };
+		D34BCE9C273550DF00955778 /* linglook-gdocs-bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D34BCE99273550DF00955778 /* linglook-gdocs-bootstrap.js */; };
 		D3BBFEB226FCA81B0059B886 /* iphone-pro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBFE9D26FCA81A0059B886 /* iphone-pro-2.png */; };
 		D3BBFEB326FCA81B0059B886 /* iphone-pro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBFE9D26FCA81A0059B886 /* iphone-pro-2.png */; };
 		D3BBFEB426FCA81B0059B886 /* iphone-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBFE9E26FCA81A0059B886 /* iphone-2.png */; };
@@ -162,17 +162,17 @@
 		D306F4622692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4672692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F46C2692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F48E2692C556002FA4FD /* 10ten-ja-jpdict.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-jpdict.js"; path = "../../dist-safari/10ten-ja-jpdict.js"; sourceTree = "<group>"; };
+		D306F48E2692C556002FA4FD /* linglook-jpdict.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "linglook-jpdict.js"; path = "../../dist-safari/linglook-jpdict.js"; sourceTree = "<group>"; };
 		D306F48F2692C556002FA4FD /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "../../dist-safari/css"; sourceTree = "<group>"; };
 		D306F4902692C556002FA4FD /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "../../dist-safari/images"; sourceTree = "<group>"; };
-		D306F4912692C556002FA4FD /* 10ten-ja-background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-background.js"; path = "../../dist-safari/10ten-ja-background.js"; sourceTree = "<group>"; };
-		D306F4922692C556002FA4FD /* 10ten-ja-options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-options.js"; path = "../../dist-safari/10ten-ja-options.js"; sourceTree = "<group>"; };
+		D306F4912692C556002FA4FD /* linglook-background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "linglook-background.js"; path = "../../dist-safari/linglook-background.js"; sourceTree = "<group>"; };
+		D306F4922692C556002FA4FD /* linglook-options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "linglook-options.js"; path = "../../dist-safari/linglook-options.js"; sourceTree = "<group>"; };
 		D306F4942692C556002FA4FD /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../dist-safari/manifest.json"; sourceTree = "<group>"; };
 		D306F4952692C556002FA4FD /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = "../../dist-safari/options.html"; sourceTree = "<group>"; };
-		D306F4962692C556002FA4FD /* 10ten-ja-content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-content.js"; path = "../../dist-safari/10ten-ja-content.js"; sourceTree = "<group>"; };
+		D306F4962692C556002FA4FD /* linglook-content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "linglook-content.js"; path = "../../dist-safari/linglook-content.js"; sourceTree = "<group>"; };
 		D306F4972692C556002FA4FD /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = "../../dist-safari/_locales"; sourceTree = "<group>"; };
 		D306F4982692C556002FA4FD /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "../../dist-safari/data"; sourceTree = "<group>"; };
-		D34BCE99273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "10ten-ja-gdocs-bootstrap.js"; path = "../../dist-safari/10ten-ja-gdocs-bootstrap.js"; sourceTree = "<group>"; };
+		D34BCE99273550DF00955778 /* linglook-gdocs-bootstrap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "linglook-gdocs-bootstrap.js"; path = "../../dist-safari/linglook-gdocs-bootstrap.js"; sourceTree = "<group>"; };
 		D3BBFE9D26FCA81A0059B886 /* iphone-pro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-pro-2.png"; sourceTree = "<group>"; };
 		D3BBFE9E26FCA81A0059B886 /* iphone-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-2.png"; sourceTree = "<group>"; };
 		D3BBFE9F26FCA81A0059B886 /* iphone-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-5.png"; sourceTree = "<group>"; };
@@ -347,15 +347,15 @@
 			isa = PBXGroup;
 			children = (
 				F1A784592BAC226200442DCC /* fonts */,
-				D34BCE99273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js */,
-				D306F48E2692C556002FA4FD /* 10ten-ja-jpdict.js */,
+				D34BCE99273550DF00955778 /* linglook-gdocs-bootstrap.js */,
+				D306F48E2692C556002FA4FD /* linglook-jpdict.js */,
 				D306F48F2692C556002FA4FD /* css */,
 				D306F4902692C556002FA4FD /* images */,
-				D306F4912692C556002FA4FD /* 10ten-ja-background.js */,
-				D306F4922692C556002FA4FD /* 10ten-ja-options.js */,
+				D306F4912692C556002FA4FD /* linglook-background.js */,
+				D306F4922692C556002FA4FD /* linglook-options.js */,
 				D306F4942692C556002FA4FD /* manifest.json */,
 				D306F4952692C556002FA4FD /* options.html */,
-				D306F4962692C556002FA4FD /* 10ten-ja-content.js */,
+				D306F4962692C556002FA4FD /* linglook-content.js */,
 				D306F4972692C556002FA4FD /* _locales */,
 				D306F4982692C556002FA4FD /* data */,
 			);
@@ -559,16 +559,16 @@
 			files = (
 				D306F4AC2692C556002FA4FD /* _locales in Resources */,
 				D306F4AA2692C556002FA4FD /* options.html in Resources */,
-				D34BCE9B273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js in Resources */,
+				D34BCE9B273550DF00955778 /* linglook-gdocs-bootstrap.js in Resources */,
 				F1A7845A2BAC226200442DCC /* fonts in Resources */,
 				D306F4A62692C556002FA4FD /* images in Resources */,
 				D306F4A52692C556002FA4FD /* css in Resources */,
 				D306F4AD2692C556002FA4FD /* data in Resources */,
-				D306F4A72692C556002FA4FD /* 10ten-ja-background.js in Resources */,
-				D306F4A42692C556002FA4FD /* 10ten-ja-jpdict.js in Resources */,
+				D306F4A72692C556002FA4FD /* linglook-background.js in Resources */,
+				D306F4A42692C556002FA4FD /* linglook-jpdict.js in Resources */,
 				D306F4A92692C556002FA4FD /* manifest.json in Resources */,
-				D306F4AB2692C556002FA4FD /* 10ten-ja-content.js in Resources */,
-				D306F4A82692C556002FA4FD /* 10ten-ja-options.js in Resources */,
+				D306F4AB2692C556002FA4FD /* linglook-content.js in Resources */,
+				D306F4A82692C556002FA4FD /* linglook-options.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,16 +578,16 @@
 			files = (
 				D306F4A22692C556002FA4FD /* _locales in Resources */,
 				D306F4A02692C556002FA4FD /* options.html in Resources */,
-				D34BCE9C273550DF00955778 /* 10ten-ja-gdocs-bootstrap.js in Resources */,
+				D34BCE9C273550DF00955778 /* linglook-gdocs-bootstrap.js in Resources */,
 				F1A7845B2BAC226200442DCC /* fonts in Resources */,
 				D306F49C2692C556002FA4FD /* images in Resources */,
 				D306F49B2692C556002FA4FD /* css in Resources */,
 				D306F4A32692C556002FA4FD /* data in Resources */,
-				D306F49D2692C556002FA4FD /* 10ten-ja-background.js in Resources */,
-				D306F49A2692C556002FA4FD /* 10ten-ja-jpdict.js in Resources */,
+				D306F49D2692C556002FA4FD /* linglook-background.js in Resources */,
+				D306F49A2692C556002FA4FD /* linglook-jpdict.js in Resources */,
 				D306F49F2692C556002FA4FD /* manifest.json in Resources */,
-				D306F4A12692C556002FA4FD /* 10ten-ja-content.js in Resources */,
-				D306F49E2692C556002FA4FD /* 10ten-ja-options.js in Resources */,
+				D306F4A12692C556002FA4FD /* linglook-content.js in Resources */,
+				D306F49E2692C556002FA4FD /* linglook-options.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -508,7 +508,7 @@ export class LookupPuck {
 
       contentWindow.postMessage(
         {
-          type: '10ten(ja):puckMoved',
+          type: 'linglook:puckMoved',
           clientX: targetX - x,
           clientY: targetY - y,
         },

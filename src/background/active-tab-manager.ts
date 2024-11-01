@@ -272,13 +272,13 @@ export default class ActiveTabManager implements TabManager {
           allFrames: typeof frameId === 'undefined',
           frameIds: frameId ? [frameId] : undefined,
         },
-        files: ['/10ten-ja-content.js'],
+        files: ['/linglook-content.js'],
         injectImmediately: true,
       });
     } else {
       await browser.tabs.executeScript(tabId, {
         allFrames: typeof frameId === 'undefined',
-        file: '/10ten-ja-content.js',
+        file: '/linglook-content.js',
         runAt: 'document_start',
         frameId,
       });
@@ -295,13 +295,13 @@ export default class ActiveTabManager implements TabManager {
               allFrames: typeof frameId === 'undefined',
               frameIds: frameId ? [frameId] : undefined,
             },
-            files: ['/10ten-ja-gdocs-bootstrap.js'],
+            files: ['/linglook-gdocs-bootstrap.js'],
             injectImmediately: true,
           });
         } else {
           await browser.tabs.executeScript(tabId, {
             allFrames: typeof frameId === 'undefined',
-            file: '/10ten-ja-gdocs-bootstrap.js',
+            file: '/linglook-gdocs-bootstrap.js',
             runAt: 'document_start',
             frameId,
           });

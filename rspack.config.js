@@ -384,7 +384,7 @@ function getExtConfig(options) {
     }),
     new ForkTsCheckerWebpackPlugin(),
     new rspack.HtmlRspackPlugin({
-      chunks: ['10ten-ja-options'],
+      chunks: ['linglook-options'],
       filename: 'options.html',
       minify: false,
       scriptLoading: 'blocking',
@@ -392,7 +392,7 @@ function getExtConfig(options) {
     }),
     new rspack.CssExtractRspackPlugin({
       filename: (pathData) =>
-        pathData.chunk.name === '10ten-ja-options'
+        pathData.chunk.name === 'linglook-options'
           ? 'css/options.css'
           : 'css/[name].css',
     }),
@@ -550,11 +550,11 @@ function getExtConfig(options) {
     name: 'extension',
     devtool,
     entry: {
-      '10ten-ja-content': './src/content/content.ts',
-      '10ten-ja-gdocs-bootstrap': './src/content/gdocs-bootstrap.ts',
-      '10ten-ja-background': './src/background/background.ts',
-      '10ten-ja-options': './src/options/options.ts',
-      '10ten-ja-jpdict': './src/worker/jpdict-worker.ts',
+      'linglook-content': './src/content/content.ts',
+      'linglook-gdocs-bootstrap': './src/content/gdocs-bootstrap.ts',
+      'linglook-background': './src/background/background.ts',
+      'linglook-options': './src/options/options.ts',
+      'linglook-jpdict': './src/worker/jpdict-worker.ts',
       // Force the popup.css asset to be created so we can include it in the
       // options page.
       popup: './src/content/popup/popup.css',
