@@ -36,19 +36,19 @@
   /*#endif*/
   /*#if supports_svg_icons*/
   "icons": {
-    "16": "images/wenzi.svg",
-    "32": "images/wenzi.svg",
-    "48": "images/wenzi.svg",
-    "96": "images/wenzi.svg",
-    "128": "images/wenzi.svg"
+    "16": "images/linglook.svg",
+    "32": "images/linglook.svg",
+    "48": "images/linglook.svg",
+    "96": "images/linglook.svg",
+    "128": "images/linglook.svg"
   },
   /*#else*/
   "icons": {
-    "16": "images/wenzi-16.png",
-    "32": "images/wenzi-32.png",
-    "48": "images/wenzi-48.png",
-    "96": "images/wenzi-96.png",
-    "128": "images/wenzi-128.png"
+    "16": "images/linglook-16.png",
+    "32": "images/linglook-32.png",
+    "48": "images/linglook-48.png",
+    "96": "images/linglook-96.png",
+    "128": "images/linglook-128.png"
   },
   /*#endif*/
   "permissions": [
