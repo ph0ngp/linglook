@@ -103,14 +103,14 @@
 			containerPortal = D306F42B2692C54F002FA4FD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D306F45C2692C553002FA4FD;
-			remoteInfo = "Wenzi Extension (iOS)";
+			remoteInfo = "LingLook Extension (iOS)";
 		};
 		D306F4692692C553002FA4FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D306F42B2692C54F002FA4FD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D306F4662692C553002FA4FD;
-			remoteInfo = "Wenzi Extension (macOS)";
+			remoteInfo = "LingLook Extension (macOS)";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -157,7 +157,7 @@
 		D306F4522692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D306F4552692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F4572692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4582692C553002FA4FD /* Wenzi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wenzi.entitlements; sourceTree = "<group>"; };
+		D306F4582692C553002FA4FD /* LingLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LingLook.entitlements; sourceTree = "<group>"; };
 		D306F45D2692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4622692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4672692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +322,7 @@
 				D306F4522692C553002FA4FD /* AppDelegate.swift */,
 				D306F4542692C553002FA4FD /* Main.storyboard */,
 				D306F4572692C553002FA4FD /* Info.plist */,
-				D306F4582692C553002FA4FD /* Wenzi.entitlements */,
+				D306F4582692C553002FA4FD /* LingLook.entitlements */,
 			);
 			path = "macOS (App)";
 			sourceTree = "<group>";
@@ -381,7 +381,7 @@
 				D306F4602692C553002FA4FD /* PBXTargetDependency */,
 			);
 			name = "LingLook (iOS)";
-			productName = "Wenzi (iOS)";
+			productName = "LingLook (iOS)";
 			productReference = D306F43E2692C553002FA4FD /* LingLook.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -400,7 +400,7 @@
 				D306F46A2692C553002FA4FD /* PBXTargetDependency */,
 			);
 			name = "LingLook (macOS)";
-			productName = "Wenzi (macOS)";
+			productName = "LingLook (macOS)";
 			productReference = D306F4502692C553002FA4FD /* LingLook.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -417,7 +417,7 @@
 			dependencies = (
 			);
 			name = "LingLook Extension (iOS)";
-			productName = "Wenzi Extension (iOS)";
+			productName = "LingLook Extension (iOS)";
 			productReference = D306F45D2692C553002FA4FD /* LingLook Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
@@ -434,7 +434,7 @@
 			dependencies = (
 			);
 			name = "LingLook Extension (macOS)";
-			productName = "Wenzi Extension (macOS)";
+			productName = "LingLook Extension (macOS)";
 			productReference = D306F4672692C553002FA4FD /* LingLook Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
@@ -737,7 +737,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = Wenzi;
+				PRODUCT_NAME = LingLook;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -793,7 +793,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = Wenzi;
+				PRODUCT_NAME = LingLook;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -1000,7 +1000,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Wenzi.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/LingLook.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;
@@ -1038,7 +1038,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Wenzi.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/LingLook.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 74;

@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D306F45C2692C553002FA4FD"
-               BuildableName = "Wenzi Extension.appex"
-               BlueprintName = "LingLook Extension (iOS)"
+               BlueprintIdentifier = "D306F4662692C553002FA4FD"
+               BuildableName = "LingLook Extension.appex"
+               BlueprintName = "LingLook Extension (macOS)"
                ReferencedContainer = "container:LingLook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,9 +29,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D306F43D2692C553002FA4FD"
-               BuildableName = "Wenzi.app"
-               BlueprintName = "LingLook (iOS)"
+               BlueprintIdentifier = "D306F44F2692C553002FA4FD"
+               BuildableName = "LingLook.app"
+               BlueprintName = "LingLook (macOS)"
                ReferencedContainer = "container:LingLook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D306F43D2692C553002FA4FD"
-            BuildableName = "Wenzi.app"
-            BlueprintName = "LingLook (iOS)"
+            BlueprintIdentifier = "D306F44F2692C553002FA4FD"
+            BuildableName = "LingLook.app"
+            BlueprintName = "LingLook (macOS)"
             ReferencedContainer = "container:LingLook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,9 +80,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D306F43D2692C553002FA4FD"
-            BuildableName = "Wenzi.app"
-            BlueprintName = "LingLook (iOS)"
+            BlueprintIdentifier = "D306F44F2692C553002FA4FD"
+            BuildableName = "LingLook.app"
+            BlueprintName = "LingLook (macOS)"
             ReferencedContainer = "container:LingLook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -8,11 +8,11 @@
     "description": "Tooltip for toolbar button when checking for updates."
   },
   "command_toggle_description": {
-    "message": "启用或关闭 Wenzi",
-    "description": "Tooltip for toolbar button to turn Wenzi on or off"
+    "message": "启用或关闭 LingLook",
+    "description": "Tooltip for toolbar button to turn LingLook on or off"
   },
   "command_toggle_disabled": {
-    "message": "Wenzi 已关闭",
+    "message": "LingLook 已关闭",
     "description": "Tooltip for toolbar button when disabled."
   },
   "command_toggle_downloading": {
@@ -30,11 +30,11 @@
     }
   },
   "command_toggle_enabled": {
-    "message": "Wenzi 已启用",
+    "message": "LingLook 已启用",
     "description": "Tooltip for toolbar button when enabled."
   },
   "command_toggle_loading": {
-    "message": "Wenzi 载入中……",
+    "message": "LingLook 载入中……",
     "description": "Tooltip for toolbar button when loading."
   },
   "command_toggle_update_error": {
@@ -1310,7 +1310,7 @@
     "description": "Parenthetical explanation used when presenting alternative conversions between 畳 and square metres"
   },
   "menu_enable_extension": {
-    "message": "启用 Wenzi",
+    "message": "启用 LingLook",
     "description": "Context menu item to enable the extension."
   },
   "menu_enable_puck": {
@@ -1726,7 +1726,7 @@
     }
   },
   "options_edrdg_license": {
-    "message": "这些资料的所有权属于电子词典研究与开发小组（Electronic Dictionary Research and Development Group），Wenzi 在 EDRDG 的许可协议的约束下使用它们。",
+    "message": "这些资料的所有权属于电子词典研究与开发小组（Electronic Dictionary Research and Development Group），LingLook 在 EDRDG 的许可协议的约束下使用它们。",
     "description": "Description of license terms. The keywords 'Electronic Dictionary Research and Development Group' and options_edrdg_license_keyword must appear so they can be linkified. IT SHOULD BEGIN WITH APPROPRIATE SPACE IN LANGUAGES THAT SEPARATE SENTENCES WITH WHITESPACE."
   },
   "options_edrdg_license_keyword": {
@@ -1908,7 +1908,7 @@
     "description": "Label when the database has not yet been downloaded"
   },
   "options_offline_explanation": {
-    "message": "无法检查更新，因为没有连接到互联网。一旦设备联网，Wenzi 会再次检查更新。",
+    "message": "无法检查更新，因为没有连接到互联网。一旦设备联网，LingLook 会再次检查更新。",
     "description": "Message shown when the system is offline so updates cannot be performed"
   },
   "options_popup_close_popup": {
@@ -1985,7 +1985,7 @@
     "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_show_context_menu_item": {
-    "message": "右键菜单中添加“启用 Wenzi”",
+    "message": "右键菜单中添加“启用 LingLook”",
     "description": "Option to enable context menu item with label `menu_enable_extension`"
   },
   "options_show_definitions": {
@@ -2013,7 +2013,7 @@
   },
   "options_show_puck_option_auto": {
     "message": "自动",
-    "description": "Option to have Wenzi automatically determine when to show the puck"
+    "description": "Option to have LingLook automatically determine when to show the puck"
   },
   "options_show_puck_option_hide": {
     "message": "隐藏",

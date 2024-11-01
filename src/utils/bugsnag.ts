@@ -156,7 +156,7 @@ export function startBugsnag() {
       // frames from extensions.
       //
       // See: https://docs.bugsnag.com/platforms/javascript/faq/?#how-can-i-get-error-reports-from-browser-extensions
-      const basePath = `https://github.com/ph0ngp/wenzi/releases/download/v${manifest.version_name || manifest.version}`;
+      const basePath = `https://github.com/ph0ngp/linglook/releases/download/v${manifest.version_name || manifest.version}`;
       for (const error of event.exceptions) {
         for (const frame of error.stacktrace) {
           frame.file = frame.file.replace(

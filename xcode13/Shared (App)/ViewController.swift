@@ -16,7 +16,7 @@ import SafariServices
 typealias PlatformViewController = NSViewController
 #endif
 
-let extensionBundleIdentifier = "com.phongp.wenzi.Extension"
+let extensionBundleIdentifier = "com.phongp.linglook.Extension"
 
 #if os(iOS)
 struct Device {

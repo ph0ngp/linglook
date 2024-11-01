@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D306F44F2692C553002FA4FD"
-               BuildableName = "Wenzi.app"
+               BuildableName = "LingLook.app"
                BlueprintName = "LingLook (macOS)"
                ReferencedContainer = "container:LingLook.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D306F44F2692C553002FA4FD"
-            BuildableName = "Wenzi.app"
+            BuildableName = "LingLook.app"
             BlueprintName = "LingLook (macOS)"
             ReferencedContainer = "container:LingLook.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D306F44F2692C553002FA4FD"
-            BuildableName = "Wenzi.app"
+            BuildableName = "LingLook.app"
             BlueprintName = "LingLook (macOS)"
             ReferencedContainer = "container:LingLook.xcodeproj">
          </BuildableReference>

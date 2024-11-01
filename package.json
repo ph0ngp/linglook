@@ -1,5 +1,5 @@
 {
-  "name": "wenzi",
+  "name": "linglook",
   "version": "0.0.1",
   "description": "Translate Chinese by hovering over words.",
   "keywords": [
@@ -7,13 +7,13 @@
     "dictionary",
     "translation"
   ],
-  "homepage": "https://github.com/ph0ngp/wenzi#readme",
+  "homepage": "https://github.com/ph0ngp/linglook#readme",
   "bugs": {
-    "url": "https://github.com/ph0ngp/wenzi/issues"
+    "url": "https://github.com/ph0ngp/linglook/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ph0ngp/wenzi.git"
+    "url": "https://github.com/ph0ngp/linglook.git"
   },
   "license": "GPL-3.0-or-later",
   "author": "Phong Phan",
@@ -47,7 +47,7 @@
     "test:firefox": "playwright-test \"tests/**/*.test.ts\" --browser firefox",
     "test:unit": "vitest run",
     "update-snapshot": "tsx scripts/update-snapshot",
-    "version": "pnpm sync-manifest-version && git add manifest.json.src && tsx scripts/sync-xcode && git add xcode13/\"Wenzi\".xcodeproj/project.pbxproj",
+    "version": "pnpm sync-manifest-version && git add manifest.json.src && tsx scripts/sync-xcode && git add xcode13/\"LingLook\".xcodeproj/project.pbxproj",
     "zip-src": "tsx scripts/zip-src"
   },
   "lint-staged": {

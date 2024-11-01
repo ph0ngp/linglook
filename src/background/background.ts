@@ -2,9 +2,9 @@
 /// <reference path="./mail-extensions.d.ts" />
 
 /*
-  Originally based on Wenzi
+  Originally based on LingLook
   by Phong Phan
-  https://github.com/ph0ngp/wenzi
+  https://github.com/ph0ngp/linglook
 
   ---
 

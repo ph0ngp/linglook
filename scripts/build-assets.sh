@@ -51,27 +51,27 @@ mkdir -p release-assets
 
 # Firefox package
 RELEASE_BUILD=1 pnpm package:firefox
-mv dist-firefox-package/wenzi_-${version}.zip release-assets/wenzi-${version}-firefox.zip
+mv dist-firefox-package/linglook_-${version}.zip release-assets/linglook-${version}-firefox.zip
 
 # Chrome package
 RELEASE_BUILD=1 pnpm package:chrome
-mv dist-chrome-package/wenzi_-${version}.zip release-assets/wenzi-${version}-chrome.zip
+mv dist-chrome-package/linglook_-${version}.zip release-assets/linglook-${version}-chrome.zip
 
 # Chrome-Electron package
 RELEASE_BUILD=1 pnpm package:chrome-electron
-mv dist-chrome-electron-package/wenzi_-${version}.zip release-assets/wenzi-${version}-chrome-electron.zip
+mv dist-chrome-electron-package/linglook_-${version}.zip release-assets/linglook-${version}-chrome-electron.zip
 
 # Edge package
 RELEASE_BUILD=1 pnpm package:edge
-mv dist-edge-package/wenzi_-${version}.zip release-assets/wenzi-${version}-edge.zip
+mv dist-edge-package/linglook_-${version}.zip release-assets/linglook-${version}-edge.zip
 
 # Thunderbird package
 RELEASE_BUILD=1 pnpm package:thunderbird
-mv dist-thunderbird-package/wenzi_-${version}.zip release-assets/wenzi-${version}-thunderbird.zip
+mv dist-thunderbird-package/linglook_-${version}.zip release-assets/linglook-${version}-thunderbird.zip
 
 # Source package
 RELEASE_BUILD=1 pnpm zip-src
-mv dist-src/wenzi-${version}-src.zip release-assets/
+mv dist-src/linglook-${version}-src.zip release-assets/
 
 # Copy raw source files too
 cp dist-firefox/10ten-ja-*.js release-assets/

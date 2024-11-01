@@ -5,9 +5,9 @@
   "manifest_version": 2,
   /*#endif*/
   /*#if include_rikaichamp_name*/
-  "name": "Wenzi",
+  "name": "LingLook",
   /*#else*/
-  "name": "Wenzi",
+  "name": "LingLook",
   /*#endif*/
   "author": "Phong Phan",
   "version": "1.0.0",

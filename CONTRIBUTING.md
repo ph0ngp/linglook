@@ -33,7 +33,7 @@ If you have the [`gh` CLI tool](https://cli.github.com/) installed,
 you can fork and clone in one command:
 
 ```
-gh repo fork ph0ngp/wenzi --clone=true
+gh repo fork ph0ngp/linglook --clone=true
 ```
 
 However, because we store snapshots of the dictionary data in the repository, it
@@ -41,8 +41,8 @@ might take a while so you might prefer a
 [blobless clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/):
 
 ```
-gh repo fork ph0ngp/wenzi
-git clone --filter=blob:none ph0ngp/wenzi
+gh repo fork ph0ngp/linglook
+git clone --filter=blob:none ph0ngp/linglook
 ```
 
 Then install the dependencies:
@@ -129,7 +129,7 @@ should be able to run using Xcode.
 
 Note that Xcode will default to signing with Brian Birtles' ([@birtles](https://github.com/birtles)) team. Running on Simulator does not require a team set, but to run on a physical device, you may need to override the team name to your personal team—however, please don't commit the configuration files this will change to this repo. This is clunky, but unavoidable for open source projects with Xcode. An [Apple Developer Program](https://developer.apple.com/programs/enroll/) account may also be required.
 
-If you already have Wenzi installed on your device, you may get signing errors when trying to test the development version. An uninstall and reinstall should fix these.
+If you already have LingLook installed on your device, you may get signing errors when trying to test the development version. An uninstall and reinstall should fix these.
 
 ## Testing
 
@@ -176,7 +176,7 @@ Pre-release checks:
   ```
   pnpm zip-src
   mkdir ~/test-src
-  cp dist-src/wenzi-<version>-src.zip ~/test-src/test.zip
+  cp dist-src/linglook-<version>-src.zip ~/test-src/test.zip
   cd ~/test-src
   unzip test.zip
   # Check it builds
@@ -195,7 +195,7 @@ Pre-release checks:
   running `pnpm tsx scripts/release-notes.js`.
 
 We trigger releases by running the release workflow from
-[Actions](https://github.com/ph0ngp/wenzi/actions/workflows/release.yml).
+[Actions](https://github.com/ph0ngp/linglook/actions/workflows/release.yml).
 
 That will create a draft release that you need to publish before anything gets
 uploaded.
@@ -246,7 +246,7 @@ If that succeeds then it's time to update the App Store.
 Note that it will take several minutes to process the uploaded build so there's
 no hurry.
 
-1. Go to https://appstoreconnect.apple.com/apps and choose Wenzi
+1. Go to https://appstoreconnect.apple.com/apps and choose LingLook
 1. Choose the MacOS/iOS app and copy the Promotional Text.
 1. Press the blue + next to the macOS/iOS App and enter the new version number
 1. Fill out the changes field / promotional text and save

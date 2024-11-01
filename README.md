@@ -1,13 +1,13 @@
 <div align="center">
-  <img src="images/wenzi.svg" alt="Wenzi" width="200" height="200" />
-  <h1>Wenzi</h1>
+  <img src="images/linglook.svg" alt="LingLook" width="200" height="200" />
+  <h1>LingLook</h1>
 
   <p>
     Hi fellow Chinese reader! This browser extension lets you look up Chinese words with the hover of a mouse or tap of a screen.
   </p>
 
   <p>
-    <a href=""><img src="https://github.com/ph0ngp/wenzi/workflows/CI/badge.svg" alt="automated test status" /></a>
+    <a href=""><img src="https://github.com/ph0ngp/linglook/workflows/CI/badge.svg" alt="automated test status" /></a>
   </p>
 </div>
 
@@ -19,7 +19,7 @@
 
 ## Usage
 
-By default, you can enable the Wenzi by either:
+By default, you can enable the LingLook by either:
 
 - Pressing the toolbar button (you may need to add it to the browser toolbar yourself in some browsers)
 - Pressing <kbd>Alt</kbd>+<kbd>R</kbd>
@@ -48,7 +48,7 @@ The other keys are as follows:
 First replace `bugsnag_api_key_placeholder` in `src/utils/secrets.ts` with your Bugsnag API key. You can run `git update-index --assume-unchanged src/utils/secrets.ts` to prevent it from being shown in diffs and from being committed.
 
 You may also build the add-ons using a source package from the
-[Releases](https://github.com/ph0ngp/wenzi/releases) page and running the
+[Releases](https://github.com/ph0ngp/linglook/releases) page and running the
 following commands:
 
 ```

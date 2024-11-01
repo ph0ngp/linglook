@@ -10,7 +10,7 @@ async function main() {
   await ensureDir(DEST_DIR);
 
   const versionString = getPackageVersion();
-  const zipFilename = `wenzi-${versionString}-src.zip`;
+  const zipFilename = `linglook-${versionString}-src.zip`;
   console.log(`Writing to ${zipFilename}...`);
 
   const zipPath = path.join(DEST_DIR, zipFilename);

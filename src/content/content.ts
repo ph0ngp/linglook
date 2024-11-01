@@ -1,9 +1,9 @@
 /// <reference path="../common/constants.d.ts" />
 
 /*
-  Originally based on Wenzi
+  Originally based on LingLook
   by Phong Phan
-  https://github.com/ph0ngp/wenzi
+  https://github.com/ph0ngp/linglook
 
   ---
 
@@ -1182,7 +1182,7 @@ export class ContentHandler {
         void browser.runtime.sendMessage({ type: 'toggleDefinition' });
       } catch {
         console.warn(
-          '[wenzi] Failed to call toggleDefinition. The page might need to be refreshed.'
+          '[linglook] Failed to call toggleDefinition. The page might need to be refreshed.'
         );
         return false;
       }
@@ -1487,7 +1487,7 @@ export class ContentHandler {
 
           let iframeOriginPoint;
           if (!iframe) {
-            console.warn("[wenzi] Couldn't find iframe element");
+            console.warn("[linglook] Couldn't find iframe element");
             // Just use the top-left corner since that's probably better than
             // not showing the popup at all.
             iframeOriginPoint = { x: 0, y: 0 };
@@ -1664,7 +1664,7 @@ export class ContentHandler {
     if (!this.isTopMostWindow()) {
       console.assert(
         trigger === 'keyboard',
-        "[wenzi] We probably should't be receiving touch or mouse events in the iframe"
+        "[linglook] We probably should't be receiving touch or mouse events in the iframe"
       );
       void browser.runtime.sendMessage({ type: 'top:enterCopyMode' });
       return;
@@ -1745,7 +1745,7 @@ export class ContentHandler {
 
   private getCopyEntry(): CopyEntry | null {
     if (this.copyState.kind !== 'active') {
-      console.error('[wenzi] Expected to be in copy mode');
+      console.error('[linglook] Expected to be in copy mode');
       return null;
     }
 
@@ -2206,7 +2206,7 @@ export class ContentHandler {
     } = {}
   ) {
     if (!this.isTopMostWindow()) {
-      console.warn('[wenzi] Called showPopup from iframe.');
+      console.warn('[linglook] Called showPopup from iframe.');
       return;
     }
 
@@ -2488,7 +2488,7 @@ export class ContentHandler {
     } = {}
   ) {
     if (!this.isTopMostWindow()) {
-      console.warn('[wenzi] Called updatePopup within iframe');
+      console.warn('[linglook] Called updatePopup within iframe');
       return;
     }
 
@@ -2736,7 +2736,7 @@ declare global {
     typeof window.readerScriptVer !== 'undefined' &&
     typeof window.removeReaderScript === 'function'
   ) {
-    console.info('[wenzi] Found incompatible version of script. Removing.');
+    console.info('[linglook] Found incompatible version of script. Removing.');
     try {
       window.removeReaderScript();
     } catch (e) {
