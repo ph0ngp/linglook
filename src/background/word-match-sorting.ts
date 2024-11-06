@@ -88,7 +88,7 @@ function getKanaHeadwordType(
 const PRIORITY_DEFINITIONS: Array<Array<string>> = [
   ['archaic variant of', 'ancient variant of', 'biến thể cổ của'],
   ['old variant of', 'biến thể cũ của'],
-  ['surname', 'họ ['],
+  ['surname', 'họ [', 'họ hai chữ ['],
   ['variant of', 'biến thể của'],
 ];
 
