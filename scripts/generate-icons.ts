@@ -33,7 +33,9 @@ async function main() {
       enabled: true,
       sizes: [size],
       style: '10',
-      rounded: false,
+      // https://forums.developer.apple.com/forums/thread/670578
+      fillRatio: name === 'mac' ? 824 / 1024 : 1,
+      rounded: name === 'mac' ? true : false,
       withSVG: false,
       writePath: XCODE_APP_ICON_FOLDER,
       customName: file,
@@ -45,6 +47,7 @@ async function main() {
     enabled: true,
     sizes: [384],
     style: '10',
+    fillRatio: 0.75,
     rounded: true,
     withSVG: false,
     writePath: XCODE_RESOURCES_FOLDER,
@@ -56,6 +59,7 @@ async function main() {
     enabled: true,
     sizes: [128, 256, 384],
     style: '10',
+    fillRatio: 0.75,
     rounded: true,
     withSVG: false,
     writePath: XCODE_LARGE_ICON_FOLDER,
@@ -69,6 +73,7 @@ async function main() {
         enabled,
         sizes: [16, 32, 48, 96, 128],
         style,
+        fillRatio: 1,
         rounded: true,
         withSVG: true,
         writePath: DEST_FOLDER,
@@ -91,6 +96,7 @@ async function main() {
             progress: { value: progress, color },
             sizes: [16, 32, 48],
             style,
+            fillRatio: 1,
             rounded: true,
             withSVG: true,
             writePath: DEST_FOLDER,
@@ -106,6 +112,7 @@ async function main() {
       enabled: false,
       sizes: [16, 32, 48],
       style,
+      fillRatio: 1,
       rounded: true,
       withSVG: true,
       writePath: DEST_FOLDER,
@@ -138,6 +145,7 @@ async function saveIcon({
   enabled,
   progress,
   sizes,
+  fillRatio,
   style,
   rounded,
   withSVG,
@@ -152,6 +160,7 @@ async function saveIcon({
     color: 'green' | 'blue' | 'purple';
   };
   sizes: Array<number>;
+  fillRatio: number;
   style: '10' | '天';
   rounded: boolean;
   withSVG: boolean;
@@ -182,6 +191,7 @@ async function saveIcon({
       enabled,
       progress,
       size: 32,
+      fillRatio,
       style,
       rounded,
     });
@@ -194,7 +204,15 @@ async function saveIcon({
   // PNG versions
   for (const size of sizes) {
     const page = await browser.newPage();
-    const svg = generateSvg({ badge, enabled, progress, size, style, rounded });
+    const svg = generateSvg({
+      badge,
+      enabled,
+      progress,
+      size,
+      fillRatio,
+      style,
+      rounded,
+    });
     const svgUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
     await page.setContent(
       `<html><body><img id="img" src="${svgUrl}" width="${size}" height="${size}"></body></html>`
@@ -217,6 +235,7 @@ function generateSvg({
   enabled,
   progress,
   size,
+  fillRatio,
   style,
   rounded,
 }: {
@@ -227,6 +246,7 @@ function generateSvg({
     color: 'green' | 'blue' | 'purple';
   };
   size: number;
+  fillRatio: number;
   style: '10' | '天';
   rounded: boolean;
 }) {
@@ -278,18 +298,23 @@ function generateSvg({
   }
 
   // Background
-  // this number is taken from original source: 16 -> 2.5, 32->5, 128 ->20,...
-  const backgroundRounding = rounded ? size * 0.15625 : 0;
+  const realSize = size * fillRatio;
+  const offset = (size - realSize) * 0.5;
+  // originally backgroundRounding is 0.15625, this number is taken from original source: 16 -> 2.5, 32->5, 128 ->20,...
+  // 0.225 from https://forums.developer.apple.com/forums/thread/670578
+  const backgroundRounding = rounded ? realSize * 0.225 : 0;
   svg.ele('rect', {
-    width: size,
-    height: size,
+    x: offset,
+    y: offset,
+    width: realSize,
+    height: realSize,
     fill: enabled ? '#1d1a19' : 'white',
     opacity: enabled ? undefined : '0.5',
     rx: backgroundRounding,
   });
 
   // 10ten logo
-  svg.import(getLogo({ enabled, size, style }));
+  svg.import(getLogo({ enabled, size: realSize, style, x: offset, y: offset }));
 
   // Progress bar
   if (progress) {
@@ -367,10 +392,14 @@ function getLogo({
   enabled,
   size,
   style,
+  x,
+  y,
 }: {
   enabled: boolean;
   size: number;
   style: '10' | '天';
+  x: number;
+  y: number;
 }) {
   // const blueDot = {
   //   '10': {
@@ -420,6 +449,7 @@ function getLogo({
       .ele('path', {
         d: create2Path(size),
         fill: enabled ? 'white' : '#4a4a4b',
+        transform: `translate(${x}, ${y})`,
       })
       .up()
   );
