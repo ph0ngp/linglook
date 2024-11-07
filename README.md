@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/linglook.svg" alt="LingLook" width="200" height="200" />
+  <img src="images/10ten.svg" alt="LingLook" width="200" height="200" />
   <h1>LingLook</h1>
 
   <p>

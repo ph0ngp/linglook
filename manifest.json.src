@@ -36,19 +36,19 @@
   /*#endif*/
   /*#if supports_svg_icons*/
   "icons": {
-    "16": "images/linglook.svg",
-    "32": "images/linglook.svg",
-    "48": "images/linglook.svg",
-    "96": "images/linglook.svg",
-    "128": "images/linglook.svg"
+    "16": "images/10ten.svg",
+    "32": "images/10ten.svg",
+    "48": "images/10ten.svg",
+    "96": "images/10ten.svg",
+    "128": "images/10ten.svg"
   },
   /*#else*/
   "icons": {
-    "16": "images/linglook-16.png",
-    "32": "images/linglook-32.png",
-    "48": "images/linglook-48.png",
-    "96": "images/linglook-96.png",
-    "128": "images/linglook-128.png"
+    "16": "images/10ten-16.png",
+    "32": "images/10ten-32.png",
+    "48": "images/10ten-48.png",
+    "96": "images/10ten-96.png",
+    "128": "images/10ten-128.png"
   },
   /*#endif*/
   "permissions": [
