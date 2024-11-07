@@ -5,15 +5,37 @@ import { Browser, chromium } from 'playwright';
 import { create, fragment } from 'xmlbuilder2';
 
 const DEST_FOLDER = url.fileURLToPath(new URL('../images', import.meta.url));
+const XCODE_DEST_FOLDER = url.fileURLToPath(
+  new URL(
+    '../xcode13/Shared (App)/Assets.xcassets/LargeIcon.imageset',
+    import.meta.url
+  )
+);
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
 async function main() {
   const browser = await chromium.launch();
 
+  await saveIcon({
+    browser,
+    enabled: true,
+    sizes: [128, 256, 384],
+    style: '10',
+    withSVG: false,
+    writePath: XCODE_DEST_FOLDER,
+  });
+
   for (const style of ['10', '天'] as const) {
     for (const enabled of [true, false]) {
       // Generic icons
-      await saveIcon({ browser, enabled, sizes: [16, 32, 48, 96, 128], style });
+      await saveIcon({
+        browser,
+        enabled,
+        sizes: [16, 32, 48, 96, 128],
+        style,
+        withSVG: true,
+        writePath: DEST_FOLDER,
+      });
 
       // Progress icons
       for (const progress of [
@@ -32,6 +54,8 @@ async function main() {
             progress: { value: progress, color },
             sizes: [16, 32, 48],
             style,
+            withSVG: true,
+            writePath: DEST_FOLDER,
           });
         }
       }
@@ -44,6 +68,8 @@ async function main() {
       enabled: false,
       sizes: [16, 32, 48],
       style,
+      withSVG: true,
+      writePath: DEST_FOLDER,
     });
   }
 
@@ -57,6 +83,8 @@ async function saveIcon({
   progress,
   sizes,
   style,
+  withSVG,
+  writePath,
 }: {
   badge?: 'error';
   browser: Browser;
@@ -65,8 +93,10 @@ async function saveIcon({
     value: 0 | 20 | 40 | 60 | 80 | 100 | 'indeterminate';
     color: 'green' | 'blue' | 'purple';
   };
-  sizes: Array<16 | 32 | 48 | 96 | 128>;
+  sizes: Array<16 | 32 | 48 | 96 | 128 | 256 | 384>;
   style: '10' | '天';
+  withSVG: boolean;
+  writePath: string;
 }) {
   // Filename
   const filenameParts = ['10ten'];
@@ -86,10 +116,12 @@ async function saveIcon({
   }
 
   // SVG version
-  const svg = generateSvg({ badge, enabled, progress, size: 32, style });
-  const filename = filenameParts.join('-') + '.svg';
-  console.log(`Writing ${filename}...`);
-  fs.writeFileSync(path.join(DEST_FOLDER, filename), svg);
+  if (withSVG) {
+    const svg = generateSvg({ badge, enabled, progress, size: 32, style });
+    const filename = filenameParts.join('-') + '.svg';
+    console.log(`Writing ${filename}...`);
+    fs.writeFileSync(path.join(writePath, filename), svg);
+  }
 
   // PNG versions
   for (const size of sizes) {
@@ -100,7 +132,7 @@ async function saveIcon({
       `<html><body><img id="img" src="${svgUrl}" width="${size}" height="${size}"></body></html>`
     );
     const filename = filenameParts.join('-') + `-${size}.png`;
-    const dest = path.join(DEST_FOLDER, filename);
+    const dest = path.join(writePath, filename);
     console.log(`Writing ${filename}...`);
     await page.locator('#img').screenshot({ omitBackground: true, path: dest });
   }
@@ -125,7 +157,7 @@ function generateSvg({
     value: 0 | 20 | 40 | 60 | 80 | 100 | 'indeterminate';
     color: 'green' | 'blue' | 'purple';
   };
-  size: 16 | 32 | 48 | 96 | 128;
+  size: 16 | 32 | 48 | 96 | 128 | 256 | 384;
   style: '10' | '天';
 }) {
   const svg = create().ele('svg', {
@@ -182,6 +214,8 @@ function generateSvg({
     48: 7.5,
     96: 15,
     128: 20,
+    256: 40,
+    384: 60,
   };
   svg.ele('rect', {
     width: size,
@@ -233,41 +267,41 @@ function getLogo({
   style,
 }: {
   enabled: boolean;
-  size: 16 | 32 | 48 | 96 | 128;
+  size: 16 | 32 | 48 | 96 | 128 | 256 | 384;
   style: '10' | '天';
 }) {
-  const blueDot = {
-    '10': {
-      16: { cx: 13.5, cy: 11.5, r: 0.9 },
-      32: { cx: 26.5, cy: 22.5, r: 1.8 },
-      48: { cx: 39.5, cy: 34, r: 2.7 },
-      96: { cx: 73, cy: 64.5, r: 4.5 },
-      128: { cx: 98, cy: 86, r: 6 },
-    },
-    天: {
-      16: { cx: 13.5, cy: 11.5, r: 1.1 },
-      32: { cx: 27, cy: 23, r: 1.82 },
-      48: { cx: 40, cy: 34.5, r: 2.7 },
-      96: { cx: 74.5, cy: 66, r: 4.55 },
-      128: { cx: 99, cy: 86, r: 6 },
-    },
-  };
-  const yellowDot = {
-    '10': {
-      16: { cx: 9, cy: 8, r: 0.9 },
-      32: { cx: 18, cy: 16, r: 1.8 },
-      48: { cx: 27, cy: 24, r: 2.7 },
-      96: { cx: 52, cy: 48, r: 4.5 },
-      128: { cx: 70, cy: 64, r: 6 },
-    },
-    天: {
-      16: { cx: 2.5, cy: 4.5, r: 1.1 },
-      32: { cx: 5, cy: 9.5, r: 1.82 },
-      48: { cx: 8, cy: 14, r: 2.7 },
-      96: { cx: 21.5, cy: 31, r: 4.55 },
-      128: { cx: 29, cy: 40, r: 6 },
-    },
-  };
+  // const blueDot = {
+  //   '10': {
+  //     16: { cx: 13.5, cy: 11.5, r: 0.9 },
+  //     32: { cx: 26.5, cy: 22.5, r: 1.8 },
+  //     48: { cx: 39.5, cy: 34, r: 2.7 },
+  //     96: { cx: 73, cy: 64.5, r: 4.5 },
+  //     128: { cx: 98, cy: 86, r: 6 },
+  //   },
+  //   天: {
+  //     16: { cx: 13.5, cy: 11.5, r: 1.1 },
+  //     32: { cx: 27, cy: 23, r: 1.82 },
+  //     48: { cx: 40, cy: 34.5, r: 2.7 },
+  //     96: { cx: 74.5, cy: 66, r: 4.55 },
+  //     128: { cx: 99, cy: 86, r: 6 },
+  //   },
+  // };
+  // const yellowDot = {
+  //   '10': {
+  //     16: { cx: 9, cy: 8, r: 0.9 },
+  //     32: { cx: 18, cy: 16, r: 1.8 },
+  //     48: { cx: 27, cy: 24, r: 2.7 },
+  //     96: { cx: 52, cy: 48, r: 4.5 },
+  //     128: { cx: 70, cy: 64, r: 6 },
+  //   },
+  //   天: {
+  //     16: { cx: 2.5, cy: 4.5, r: 1.1 },
+  //     32: { cx: 5, cy: 9.5, r: 1.82 },
+  //     48: { cx: 8, cy: 14, r: 2.7 },
+  //     96: { cx: 21.5, cy: 31, r: 4.55 },
+  //     128: { cx: 29, cy: 40, r: 6 },
+  //   },
+  // };
   const logoPath = {
     '10': {
       16: 'M4.0 10.4v-6.4c0 -0.0 1.5999999999999996 -0.0 1.5999999999999996 0v4.800000000000001c0 1.1199999999999997 0.47999999999999987 1.5999999999999996 1.5999999999999996 1.5999999999999996h4.800000000000001c0.0 0 0.0 1.5999999999999996 0 1.5999999999999996h-6.4c-1.1199999999999997 0 -1.5999999999999996 -0.47999999999999987 -1.5999999999999996 -1.5999999999999996ZM6.719999999999999 7.6800000000000015v-3.680000000000001c0 -0.0 1.5999999999999996 -0.0 1.5999999999999996 0v2.0800000000000014c0 1.1199999999999997 0.47999999999999987 1.5999999999999996 1.5999999999999996 1.5999999999999996h2.0800000000000014c0.0 0 0.0 1.5999999999999996 0 1.5999999999999996h-3.680000000000001c-1.1199999999999997 0 -1.5999999999999996 -0.47999999999999987 -1.5999999999999996 -1.5999999999999996Z',
