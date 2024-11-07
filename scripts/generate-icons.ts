@@ -168,7 +168,7 @@ async function saveIcon({
   customName?: string;
 }) {
   // Filename
-  const filenameParts = ['10ten'];
+  const filenameParts = ['linglook'];
   if (style === '天') {
     filenameParts.push('sky');
   }
@@ -313,7 +313,7 @@ function generateSvg({
     rx: backgroundRounding,
   });
 
-  // 10ten logo
+  // logo
   svg.import(getLogo({ enabled, size: realSize, style, x: offset, y: offset }));
 
   // Progress bar

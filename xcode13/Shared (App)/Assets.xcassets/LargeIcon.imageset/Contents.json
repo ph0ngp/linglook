@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "10ten-128.png",
+      "filename" : "linglook-128.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "10ten-256.png",
+      "filename" : "linglook-256.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "10ten-384.png",
+      "filename" : "linglook-384.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

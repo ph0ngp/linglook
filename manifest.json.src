@@ -36,19 +36,19 @@
   /*#endif*/
   /*#if supports_svg_icons*/
   "icons": {
-    "16": "images/10ten.svg",
-    "32": "images/10ten.svg",
-    "48": "images/10ten.svg",
-    "96": "images/10ten.svg",
-    "128": "images/10ten.svg"
+    "16": "images/linglook.svg",
+    "32": "images/linglook.svg",
+    "48": "images/linglook.svg",
+    "96": "images/linglook.svg",
+    "128": "images/linglook.svg"
   },
   /*#else*/
   "icons": {
-    "16": "images/10ten-16.png",
-    "32": "images/10ten-32.png",
-    "48": "images/10ten-48.png",
-    "96": "images/10ten-96.png",
-    "128": "images/10ten-128.png"
+    "16": "images/linglook-16.png",
+    "32": "images/linglook-32.png",
+    "48": "images/linglook-48.png",
+    "96": "images/linglook-96.png",
+    "128": "images/linglook-128.png"
   },
   /*#endif*/
   "permissions": [
@@ -91,12 +91,12 @@
     "browser_style": false,
     /*#endif*/
     /*#if supports_svg_icons*/
-    "default_icon": "images/10ten-disabled.svg",
+    "default_icon": "images/linglook-disabled.svg",
     /*#else*/
     "default_icon": {
-      "16": "images/10ten-disabled-16.png",
-      "32": "images/10ten-disabled-32.png",
-      "48": "images/10ten-disabled-48.png"
+      "16": "images/linglook-disabled-16.png",
+      "32": "images/linglook-disabled-32.png",
+      "48": "images/linglook-disabled-48.png"
     },
     /*#endif*/
     /*#if mail_extension*/
@@ -110,12 +110,12 @@
     "browser_style": false,
     /*#endif*/
     /*#if supports_svg_icons*/
-    "default_icon": "images/10ten-disabled.svg",
+    "default_icon": "images/linglook-disabled.svg",
     /*#else*/
     "default_icon": {
-      "16": "images/10ten-disabled-16.png",
-      "32": "images/10ten-disabled-32.png",
-      "48": "images/10ten-disabled-48.png"
+      "16": "images/linglook-disabled-16.png",
+      "32": "images/linglook-disabled-32.png",
+      "48": "images/linglook-disabled-48.png"
     },
     /*#endif*/
     /*#if mail_extension*/
@@ -127,7 +127,7 @@
   /*#if mail_extension*/
   "compose_action": {
     "browser_style": false,
-    "default_icon": "images/10ten-disabled.svg",
+    "default_icon": "images/linglook-disabled.svg",
     "default_label": "",
     "default_title": "__MSG_command_toggle_disabled__"
   },

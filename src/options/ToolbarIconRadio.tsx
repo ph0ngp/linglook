@@ -23,7 +23,7 @@ export function ToolbarIconRadio(props: Props) {
         <IconPreview
           alt={t('options_toolbar_icon_default_alt')}
           checked={props.value === 'default'}
-          src="/images/10ten.svg"
+          src="/images/linglook.svg"
         />
       </IconRadio>
       <IconRadio
@@ -36,7 +36,7 @@ export function ToolbarIconRadio(props: Props) {
         <IconPreview
           alt={t('options_toolbar_icon_sky_alt')}
           checked={props.value === 'sky'}
-          src="/images/10ten-sky.svg"
+          src="/images/linglook-sky.svg"
         />
       </IconRadio>
     </div>

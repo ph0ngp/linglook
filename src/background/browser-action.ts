@@ -67,7 +67,7 @@ async function doUpdateBrowserAction({
   tabId,
   toolbarIcon,
 }: BrowserActionState) {
-  const iconFilenameParts = ['10ten'];
+  const iconFilenameParts = ['linglook'];
   let tooltip: string;
 
   // Apply the variant, if needed
@@ -222,6 +222,6 @@ async function setIcon(iconFilename: string, tabId?: number): Promise<void> {
 // enabled tabs immediately afterwards anyway).
 export function setDefaultToolbarIcon(toolbarIcon: 'default' | 'sky') {
   const iconFilename =
-    toolbarIcon === 'sky' ? '10ten-disabled' : '10ten-sky-disabled';
+    toolbarIcon === 'sky' ? 'linglook-disabled' : 'linglook-sky-disabled';
   void setIcon(iconFilename);
 }
