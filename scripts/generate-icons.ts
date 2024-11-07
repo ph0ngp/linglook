@@ -33,6 +33,7 @@ async function main() {
       enabled: true,
       sizes: [size],
       style: '10',
+      rounded: false,
       withSVG: false,
       writePath: XCODE_APP_ICON_FOLDER,
       customName: file,
@@ -44,6 +45,7 @@ async function main() {
     enabled: true,
     sizes: [384],
     style: '10',
+    rounded: true,
     withSVG: false,
     writePath: XCODE_RESOURCES_FOLDER,
     customName: 'Icon.png',
@@ -54,6 +56,7 @@ async function main() {
     enabled: true,
     sizes: [128, 256, 384],
     style: '10',
+    rounded: true,
     withSVG: false,
     writePath: XCODE_LARGE_ICON_FOLDER,
   });
@@ -66,6 +69,7 @@ async function main() {
         enabled,
         sizes: [16, 32, 48, 96, 128],
         style,
+        rounded: true,
         withSVG: true,
         writePath: DEST_FOLDER,
       });
@@ -87,6 +91,7 @@ async function main() {
             progress: { value: progress, color },
             sizes: [16, 32, 48],
             style,
+            rounded: true,
             withSVG: true,
             writePath: DEST_FOLDER,
           });
@@ -101,6 +106,7 @@ async function main() {
       enabled: false,
       sizes: [16, 32, 48],
       style,
+      rounded: true,
       withSVG: true,
       writePath: DEST_FOLDER,
     });
@@ -133,6 +139,7 @@ async function saveIcon({
   progress,
   sizes,
   style,
+  rounded,
   withSVG,
   writePath,
   customName,
@@ -146,6 +153,7 @@ async function saveIcon({
   };
   sizes: Array<number>;
   style: '10' | '天';
+  rounded: boolean;
   withSVG: boolean;
   writePath: string;
   customName?: string;
@@ -169,7 +177,14 @@ async function saveIcon({
 
   // SVG version
   if (withSVG) {
-    const svg = generateSvg({ badge, enabled, progress, size: 32, style });
+    const svg = generateSvg({
+      badge,
+      enabled,
+      progress,
+      size: 32,
+      style,
+      rounded,
+    });
     const filename = filenameParts.join('-') + '.svg';
     const dest = path.join(writePath, filename);
     console.log(`Writing ${dest}...`);
@@ -179,7 +194,7 @@ async function saveIcon({
   // PNG versions
   for (const size of sizes) {
     const page = await browser.newPage();
-    const svg = generateSvg({ badge, enabled, progress, size, style });
+    const svg = generateSvg({ badge, enabled, progress, size, style, rounded });
     const svgUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
     await page.setContent(
       `<html><body><img id="img" src="${svgUrl}" width="${size}" height="${size}"></body></html>`
@@ -203,6 +218,7 @@ function generateSvg({
   progress,
   size,
   style,
+  rounded,
 }: {
   badge?: 'error';
   enabled: boolean;
@@ -212,6 +228,7 @@ function generateSvg({
   };
   size: number;
   style: '10' | '天';
+  rounded: boolean;
 }) {
   const svg = create().ele('svg', {
     xmlns: SVG_NS,
@@ -262,7 +279,7 @@ function generateSvg({
 
   // Background
   // this number is taken from original source: 16 -> 2.5, 32->5, 128 ->20,...
-  const backgroundRounding = size * 0.15625;
+  const backgroundRounding = rounded ? size * 0.15625 : 0;
   svg.ele('rect', {
     width: size,
     height: size,
