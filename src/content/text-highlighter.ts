@@ -108,8 +108,8 @@ export class TextHighlighter {
 
     // Unconditionally clear any existing CSS highlights since we might end up
     // using regular DOM selections in some cases.
-    CSS?.highlights?.delete('tenten-selection');
-    CSS?.highlights?.delete('tenten-selection-blue');
+    CSS?.highlights?.delete('linglook-selection');
+    CSS?.highlights?.delete('linglook-selection-blue');
 
     const startNode = textRange[0].node;
     if (isTextInputNode(startNode)) {
@@ -164,8 +164,8 @@ export class TextHighlighter {
       }
 
       // Delete any highlight we may have added using the CSS Highlight API.
-      CSS?.highlights?.delete('tenten-selection');
-      CSS?.highlights?.delete('tenten-selection-blue');
+      CSS?.highlights?.delete('linglook-selection');
+      CSS?.highlights?.delete('linglook-selection-blue');
       this.dropHighlightStyles();
 
       // Likewise any Google docs selection
@@ -409,7 +409,7 @@ export class TextHighlighter {
         endOffset,
       });
       CSS.highlights!.set(
-        style === 'blue' ? 'tenten-selection-blue' : 'tenten-selection',
+        style === 'blue' ? 'linglook-selection-blue' : 'linglook-selection',
         new Highlight(range)
       );
       this.ensureHighlightStyles();
@@ -454,13 +454,13 @@ export class TextHighlighter {
   }
 
   private ensureHighlightStyles() {
-    if (document.getElementById('tenten-selection-styles')) {
+    if (document.getElementById('linglook-selection-styles')) {
       return;
     }
 
     (document.head || document.documentElement).append(
       html('link', {
-        id: 'tenten-selection-styles',
+        id: 'linglook-selection-styles',
         rel: 'stylesheet',
         href: browser.runtime.getURL('css/selection.css'),
       })
@@ -468,7 +468,7 @@ export class TextHighlighter {
   }
 
   private dropHighlightStyles() {
-    document.getElementById('tenten-selection-styles')?.remove();
+    document.getElementById('linglook-selection-styles')?.remove();
   }
 }
 

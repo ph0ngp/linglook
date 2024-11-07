@@ -8,29 +8,29 @@ export function injectGdocsStyles() {
   removeGdocsStyles();
 
   const style = document.createElement('style');
-  style.id = 'tenten-gdocs-styles';
+  style.id = 'linglook-gdocs-styles';
   style.textContent = `.kix-canvas-tile-selection { pointer-events: none }
 .kix-canvas-tile-content g rect[aria-label] { pointer-events: all }
-#tenten-gdocs-highlight {
+#linglook-gdocs-highlight {
   position: absolute;
   left: 0;
   top: 0;
   z-index: 100;
   opacity: 0.3;
 }
-#tenten-gdocs-highlight .box {
+#linglook-gdocs-highlight .box {
   position: absolute;
   pointer-events: none;
   background-color: yellow;
 }
-#tenten-gdocs-highlight .box.blue {
+#linglook-gdocs-highlight .box.blue {
   background-color: #2698fb;
 }`;
   (document.head || document.documentElement).appendChild(style);
 }
 
 export function removeGdocsStyles() {
-  document.getElementById('tenten-gdocs-styles')?.remove();
+  document.getElementById('linglook-gdocs-styles')?.remove();
 }
 
 export function getTextFromAnnotatedCanvas({
@@ -233,7 +233,7 @@ export function highlightGdocsRange({
   length: number;
   style?: HighlightStyle;
 }) {
-  let highlightContainer = document.getElementById('tenten-gdocs-highlight');
+  let highlightContainer = document.getElementById('linglook-gdocs-highlight');
   if (highlightContainer) {
     empty(highlightContainer);
   }
@@ -245,7 +245,7 @@ export function highlightGdocsRange({
 
   if (!highlightContainer) {
     highlightContainer = document.createElement('div');
-    highlightContainer.id = 'tenten-gdocs-highlight';
+    highlightContainer.id = 'linglook-gdocs-highlight';
     const parent =
       document.querySelector('.kix-appview-editor') || document.body;
     parent.append(highlightContainer);
@@ -266,5 +266,5 @@ export function highlightGdocsRange({
 }
 
 export function clearGdocsHighlight() {
-  document.getElementById('tenten-gdocs-highlight')?.remove();
+  document.getElementById('linglook-gdocs-highlight')?.remove();
 }

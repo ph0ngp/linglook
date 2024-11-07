@@ -2,18 +2,18 @@
 
 :root,
 :host {
-  --tenten-safe-area-inset-top: env(safe-area-inset-top, 0px);
-  --tenten-safe-area-inset-right: env(safe-area-inset-right, 0px);
-  --tenten-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
-  --tenten-safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --linglook-safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --linglook-safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --linglook-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --linglook-safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 .safe-area-provider {
   position: fixed;
-  top: var(--tenten-safe-area-inset-top, 0px);
-  right: var(--tenten-safe-area-inset-right, 0px);
-  bottom: var(--tenten-safe-area-inset-bottom, 0px);
-  left: var(--tenten-safe-area-inset-left, 0px);
+  top: var(--linglook-safe-area-inset-top, 0px);
+  right: var(--linglook-safe-area-inset-right, 0px);
+  bottom: var(--linglook-safe-area-inset-bottom, 0px);
+  left: var(--linglook-safe-area-inset-left, 0px);
   box-sizing: border-box;
   touch-action: none;
   pointer-events: none;

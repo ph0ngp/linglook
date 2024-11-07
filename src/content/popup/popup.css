@@ -1021,10 +1021,10 @@
   }
 
   .window .entry.-flash {
-    animation: tenten-ja-flash 0.5s;
+    animation: linglook-flash 0.5s;
   }
 
-  @keyframes tenten-ja-flash {
+  @keyframes linglook-flash {
     from {
       background: white;
       color: white;

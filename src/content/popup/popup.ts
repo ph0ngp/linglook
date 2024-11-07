@@ -16,7 +16,7 @@ export function hidePopup() {
 }
 
 export function removePopup() {
-  removeContentContainer(['rikaichamp-window', 'tenten-ja-window']);
+  removeContentContainer(['linglook-window']);
   removeFontStyles();
 }
 
@@ -71,14 +71,14 @@ export function setPopupStyle(style: string) {
 }
 
 function getPopupWindow(): HTMLElement | null {
-  const hostElem = document.getElementById('tenten-ja-window');
+  const hostElem = document.getElementById('linglook-window');
   return hostElem && hostElem.shadowRoot
     ? hostElem.shadowRoot.querySelector('.window')
     : null;
 }
 
 function getPopupArrow(): HTMLElement | null {
-  const hostElem = document.getElementById('tenten-ja-window');
+  const hostElem = document.getElementById('linglook-window');
   return hostElem && hostElem.shadowRoot
     ? hostElem.shadowRoot.querySelector('.arrow')
     : null;

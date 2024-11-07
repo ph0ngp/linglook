@@ -3,10 +3,10 @@
 
 :root,
 :host {
-  --tenten-puck-safe-area-inset-top: env(safe-area-inset-top, 0px);
-  --tenten-puck-safe-area-inset-right: env(safe-area-inset-right, 0px);
-  --tenten-puck-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
-  --tenten-puck-safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --linglook-puck-safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --linglook-puck-safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --linglook-puck-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --linglook-puck-safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 .puck {

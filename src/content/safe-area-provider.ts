@@ -11,7 +11,7 @@ import {
 export type SafeAreaChangeListener = (safeArea: PaddingBox | null) => void;
 
 export class SafeAreaProvider {
-  public static readonly id: string = 'tenten-safe-area-provider';
+  public static readonly id: string = 'linglook-safe-area-provider';
 
   private cachedSafeArea: PaddingBox | null = null;
 
@@ -31,19 +31,19 @@ export class SafeAreaProvider {
     const safeArea: PaddingBox = {
       top:
         parseFloat(
-          computedStyle.getPropertyValue('--tenten-safe-area-inset-top')
+          computedStyle.getPropertyValue('--linglook-safe-area-inset-top')
         ) || 0,
       right:
         parseFloat(
-          computedStyle.getPropertyValue('--tenten-safe-area-inset-right')
+          computedStyle.getPropertyValue('--linglook-safe-area-inset-right')
         ) || 0,
       bottom:
         parseFloat(
-          computedStyle.getPropertyValue('--tenten-safe-area-inset-bottom')
+          computedStyle.getPropertyValue('--linglook-safe-area-inset-bottom')
         ) || 0,
       left:
         parseFloat(
-          computedStyle.getPropertyValue('--tenten-safe-area-inset-left')
+          computedStyle.getPropertyValue('--linglook-safe-area-inset-left')
         ) || 0,
     };
 

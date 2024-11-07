@@ -316,12 +316,12 @@ export function renderPopup(
 
 function getDefaultContainer(): HTMLElement {
   const defaultContainer = getOrCreateEmptyContainer({
-    id: 'tenten-ja-window',
+    id: 'linglook-window',
     styles: popupStyles.toString(),
     // Make sure the popup container appears _before_ the puck container so that
     // we can assign them the same z-index and have the puck appear on top.
     before: LookupPuckId,
-    legacyIds: ['rikaichamp-window'],
+    legacyIds: [],
   });
 
   // Make sure our popup doesn't get inverted by Wikipedia's (experimental) dark

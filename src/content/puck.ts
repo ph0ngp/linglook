@@ -89,7 +89,7 @@ export type InitialPuckPosition = Omit<PuckState, 'active'>;
 
 type RestoreContentParams = { root: Element; restore: () => void };
 
-export const LookupPuckId = 'tenten-ja-puck';
+export const LookupPuckId = 'linglook-puck';
 
 const clickHysteresis = 300;
 
