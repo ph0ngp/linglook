@@ -76,3 +76,8 @@
             - chrome.storage.local.get(console.log)
     - current web page:
         - will debug content.ts
+- To generate icons:
+    - pnpm exec tsx scripts/generate-icons.ts
+    - inside that file create2Path function is used to generate svg path.
+    - you can use that function to generate svg path for puck icon inside puck.ts also
+    - python script with same function is in scripts/generate_svg_icon.py
