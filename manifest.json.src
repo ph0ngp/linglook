@@ -163,7 +163,6 @@
     "resources": [
       "css/popup-fonts.css",
       "css/selection.css",
-      "docs/introducing-the-mouse.html",
       "data/hanzi-writer-data/*.json",
       "fonts/*.woff2"
     ],
@@ -173,7 +172,6 @@
   "web_accessible_resources": [
     "css/popup-fonts.css",
     "css/selection.css",
-    "docs/introducing-the-mouse.html",
     "data/hanzi-writer-data/*.json",
     "fonts/*.woff2"
   ],
