@@ -11,6 +11,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import { JpdictState } from '../background/jpdict';
 import { localizedDataSeriesKey } from '../common/data-series-labels';
+import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
 import { classes } from '../utils/classes';
 import { isFirefox } from '../utils/ua-utils';
@@ -19,6 +20,7 @@ import { Linkify } from './Linkify';
 import { formatDate, formatSize } from './format';
 
 type Props = {
+  dictLang: DbLanguageId;
   dbState: JpdictState;
   devMode?: boolean;
   onCancelDbUpdate?: () => void;
@@ -29,7 +31,7 @@ type Props = {
 export function DbStatus(props: Props) {
   return (
     <div class="flex flex-col gap-4 py-4">
-      <DbSummaryBlurb />
+      <DbSummaryBlurb dictLang={props.dictLang} />
       {/* <DbSummaryStatus
         dbState={props.dbState}
         onCancelDbUpdate={props.onCancelDbUpdate}
@@ -45,10 +47,11 @@ export function DbStatus(props: Props) {
   );
 }
 
-function DbSummaryBlurb() {
+function DbSummaryBlurb(props: { dictLang: DbLanguageId }) {
   const { t } = useLocale();
 
   const attribution = t('options_data_source');
+  const attribution_vn = t('options_data_source_vn');
   // const license = t('options_edrdg_license');
   // const licenseKeyword = t('options_edrdg_license_keyword');
   const accentAttribution = t('options_accent_data_source');
@@ -60,6 +63,23 @@ function DbSummaryBlurb() {
 
   return (
     <>
+      {props.dictLang === 'vi' && (
+        <p class="m-0">
+          <Linkify
+            text={attribution_vn}
+            links={[
+              {
+                keyword: 'CVDICT',
+                href: 'https://github.com/ph0ngp/CVDICT',
+              },
+              {
+                keyword: creativeCommonsLicense,
+                href: 'https://creativecommons.org/licenses/by-sa/4.0/',
+              },
+            ]}
+          />
+        </p>
+      )}
       <p class="m-0">
         <Linkify
           text={attribution}
@@ -75,6 +95,23 @@ function DbSummaryBlurb() {
           ]}
         />
       </p>
+      {props.dictLang !== 'vi' && (
+        <p class="m-0">
+          <Linkify
+            text={attribution_vn}
+            links={[
+              {
+                keyword: 'CVDICT',
+                href: 'https://github.com/ph0ngp/CVDICT',
+              },
+              {
+                keyword: creativeCommonsLicense,
+                href: 'https://creativecommons.org/licenses/by-sa/4.0/',
+              },
+            ]}
+          />
+        </p>
+      )}
       <p class="m-0">
         <Linkify
           text={strokeAttribution}

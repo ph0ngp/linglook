@@ -36,7 +36,7 @@ export function OptionsPage(props: Props) {
         {/* <CopySettings config={props.config} /> */}
         {/* {hasMouse && <PuckSettings config={props.config} />} */}
         {/* <KanjiReferenceSettings config={props.config} /> */}
-        <DictionaryDataSettings />
+        <DictionaryDataSettings config={props.config} />
       </div>
     </I18nProvider>
   );

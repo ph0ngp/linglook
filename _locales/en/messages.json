@@ -1546,7 +1546,7 @@
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
   "options_accent_data_source": {
-    "message": "Hán-Việt Pinyin wordlist, licensed under the MIT License",
+    "message": "Sino-Vietnamese transliteration data: Hán-Việt Pinyin wordlist, licensed under the MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_accent_display_binary": {
@@ -1652,7 +1652,11 @@
     }
   },
   "options_data_source": {
-    "message": "CC-CEDICT, licensed under the Creative Commons Attribution-ShareAlike 4.0 International License",
+    "message": "Chinese-English dictionary data: CC-CEDICT, licensed under the Creative Commons Attribution-ShareAlike 4.0 International License",
+    "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
+  },
+  "options_data_source_vn": {
+    "message": "Chinese-Vietnamese dictionary data: CVDICT, licensed under the Creative Commons Attribution-ShareAlike 4.0 International License",
     "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
@@ -2035,7 +2039,7 @@
     "description": "Heading for the section for configuring the copy to clipboard feature"
   },
   "options_stroke_data_source": {
-    "message": "Hanzi Writer project, licensed under the MIT License",
+    "message": "Character stroke order data: Hanzi Writer project, licensed under the MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {
