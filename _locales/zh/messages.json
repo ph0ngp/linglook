@@ -545,7 +545,7 @@
     "description": "Tooltip shown when the dictionary fails to load"
   },
   "extension_description": {
-    "message": "日语划词翻译。",
+    "message": "中文划词翻译。",
     "description": "Description of the what the extension does."
   },
   "field_label_agric": {
