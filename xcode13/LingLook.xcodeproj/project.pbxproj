@@ -7,24 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D306F4422692C553002FA4FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4412692C553002FA4FD /* AppDelegate.swift */; };
-		D306F4442692C553002FA4FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4432692C553002FA4FD /* SceneDelegate.swift */; };
-		D306F4472692C553002FA4FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4452692C553002FA4FD /* LaunchScreen.storyboard */; };
-		D306F44A2692C553002FA4FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4482692C553002FA4FD /* Main.storyboard */; };
-		D306F4532692C553002FA4FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4522692C553002FA4FD /* AppDelegate.swift */; };
-		D306F4562692C553002FA4FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D306F4542692C553002FA4FD /* Main.storyboard */; };
+		319C8F6B2CE03E500052B6E2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F6A2CE03E4D0052B6E2 /* App.swift */; };
+		319C8F6C2CE03E500052B6E2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F6A2CE03E4D0052B6E2 /* App.swift */; };
+		319C8F6E2CE03EEF0052B6E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F6D2CE03EEF0052B6E2 /* ContentView.swift */; };
+		319C8F6F2CE03EEF0052B6E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F6D2CE03EEF0052B6E2 /* ContentView.swift */; };
+		319C8F712CE03F1E0052B6E2 /* iPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F702CE03F1E0052B6E2 /* iPhoneView.swift */; };
+		319C8F722CE03F1E0052B6E2 /* iPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F702CE03F1E0052B6E2 /* iPhoneView.swift */; };
+		319C8F742CE03F260052B6E2 /* iPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F732CE03F260052B6E2 /* iPadView.swift */; };
+		319C8F752CE03F260052B6E2 /* iPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F732CE03F260052B6E2 /* iPadView.swift */; };
+		319C8F772CE03F2D0052B6E2 /* MacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F762CE03F2D0052B6E2 /* MacView.swift */; };
+		319C8F782CE03F2D0052B6E2 /* MacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F762CE03F2D0052B6E2 /* MacView.swift */; };
 		D306F45E2692C553002FA4FD /* LingLook Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F45D2692C553002FA4FD /* LingLook Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D306F4682692C553002FA4FD /* LingLook Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D306F4672692C553002FA4FD /* LingLook Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D306F46D2692C553002FA4FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4312692C54F002FA4FD /* Main.html */; };
-		D306F46E2692C553002FA4FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D306F4312692C54F002FA4FD /* Main.html */; };
 		D306F46F2692C553002FA4FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D306F4332692C54F002FA4FD /* Icon.png */; };
 		D306F4702692C553002FA4FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D306F4332692C54F002FA4FD /* Icon.png */; };
-		D306F4712692C553002FA4FD /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = D306F4342692C54F002FA4FD /* Style.css */; };
-		D306F4722692C553002FA4FD /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = D306F4342692C54F002FA4FD /* Style.css */; };
-		D306F4732692C553002FA4FD /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4352692C54F002FA4FD /* Script.js */; };
-		D306F4742692C553002FA4FD /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = D306F4352692C54F002FA4FD /* Script.js */; };
-		D306F4752692C553002FA4FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4362692C54F002FA4FD /* ViewController.swift */; };
-		D306F4762692C553002FA4FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4362692C54F002FA4FD /* ViewController.swift */; };
 		D306F4772692C553002FA4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D306F4372692C552002FA4FD /* Assets.xcassets */; };
 		D306F4782692C553002FA4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D306F4372692C552002FA4FD /* Assets.xcassets */; };
 		D306F4792692C553002FA4FD /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306F4392692C552002FA4FD /* SafariWebExtensionHandler.swift */; };
@@ -140,24 +136,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D306F4322692C54F002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		319C8F6A2CE03E4D0052B6E2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		319C8F6D2CE03EEF0052B6E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		319C8F702CE03F1E0052B6E2 /* iPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneView.swift; sourceTree = "<group>"; };
+		319C8F732CE03F260052B6E2 /* iPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadView.swift; sourceTree = "<group>"; };
+		319C8F762CE03F2D0052B6E2 /* MacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacView.swift; sourceTree = "<group>"; };
+		319C8F7C2CE048200052B6E2 /* LingLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LingLook.entitlements; sourceTree = "<group>"; };
 		D306F4332692C54F002FA4FD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		D306F4342692C54F002FA4FD /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		D306F4352692C54F002FA4FD /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		D306F4362692C54F002FA4FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D306F4372692C552002FA4FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D306F4392692C552002FA4FD /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		D306F43E2692C553002FA4FD /* LingLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D306F4412692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D306F4432692C553002FA4FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D306F4462692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D306F4492692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F44B2692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4502692C553002FA4FD /* LingLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D306F4522692C553002FA4FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D306F4552692C553002FA4FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D306F4572692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D306F4582692C553002FA4FD /* LingLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LingLook.entitlements; sourceTree = "<group>"; };
 		D306F45D2692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D306F4622692C553002FA4FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D306F4672692C553002FA4FD /* LingLook Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LingLook Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +236,11 @@
 		D306F42F2692C54F002FA4FD /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
-				D306F4362692C54F002FA4FD /* ViewController.swift */,
+				319C8F762CE03F2D0052B6E2 /* MacView.swift */,
+				319C8F732CE03F260052B6E2 /* iPadView.swift */,
+				319C8F702CE03F1E0052B6E2 /* iPhoneView.swift */,
+				319C8F6D2CE03EEF0052B6E2 /* ContentView.swift */,
+				319C8F6A2CE03E4D0052B6E2 /* App.swift */,
 				D306F4372692C552002FA4FD /* Assets.xcassets */,
 				D306F4302692C54F002FA4FD /* Resources */,
 			);
@@ -276,10 +271,7 @@
 				D3BBFEB126FCA81B0059B886 /* iphone-pro-4b.png */,
 				D3BBFEB026FCA81B0059B886 /* iphone-pro-5.png */,
 				D3BBFEA326FCA81A0059B886 /* iphone-pro-6.png */,
-				D306F4312692C54F002FA4FD /* Main.html */,
 				D306F4332692C54F002FA4FD /* Icon.png */,
-				D306F4342692C54F002FA4FD /* Style.css */,
-				D306F4352692C54F002FA4FD /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -307,10 +299,6 @@
 		D306F4402692C553002FA4FD /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				D306F4412692C553002FA4FD /* AppDelegate.swift */,
-				D306F4432692C553002FA4FD /* SceneDelegate.swift */,
-				D306F4452692C553002FA4FD /* LaunchScreen.storyboard */,
-				D306F4482692C553002FA4FD /* Main.storyboard */,
 				D306F44B2692C553002FA4FD /* Info.plist */,
 			);
 			path = "iOS (App)";
@@ -319,10 +307,8 @@
 		D306F4512692C553002FA4FD /* macOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				D306F4522692C553002FA4FD /* AppDelegate.swift */,
-				D306F4542692C553002FA4FD /* Main.storyboard */,
+				319C8F7C2CE048200052B6E2 /* LingLook.entitlements */,
 				D306F4572692C553002FA4FD /* Info.plist */,
-				D306F4582692C553002FA4FD /* LingLook.entitlements */,
 			);
 			path = "macOS (App)";
 			sourceTree = "<group>";
@@ -450,9 +436,11 @@
 				TargetAttributes = {
 					D306F43D2692C553002FA4FD = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1610;
 					};
 					D306F44F2692C553002FA4FD = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1610;
 					};
 					D306F45C2692C553002FA4FD = {
 						CreatedOnToolsVersion = 13.0;
@@ -493,8 +481,6 @@
 				D3BBFEB626FCA81B0059B886 /* iphone-5.png in Resources */,
 				D306F46F2692C553002FA4FD /* Icon.png in Resources */,
 				D3BBFECC26FCA81B0059B886 /* iphone-3.png in Resources */,
-				D306F4472692C553002FA4FD /* LaunchScreen.storyboard in Resources */,
-				D306F46D2692C553002FA4FD /* Main.html in Resources */,
 				D3BBFED226FCA81B0059B886 /* ipad-4a.png in Resources */,
 				D3BBFEB426FCA81B0059B886 /* iphone-2.png in Resources */,
 				D3BBFEB226FCA81B0059B886 /* iphone-pro-2.png in Resources */,
@@ -502,7 +488,6 @@
 				D3BBFED626FCA81B0059B886 /* ipad-2.png in Resources */,
 				D3BBFEC226FCA81B0059B886 /* iphone-pro-4a.png in Resources */,
 				D3BBFECA26FCA81B0059B886 /* iphone-4a.png in Resources */,
-				D306F4732692C553002FA4FD /* Script.js in Resources */,
 				D306F4772692C553002FA4FD /* Assets.xcassets in Resources */,
 				D3BBFEC826FCA81B0059B886 /* iphone-pro-1.png in Resources */,
 				D3BBFEBE26FCA81B0059B886 /* iphone-pro-6.png in Resources */,
@@ -510,11 +495,9 @@
 				D3BBFEC426FCA81B0059B886 /* ipad-5.png in Resources */,
 				D3BBFECE26FCA81B0059B886 /* iphone-4b.png in Resources */,
 				D3BBFED426FCA81B0059B886 /* ipad-4b.png in Resources */,
-				D306F44A2692C553002FA4FD /* Main.storyboard in Resources */,
 				D3BBFEB826FCA81B0059B886 /* ipad-6.png in Resources */,
 				D3BBFEDA26FCA81B0059B886 /* iphone-pro-4b.png in Resources */,
 				D3BBFEC026FCA81B0059B886 /* ipad-1.png in Resources */,
-				D306F4712692C553002FA4FD /* Style.css in Resources */,
 				D3BBFEBC26FCA81B0059B886 /* iphone-pro-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,13 +515,10 @@
 				D3BBFEC726FCA81B0059B886 /* ipad-3.png in Resources */,
 				D3BBFED726FCA81B0059B886 /* ipad-2.png in Resources */,
 				D3BBFEB926FCA81B0059B886 /* ipad-6.png in Resources */,
-				D306F4722692C553002FA4FD /* Style.css in Resources */,
 				D3BBFEBF26FCA81B0059B886 /* iphone-pro-6.png in Resources */,
 				D3BBFEBB26FCA81B0059B886 /* iphone-1.png in Resources */,
 				D3BBFECD26FCA81B0059B886 /* iphone-3.png in Resources */,
 				D3BBFEB726FCA81B0059B886 /* iphone-5.png in Resources */,
-				D306F4562692C553002FA4FD /* Main.storyboard in Resources */,
-				D306F4742692C553002FA4FD /* Script.js in Resources */,
 				D3BBFED926FCA81B0059B886 /* iphone-pro-5.png in Resources */,
 				D3BBFED526FCA81B0059B886 /* ipad-4b.png in Resources */,
 				D3BBFECF26FCA81B0059B886 /* iphone-4b.png in Resources */,
@@ -547,7 +527,6 @@
 				D306F4782692C553002FA4FD /* Assets.xcassets in Resources */,
 				D3BBFEC526FCA81B0059B886 /* ipad-5.png in Resources */,
 				D3BBFEB326FCA81B0059B886 /* iphone-pro-2.png in Resources */,
-				D306F46E2692C553002FA4FD /* Main.html in Resources */,
 				D3BBFED326FCA81B0059B886 /* ipad-4a.png in Resources */,
 				D3BBFEDB26FCA81B0059B886 /* iphone-pro-4b.png in Resources */,
 			);
@@ -598,9 +577,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D306F4752692C553002FA4FD /* ViewController.swift in Sources */,
-				D306F4422692C553002FA4FD /* AppDelegate.swift in Sources */,
-				D306F4442692C553002FA4FD /* SceneDelegate.swift in Sources */,
+				319C8F6F2CE03EEF0052B6E2 /* ContentView.swift in Sources */,
+				319C8F6B2CE03E500052B6E2 /* App.swift in Sources */,
+				319C8F742CE03F260052B6E2 /* iPadView.swift in Sources */,
+				319C8F722CE03F1E0052B6E2 /* iPhoneView.swift in Sources */,
+				319C8F782CE03F2D0052B6E2 /* MacView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,8 +589,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D306F4762692C553002FA4FD /* ViewController.swift in Sources */,
-				D306F4532692C553002FA4FD /* AppDelegate.swift in Sources */,
+				319C8F6E2CE03EEF0052B6E2 /* ContentView.swift in Sources */,
+				319C8F6C2CE03E500052B6E2 /* App.swift in Sources */,
+				319C8F752CE03F260052B6E2 /* iPadView.swift in Sources */,
+				319C8F712CE03F1E0052B6E2 /* iPhoneView.swift in Sources */,
+				319C8F772CE03F2D0052B6E2 /* MacView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,41 +627,6 @@
 			targetProxy = D306F4692692C553002FA4FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D306F4312692C54F002FA4FD /* Main.html */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D306F4322692C54F002FA4FD /* Base */,
-			);
-			name = Main.html;
-			sourceTree = "<group>";
-		};
-		D306F4452692C553002FA4FD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D306F4462692C553002FA4FD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		D306F4482692C553002FA4FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D306F4492692C553002FA4FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D306F4542692C553002FA4FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D306F4552692C553002FA4FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D306F47B2692C553002FA4FD /* Debug */ = {
@@ -859,6 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
@@ -870,8 +820,6 @@
 				INFOPLIST_KEY_CFBundleVersion = 7;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -879,14 +827,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					WebKit,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -897,6 +842,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FA4PAFJ4XC;
@@ -908,8 +854,6 @@
 				INFOPLIST_KEY_CFBundleVersion = 7;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -917,10 +861,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					WebKit,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = iphoneos;
@@ -998,6 +938,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/LingLook.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1011,7 +952,6 @@
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1019,14 +959,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					WebKit,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1036,6 +973,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/LingLook.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1049,7 +987,6 @@
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1057,10 +994,6 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					WebKit,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = macosx;
