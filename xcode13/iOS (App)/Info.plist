@@ -6,5 +6,7 @@
 	<false/>
 	<key>SFSafariWebExtensionConverterVersion</key>
 	<string>13.0</string>
+	<key>UILaunchScreen</key>
+	<dict/>
 </dict>
 </plist>

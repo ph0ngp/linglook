@@ -1,0 +1,302 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Extension is disabled" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiện ích đang tắt"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LingLook 已关闭"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LingLook 已關閉"
+          }
+        }
+      }
+    },
+    "Extension is enabled" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiện ích đã mở"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LingLook 已启用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LingLook 已啟用"
+          }
+        }
+      }
+    },
+    "lang_code" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "en"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "zh"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tw"
+          }
+        }
+      }
+    },
+    "step1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First, enable the extension by opening Safari and navigating to any website. Click the button on the left side of the address bar to open the menu."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trước tiên, bạn cần kích hoạt tiện ích mở rộng này bằng cách mở Safari và truy cập vào một trang web bất kỳ. Nhấn vào nút ở bên trái thanh địa chỉ để mở menu."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首先，您需要启用扩展。打开 Safari 浏览器并访问任意网站。然后，点击地址栏左侧的按钮以打开菜单。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首先，您需要啟用延伸功能。打開 Safari 並訪問任意網站。然後，點擊地址欄左側的按鈕以打開選單。"
+          }
+        }
+      }
+    },
+    "step2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select \"Manage Extensions\", enable LingLook, then click \"Done\""
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chọn \"Quản lý phần mở rộng\", bật LingLook, sau đó nhấn \"Xong\""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择“管理扩展”，启用 LingLook，然后点击“完成”。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇「管理延伸功能」，啟用 LingLook，然後點擊「完成」。"
+          }
+        }
+      }
+    },
+    "step3" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In the menu, click on \"LingLook\""
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trong menu, nhấn vào \"LingLook\""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在菜单中，点击“LingLook”。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在選單中，點擊「LingLook」。"
+          }
+        }
+      }
+    },
+    "step4" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On the next screen, click \"Always Allow...\". Rest assured, LingLook will never access or store any of your data. This permission is only needed to access the text on the page for the lookup function."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ở màn hình tiếp theo, nhấn \"Luôn Cho phép...\". Xin yên tâm, LingLook sẽ không bao giờ truy cập hoặc lưu trữ bất kỳ dữ liệu nào của bạn. Quyền này chỉ được sử dụng để đọc chữ tiếng Trung trên trang web nhằm mục đích tra từ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下一个屏幕中，点击“始终允许...”。请放心，LingLook 绝不会访问或存储您的任何数据。此权限仅用于访问页面上的文本以执行查找功能。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下一個畫面中，點擊「永遠允許...」。請放心，LingLook 絕不會訪問或存儲您的任何數據。此權限僅用於訪問頁面上的文本以執行查找功能。"
+          }
+        }
+      }
+    },
+    "step5" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On the following screen, click \"Always Allow on Every Website\""
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ở màn hình tiếp theo, nhấn \"Luôn luôn cho phép trên mọi trang web\""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下一个屏幕中，点击“在每个网站上始终允许”。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下一個畫面中，點擊「一律在每個網站允許」。"
+          }
+        }
+      }
+    },
+    "step6" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations! LingLook is now enabled successfully. You can move the puck around to look up Chinese text. You can enable or disable the puck anytime by clicking on LingLook in the menu."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chúc mừng! LingLook đã được kích hoạt thành công. Bạn có thể di chuyển con trỏ để tra cứu văn bản tiếng Trung. Bạn có thể bật hoặc tắt con trỏ này bất cứ lúc nào bằng cách nhấn vào LingLook trong menu."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恭喜！LingLook 已成功启用。您可以移动圆盘工具来查找中文文本。您可以随时通过点击菜单中的 LingLook 按钮来启用或禁用该工具。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恭喜！LingLook 已成功啟用。您可以移動圓盤工具來查找中文文本。您可以隨時通過點擊選單中的 LingLook 按鈕來啟用或禁用該工具。"
+          }
+        }
+      }
+    },
+    "step7" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To view the stroke order of characters, click on the \"Strokes\" tab. Then, click on each character to see its stroke order."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để xem thứ tự nét của chữ cần tra, nhấn vào tab \"Thứ tự nét\". Sau đó, nhấn vào từng chữ để xem thứ tự nét của nó."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要查看汉字的笔顺，请点击“笔顺”标签。然后，点击每个汉字以查看其笔顺。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要查看漢字的筆順，請點擊「筆順」標籤。然後，點擊每個漢字以查看其筆順。"
+          }
+        }
+      }
+    },
+    "step8" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single-tap the puck to temporarily disable or enable the lookup function. Double-tap the puck to switch the lookup direction between up and down."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhấn một lần vào con trỏ để tạm thời tắt hoặc bật chức năng tra cứu. Nhấn đúp để đổi hướng tra từ thành hướng lên hoặc hướng xuống."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轻触圆盘工具一次，可暂时禁用或启用查找功能。双击圆盘工具可切换查找方向（向上或向下）。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輕觸圓盤工具一次，可暫時禁用或啟用查找功能。雙擊圓盤工具可切換查找方向（向上或向下）。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

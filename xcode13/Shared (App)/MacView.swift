@@ -19,9 +19,6 @@ struct MacView: View {
                 .resizable()
                 .frame(width: 128, height: 128)
             
-            Text("LingLook for Safari")
-                .font(.title)
-            
 //            Button("Open Safari Extensions Preferences...") {
 //                openSafariExtensionPreferences()
 //            }
@@ -54,11 +51,3 @@ struct MacView: View {
 //        }
 //    }
 }
-
-#if DEBUG
-struct MacView_Previews: PreviewProvider {
-    static var previews: some View {
-        MacView()
-    }
-}
-#endif
