@@ -15,7 +15,11 @@ struct Item: Identifiable {
 
 struct ContentView: View {
     let items: [Item] = [
-        .init(image: "ip1", title: String(localized: "step1") + (UIDevice.current.userInterfaceIdiom == .phone ? "" : String(localized: "device_note"))),
+        .init(
+            image: "ip1",
+            title: String(localized: "step1")
+                + (UIDevice.current.userInterfaceIdiom == .phone
+                    ? "" : String(localized: "device_note"))),
         .init(image: "ip2", title: String(localized: "step2")),
         .init(image: "ip3", title: String(localized: "step3")),
         .init(image: "ip4", title: String(localized: "step4")),
@@ -47,9 +51,9 @@ struct ContentView: View {
                             .cornerRadius(15)
                             .shadow(color: .primary.opacity(0.5), radius: 8)
                             .padding(.top, PADDING)
-                            .padding(.bottom, PADDING * 3) // for the index dot to be outside the image
+                            .padding(.bottom, PADDING * 3)  // for the index dot to be outside the image
                             .tag(index)
-                            // .border(Color.blue)
+                        // .border(Color.blue)
                     }
                 }
                 .frame(height: geometry.size.height * 2 / 3)
@@ -69,18 +73,18 @@ struct ContentView: View {
                 VStack {
                     Text(items[currentPage].title)
                         .padding(.horizontal, PADDING)
-                    // .border(Color.orange)
-                    // .font(.title)
-                    // }
-                    // .padding(.bottom, 50)
-                    // .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true) // ensure that the text will expand vertically as needed to show all content (not truncated by ...) while still respecting horizontal constraints. This is in case very small screen device like iPhone SE (4 inch screen)
+                        // .border(Color.orange)
+                        // .font(.title)
+                        // }
+                        // .padding(.bottom, 50)
+                        // .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)  // ensure that the text will expand vertically as needed to show all content (not truncated by ...) while still respecting horizontal constraints. This is in case very small screen device like iPhone SE (4 inch screen)
                     Spacer()  // push the text to the top
                 }
                 .frame(
                     //this must not be too low because when phone is in landscape mode, there will be limited height.
                     maxWidth: 600
-                    // maxHeight: geometry.size.height * 1 / 3
+                        // maxHeight: geometry.size.height * 1 / 3
                 )
                 // .border(Color.red)
                 // Spacer()
