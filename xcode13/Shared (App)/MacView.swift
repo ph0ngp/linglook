@@ -5,49 +5,56 @@
 //  Created by Phong Phan on 11/9/24.
 //
 
-
-import SwiftUI
 import SafariServices
+import SwiftUI
 
 struct MacView: View {
     @State private var isExtensionEnabled: Bool = false
     private let extensionBundleIdentifier = "com.phongp.linglook.Extension"
-    
+
     var body: some View {
         VStack(spacing: 20) {
             Image("LargeIcon")
                 .resizable()
                 .frame(width: 128, height: 128)
-            
-//            Button("Open Safari Extensions Preferences...") {
-//                openSafariExtensionPreferences()
-//            }
-//            .padding()
-            
+
+            Button("Open Safari Extensions Preferences...") {
+                openSafariExtensionPreferences()
+            }
+            .padding()
+
             Text(isExtensionEnabled ? "Extension is enabled" : "Extension is disabled")
                 .foregroundColor(isExtensionEnabled ? .green : .red)
         }
         .frame(width: 400, height: 300)
         .onAppear {
-//            checkExtensionState()
+            checkExtensionState()
         }
     }
-    
-//    private func openSafariExtensionPreferences() {
-//        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-//            if let error = error {
-//                print("Error opening preferences: \(error)")
-//            }
-//        }
-//    }
-//    
-//    private func checkExtensionState() {
-//        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { (state, error) in
-//            if let state = state {
-//                DispatchQueue.main.async {
-//                    isExtensionEnabled = state.isEnabled
-//                }
-//            }
-//        }
-//    }
+
+    private func openSafariExtensionPreferences() {
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) {
+            error in
+            if let error = error {
+                print("Error opening preferences: \(error)")
+            }
+        }
+    }
+
+    private func checkExtensionState() {
+        SFSafariExtensionManager.getStateOfSafariExtension(
+            withIdentifier: extensionBundleIdentifier
+        ) { (state, error) in
+            if let error = error {
+                print("Error checking extension state: \(error)")
+                return
+            }
+
+            if let state = state {
+                DispatchQueue.main.async {
+                    isExtensionEnabled = state.isEnabled
+                }
+            }
+        }
+    }
 }
