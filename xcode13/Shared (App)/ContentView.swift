@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-#if os(iOS)
+struct Item: Identifiable {
+    private(set) var id: UUID = .init()
+    var image: String
+    var title: String
+}
+
 struct ContentView: View {
-    /// View Properties
-    @State private var items: [Item] = [
+    let items: [Item] = [
         .init(image: "ip1", title: String(localized: "step1")),
         .init(image: "ip2", title: String(localized: "step2")),
         .init(image: "ip3", title: String(localized: "step3")),
@@ -18,126 +22,65 @@ struct ContentView: View {
         .init(image: "ip5", title: String(localized: "step5")),
         .init(image: "ip6", title: String(localized: "step6")),
         .init(image: "ip7", title: String(localized: "step7")),
-        .init(image: "ip8", title: String(localized: "step8"))
+        .init(image: "ip8", title: String(localized: "step8")),
     ]
-    /// Customization Properties
-    @State private var titleItemSpacing: CGFloat = 30
-    @State private var horizontalTopPadding: CGFloat = 30
-    @State private var pageSpacing: CGFloat = 10
-    @State private var pageControlSpacing: CGFloat = 20
-    // @State private var useModernSlider: Bool = true  // Add this new state
+
+    let PADDING: CGFloat = 20
+
+    @State private var currentPage = 0
+
+    init() {
+        // Customize page control dots appearance
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.label  // System primary color
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.systemGray.withAlphaComponent(
+            0.5)
+    }
 
     var body: some View {
-        // if UIDevice.current.userInterfaceIdiom == .pad {
-        //     iPadView()
-        // } else {
-        //     iPhoneView()
-        // }
-        fallbackSlider
-        // if #available(iOS 17, *), UIDevice.current.userInterfaceIdiom == .phone {
-        //     if useModernSlider {
-        //         modernSlider
-        //     } else {
-        //         fallbackSlider
-        //     }
-        //     Toggle("Use Modern Slider", isOn: $useModernSlider)
-        //         .padding(.horizontal)
-        //     // List {
-        //     //     Toggle("Show Paging Control", isOn: $showPagingControl)
-                
-        //     //     Toggle("Disable Page Interaction", isOn: $disablePagingInteraction)
-                
-        //     //     Toggle("Stretch Content", isOn: $stretchContent)
-                
-        //     //     Section("Title Scroll Speed") {
-        //     //         Slider(value: $titleScrollSpeed)
-        //     //     }
-                
-        //     //     Section("Paging Spacing") {
-        //     //         Slider(value: $pagingSpacing, in: 20...40)
-        //     //     }
-        //     // }
-        //     // .clipShape(.rect(cornerRadius: 15))
-        //     // .padding(15)
-        // } else {
-        //     fallbackSlider
-        // }
-    }
-    
-    @available(iOS 17, *)
-    @ViewBuilder
-    var modernSlider: some View {
-        CustomPagingSlider(
-            pageControlSpacing: pageControlSpacing,
-            titleItemSpacing: titleItemSpacing,
-            horizontalTopPadding: horizontalTopPadding,
-            pageSpacing: pageSpacing,
-            data: $items
-        ) { $item in
-            SliderContent(item: $item)
-        } titleContent: { $item in
-            SliderTitleContent(item: $item)
-        }
-    }
+        GeometryReader { geometry in
+            VStack(alignment: .center, spacing: PADDING) {
+                TabView(selection: $currentPage) {
+                    ForEach(0..<items.count, id: \.self) { index in
+                        Image(items[index].image + String(localized: "lang_code"))
+                            .resizable()
+                            .scaledToFit()  // make it fit the outer container, whose height we have specified
+                            .cornerRadius(15)
+                            .shadow(radius: 10)
+                            .padding(.top, PADDING)
+                            .padding(.bottom, PADDING * 3) // for the index dot to be outside the image
+                            .tag(index)
+                    }
+                }
+                .frame(height: geometry.size.height * 2 / 3)
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
 
-        
-    @ViewBuilder
-    var fallbackSlider: some View {
-        FallbackPagingSlider(
-            pageControlSpacing: pageControlSpacing,
-            titleItemSpacing: titleItemSpacing,
-            horizontalTopPadding: horizontalTopPadding,
-            pageSpacing: pageSpacing,
-            data: $items
-        ) { $item in
-            SliderContent(item: $item)
-        } titleContent: { $item in
-            SliderTitleContent(item: $item)
-        }
-    }
-}
+                // HStack(spacing: 8) {
+                //     ForEach(0..<items.count, id: \.self) { index in
+                //         Circle()
+                //             .fill(currentPage == index ? Color.primary : Color.gray.opacity(0.5))
+                //             .frame(width: 8, height: 8)
+                //     }
+                // }
 
-struct SliderContent: View {
-    @Binding var item: Item
-    
-    var body: some View {
-        // if let url = item.url {
-        //     WebView(urlString: url)
-        //         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //         .aspectRatio(3/4, contentMode: .fit)
-        //         .clipShape(RoundedRectangle(cornerRadius: 15))
-        // } else {
-            RoundedRectangle(cornerRadius: 15)
-                .fill(.clear)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .aspectRatio(3/4, contentMode: .fit)
-                .overlay {
-                Image(item.image + String(localized: "lang_code"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                // ScrollView(.vertical) {
+                VStack {
+                    Text(items[currentPage].title)
+                        .padding(.horizontal, PADDING)
+                    // .font(.title)
+                    // }
+                    // .padding(.bottom, 50)
+                    // .multilineTextAlignment(.center)
+                    // .fixedSize(horizontal: false, vertical: true)
+
+                    Spacer()  // push the text to the top
+                }
+                .frame(
+                    width: UIDevice.current.userInterfaceIdiom == .pad ? geometry.size.width * 2/3 : nil,
+                    height: geometry.size.height * 1 / 3
+                )
+                // Spacer()
             }
-            .clipped()
-        // }
+        }
     }
 }
-
-struct SliderTitleContent: View {
-    @Binding var item: Item
-    
-    var body: some View {
-        Text(item.title)
-            // .font(.headline)
-            // .bold()
-            .multilineTextAlignment(.center)
-            .fixedSize(horizontal: false, vertical: true)
-            .padding(.horizontal)
-            .frame(height: 100)
-    }
-}
-#else
-struct ContentView: View {
-    var body: some View {
-        MacView()
-    }
-}
-#endif

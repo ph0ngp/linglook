@@ -11,7 +11,11 @@ import SwiftUI
 struct LingLookApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(iOS)
+                ContentView()
+            #else
+                MacView()
+            #endif
         }
     }
 }
