@@ -45,7 +45,7 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFit()  // make it fit the outer container, whose height we have specified
                             .cornerRadius(15)
-                            .shadow(radius: 10)
+                            .shadow(color: .primary.opacity(0.5), radius: 8)
                             .padding(.top, PADDING)
                             .padding(.bottom, PADDING * 3) // for the index dot to be outside the image
                             .tag(index)
