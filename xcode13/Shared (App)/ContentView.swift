@@ -49,11 +49,13 @@ struct ContentView: View {
                             .padding(.top, PADDING)
                             .padding(.bottom, PADDING * 3) // for the index dot to be outside the image
                             .tag(index)
+                            // .border(Color.blue)
                     }
                 }
                 .frame(height: geometry.size.height * 2 / 3)
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
+                // .border(Color.green)
 
                 // HStack(spacing: 8) {
                 //     ForEach(0..<items.count, id: \.self) { index in
@@ -67,20 +69,23 @@ struct ContentView: View {
                 VStack {
                     Text(items[currentPage].title)
                         .padding(.horizontal, PADDING)
+                    // .border(Color.orange)
                     // .font(.title)
                     // }
                     // .padding(.bottom, 50)
                     // .multilineTextAlignment(.center)
-                    // .fixedSize(horizontal: false, vertical: true)
-
+                    .fixedSize(horizontal: false, vertical: true) // ensure that the text will expand vertically as needed to show all content (not truncated by ...) while still respecting horizontal constraints. This is in case very small screen device like iPhone SE (4 inch screen)
                     Spacer()  // push the text to the top
                 }
                 .frame(
-                    width: UIDevice.current.userInterfaceIdiom == .pad ? geometry.size.width * 2/3 : nil,
-                    height: geometry.size.height * 1 / 3
+                    //this must not be too low because when phone is in landscape mode, there will be limited height.
+                    maxWidth: 600
+                    // maxHeight: geometry.size.height * 1 / 3
                 )
+                // .border(Color.red)
                 // Spacer()
             }
+            // .border(Color.yellow)
         }
     }
 }
