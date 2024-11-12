@@ -23,11 +23,20 @@ struct MacView: View {
             }
             .padding()
 
-            Text(isExtensionEnabled ? NSLocalizedString("extension_is_enabled", comment: "") : NSLocalizedString("extension_is_disabled", comment: ""))
-                .foregroundColor(isExtensionEnabled ? .green : .red)
+            Text(
+                isExtensionEnabled
+                    ? NSLocalizedString("extension_is_enabled", comment: "")
+                    : NSLocalizedString("extension_is_disabled", comment: "")
+            )
+            .foregroundColor(isExtensionEnabled ? .green : .red)
         }
         .frame(width: 400, height: 300)
         .onAppear {
+            checkExtensionState()
+        }
+        .onReceive(
+            NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)
+        ) { _ in
             checkExtensionState()
         }
     }
