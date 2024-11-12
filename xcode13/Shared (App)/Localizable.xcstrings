@@ -29,8 +29,14 @@
         }
       }
     },
-    "Extension is disabled" : {
+    "extension_is_disabled" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension is disabled"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -51,8 +57,14 @@
         }
       }
     },
-    "Extension is enabled" : {
+    "extension_is_enabled" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension is enabled"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -97,6 +109,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "tw"
+          }
+        }
+      }
+    },
+    "open_safari_extension_preferences" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Safari Extension Preferences"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở tuỳ chọn Phần mở rộng của Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 Safari 扩展偏好设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打開 Safari 延伸功能偏好設定"
           }
         }
       }

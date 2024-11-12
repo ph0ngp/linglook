@@ -18,12 +18,12 @@ struct MacView: View {
                 .resizable()
                 .frame(width: 128, height: 128)
 
-            Button("Open Safari Extensions Preferences...") {
+            Button(NSLocalizedString("open_safari_extension_preferences", comment: "")) {
                 openSafariExtensionPreferences()
             }
             .padding()
 
-            Text(isExtensionEnabled ? "Extension is enabled" : "Extension is disabled")
+            Text(isExtensionEnabled ? NSLocalizedString("extension_is_enabled", comment: "") : NSLocalizedString("extension_is_disabled", comment: ""))
                 .foregroundColor(isExtensionEnabled ? .green : .red)
         }
         .frame(width: 400, height: 300)
