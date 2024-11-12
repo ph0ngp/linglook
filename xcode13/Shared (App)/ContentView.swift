@@ -15,7 +15,7 @@ struct Item: Identifiable {
 
 struct ContentView: View {
     let items: [Item] = [
-        .init(image: "ip1", title: String(localized: "step1")),
+        .init(image: "ip1", title: String(localized: "step1") + (UIDevice.current.userInterfaceIdiom == .phone ? "" : String(localized: "device_note"))),
         .init(image: "ip2", title: String(localized: "step2")),
         .init(image: "ip3", title: String(localized: "step3")),
         .init(image: "ip4", title: String(localized: "step4")),

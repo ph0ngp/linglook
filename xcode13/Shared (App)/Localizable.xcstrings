@@ -1,6 +1,34 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "device_note" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Please note: the instructions shown here are based on the iPhone interface. Button positions may vary slightly on this device."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Chú ý: các hướng dẫn được minh hoạ ở đây dựa trên giao diện iPhone. Trên thiết bị này, vị trí các nút có thể hơi khác một chút."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请注意：此处显示的说明基于 iPhone 界面。在此设备上，按钮位置可能略有不同。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請注意：此處顯示的說明基於 iPhone 介面。在此設備上，按鈕位置可能略有不同。"
+          }
+        }
+      }
+    },
     "Extension is disabled" : {
       "localizations" : {
         "vi" : {
