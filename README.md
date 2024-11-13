@@ -1,84 +1,79 @@
 <div align="center">
-  <img src="images/linglook.svg" alt="LingLook" width="200" height="200" />
-  <h1>LingLook</h1>
-
   <p>
-    Hi fellow Chinese reader! This browser extension lets you look up Chinese words with the hover of a mouse or tap of a screen.
-  </p>
-
-  <p>
-    <a href=""><img src="https://github.com/ph0ngp/linglook/workflows/CI/badge.svg" alt="automated test status" /></a>
+    <img src="images/linglook.svg" alt="LingLook" width="120" height="120" />
+    <br>
+    <img src="https://github.com/ph0ngp/linglook/workflows/CI/badge.svg" alt="automated test status" />
+    <h1>LingLook</h1>
   </p>
 </div>
 
-## Table of Contents
+## Introduction
 
-- [Usage](#usage)
-- [Building from source](#building-a-release-from-source)
-- [Contributing](#contributing)
+LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS). It's a fork of [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader).
 
-## Usage
+## Screenshots
 
-By default, you can enable the LingLook by either:
+#### On desktop
 
-- Pressing the toolbar button (you may need to add it to the browser toolbar yourself in some browsers)
-- Pressing <kbd>Alt</kbd>+<kbd>R</kbd>
-- Choosing to enable it from the context menu
+<div align="center">
+  <img src="docs/definitions.png" alt="definitions"/>
+  <br>
+  <img src="docs/strokes.png" alt="strokes"/>
+</div>
 
-Alternatively, a lot of users find it helpful to have the extension permanently
-enabled but configured to only show the pop-up when either <kbd>Alt</kbd> or
-<kbd>Ctrl</kbd> is pressed.
+#### On mobile
 
-The other keys are as follows:
+<div align="center">
+  <img src="docs/iphone.png" alt="mobile" width="590" />
+</div>
 
-| Action                                    | Key                                                 |
-| ----------------------------------------- | --------------------------------------------------- |
-| Switch dictionary (words → kanji → names) | <kbd>Shift</kbd> / <kbd>Enter</kbd>                 |
-| Show kanji results only                   | <kbd>Shift</kbd> _(disabled by default)_            |
-| Toggle display of definitions             | <kbd>d</kbd> _(disabled by default)_                |
-| Move the popup up or down                 | <kbd>j</kbd> / <kbd>k</kbd> _(disabled by default)_ |
-| Enter copy mode                           | <kbd>c</kbd>                                        |
-| (Copy mode) Copy entry                    | <kbd>e</kbd>                                        |
-| (Copy mode) Copy tab-separated fields     | <kbd>y</kbd>                                        |
-| (Copy mode) Copy word/kanji               | <kbd>w</kbd>                                        |
-| (Copy mode) Select next entry             | <kbd>c</kbd>                                        |
+## How to use
 
-## Building a release from source
+- Enable the extension in your browser. Pin it to your toolbar for easy access.
+  - You can click on the extension icon to enable/disable the popup function.
+- On desktop, use the mouse to hover over a Chinese word, the popup window will appear.
+- On mobile devices, there is a circular puck on the screen. Move that puck to hover over the target word and the popup window will appear.
+- Inside the popup window, you can see the word's meaning, pinyin, HSK level, TOCFL level.
+  - Click on the word, and you can copy it to clipboard or search it with Google Images.
+- In the "Strokes" tab, click on a character to see its stroke order.
+- Clicking on the Settings gear icon will open the extension's settings page. Here you can change its theme, show/hide HSK/TOCFL levels, choose your simplified/traditional character order, change the dictionary language, change the extension shortcuts, etc.
+- Troubleshooting: If for some reason the extension doesn't work as expected, try enabling/disabling the extension or reloading the page or restarting the browser.
 
-First replace `bugsnag_api_key_placeholder` in `src/utils/secrets.ts` with your Bugsnag API key. You can run `git update-index --assume-unchanged src/utils/secrets.ts` to prevent it from being shown in diffs and from being committed.
+## Codebase state
 
-You may also build the add-ons using a source package from the
-[Releases](https://github.com/ph0ngp/linglook/releases) page and running the
-following commands:
+Every function is working as intended. However, the current codebase still has many parts from the original project (10ten), even though unused, which makes the code more bloated and messy than needed. Hopefully it will be trimmed up with time. Some parts are used for new purposes but still keep the original names. For detail check [notes.md](notes.md).
 
+## Building from source
+
+```bash
+pnpm install --frozen-lockfile
+
+# For Chrome/Chromium browsers
+pnpm build:chrome
+# Load the `dist-chrome` folder as an unpacked extension in chrome://extensions
+
+# For Firefox
+pnpm build:firefox
+# Load the `dist-firefox` folder temporarily via about:debugging
+
+# For Safari
+pnpm build:safari
+# 1. Open the Xcode project in the `xcode13` folder
+# 2. Select your target device (iOS/macOS)
+# 3. Build and run the project through Xcode
 ```
-export RELEASE_BUILD=1
-pnpm install
-pnpm package:firefox
-# Or `yarn package:firefox` for versions 0.20.0 and earlier
-# Or `yarn package` for versions 0.5.8 and earlier
-```
-
-(Note that you may ignore the `.js` files associated with each release.
-These are published simply to provide a public URL for each version of the
-source files to associating stack traces from error reports.)
-
-The above builds the package for **Firefox**.
-Use `pnpm package:chrome` to build the Chrome package, `pnpm package:edge` for
-Edge, `pnpm package:safari` for Safari, or `pnpm package:thunderbird` for
-Thunderbird.
-
-**Note:** For versions prior to and including 0.5.5 `pnpm install` will try to
-install `husky` but fail so you will need to run `pnpm install --ignore-scripts`.
-
-To build the latest trunk version please see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Data sources
-
-- [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict), licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
-- [Hanzi Writer project](https://hanziwriter.org), licensed under the [MIT License](https://hanziwriter.org/license.html)
-- [Hán-Việt Pinyin wordlist](https://github.com/ph0ngp/hanviet-pinyin-wordlist), licensed under the [MIT License](https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE)
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome! Please feel free to submit a Pull Request or an Issue to suggest improvements or report bugs.
+
+## Data sources
+
+- Chinese-English dictionary data: [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict) by MDBG, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+- Chinese-Vietnamese dictionary data: [CVDICT](https://github.com/ph0ngp/CVDICT) by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+- Chinese character stroke order data: [Hanzi Writer project](https://hanziwriter.org) by David Chanin, licensed under the [MIT License](https://hanziwriter.org/license.html)
+- Sino-Vietnamese transliteration data: [Hán-Việt Pinyin wordlist](https://github.com/ph0ngp/hanviet-pinyin-wordlist) by Phong Phan, licensed under the [MIT License](https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE)
+
+## License
+
+This software is licensed under the [GNU General Public License v3.0](LICENSE) by [Phong Phan](https://github.com/ph0ngp).

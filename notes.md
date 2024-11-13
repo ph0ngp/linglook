@@ -1,5 +1,6 @@
 ## Miscellaneous notes:
 
+- Sorry, this file is quite a mess. It's for my own future reference. These notes are not in any particular order.
 - jpdict is always unavailable (dbState and getDataSeriesStatus in jpdict.ts), we only use flat file dict. But we still keep all the old code, not have time yet to prune them.
   - when ever the flat file dict is loaded, it will notify its updated state to other listeners. Check jpdict.ts initDb function.
 - in many places, variables are used for new purposes but still keep the original names:
@@ -10,6 +11,7 @@
 - strokes order uses kanji tab: the data is populated not from dictionary search phase but from render phase. Check render-popup.ts
 - disabled from 10ten: metadata (shogi, currency, era, number, measure), Image search, title search, horizontal swiping, downwards arrow, context menu (toggle on off/enable puck), names tab, tap to lookup, jpdict IDB download/updating, fx data, kanji tab content
 - if you want to use bugsnag, should replace in file "secrets.ts": MY_BUGSNAG_API_KEY
+  - First replace `bugsnag_api_key_placeholder` in `src/utils/secrets.ts` with your Bugsnag API key. You can run `git update-index --assume-unchanged src/utils/secrets.ts` to prevent it from being shown in diffs and from being committed.
   - to hide from git status: git update-index --assume-unchanged ./src/utils/secrets.ts
   - to undo: git update-index --no-assume-unchanged ./src/utils/secrets.ts
 - flat file dict mechanism:

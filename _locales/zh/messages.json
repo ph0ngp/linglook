@@ -1546,7 +1546,7 @@
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
   "options_accent_data_source": {
-    "message": "汉越拼音数据: 汉越拼音词表, 依据MIT许可证授权。",
+    "message": "汉越拼音数据: 由 Phong Phan 提供的汉越拼音词表, 依据MIT许可证授权。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_accent_display_binary": {
@@ -1652,11 +1652,11 @@
     }
   },
   "options_data_source": {
-    "message": "中文-英语词典数据: CC-CEDICT, 依据署名—相同方式共享 4.0 协议国际版授权。",
+    "message": "中文-英语词典数据: 由 MDBG 提供的 CC-CEDICT, 依据署名—相同方式共享 4.0 协议国际版授权。",
     "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_data_source_vn": {
-    "message": "中文-越南语词典数据: CVDICT, 依据署名—相同方式共享 4.0 协议国际版授权。",
+    "message": "中文-越南语词典数据: 由 Phong Phan 提供的 CVDICT, 依据署名—相同方式共享 4.0 协议国际版授权。",
     "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
@@ -2039,7 +2039,7 @@
     "description": "Heading for the section for configuring the copy to clipboard feature"
   },
   "options_stroke_data_source": {
-    "message": "汉字笔顺数据: 汉字书写项目, 依据MIT许可证授权。",
+    "message": "汉字笔顺数据: 由 David Chanin 提供的汉字书写项目, 依据MIT许可证授权。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {
