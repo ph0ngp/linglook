@@ -9,6 +9,6 @@ export function getLangTag() {
   return langTag;
 }
 
-export function clearLangTagCache() {
-  langTag = null;
-}
+// export function clearLangTagCache() {
+//   langTag = null;
+// }

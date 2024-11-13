@@ -19,49 +19,49 @@ export type SelectionMeta =
   | NumberMeta
   | ShogiMeta;
 
-export function lookForMetadata({
-  currentText,
-  nodeText,
-  matchCurrency,
-  textEnd,
-  textDelimiter,
-}: {
-  currentText: string;
-  nodeText: string;
-  matchCurrency: boolean;
-  textEnd: number;
-  textDelimiter: RegExp;
-}): {
-  textDelimiter: RegExp;
-  textEnd: number;
-} {
-  return (
-    // (matchCurrency
-    //   ? lookForCurrency({ currentText, nodeText, textDelimiter })
-    //   : undefined) ||
-    // lookForEra({ currentText, nodeText, textEnd, textDelimiter }) ||
-    // lookForShogi({ nodeText, textDelimiter }) ||
-    // lookForMeasure({ nodeText, textDelimiter }) ||
-    {
-      textDelimiter,
-      textEnd,
-    }
-  );
-}
+// export function lookForMetadata({
+//   currentText,
+//   nodeText,
+//   matchCurrency,
+//   textEnd,
+//   textDelimiter,
+// }: {
+//   currentText: string;
+//   nodeText: string;
+//   matchCurrency: boolean;
+//   textEnd: number;
+//   textDelimiter: RegExp;
+// }): {
+//   textDelimiter: RegExp;
+//   textEnd: number;
+// } {
+//   return (
+//     // (matchCurrency
+//     //   ? lookForCurrency({ currentText, nodeText, textDelimiter })
+//     //   : undefined) ||
+//     // lookForEra({ currentText, nodeText, textEnd, textDelimiter }) ||
+//     // lookForShogi({ nodeText, textDelimiter }) ||
+//     // lookForMeasure({ nodeText, textDelimiter }) ||
+//     {
+//       textDelimiter,
+//       textEnd,
+//     }
+//   );
+// }
 
-export function extractGetTextMetadata({
-  text,
-  matchCurrency,
-}: {
-  text: string;
-  matchCurrency: boolean;
-}): SelectionMeta | undefined {
-  return (
-    // (matchCurrency ? extractCurrencyMetadata(text) : undefined) ||
-    // extractEraMetadata(text) ||
-    // extractShogiMetadata(text) ||
-    // extractMeasureMetadata(text)
-    // extractNumberMetadata(text)
-    undefined
-  );
-}
+// export function extractGetTextMetadata({
+//   text,
+//   matchCurrency,
+// }: {
+//   text: string;
+//   matchCurrency: boolean;
+// }): SelectionMeta | undefined {
+//   return (
+//     // (matchCurrency ? extractCurrencyMetadata(text) : undefined) ||
+//     // extractEraMetadata(text) ||
+//     // extractShogiMetadata(text) ||
+//     // extractMeasureMetadata(text)
+//     // extractNumberMetadata(text)
+//     undefined
+//   );
+// }
