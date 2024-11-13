@@ -1,12 +1,11 @@
 <div align="center">
   <p>
     <img src="images/linglook.svg" alt="LingLook" width="120" height="120" />
-    <br>
-    <img src="https://github.com/ph0ngp/linglook/workflows/CI/badge.svg" alt="automated test status" />
     <h1>LingLook</h1>
   </p>
 </div>
 
+![automated test status](https://github.com/ph0ngp/linglook/workflows/CI/badge.svg)
 ## Introduction
 
 LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS). It's a fork of [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader).
@@ -18,7 +17,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 <div align="center">
   <img src="docs/definitions.png" alt="definitions"/>
   <br>
-  <img src="docs/strokes.png" alt="strokes"/>
+  <img src="docs/strokes.gif" alt="strokes"/>
 </div>
 
 #### On mobile
