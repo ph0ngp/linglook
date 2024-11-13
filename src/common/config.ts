@@ -669,16 +669,20 @@ export class Config {
   // CY: get default dict lang from our current locale if possible
   private getDefaultLang(): DbLanguageId {
     const availableLanguages = new Set(dbLanguages);
-    const langTag = browser.i18n.getMessage('lang_tag').split('-')[0];
-    if (availableLanguages.has(langTag as DbLanguageId)) {
-      return langTag as DbLanguageId;
+    try {
+      const langTag = browser.i18n.getMessage('lang_tag').split('-')[0];
+      if (availableLanguages.has(langTag as DbLanguageId)) {
+        return langTag as DbLanguageId;
+      }
+      // for (const lang of navigator.languages) {
+      //   const langCode = lang.split('-')[0];
+      //   if (availableLanguages.has(langCode as DbLanguageId)) {
+      //     return langCode as DbLanguageId;
+      //   }
+      // }
+    } catch (e) {
+      return 'en';
     }
-    // for (const lang of navigator.languages) {
-    //   const langCode = lang.split('-')[0];
-    //   if (availableLanguages.has(langCode as DbLanguageId)) {
-    //     return langCode as DbLanguageId;
-    //   }
-    // }
 
     return 'en';
   }
@@ -1166,10 +1170,14 @@ export class Config {
   }
 
   private getDefaultShowHanviet(): boolean {
-    const langTag = browser.i18n.getMessage('lang_tag').split('-')[0];
-    if (langTag === 'vi') {
-      return true;
-    } else {
+    try {
+      const langTag = browser.i18n.getMessage('lang_tag').split('-')[0];
+      if (langTag === 'vi') {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
       return false;
     }
   }

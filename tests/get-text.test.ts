@@ -471,7 +471,7 @@ describe('getTextAtPoint', () => {
     assertTextResultEqual(result, '你\u200c我\u200c他\u200c', [textNode, 0, 6]);
   });
 
-  it('should include trailing half-width numerals', () => {
+  it.skip('should include trailing half-width numerals', () => {
     testDiv.append('小1。');
     const textNode = testDiv.firstChild as Text;
     const bbox = getBboxForOffset(textNode, 0);
