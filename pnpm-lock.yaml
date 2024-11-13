@@ -27,8 +27,8 @@ importers:
         specifier: ^2.1.4
         version: 2.1.4
       hanzi-writer:
-        specifier: ^3.7.1
-        version: 3.7.1
+        specifier: ^3.7.2
+        version: 3.7.2
       husky:
         specifier: 9.1.6
         version: 9.1.6
@@ -3105,8 +3105,8 @@ packages:
   hanviet-pinyin-words@2.1.4:
     resolution: {integrity: sha512-SdNEHBRguYoB/3e9YtYJCRpRIlQIZQCH19f2eKzq4qTNeZbqj4DEOyWSQa+0XmuPKxWsZuBEb/f8udxk6T7uqQ==}
 
-  hanzi-writer@3.7.1:
-    resolution: {integrity: sha512-YECugdbARwXfqFqqm/Xmq39ZsjI1zTLBXvpI1h23XoS5sak+5JbXPZYb72zWaLKXzWcP9vClXbUw91tnvvCFxA==}
+  hanzi-writer@3.7.2:
+    resolution: {integrity: sha512-9v8V45rY4leG62qmq+c9MzjT4mPrVbFATv5tWWw3NucaxOO4bM/CiJ8qfPt/NOQuvWYhOhuHu6TzfjZ0ibY6jg==}
 
   hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
@@ -9308,7 +9308,7 @@ snapshots:
 
   hanviet-pinyin-words@2.1.4: {}
 
-  hanzi-writer@3.7.1: {}
+  hanzi-writer@3.7.2: {}
 
   hard-rejection@2.1.0: {}
 
