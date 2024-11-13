@@ -27,6 +27,8 @@
             - pnpm build:safari
             - in xcode: add the project under xcode13
             - use xcode to build to devices.
+    - to update a package after changing package version in package.json:
+        - pnpm install <package-name>
     - pass CI:
         - to test:
             - pnpm test
