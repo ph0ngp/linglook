@@ -77,7 +77,7 @@ export function renderPopup(
           }
         }
         break;
-      case 'binary-hi-contrast':
+      case 'onlysimp':
         // always choose simplified
         chosenWord = wordResult.k.length === 2 ? wordResult.k[0] : undefined;
         break;

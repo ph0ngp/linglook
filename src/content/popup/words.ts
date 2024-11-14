@@ -214,7 +214,7 @@ export function renderWordEntries({
 
     // binary: simplified before traditional
     // downstep: traditional before simplified
-    // binary-hi-contrast: simplified only
+    // onlysimp: simplified only
     // none: only show traditional
     if (
       options.accentDisplay === 'downstep' ||
@@ -617,7 +617,7 @@ function renderKana(
 
   // Generate binary pitch display
   const wrapperSpan = html('span', { class: 'w-binary' });
-  if (options.accentDisplay === 'binary-hi-contrast') {
+  if (options.accentDisplay === 'onlysimp') {
     wrapperSpan.classList.add('-hi-contrast');
   }
 

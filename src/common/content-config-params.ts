@@ -34,11 +34,7 @@ export type KeyboardKeys = {
   startCopy: string[];
 };
 
-export type AccentDisplay =
-  | 'downstep'
-  | 'simptrad'
-  | 'binary-hi-contrast'
-  | 'none';
+export type AccentDisplay = 'downstep' | 'simptrad' | 'onlysimp' | 'none';
 
 export type AutoExpandableEntry = 'words' | 'kanji';
 

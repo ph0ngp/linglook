@@ -133,8 +133,8 @@ export function PopupStyleForm(props: Props) {
             {t('options_accent_display_binary')}
           </option>
           <option
-            value="binary-hi-contrast"
-            selected={props.accentDisplay === 'binary-hi-contrast'}
+            value="onlysimp"
+            selected={props.accentDisplay === 'onlysimp'}
           >
             {t('options_accent_display_binary_high_contrast')}
           </option>

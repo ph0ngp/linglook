@@ -108,7 +108,7 @@ export function getWordToCopy(
             // remove the first element (simplified)
             headwords.shift();
             break;
-          case 'binary-hi-contrast':
+          case 'onlysimp':
             // remove the last element (traditional)
             headwords.pop();
             break;

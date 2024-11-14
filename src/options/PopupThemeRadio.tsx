@@ -128,7 +128,7 @@ const renderHanzi = (accentDisplay: AccentDisplay) => {
           <span class="dimmed">電腦</span>
         </>
       );
-    case 'binary-hi-contrast':
+    case 'onlysimp':
       return <span>电脑</span>;
     case 'none':
       return <span>電腦</span>;
@@ -228,12 +228,12 @@ function renderKana(accentDisplay: AccentDisplay) {
       return 'りꜜかい';
 
     case 'simptrad':
-    case 'binary-hi-contrast':
+    case 'onlysimp':
       return (
         <span
           class={classes(
             'w-binary',
-            accentDisplay === 'binary-hi-contrast' ? '-hi-contrast' : ''
+            accentDisplay === 'onlysimp' ? '-hi-contrast' : ''
           )}
         >
           <span class="h-l">り</span>
