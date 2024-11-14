@@ -78,7 +78,7 @@ export type ShowPopupOptions = {
   showKanjiComponents?: boolean;
   switchDictionaryKeys: ReadonlyArray<string>;
   tabDisplay: 'top' | 'left' | 'right' | 'none';
-  waniKaniVocabDisplay: 'hide' | 'show-matches';
+  hskDisplay: 'hide' | 'show-matches';
 };
 
 export type StartCopyCallback = (

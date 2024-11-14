@@ -2299,7 +2299,7 @@ export class ContentHandler {
       hanvietDisplay: this.config.hanvietDisplay,
       switchDictionaryKeys: this.config.keys.nextDictionary,
       tabDisplay: this.config.tabDisplay,
-      waniKaniVocabDisplay: this.config.waniKaniVocabDisplay,
+      hskDisplay: this.config.hskDisplay,
     };
 
     const showPopupResult = showPopup(this.currentSearchResult, popupOptions);

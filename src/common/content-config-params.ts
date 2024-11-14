@@ -153,5 +153,5 @@ export interface ContentConfigParams {
   // (We make this an enum type in case in future we want to add a further mode
   // where we guess the level for words not in the WaniKani database based on
   // the kanji they contain.)
-  waniKaniVocabDisplay: 'hide' | 'show-matches';
+  hskDisplay: 'hide' | 'show-matches';
 }

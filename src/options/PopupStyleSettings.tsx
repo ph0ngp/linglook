@@ -46,13 +46,10 @@ export function PopupStyleSettings(props: Props) {
     [props.config]
   );
 
-  const waniKaniVocabDisplay = useConfigValue(
-    props.config,
-    'waniKaniVocabDisplay'
-  );
+  const hskDisplay = useConfigValue(props.config, 'hskDisplay');
   const onChangeShowWaniKaniLevel = useCallback(
     (value: boolean) => {
-      props.config.waniKaniVocabDisplay = value ? 'show-matches' : 'hide';
+      props.config.hskDisplay = value ? 'show-matches' : 'hide';
     },
     [props.config]
   );
@@ -146,7 +143,7 @@ export function PopupStyleSettings(props: Props) {
           showDefinitions={showDefinitions}
           hanvietDisplay={hanvietDisplay}
           showRomaji={showRomaji}
-          showWaniKaniLevel={waniKaniVocabDisplay === 'show-matches'}
+          showWaniKaniLevel={hskDisplay === 'show-matches'}
           theme={theme}
           dictLang={dictLang}
           onChangeDictLang={onChangeDictLang}

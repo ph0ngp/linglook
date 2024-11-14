@@ -276,7 +276,7 @@ export function renderWordEntries({
         // if (options.hanvietDisplay) {
         //   appendPriorityMark(kanji.p, headwordSpan);
         // }
-        if (options.waniKaniVocabDisplay === 'show-matches' && kanji.wk) {
+        if (options.hskDisplay === 'show-matches' && kanji.wk) {
           wkElement = appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
         }
         if (options.tocflDisplay && kanji.bv) {
