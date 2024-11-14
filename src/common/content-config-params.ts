@@ -48,7 +48,7 @@ export type TabDisplay = 'top' | 'left' | 'right' | 'none';
 
 export interface ContentConfigParams {
   // Indicates the type of display to use for showing pitch accent information.
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
 
   // Which sections should have their entries expanded automatically rather than
   // being collapsed to show only the top entries.

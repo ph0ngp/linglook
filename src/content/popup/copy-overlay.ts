@@ -25,7 +25,7 @@ export function renderCopyOverlay({
   result,
   series,
   showKanjiComponents,
-  accentDisplay,
+  hanziDisplay,
 }: {
   copyState: CopyState;
   includeAllSenses: boolean;
@@ -37,7 +37,7 @@ export function renderCopyOverlay({
   result?: QueryResult;
   series: MajorDataSeries;
   showKanjiComponents?: boolean;
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
 }): HTMLDivElement {
   const copyOverlay = html('div', { class: 'copy-overlay' });
 
@@ -91,7 +91,7 @@ export function renderCopyOverlay({
           includePartOfSpeech,
           kanjiReferences,
           showKanjiComponents,
-          accentDisplay,
+          hanziDisplay,
         })
       : undefined;
     const button = renderButtonWithPreview({
@@ -114,7 +114,7 @@ export function renderCopyOverlay({
           includePartOfSpeech,
           kanjiReferences,
           showKanjiComponents,
-          accentDisplay,
+          hanziDisplay,
         }).replace(/\t/g, ' → ')
       : undefined;
     const button = renderButtonWithPreview({

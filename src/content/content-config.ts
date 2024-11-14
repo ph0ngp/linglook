@@ -115,8 +115,8 @@ export class ContentConfig implements ContentConfigParams {
     }
   }
 
-  get accentDisplay() {
-    return this.params.accentDisplay;
+  get hanziDisplay() {
+    return this.params.hanziDisplay;
   }
   get autoExpand() {
     return this.params.autoExpand;

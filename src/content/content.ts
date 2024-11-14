@@ -424,7 +424,7 @@ export class ContentHandler {
   onConfigChange(changes: readonly ContentConfigChange[]) {
     for (const { key, value } of changes) {
       switch (key) {
-        case 'accentDisplay':
+        case 'hanziDisplay':
         case 'posDisplay':
         case 'readingOnly':
         case 'showKanjiComponents':
@@ -1737,7 +1737,7 @@ export class ContentHandler {
       includeLessCommonHeadwords: this.config.copyHeadwords !== 'common',
       kanjiReferences: this.config.kanjiReferences,
       showKanjiComponents: this.config.showKanjiComponents,
-      accentDisplay: this.config.accentDisplay,
+      hanziDisplay: this.config.hanziDisplay,
     });
 
     void this.copyString(textToCopy!, copyType);
@@ -2225,7 +2225,7 @@ export class ContentHandler {
 
     const popupOptions: ShowPopupOptions = {
       allowOverlap: options.allowOverlap,
-      accentDisplay: this.config.accentDisplay,
+      hanziDisplay: this.config.hanziDisplay,
       tocflDisplay: this.config.tocflDisplay,
       closeShortcuts: this.config.keys.closePopup,
       copy: {

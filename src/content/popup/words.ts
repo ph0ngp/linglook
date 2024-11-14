@@ -217,16 +217,16 @@ export function renderWordEntries({
     // onlysimp: simplified only
     // none: only show traditional
     if (
-      options.accentDisplay === 'tradsimp' ||
-      options.accentDisplay === 'none'
+      options.hanziDisplay === 'tradsimp' ||
+      options.hanziDisplay === 'none'
     ) {
       // Show traditional form before simplified form if enabled
       matchingKanji = matchingKanji.reverse();
     }
 
     const showBothSimplifiedTraditional =
-      options.accentDisplay === 'tradsimp' ||
-      options.accentDisplay === 'simptrad';
+      options.hanziDisplay === 'tradsimp' ||
+      options.hanziDisplay === 'simptrad';
     // Sort matched kanji entries first
     // disable sort because we want to keep the order of them: simplified, traditional
     // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));
@@ -589,7 +589,7 @@ function renderKana(
 ): string | Element {
   const accents = kana.a;
   if (
-    options.accentDisplay === 'none' ||
+    options.hanziDisplay === 'none' ||
     typeof accents === 'undefined' ||
     (Array.isArray(accents) && !accents.length)
   ) {
@@ -598,7 +598,7 @@ function renderKana(
 
   const accentPos = typeof accents === 'number' ? accents : accents[0].i;
 
-  if (options.accentDisplay === 'tradsimp') {
+  if (options.hanziDisplay === 'tradsimp') {
     if (!accentPos) {
       // accentPos 0 (heiban) is special since there's no accent to show.
       //
@@ -617,7 +617,7 @@ function renderKana(
 
   // Generate binary pitch display
   const wrapperSpan = html('span', { class: 'w-binary' });
-  if (options.accentDisplay === 'onlysimp') {
+  if (options.hanziDisplay === 'onlysimp') {
     wrapperSpan.classList.add('-hi-contrast');
   }
 

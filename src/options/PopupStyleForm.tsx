@@ -13,7 +13,7 @@ import { NewBadge } from './NewBadge';
 import { PopupThemeRadio } from './PopupThemeRadio';
 
 type Props = {
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
   autoExpand: Array<AutoExpandableEntry>;
   fontFace: FontFace;
   fontSize: FontSize;
@@ -110,35 +110,26 @@ export function PopupStyleForm(props: Props) {
         </CheckboxRow>*/}
       </div>
       <div class="grid w-fit grid-cols-[repeat(2,auto)] items-baseline gap-4">
-        <label for="accentDisplay">{t('options_accent_display_label')}</label>
+        <label for="hanziDisplay">{t('options_accent_display_label')}</label>
         <select
-          id="accentDisplay"
-          name="accentDisplay"
+          id="hanziDisplay"
+          name="hanziDisplay"
           onChange={(evt) => {
             props.onChangeAccentDisplay(
               evt.currentTarget.value as AccentDisplay
             );
           }}
         >
-          <option
-            value="tradsimp"
-            selected={props.accentDisplay === 'tradsimp'}
-          >
+          <option value="tradsimp" selected={props.hanziDisplay === 'tradsimp'}>
             {t('options_accent_display_tradsimp')}
           </option>
-          <option
-            value="simptrad"
-            selected={props.accentDisplay === 'simptrad'}
-          >
+          <option value="simptrad" selected={props.hanziDisplay === 'simptrad'}>
             {t('options_accent_display_binary')}
           </option>
-          <option
-            value="onlysimp"
-            selected={props.accentDisplay === 'onlysimp'}
-          >
+          <option value="onlysimp" selected={props.hanziDisplay === 'onlysimp'}>
             {t('options_accent_display_binary_high_contrast')}
           </option>
-          <option value="none" selected={props.accentDisplay === 'none'}>
+          <option value="none" selected={props.hanziDisplay === 'none'}>
             {t('options_accent_display_none')}
           </option>
         </select>

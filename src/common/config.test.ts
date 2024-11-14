@@ -171,7 +171,7 @@ describe('Config', () => {
     languageGetter.mockReturnValue(['ro', 'fr-CA', 'en']);
     const config = new Config();
 
-    expect(config.accentDisplay).toEqual('simptrad');
+    expect(config.hanziDisplay).toEqual('simptrad');
     expect(config.contextMenuEnable).toEqual(false);
     expect(config.copyHeadwords).toEqual('regular');
     expect(config.copyPos).toEqual('code');

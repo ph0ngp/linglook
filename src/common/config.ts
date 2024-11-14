@@ -55,7 +55,7 @@ import {
 type KanjiReferenceFlagsV2 = { [key in ReferenceAbbreviation]?: boolean };
 
 interface Settings {
-  accentDisplay?: AccentDisplay;
+  hanziDisplay?: AccentDisplay;
   autoExpand?: Array<AutoExpandableEntry>;
   tocflDisplay?: boolean;
   contextMenuEnable?: boolean;
@@ -436,24 +436,24 @@ export class Config {
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1781212) so one day they should
   // be available in esbuild and vitest too.
 
-  // accentDisplay: Defaults to binary
+  // hanziDisplay: Defaults to binary
 
-  get accentDisplay(): AccentDisplay {
-    return typeof this.settings.accentDisplay === 'undefined'
+  get hanziDisplay(): AccentDisplay {
+    return typeof this.settings.hanziDisplay === 'undefined'
       ? 'simptrad'
-      : this.settings.accentDisplay;
+      : this.settings.hanziDisplay;
   }
 
-  set accentDisplay(value: AccentDisplay) {
+  set hanziDisplay(value: AccentDisplay) {
     if (
-      typeof this.settings.accentDisplay !== 'undefined' &&
-      this.settings.accentDisplay === value
+      typeof this.settings.hanziDisplay !== 'undefined' &&
+      this.settings.hanziDisplay === value
     ) {
       return;
     }
 
-    this.settings.accentDisplay = value;
-    void browser.storage.sync.set({ accentDisplay: value });
+    this.settings.hanziDisplay = value;
+    void browser.storage.sync.set({ hanziDisplay: value });
   }
 
   // autoExpand: Defaults to always expand words and kanji. If change this must also change toggleAutoExpand.
@@ -1357,7 +1357,7 @@ export class Config {
   // Get all the options the content process cares about at once
   get contentConfig(): ContentConfigParams {
     return {
-      accentDisplay: this.accentDisplay,
+      hanziDisplay: this.hanziDisplay,
       autoExpand: this.autoExpand,
       tocflDisplay: this.tocflDisplay,
       copyHeadwords: this.copyHeadwords,

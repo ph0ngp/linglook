@@ -30,7 +30,7 @@ export function getTextToCopy({
   includePartOfSpeech = true,
   kanjiReferences = [] as Array<ReferenceAbbreviation>,
   showKanjiComponents = true,
-  accentDisplay = 'simptrad',
+  hanziDisplay = 'simptrad',
 }: {
   entry: CopyEntry;
   copyType: CopyType;
@@ -40,11 +40,11 @@ export function getTextToCopy({
   includePartOfSpeech?: boolean;
   kanjiReferences?: Array<ReferenceAbbreviation>;
   showKanjiComponents?: boolean;
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
 }): string {
   if (entry.type === 'word') {
     // this is the only entry type
-    return getWordToCopy(entry, { accentDisplay });
+    return getWordToCopy(entry, { hanziDisplay });
   } else {
     return '';
   }
@@ -78,9 +78,9 @@ export function getTextToCopy({
 export function getWordToCopy(
   entry: CopyEntry,
   {
-    accentDisplay,
+    hanziDisplay,
   }: {
-    accentDisplay: AccentDisplay;
+    hanziDisplay: AccentDisplay;
   }
 ): string {
   let result: string;
@@ -94,7 +94,7 @@ export function getWordToCopy(
 
         // Only show matches -- unless our only matches were search-only
         // terms -- in which case we want to include all headwords.
-        switch (accentDisplay) {
+        switch (hanziDisplay) {
           case 'simptrad':
           case 'tradsimp':
             if (headwords.some((h) => h.match)) {

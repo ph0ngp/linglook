@@ -31,7 +31,7 @@ import { renderPopup, renderPopupArrow } from './render-popup';
 // we should be able to move some of this state into component state.
 export type ShowPopupOptions = {
   allowOverlap?: boolean;
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
   tocflDisplay: boolean;
   closeShortcuts?: ReadonlyArray<string>;
   container?: HTMLElement;

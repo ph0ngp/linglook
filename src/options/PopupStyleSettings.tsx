@@ -78,10 +78,10 @@ export function PopupStyleSettings(props: Props) {
     [props.config]
   );
 
-  const accentDisplay = useConfigValue(props.config, 'accentDisplay');
+  const hanziDisplay = useConfigValue(props.config, 'hanziDisplay');
   const onChangeAccentDisplay = useCallback(
     (value: AccentDisplay) => {
-      props.config.accentDisplay = value;
+      props.config.hanziDisplay = value;
     },
     [props.config]
   );
@@ -123,7 +123,7 @@ export function PopupStyleSettings(props: Props) {
       <SectionHeading>{t('options_popup_style_heading')}</SectionHeading>
       <div class="py-4">
         <PopupStyleForm
-          accentDisplay={accentDisplay}
+          hanziDisplay={hanziDisplay}
           autoExpand={autoExpand}
           fontFace={fontFace}
           fontSize={fontSize}

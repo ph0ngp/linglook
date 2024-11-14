@@ -24,7 +24,7 @@ export default function PopupStyleFormFixture() {
   const [pinyinDisplay, setPinyinDisplay] = useState<boolean>(false);
   const [showDefinitions, setShowDefinitions] = useState<boolean>(true);
 
-  const [accentDisplay, setAccentDisplay] = useState<AccentDisplay>('simptrad');
+  const [hanziDisplay, setAccentDisplay] = useState<AccentDisplay>('simptrad');
 
   const [autoExpand, setAutoExpand] = useState<Array<AutoExpandableEntry>>([]);
   const onChangeAutoExpand = (type: AutoExpandableEntry, value: boolean) => {
@@ -42,7 +42,7 @@ export default function PopupStyleFormFixture() {
 
   return (
     <PopupStyleForm
-      accentDisplay={accentDisplay}
+      hanziDisplay={hanziDisplay}
       autoExpand={autoExpand}
       fontFace={fontFace}
       fontSize={fontSize}

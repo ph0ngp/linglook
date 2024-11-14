@@ -67,7 +67,7 @@ export function renderPopup(
     const wordResult: WordResult = result.words.data[0];
     // we only consider the longest (first) match
     let chosenWord = undefined;
-    switch (options.accentDisplay) {
+    switch (options.hanziDisplay) {
       case 'simptrad':
       case 'tradsimp':
         for (const word of wordResult.k) {
@@ -223,7 +223,7 @@ export function renderPopup(
           result: resultToShow ? result : undefined,
           series: options.dictToShow,
           showKanjiComponents: options.showKanjiComponents,
-          accentDisplay: options.accentDisplay,
+          hanziDisplay: options.hanziDisplay,
         })
       )
     );

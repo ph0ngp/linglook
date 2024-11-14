@@ -15,7 +15,7 @@ import { PopupThemeRadio } from './PopupThemeRadio';
 import './options.css';
 
 export default function PopupThemeRadioFixture() {
-  const [accentDisplay] = useSelect<AccentDisplay>('accentDisplay', {
+  const [hanziDisplay] = useSelect<AccentDisplay>('hanziDisplay', {
     defaultValue: 'simptrad',
     options: ['tradsimp', 'simptrad', 'onlysimp', 'none'],
   });
@@ -62,7 +62,7 @@ export default function PopupThemeRadioFixture() {
   return (
     <div class="w-fit">
       <PopupThemeRadio
-        accentDisplay={accentDisplay}
+        hanziDisplay={hanziDisplay}
         fontFace={fontFace}
         fontSize={fontSize}
         onChangeTheme={setTheme}

@@ -14,7 +14,7 @@ import { classes } from '../utils/classes';
 import { useThemeClass } from '../utils/use-theme-class';
 
 type Props = {
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
   fontFace: FontFace;
   fontSize: FontSize;
   onChangeTheme: (theme: string) => void;
@@ -93,7 +93,7 @@ const PopupRadio = forwardRef<HTMLInputElement, InputProps>(
 );
 
 type PopupPreviewProps = {
-  accentDisplay: AccentDisplay;
+  hanziDisplay: AccentDisplay;
   fontFace: FontFace;
   fontSize: FontSize;
   posDisplay: PartOfSpeechDisplay;
@@ -106,8 +106,8 @@ type PopupPreviewProps = {
   dictLang: DbLanguageId;
 };
 
-const renderHanzi = (accentDisplay: AccentDisplay) => {
-  switch (accentDisplay) {
+const renderHanzi = (hanziDisplay: AccentDisplay) => {
+  switch (hanziDisplay) {
     case 'tradsimp':
       return (
         <>
@@ -169,7 +169,7 @@ function PopupPreview(props: PopupPreviewProps) {
       <div class="entry">
         <div>
           <span class="w-kanji">
-            {renderHanzi(props.accentDisplay)}
+            {renderHanzi(props.hanziDisplay)}
             {/* {props.hanvietDisplay && <Star />} */}
             {(props.showWaniKaniLevel || props.showBunproDecks) && (
               <span
@@ -191,7 +191,7 @@ function PopupPreview(props: PopupPreviewProps) {
             )}
           </span>
           {/* <span class="w-kana">
-            {renderKana(props.accentDisplay)}
+            {renderKana(props.hanziDisplay)}
             {props.hanvietDisplay && <Star />}
           </span> */}
           {props.pinyinDisplay && (
@@ -222,8 +222,8 @@ function Star() {
   );
 }
 
-function renderKana(accentDisplay: AccentDisplay) {
-  switch (accentDisplay) {
+function renderKana(hanziDisplay: AccentDisplay) {
+  switch (hanziDisplay) {
     case 'tradsimp':
       return 'りꜜかい';
 
@@ -233,7 +233,7 @@ function renderKana(accentDisplay: AccentDisplay) {
         <span
           class={classes(
             'w-binary',
-            accentDisplay === 'onlysimp' ? '-hi-contrast' : ''
+            hanziDisplay === 'onlysimp' ? '-hi-contrast' : ''
           )}
         >
           <span class="h-l">り</span>
