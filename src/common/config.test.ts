@@ -225,7 +225,7 @@ describe('Config', () => {
     expect(config.posDisplay).toEqual('expl');
     expect(config.readingOnly).toEqual(false);
     expect(config.showKanjiComponents).toEqual(true);
-    expect(config.showPriority).toEqual(false);
+    expect(config.hanvietDisplay).toEqual(false);
     expect(config.showPuck).toEqual('auto');
     expect(config.showRomaji).toEqual(true);
     expect(config.tabDisplay).toEqual('top');

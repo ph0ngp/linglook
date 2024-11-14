@@ -192,8 +192,8 @@ export class ContentConfig implements ContentConfigParams {
   get showKanjiComponents() {
     return this.params.showKanjiComponents;
   }
-  get showPriority() {
-    return this.params.showPriority;
+  get hanvietDisplay() {
+    return this.params.hanvietDisplay;
   }
   get showPuck(): 'show' | 'hide' {
     return this.params.showPuck === 'auto'

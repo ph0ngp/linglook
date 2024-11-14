@@ -273,7 +273,7 @@ export function renderWordEntries({
         }
 
         appendHeadwordInfo(kanji.i, headwordSpan);
-        // if (options.showPriority) {
+        // if (options.hanvietDisplay) {
         //   appendPriorityMark(kanji.p, headwordSpan);
         // }
         if (options.waniKaniVocabDisplay === 'show-matches' && kanji.wk) {
@@ -361,7 +361,7 @@ export function renderWordEntries({
 
     //     headwordSpan.append(renderKana(kana, options));
     //     appendHeadwordInfo(kana.i, headwordSpan);
-    //     if (options.showPriority) {
+    //     if (options.hanvietDisplay) {
     //       appendPriorityMark(kana.p, headwordSpan);
     //     }
     //     if (options.tocflDisplay && kana.bv) {
@@ -383,7 +383,7 @@ export function renderWordEntries({
           convert_to_toned_pinyin(entry.romaji[0])
         )
       );
-      if (options.showPriority) {
+      if (options.hanvietDisplay) {
         // CY: entry.k.length > 1 is only for the original japanese dict testing. For chinese dict, entry.k.length always = 2
         if (
           entry.k.length > 1 &&

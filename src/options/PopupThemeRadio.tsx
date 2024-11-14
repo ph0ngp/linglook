@@ -21,7 +21,7 @@ type Props = {
   posDisplay: PartOfSpeechDisplay;
   showBunproDecks: boolean;
   showDefinitions: boolean;
-  showPriority: boolean;
+  hanvietDisplay: boolean;
   showRomaji: boolean;
   showWaniKaniLevel: boolean;
   theme: string;
@@ -99,7 +99,7 @@ type PopupPreviewProps = {
   posDisplay: PartOfSpeechDisplay;
   showBunproDecks: boolean;
   showDefinitions: boolean;
-  showPriority: boolean;
+  hanvietDisplay: boolean;
   showWaniKaniLevel: boolean;
   showRomaji: boolean;
   theme: string;
@@ -170,7 +170,7 @@ function PopupPreview(props: PopupPreviewProps) {
         <div>
           <span class="w-kanji">
             {renderHanzi(props.accentDisplay)}
-            {/* {props.showPriority && <Star />} */}
+            {/* {props.hanvietDisplay && <Star />} */}
             {(props.showWaniKaniLevel || props.showBunproDecks) && (
               <span
                 class="separator"
@@ -192,7 +192,7 @@ function PopupPreview(props: PopupPreviewProps) {
           </span>
           {/* <span class="w-kana">
             {renderKana(props.accentDisplay)}
-            {props.showPriority && <Star />}
+            {props.hanvietDisplay && <Star />}
           </span> */}
           {props.showRomaji && (
             <span class="w-romaji" lang="zh">
@@ -202,7 +202,7 @@ function PopupPreview(props: PopupPreviewProps) {
           <span class="separator" style="display: inline-block; width: 0.5em;">
             {' '}
           </span>
-          {props.showPriority && (
+          {props.hanvietDisplay && (
             <span class="w-hanviet" lang="vi">
               điện não
             </span>

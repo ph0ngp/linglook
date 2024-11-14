@@ -133,7 +133,7 @@ export interface ContentConfigParams {
   showKanjiComponents: boolean;
 
   // True if we should show indicators next to common words.
-  showPriority: boolean;
+  hanvietDisplay: boolean;
 
   // Should we show the puck or not?
   showPuck: 'show' | 'hide' | 'auto';

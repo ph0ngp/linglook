@@ -24,14 +24,14 @@ type Props = {
   onChangePosDisplay: (value: PartOfSpeechDisplay) => void;
   onChangeShowBunproDecks: (value: boolean) => void;
   onChangeShowDefinitions: (value: boolean) => void;
-  onChangeShowPriority: (value: boolean) => void;
+  onChangeHanvietDisplay: (value: boolean) => void;
   onChangeShowRomaji: (value: boolean) => void;
   onChangeShowWaniKaniLevel: (value: boolean) => void;
   onChangeTheme: (theme: string) => void;
   posDisplay: PartOfSpeechDisplay;
   showBunproDecks: boolean;
   showDefinitions: boolean;
-  showPriority: boolean;
+  hanvietDisplay: boolean;
   showRomaji: boolean;
   showWaniKaniLevel: boolean;
   theme: string;
@@ -76,15 +76,15 @@ export function PopupStyleForm(props: Props) {
         </CheckboxRow>
         <CheckboxRow>
           <input
-            id="showPriority"
-            name="showPriority"
+            id="hanvietDisplay"
+            name="hanvietDisplay"
             type="checkbox"
-            checked={props.showPriority}
+            checked={props.hanvietDisplay}
             onChange={(e) =>
-              props.onChangeShowPriority(e.currentTarget.checked)
+              props.onChangeHanvietDisplay(e.currentTarget.checked)
             }
           />
-          <label for="showPriority">{t('options_show_priority')}</label>
+          <label for="hanvietDisplay">{t('options_show_priority')}</label>
         </CheckboxRow>
         {/* <CheckboxRow>
           <input

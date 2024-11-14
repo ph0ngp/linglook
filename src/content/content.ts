@@ -428,7 +428,7 @@ export class ContentHandler {
         case 'posDisplay':
         case 'readingOnly':
         case 'showKanjiComponents':
-        case 'showPriority':
+        case 'hanvietDisplay':
         case 'tabDisplay':
           if (this.isTopMostWindow()) {
             this.updatePopup();
@@ -2296,7 +2296,7 @@ export class ContentHandler {
       safeArea: this.safeAreaProvider.getSafeArea(),
       showDefinitions: !this.config.readingOnly,
       showKanjiComponents: this.config.showKanjiComponents,
-      showPriority: this.config.showPriority,
+      hanvietDisplay: this.config.hanvietDisplay,
       switchDictionaryKeys: this.config.keys.nextDictionary,
       tabDisplay: this.config.tabDisplay,
       waniKaniVocabDisplay: this.config.waniKaniVocabDisplay,

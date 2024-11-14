@@ -37,7 +37,7 @@ export default function PopupThemeRadioFixture() {
   const [showDefinitions] = useValue<boolean>('showDefinitions', {
     defaultValue: true,
   });
-  const [showPriority] = useValue<boolean>('showPriority', {
+  const [hanvietDisplay] = useValue<boolean>('hanvietDisplay', {
     defaultValue: true,
   });
   const [showRomaji] = useValue<boolean>('showRomaji', {
@@ -69,7 +69,7 @@ export default function PopupThemeRadioFixture() {
         posDisplay={posDisplay}
         showBunproDecks={showBunproDecks}
         showDefinitions={showDefinitions}
-        showPriority={showPriority}
+        hanvietDisplay={hanvietDisplay}
         showRomaji={showRomaji}
         showWaniKaniLevel={showWaniKaniLevel}
         theme={theme}

@@ -4,7 +4,7 @@
 - jpdict is always unavailable (dbState and getDataSeriesStatus in jpdict.ts), we only use flat file dict. But we still keep all the old code, not have time yet to prune them.
   - when ever the flat file dict is loaded, it will notify its updated state to other listeners. Check jpdict.ts initDb function.
 - in many places, variables are used for new purposes but still keep the original names:
-  - wanikani -> hsk, bunpro -> tocfl, priority -> show hanviet transliteration, accent display -> hanzi display order (binary -> simp before trad, binary-hi-contrast: simp only; downstep: trad before simp; none: trad only), romaji -> hanviet transliteration
+  - wanikani -> hsk, accent display -> hanzi display order (binary -> simp before trad, binary-hi-contrast: simp only; downstep: trad before simp; none: trad only), romaji -> hanviet transliteration
   - copy entry -> copy, copy-separate fields -> search images; copy words -> disabled
   - kanji tab -> stroke order
 - to change config default, must change both getters and setters. Because this project's style is to delete settings key if it's the same as the default config. For detail check config.ts
@@ -55,7 +55,7 @@
 - currently dictLang is set by default to the locale of users:
   - locales are set by OS language or browser language, we cannot set it manually
   - there are 3 locales: en, vi, zh. Locale determines UI language. (UI language is different from dict language). But if users in en and vi locale, which is inside DbLanguageId, then we use 'en' or 'vi' language dict. Check get default dict lang in config.ts
-- default showHanviet (showPriority in the code) also depends on the locale. if it's vi, then default is true
+- default hanvietDisplay also depends on the locale. if it's vi, then default is true
 - when update cedict data:
   - download new cedict .u8 file. Usually it's CRLF. Must config it to be CRLF in .gitattributes to keep its CRLF
     - convert it to LF is also ok, but we have to generate its idx file again

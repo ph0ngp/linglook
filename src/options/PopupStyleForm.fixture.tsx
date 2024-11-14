@@ -18,7 +18,7 @@ import './options.css';
 export default function PopupStyleFormFixture() {
   const [theme, setTheme] = useState<string>('default');
 
-  const [showPriority, setShowPriority] = useState<boolean>(true);
+  const [hanvietDisplay, setHanvietDisplay] = useState<boolean>(true);
   const [showWaniKaniLevel, setShowWaniKaniLevel] = useState<boolean>(false);
   const [showBunproDecks, setShowBunproDecks] = useState<boolean>(false);
   const [showRomaji, setShowRomaji] = useState<boolean>(false);
@@ -53,14 +53,14 @@ export default function PopupStyleFormFixture() {
       onChangePosDisplay={setPosDisplay}
       onChangeShowBunproDecks={setShowBunproDecks}
       onChangeShowDefinitions={setShowDefinitions}
-      onChangeShowPriority={setShowPriority}
+      onChangeHanvietDisplay={setHanvietDisplay}
       onChangeShowRomaji={setShowRomaji}
       onChangeShowWaniKaniLevel={setShowWaniKaniLevel}
       onChangeTheme={setTheme}
       posDisplay={posDisplay}
       showBunproDecks={showBunproDecks}
       showDefinitions={showDefinitions}
-      showPriority={showPriority}
+      hanvietDisplay={hanvietDisplay}
       showRomaji={showRomaji}
       showWaniKaniLevel={showWaniKaniLevel}
       theme={theme}

@@ -38,10 +38,10 @@ export function PopupStyleSettings(props: Props) {
     [props.config]
   );
 
-  const showPriority = useConfigValue(props.config, 'showPriority');
-  const onChangeShowPriority = useCallback(
+  const hanvietDisplay = useConfigValue(props.config, 'hanvietDisplay');
+  const onChangeHanvietDisplay = useCallback(
     (value: boolean) => {
-      props.config.showPriority = value;
+      props.config.hanvietDisplay = value;
     },
     [props.config]
   );
@@ -137,14 +137,14 @@ export function PopupStyleSettings(props: Props) {
           onChangePosDisplay={onChangePosDisplay}
           onChangeShowBunproDecks={onChangeShowBunproDecks}
           onChangeShowDefinitions={onChangeShowDefinitions}
-          onChangeShowPriority={onChangeShowPriority}
+          onChangeHanvietDisplay={onChangeHanvietDisplay}
           onChangeShowRomaji={onChangeShowRomaji}
           onChangeShowWaniKaniLevel={onChangeShowWaniKaniLevel}
           onChangeTheme={onChangeTheme}
           posDisplay={posDisplay}
           showBunproDecks={showBunproDecks}
           showDefinitions={showDefinitions}
-          showPriority={showPriority}
+          hanvietDisplay={hanvietDisplay}
           showRomaji={showRomaji}
           showWaniKaniLevel={waniKaniVocabDisplay === 'show-matches'}
           theme={theme}

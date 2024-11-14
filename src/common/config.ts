@@ -84,7 +84,7 @@ interface Settings {
   preferredUnits?: 'metric' | 'imperial';
   readingOnly?: boolean;
   showKanjiComponents?: boolean;
-  showPriority?: boolean;
+  hanvietDisplay?: boolean;
   showRomaji?: boolean;
   tabDisplay?: TabDisplay;
   toolbarIcon?: 'default' | 'sky';
@@ -1182,19 +1182,19 @@ export class Config {
     }
   }
 
-  get showPriority(): boolean {
-    return typeof this.settings.showPriority === 'undefined'
+  get hanvietDisplay(): boolean {
+    return typeof this.settings.hanvietDisplay === 'undefined'
       ? this.getDefaultShowHanviet()
-      : this.settings.showPriority;
+      : this.settings.hanvietDisplay;
   }
 
-  set showPriority(value: boolean) {
+  set hanvietDisplay(value: boolean) {
     if (value !== this.getDefaultShowHanviet()) {
-      this.settings.showPriority = value;
-      void browser.storage.sync.set({ showPriority: value });
+      this.settings.hanvietDisplay = value;
+      void browser.storage.sync.set({ hanvietDisplay: value });
     } else {
-      delete this.settings.showPriority;
-      void browser.storage.sync.remove('showPriority');
+      delete this.settings.hanvietDisplay;
+      void browser.storage.sync.remove('hanvietDisplay');
     }
   }
 
@@ -1392,7 +1392,7 @@ export class Config {
       puckState: this.puckState,
       readingOnly: this.readingOnly,
       showKanjiComponents: this.showKanjiComponents,
-      showPriority: this.showPriority,
+      hanvietDisplay: this.hanvietDisplay,
       showPuck: this.showPuck,
       showRomaji: this.showRomaji,
       tabDisplay: this.tabDisplay,

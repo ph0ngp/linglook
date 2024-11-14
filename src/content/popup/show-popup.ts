@@ -74,7 +74,7 @@ export type ShowPopupOptions = {
   previousHeight?: number;
   safeArea: Box;
   showDefinitions: boolean;
-  showPriority: boolean;
+  hanvietDisplay: boolean;
   showKanjiComponents?: boolean;
   switchDictionaryKeys: ReadonlyArray<string>;
   tabDisplay: 'top' | 'left' | 'right' | 'none';
