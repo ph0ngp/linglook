@@ -69,7 +69,7 @@ export function renderPopup(
     let chosenWord = undefined;
     switch (options.accentDisplay) {
       case 'simptrad':
-      case 'downstep':
+      case 'tradsimp':
         for (const word of wordResult.k) {
           if (word.match) {
             chosenWord = word;

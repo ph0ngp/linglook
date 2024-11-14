@@ -1557,10 +1557,6 @@
     "message": "Simplified only",
     "description": "Label for displaying the pitch accent using box outlines with higher contrast"
   },
-  "options_accent_display_downstep": {
-    "message": "Traditional before Simplified",
-    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
   "options_accent_display_label": {
     "message": "Character display order",
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
@@ -1568,6 +1564,10 @@
   "options_accent_display_none": {
     "message": "Traditional only",
     "description": "Label for not showing pitch accent information"
+  },
+  "options_accent_display_tradsimp": {
+    "message": "Traditional before Simplified",
+    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_browser_commands_no_toggle_key": {
     "message": "This shortcut key cannot be configured in this browser.",

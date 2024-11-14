@@ -96,7 +96,7 @@ export function getWordToCopy(
         // terms -- in which case we want to include all headwords.
         switch (accentDisplay) {
           case 'simptrad':
-          case 'downstep':
+          case 'tradsimp':
             if (headwords.some((h) => h.match)) {
               headwords = headwords.filter((entry) => entry.match);
             }

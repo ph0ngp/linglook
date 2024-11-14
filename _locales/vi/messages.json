@@ -1557,10 +1557,6 @@
     "message": "Chỉ hiển thị Giản thể",
     "description": "Label for displaying the pitch accent using box outlines with higher contrast"
   },
-  "options_accent_display_downstep": {
-    "message": "Phồn thể trước Giản thể",
-    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
   "options_accent_display_label": {
     "message": "Thứ tự hiển thị chữ Hán",
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
@@ -1568,6 +1564,10 @@
   "options_accent_display_none": {
     "message": "Chỉ hiển thị Phồn thể",
     "description": "Label for not showing pitch accent information"
+  },
+  "options_accent_display_tradsimp": {
+    "message": "Phồn thể trước Giản thể",
+    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_browser_commands_no_toggle_key": {
     "message": "Không thể thay đổi phím tắt trong trình duyệt này.",

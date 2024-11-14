@@ -121,10 +121,10 @@ export function PopupStyleForm(props: Props) {
           }}
         >
           <option
-            value="downstep"
-            selected={props.accentDisplay === 'downstep'}
+            value="tradsimp"
+            selected={props.accentDisplay === 'tradsimp'}
           >
-            {t('options_accent_display_downstep')}
+            {t('options_accent_display_tradsimp')}
           </option>
           <option
             value="simptrad"

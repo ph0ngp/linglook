@@ -213,11 +213,11 @@ export function renderWordEntries({
     );
 
     // binary: simplified before traditional
-    // downstep: traditional before simplified
+    // tradsimp: traditional before simplified
     // onlysimp: simplified only
     // none: only show traditional
     if (
-      options.accentDisplay === 'downstep' ||
+      options.accentDisplay === 'tradsimp' ||
       options.accentDisplay === 'none'
     ) {
       // Show traditional form before simplified form if enabled
@@ -225,7 +225,7 @@ export function renderWordEntries({
     }
 
     const showBothSimplifiedTraditional =
-      options.accentDisplay === 'downstep' ||
+      options.accentDisplay === 'tradsimp' ||
       options.accentDisplay === 'simptrad';
     // Sort matched kanji entries first
     // disable sort because we want to keep the order of them: simplified, traditional
@@ -598,7 +598,7 @@ function renderKana(
 
   const accentPos = typeof accents === 'number' ? accents : accents[0].i;
 
-  if (options.accentDisplay === 'downstep') {
+  if (options.accentDisplay === 'tradsimp') {
     if (!accentPos) {
       // accentPos 0 (heiban) is special since there's no accent to show.
       //

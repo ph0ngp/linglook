@@ -1557,10 +1557,6 @@
     "message": "仅显示简体",
     "description": "Label for displaying the pitch accent using box outlines with higher contrast"
   },
-  "options_accent_display_downstep": {
-    "message": "繁体在前，简体在后",
-    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
   "options_accent_display_label": {
     "message": "汉字显示顺序",
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
@@ -1568,6 +1564,10 @@
   "options_accent_display_none": {
     "message": "仅显示繁体",
     "description": "Label for not showing pitch accent information"
+  },
+  "options_accent_display_tradsimp": {
+    "message": "繁体在前，简体在后",
+    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_browser_commands_no_toggle_key": {
     "message": "由于您使用的浏览器的限制，您无法在此处更改此快捷键。",

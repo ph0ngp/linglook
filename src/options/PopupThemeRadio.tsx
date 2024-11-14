@@ -108,7 +108,7 @@ type PopupPreviewProps = {
 
 const renderHanzi = (accentDisplay: AccentDisplay) => {
   switch (accentDisplay) {
-    case 'downstep':
+    case 'tradsimp':
       return (
         <>
           <span class="dimmed">電腦</span>
@@ -224,7 +224,7 @@ function Star() {
 
 function renderKana(accentDisplay: AccentDisplay) {
   switch (accentDisplay) {
-    case 'downstep':
+    case 'tradsimp':
       return 'りꜜかい';
 
     case 'simptrad':
