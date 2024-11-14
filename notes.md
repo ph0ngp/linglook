@@ -3,8 +3,8 @@
 - Sorry, this file is quite a mess. It's for my own future reference. These notes are not in any particular order.
 - jpdict is always unavailable (dbState and getDataSeriesStatus in jpdict.ts), we only use flat file dict. But we still keep all the old code, not have time yet to prune them.
   - when ever the flat file dict is loaded, it will notify its updated state to other listeners. Check jpdict.ts initDb function.
-- in many places, variables are used for new purposes but still keep the original names:
-  - wanikani -> hsk, accent display -> hanzi display order (binary -> simp before trad, binary-hi-contrast: simp only; downstep: trad before simp; none: trad only), romaji -> hanviet transliteration
+- in many places, variables are used for new purposes but still keep the original names: (actually some of these are fixed, some completely, some partially)
+  - wanikani -> hsk, bunpro -> tocfl, priority -> show hanviet transliteration, accent display -> hanzi display order (binary -> simp before trad, binary-hi-contrast: simp only; downstep: trad before simp; none: trad only), romaji -> pinyinDisplay
   - copy entry -> copy, copy-separate fields -> search images; copy words -> disabled
   - kanji tab -> stroke order
 - to change config default, must change both getters and setters. Because this project's style is to delete settings key if it's the same as the default config. For detail check config.ts
