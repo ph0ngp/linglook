@@ -43,7 +43,7 @@ export default function PopupThemeRadioFixture() {
   const [pinyinDisplay] = useValue<boolean>('pinyinDisplay', {
     defaultValue: false,
   });
-  const [showWaniKaniLevel] = useValue<boolean>('showWaniKaniLevel', {
+  const [showHskLevel] = useValue<boolean>('showHskLevel', {
     defaultValue: false,
   });
 
@@ -71,7 +71,7 @@ export default function PopupThemeRadioFixture() {
         showDefinitions={showDefinitions}
         hanvietDisplay={hanvietDisplay}
         pinyinDisplay={pinyinDisplay}
-        showWaniKaniLevel={showWaniKaniLevel}
+        showHskLevel={showHskLevel}
         theme={theme}
         dictLang={dictLang}
       />

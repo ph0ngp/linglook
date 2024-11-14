@@ -26,14 +26,14 @@ type Props = {
   onChangeShowDefinitions: (value: boolean) => void;
   onChangeHanvietDisplay: (value: boolean) => void;
   onChangePinyinDisplay: (value: boolean) => void;
-  onChangeShowWaniKaniLevel: (value: boolean) => void;
+  onChangeShowHskLevel: (value: boolean) => void;
   onChangeTheme: (theme: string) => void;
   posDisplay: PartOfSpeechDisplay;
   showBunproDecks: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   pinyinDisplay: boolean;
-  showWaniKaniLevel: boolean;
+  showHskLevel: boolean;
   theme: string;
   dictLang: DbLanguageId;
   onChangeDictLang: (value: DbLanguageId) => void;
@@ -50,15 +50,15 @@ export function PopupStyleForm(props: Props) {
       <div class="flex flex-col gap-3 pb-6">
         <CheckboxRow>
           <input
-            id="showWaniKaniLevel"
-            name="showWaniKaniLevel"
+            id="showHskLevel"
+            name="showHskLevel"
             type="checkbox"
-            checked={props.showWaniKaniLevel}
+            checked={props.showHskLevel}
             onChange={(e) =>
-              props.onChangeShowWaniKaniLevel(e.currentTarget.checked)
+              props.onChangeShowHskLevel(e.currentTarget.checked)
             }
           />
-          <label for="showWaniKaniLevel">{t('options_show_hsk_levels')}</label>
+          <label for="showHskLevel">{t('options_show_hsk_levels')}</label>
         </CheckboxRow>
         <CheckboxRow>
           <input

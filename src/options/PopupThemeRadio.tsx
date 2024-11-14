@@ -23,7 +23,7 @@ type Props = {
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   pinyinDisplay: boolean;
-  showWaniKaniLevel: boolean;
+  showHskLevel: boolean;
   theme: string;
   dictLang: DbLanguageId;
 };
@@ -100,7 +100,7 @@ type PopupPreviewProps = {
   showBunproDecks: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
-  showWaniKaniLevel: boolean;
+  showHskLevel: boolean;
   pinyinDisplay: boolean;
   theme: string;
   dictLang: DbLanguageId;
@@ -171,7 +171,7 @@ function PopupPreview(props: PopupPreviewProps) {
           <span class="w-kanji">
             {renderHanzi(props.hanziDisplay)}
             {/* {props.hanvietDisplay && <Star />} */}
-            {(props.showWaniKaniLevel || props.showBunproDecks) && (
+            {(props.showHskLevel || props.showBunproDecks) && (
               <span
                 class="separator"
                 style="display: inline-block; width: 0.5em;"
@@ -179,7 +179,7 @@ function PopupPreview(props: PopupPreviewProps) {
                 {' '}
               </span>
             )}
-            {props.showWaniKaniLevel && (
+            {props.showHskLevel && (
               <span class="wk-level">
                 <span>1</span>
               </span>

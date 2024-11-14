@@ -19,7 +19,7 @@ export default function PopupStyleFormFixture() {
   const [theme, setTheme] = useState<string>('default');
 
   const [hanvietDisplay, setHanvietDisplay] = useState<boolean>(true);
-  const [showWaniKaniLevel, setShowWaniKaniLevel] = useState<boolean>(false);
+  const [showHskLevel, setShowHskLevel] = useState<boolean>(false);
   const [showBunproDecks, setShowBunproDecks] = useState<boolean>(false);
   const [pinyinDisplay, setPinyinDisplay] = useState<boolean>(false);
   const [showDefinitions, setShowDefinitions] = useState<boolean>(true);
@@ -55,14 +55,14 @@ export default function PopupStyleFormFixture() {
       onChangeShowDefinitions={setShowDefinitions}
       onChangeHanvietDisplay={setHanvietDisplay}
       onChangePinyinDisplay={setPinyinDisplay}
-      onChangeShowWaniKaniLevel={setShowWaniKaniLevel}
+      onChangeShowHskLevel={setShowHskLevel}
       onChangeTheme={setTheme}
       posDisplay={posDisplay}
       showBunproDecks={showBunproDecks}
       showDefinitions={showDefinitions}
       hanvietDisplay={hanvietDisplay}
       pinyinDisplay={pinyinDisplay}
-      showWaniKaniLevel={showWaniKaniLevel}
+      showHskLevel={showHskLevel}
       theme={theme}
       dictLang={dictLang}
       onChangeDictLang={setDictLang}

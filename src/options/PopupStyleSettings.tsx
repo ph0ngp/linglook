@@ -47,7 +47,7 @@ export function PopupStyleSettings(props: Props) {
   );
 
   const hskDisplay = useConfigValue(props.config, 'hskDisplay');
-  const onChangeShowWaniKaniLevel = useCallback(
+  const onChangeShowHskLevel = useCallback(
     (value: boolean) => {
       props.config.hskDisplay = value ? 'show-matches' : 'hide';
     },
@@ -136,14 +136,14 @@ export function PopupStyleSettings(props: Props) {
           onChangeShowDefinitions={onChangeShowDefinitions}
           onChangeHanvietDisplay={onChangeHanvietDisplay}
           onChangePinyinDisplay={onChangePinyinDisplay}
-          onChangeShowWaniKaniLevel={onChangeShowWaniKaniLevel}
+          onChangeShowHskLevel={onChangeShowHskLevel}
           onChangeTheme={onChangeTheme}
           posDisplay={posDisplay}
           showBunproDecks={showBunproDecks}
           showDefinitions={showDefinitions}
           hanvietDisplay={hanvietDisplay}
           pinyinDisplay={pinyinDisplay}
-          showWaniKaniLevel={hskDisplay === 'show-matches'}
+          showHskLevel={hskDisplay === 'show-matches'}
           theme={theme}
           dictLang={dictLang}
           onChangeDictLang={onChangeDictLang}
