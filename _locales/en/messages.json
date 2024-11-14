@@ -1915,6 +1915,9 @@
     "message": "Could not check for updates because this device is currently offline. An update will be performed once the device is online.",
     "description": "Message shown when the system is offline so updates cannot be performed"
   },
+  "options_pinyin_display": {
+    "message": "Show romaji"
+  },
   "options_popup_close_popup": {
     "message": "Close popup"
   },
@@ -2026,9 +2029,6 @@
   "options_show_puck_option_show": {
     "message": "Show",
     "description": "Option to always show the puck"
-  },
-  "options_show_romaji": {
-    "message": "Show romaji"
   },
   "options_show_wanikani_levels": {
     "message": "Show HSK levels",

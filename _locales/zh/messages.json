@@ -1915,6 +1915,9 @@
     "message": "无法检查更新，因为没有连接到互联网。一旦设备联网，LingLook 会再次检查更新。",
     "description": "Message shown when the system is offline so updates cannot be performed"
   },
+  "options_pinyin_display": {
+    "message": "显示罗马字"
+  },
   "options_popup_close_popup": {
     "message": "关闭弹出窗口"
   },
@@ -2026,9 +2029,6 @@
   "options_show_puck_option_show": {
     "message": "显示",
     "description": "Option to always show the puck"
-  },
-  "options_show_romaji": {
-    "message": "显示罗马字"
   },
   "options_show_wanikani_levels": {
     "message": "显示 HSK 级别信息",

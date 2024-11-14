@@ -94,7 +94,7 @@ export function PopupStyleForm(props: Props) {
             checked={props.pinyinDisplay}
             onChange={(e) => props.onChangePinyinDisplay(e.currentTarget.checked)}
           />
-          <label for="pinyinDisplay">{t('options_show_romaji')}</label>
+          <label for="pinyinDisplay">{t('options_pinyin_display')}</label>
         </CheckboxRow>
         <CheckboxRow>
           <input
