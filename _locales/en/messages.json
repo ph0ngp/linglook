@@ -1549,26 +1549,6 @@
     "message": "Sino-Vietnamese transliteration data: Hán-Việt Pinyin wordlist by Phong Phan, licensed under the MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
-  "options_accent_display_binary": {
-    "message": "Simplified before Traditional",
-    "description": "Label for displaying the pitch accent using box outlines to show high and low"
-  },
-  "options_accent_display_binary_high_contrast": {
-    "message": "Simplified only",
-    "description": "Label for displaying the pitch accent using box outlines with higher contrast"
-  },
-  "options_accent_display_label": {
-    "message": "Character display order",
-    "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
-  },
-  "options_accent_display_none": {
-    "message": "Traditional only",
-    "description": "Label for not showing pitch accent information"
-  },
-  "options_accent_display_tradsimp": {
-    "message": "Traditional before Simplified",
-    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
   "options_browser_commands_no_toggle_key": {
     "message": "This shortcut key cannot be configured in this browser.",
     "description": "Descriptive text used for other browsers which do not permit configuring extension keys from the extension itself."
@@ -1784,6 +1764,26 @@
   "options_hanviet_pinyin_project": {
     "message": "Hán-Việt Pinyin wordlist",
     "description": "Han-Viet Pinyin wordlist"
+  },
+  "options_hanzi_display_label": {
+    "message": "Character display order",
+    "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
+  },
+  "options_hanzi_display_onlysimp": {
+    "message": "Simplified only",
+    "description": "Label for displaying the pitch accent using box outlines with higher contrast"
+  },
+  "options_hanzi_display_onlytrad": {
+    "message": "Traditional only",
+    "description": "Label for not showing pitch accent information"
+  },
+  "options_hanzi_display_simptrad": {
+    "message": "Simplified before Traditional",
+    "description": "Label for displaying the pitch accent using box outlines to show high and low"
+  },
+  "options_hanzi_display_tradsimp": {
+    "message": "Traditional before Simplified",
+    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_hanzi_writer_project": {
     "message": "Hanzi Writer project",

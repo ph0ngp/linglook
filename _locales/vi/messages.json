@@ -1549,26 +1549,6 @@
     "message": "Dữ liệu phiên âm Hán Việt: Danh sách từ vựng Hán Việt Pinyin của Phong Phan, được cấp phép theo giấy phép MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
-  "options_accent_display_binary": {
-    "message": "Giản thể trước Phồn thể",
-    "description": "Label for displaying the pitch accent using box outlines to show high and low"
-  },
-  "options_accent_display_binary_high_contrast": {
-    "message": "Chỉ hiển thị Giản thể",
-    "description": "Label for displaying the pitch accent using box outlines with higher contrast"
-  },
-  "options_accent_display_label": {
-    "message": "Thứ tự hiển thị chữ Hán",
-    "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
-  },
-  "options_accent_display_none": {
-    "message": "Chỉ hiển thị Phồn thể",
-    "description": "Label for not showing pitch accent information"
-  },
-  "options_accent_display_tradsimp": {
-    "message": "Phồn thể trước Giản thể",
-    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
   "options_browser_commands_no_toggle_key": {
     "message": "Không thể thay đổi phím tắt trong trình duyệt này.",
     "description": "Descriptive text used for other browsers which do not permit configuring extension keys from the extension itself."
@@ -1784,6 +1764,26 @@
   "options_hanviet_pinyin_project": {
     "message": "Danh sách từ vựng Hán Việt Pinyin",
     "description": "Han-Viet Pinyin wordlist"
+  },
+  "options_hanzi_display_label": {
+    "message": "Thứ tự hiển thị chữ Hán",
+    "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
+  },
+  "options_hanzi_display_onlysimp": {
+    "message": "Chỉ hiển thị Giản thể",
+    "description": "Label for displaying the pitch accent using box outlines with higher contrast"
+  },
+  "options_hanzi_display_onlytrad": {
+    "message": "Chỉ hiển thị Phồn thể",
+    "description": "Label for not showing pitch accent information"
+  },
+  "options_hanzi_display_simptrad": {
+    "message": "Giản thể trước Phồn thể",
+    "description": "Label for displaying the pitch accent using box outlines to show high and low"
+  },
+  "options_hanzi_display_tradsimp": {
+    "message": "Phồn thể trước Giản thể",
+    "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_hanzi_writer_project": {
     "message": "Dự án Hanzi Writer",

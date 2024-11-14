@@ -110,7 +110,7 @@ export function PopupStyleForm(props: Props) {
         </CheckboxRow>*/}
       </div>
       <div class="grid w-fit grid-cols-[repeat(2,auto)] items-baseline gap-4">
-        <label for="hanziDisplay">{t('options_accent_display_label')}</label>
+        <label for="hanziDisplay">{t('options_hanzi_display_label')}</label>
         <select
           id="hanziDisplay"
           name="hanziDisplay"
@@ -119,16 +119,16 @@ export function PopupStyleForm(props: Props) {
           }}
         >
           <option value="tradsimp" selected={props.hanziDisplay === 'tradsimp'}>
-            {t('options_accent_display_tradsimp')}
+            {t('options_hanzi_display_tradsimp')}
           </option>
           <option value="simptrad" selected={props.hanziDisplay === 'simptrad'}>
-            {t('options_accent_display_binary')}
+            {t('options_hanzi_display_simptrad')}
           </option>
           <option value="onlysimp" selected={props.hanziDisplay === 'onlysimp'}>
-            {t('options_accent_display_binary_high_contrast')}
+            {t('options_hanzi_display_onlysimp')}
           </option>
           <option value="onlytrad" selected={props.hanziDisplay === 'onlytrad'}>
-            {t('options_accent_display_none')}
+            {t('options_hanzi_display_onlytrad')}
           </option>
         </select>
         {/* <label for="posDisplay">{t('options_pos_display_label')}</label>
