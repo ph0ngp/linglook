@@ -7,9 +7,34 @@
 
 ![automated test status](https://github.com/ph0ngp/linglook/workflows/CI/badge.svg)
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [How to use](#how-to-use)
+- [Codebase state](#codebase-state)
+- [Building from source](#building-from-source)
+- [Contributing](#contributing)
+- [Data sources](#data-sources)
+- [License](#license)
+
 ## Introduction
 
-LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS). It's a fork of [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader) but designed for Chinese learners.
+LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS). It's a fork of [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader) but thoroughly adapted for Chinese learners.
+
+## Features
+
+- Look up Chinese words by hovering over them, on both desktop and mobile.
+- Supports both simplified and traditional Chinese characters.
+- Displays the word's definition, pinyin, HSK level, and TOCFL level.
+- Displays each character's stroke order.
+- Copy the word to clipboard.
+- Search the word with Google Images.
+- Supports keyboard shortcuts for desktop users.
+- Customize the extension's appearance and behavior through the settings page.
+- Supports English and Vietnamese dictionaries.
+- (For Vietnamese learners only) Displays the word's Sino-Vietnamese transliteration (phiên âm Hán Việt).
 
 ## Screenshots
 
@@ -19,6 +44,8 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
   <img src="docs/definitions.png" alt="definitions"/>
   <br>
   <img src="docs/strokes.gif" alt="strokes"/>
+  <br>
+  <img src="docs/copy-search.png" alt="copy-search"/>
 </div>
 
 #### On mobile
@@ -33,15 +60,17 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
   - You can click on the extension icon to enable/disable the popup function.
 - On desktop, use the mouse to hover over a Chinese word, the popup window will appear.
 - On mobile devices, there is a circular puck on the screen. Move that puck to hover over the target word and the popup window will appear.
+  - Single-tap on the puck to temporarily disable/enable the lookup function.
+  - Double-tap on the puck to switch the lookup direction between up and down.
 - Inside the popup window, you can see the word's meaning, pinyin, HSK level, TOCFL level.
   - Click on the word, and you can copy it to clipboard or search it with Google Images.
 - In the "Strokes" tab, click on a character to see its stroke order.
-- Clicking on the Settings gear icon will open the extension's settings page. Here you can change its theme, show/hide HSK/TOCFL levels, choose your simplified/traditional character order, change the dictionary language, change the extension shortcuts, etc.
-- Troubleshooting: If for some reason the extension doesn't work as expected, try enabling/disabling the extension or reloading the page or restarting the browser.
+- Clicking on the Settings gear icon will open the extension's settings page. Here you can change various settings including theme, show/hide HSK/TOCFL levels, simplified/traditional character order, dictionary language, keyboard shortcuts, etc.
+- Troubleshooting: If for some reason the extension does not work as expected, try enabling/disabling the extension, reloading the page, or restarting the browser.
 
 ## Codebase state
 
-Every function is working as intended. However, the current codebase still has many parts from the original project (10ten), even though unused, which makes the code more bloated and messy than needed. Hopefully it will be trimmed up with time. Some parts are used for new purposes but still keep the original names. For detail check [notes.md](notes.md).
+All functions are working as intended. However, for now, the codebase still contains unused code from the original project (10ten), making it more bloated and messy than necessary. Some components have been repurposed but retain their original names. For details, check [notes.md](notes.md).
 
 ## Building from source
 
