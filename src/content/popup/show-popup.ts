@@ -32,7 +32,7 @@ import { renderPopup, renderPopupArrow } from './render-popup';
 export type ShowPopupOptions = {
   allowOverlap?: boolean;
   accentDisplay: AccentDisplay;
-  bunproDisplay: boolean;
+  tocflDisplay: boolean;
   closeShortcuts?: ReadonlyArray<string>;
   container?: HTMLElement;
   copyNextKey: string;

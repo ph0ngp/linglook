@@ -2226,7 +2226,7 @@ export class ContentHandler {
     const popupOptions: ShowPopupOptions = {
       allowOverlap: options.allowOverlap,
       accentDisplay: this.config.accentDisplay,
-      bunproDisplay: this.config.bunproDisplay,
+      tocflDisplay: this.config.tocflDisplay,
       closeShortcuts: this.config.keys.closePopup,
       copy: {
         includeAllSenses: this.config.copySenses !== 'first',

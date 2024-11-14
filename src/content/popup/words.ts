@@ -279,10 +279,10 @@ export function renderWordEntries({
         if (options.waniKaniVocabDisplay === 'show-matches' && kanji.wk) {
           wkElement = appendWaniKaniLevelTag(kanji.wk, kanji.ent, headwordSpan);
         }
-        if (options.bunproDisplay && kanji.bv) {
+        if (options.tocflDisplay && kanji.bv) {
           bvElement = appendBunproTag(kanji.bv, 'vocab', headwordSpan);
         }
-        // if (options.bunproDisplay && kanji.bg) {
+        // if (options.tocflDisplay && kanji.bg) {
         //   appendBunproTag(kanji.bg, 'grammar', headwordSpan);
         // }
       }
@@ -364,10 +364,10 @@ export function renderWordEntries({
     //     if (options.showPriority) {
     //       appendPriorityMark(kana.p, headwordSpan);
     //     }
-    //     if (options.bunproDisplay && kana.bv) {
+    //     if (options.tocflDisplay && kana.bv) {
     //       appendBunproTag(kana.bv, 'vocab', headwordSpan);
     //     }
-    //     if (options.bunproDisplay && kana.bg) {
+    //     if (options.tocflDisplay && kana.bg) {
     //       appendBunproTag(kana.bg, 'grammar', headwordSpan);
     //     }
     //   }

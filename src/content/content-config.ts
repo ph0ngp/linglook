@@ -130,8 +130,8 @@ export class ContentConfig implements ContentConfigParams {
   get copySenses() {
     return this.params.copySenses;
   }
-  get bunproDisplay() {
-    return this.params.bunproDisplay;
+  get tocflDisplay() {
+    return this.params.tocflDisplay;
   }
   get dictLang() {
     return this.params.dictLang;

@@ -57,7 +57,7 @@ type KanjiReferenceFlagsV2 = { [key in ReferenceAbbreviation]?: boolean };
 interface Settings {
   accentDisplay?: AccentDisplay;
   autoExpand?: Array<AutoExpandableEntry>;
-  bunproDisplay?: boolean;
+  tocflDisplay?: boolean;
   contextMenuEnable?: boolean;
   copyHeadwords?: 'common' | 'regular';
   copyPos?: 'code' | 'none';
@@ -508,23 +508,23 @@ export class Config {
     void browser.storage.local.set({ settings: localSettings });
   }
 
-  // bunproDisplay: Defaults to false
+  // tocflDisplay: Defaults to false
 
-  get bunproDisplay(): boolean {
-    return !!this.settings.bunproDisplay;
+  get tocflDisplay(): boolean {
+    return !!this.settings.tocflDisplay;
   }
 
-  set bunproDisplay(value: boolean) {
-    if (this.settings.bunproDisplay === (value || undefined)) {
+  set tocflDisplay(value: boolean) {
+    if (this.settings.tocflDisplay === (value || undefined)) {
       return;
     }
 
     if (!value) {
-      delete this.settings.bunproDisplay;
-      void browser.storage.sync.remove('bunproDisplay');
+      delete this.settings.tocflDisplay;
+      void browser.storage.sync.remove('tocflDisplay');
     } else {
-      this.settings.bunproDisplay = value;
-      void browser.storage.sync.set({ bunproDisplay: value });
+      this.settings.tocflDisplay = value;
+      void browser.storage.sync.set({ tocflDisplay: value });
     }
   }
 
@@ -1359,7 +1359,7 @@ export class Config {
     return {
       accentDisplay: this.accentDisplay,
       autoExpand: this.autoExpand,
-      bunproDisplay: this.bunproDisplay,
+      tocflDisplay: this.tocflDisplay,
       copyHeadwords: this.copyHeadwords,
       copyPos: this.copyPos,
       copySenses: this.copySenses,

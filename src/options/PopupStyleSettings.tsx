@@ -57,10 +57,10 @@ export function PopupStyleSettings(props: Props) {
     [props.config]
   );
 
-  const showBunproDecks = useConfigValue(props.config, 'bunproDisplay');
+  const showBunproDecks = useConfigValue(props.config, 'tocflDisplay');
   const onChangeShowBunproDecks = useCallback(
     (value: boolean) => {
-      props.config.bunproDisplay = value;
+      props.config.tocflDisplay = value;
     },
     [props.config]
   );

@@ -59,7 +59,7 @@ export interface ContentConfigParams {
   autoExpand: Array<AutoExpandableEntry>;
 
   // Whether or not we should show Bunpro deck information alongside headwords.
-  bunproDisplay: boolean;
+  tocflDisplay: boolean;
 
   // Whether to copy only common headwords or all the non-rare headwords
   copyHeadwords: 'common' | 'regular';
