@@ -81,7 +81,7 @@ export function renderPopup(
         // always choose simplified
         chosenWord = wordResult.k.length === 2 ? wordResult.k[0] : undefined;
         break;
-      case 'none':
+      case 'onlytrad':
         // always choose traditional
         chosenWord = wordResult.k.length === 2 ? wordResult.k[1] : undefined;
         break;

@@ -212,13 +212,13 @@ export function renderWordEntries({
         index === self.findIndex((t) => t.ent === kanji.ent)
     );
 
-    // binary: simplified before traditional
+    // simptrad: simplified before traditional
     // tradsimp: traditional before simplified
     // onlysimp: simplified only
-    // none: only show traditional
+    // onlytrad: only show traditional
     if (
       options.hanziDisplay === 'tradsimp' ||
-      options.hanziDisplay === 'none'
+      options.hanziDisplay === 'onlytrad'
     ) {
       // Show traditional form before simplified form if enabled
       matchingKanji = matchingKanji.reverse();
@@ -589,7 +589,7 @@ function renderKana(
 ): string | Element {
   const accents = kana.a;
   if (
-    options.hanziDisplay === 'none' ||
+    options.hanziDisplay === 'onlytrad' ||
     typeof accents === 'undefined' ||
     (Array.isArray(accents) && !accents.length)
   ) {

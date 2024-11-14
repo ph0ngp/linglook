@@ -34,7 +34,7 @@ export type KeyboardKeys = {
   startCopy: string[];
 };
 
-export type HanziDisplay = 'tradsimp' | 'simptrad' | 'onlysimp' | 'none';
+export type HanziDisplay = 'tradsimp' | 'simptrad' | 'onlysimp' | 'onlytrad';
 
 export type AutoExpandableEntry = 'words' | 'kanji';
 

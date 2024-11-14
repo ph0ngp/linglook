@@ -104,7 +104,7 @@ export function getWordToCopy(
             // Only show the first match if there are multiple identical matches
             headwords.splice(1);
             break;
-          case 'none':
+          case 'onlytrad':
             // remove the first element (simplified)
             headwords.shift();
             break;

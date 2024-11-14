@@ -130,7 +130,7 @@ const renderHanzi = (hanziDisplay: HanziDisplay) => {
       );
     case 'onlysimp':
       return <span>电脑</span>;
-    case 'none':
+    case 'onlytrad':
       return <span>電腦</span>;
   }
 };
@@ -241,7 +241,7 @@ function renderKana(hanziDisplay: HanziDisplay) {
         </span>
       );
 
-    case 'none':
+    case 'onlytrad':
       return 'りかい';
   }
 }

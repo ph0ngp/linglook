@@ -17,7 +17,7 @@ import './options.css';
 export default function PopupThemeRadioFixture() {
   const [hanziDisplay] = useSelect<HanziDisplay>('hanziDisplay', {
     defaultValue: 'simptrad',
-    options: ['tradsimp', 'simptrad', 'onlysimp', 'none'],
+    options: ['tradsimp', 'simptrad', 'onlysimp', 'onlytrad'],
   });
   const [fontFace] = useSelect<FontFace>('fontFace', {
     defaultValue: 'bundled',

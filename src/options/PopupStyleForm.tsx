@@ -127,7 +127,7 @@ export function PopupStyleForm(props: Props) {
           <option value="onlysimp" selected={props.hanziDisplay === 'onlysimp'}>
             {t('options_accent_display_binary_high_contrast')}
           </option>
-          <option value="none" selected={props.hanziDisplay === 'none'}>
+          <option value="onlytrad" selected={props.hanziDisplay === 'onlytrad'}>
             {t('options_accent_display_none')}
           </option>
         </select>
