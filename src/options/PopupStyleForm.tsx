@@ -22,14 +22,14 @@ type Props = {
   onChangeFontFace: (value: FontFace) => void;
   onChangeFontSize: (value: FontSize) => void;
   onChangePosDisplay: (value: PartOfSpeechDisplay) => void;
-  onChangeShowBunproDecks: (value: boolean) => void;
+  onChangeShowTocflLevel: (value: boolean) => void;
   onChangeShowDefinitions: (value: boolean) => void;
   onChangeHanvietDisplay: (value: boolean) => void;
   onChangePinyinDisplay: (value: boolean) => void;
   onChangeShowHskLevel: (value: boolean) => void;
   onChangeTheme: (theme: string) => void;
   posDisplay: PartOfSpeechDisplay;
-  showBunproDecks: boolean;
+  showTocflLevel: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   pinyinDisplay: boolean;
@@ -62,15 +62,15 @@ export function PopupStyleForm(props: Props) {
         </CheckboxRow>
         <CheckboxRow>
           <input
-            id="showBunproDecks"
-            name="showBunproDecks"
+            id="showTocflLevel"
+            name="showTocflLevel"
             type="checkbox"
-            checked={props.showBunproDecks}
+            checked={props.showTocflLevel}
             onChange={(e) =>
-              props.onChangeShowBunproDecks(e.currentTarget.checked)
+              props.onChangeShowTocflLevel(e.currentTarget.checked)
             }
           />
-          <label for="showBunproDecks">{t('options_show_tocfl_levels')}</label>
+          <label for="showTocflLevel">{t('options_show_tocfl_levels')}</label>
         </CheckboxRow>
         <CheckboxRow>
           <input

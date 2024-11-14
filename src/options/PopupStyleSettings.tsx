@@ -54,8 +54,8 @@ export function PopupStyleSettings(props: Props) {
     [props.config]
   );
 
-  const showBunproDecks = useConfigValue(props.config, 'tocflDisplay');
-  const onChangeShowBunproDecks = useCallback(
+  const showTocflLevel = useConfigValue(props.config, 'tocflDisplay');
+  const onChangeShowTocflLevel = useCallback(
     (value: boolean) => {
       props.config.tocflDisplay = value;
     },
@@ -132,14 +132,14 @@ export function PopupStyleSettings(props: Props) {
           onChangeFontFace={onChangeFontFace}
           onChangeFontSize={onChangeFontSize}
           onChangePosDisplay={onChangePosDisplay}
-          onChangeShowBunproDecks={onChangeShowBunproDecks}
+          onChangeShowTocflLevel={onChangeShowTocflLevel}
           onChangeShowDefinitions={onChangeShowDefinitions}
           onChangeHanvietDisplay={onChangeHanvietDisplay}
           onChangePinyinDisplay={onChangePinyinDisplay}
           onChangeShowHskLevel={onChangeShowHskLevel}
           onChangeTheme={onChangeTheme}
           posDisplay={posDisplay}
-          showBunproDecks={showBunproDecks}
+          showTocflLevel={showTocflLevel}
           showDefinitions={showDefinitions}
           hanvietDisplay={hanvietDisplay}
           pinyinDisplay={pinyinDisplay}

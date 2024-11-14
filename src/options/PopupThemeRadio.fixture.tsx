@@ -31,7 +31,7 @@ export default function PopupThemeRadioFixture() {
     defaultValue: 'expl',
     options: ['expl', 'code', 'none'],
   });
-  const [showBunproDecks] = useValue<boolean>('showBunproDecks', {
+  const [showTocflLevel] = useValue<boolean>('showTocflLevel', {
     defaultValue: false,
   });
   const [showDefinitions] = useValue<boolean>('showDefinitions', {
@@ -67,7 +67,7 @@ export default function PopupThemeRadioFixture() {
         fontSize={fontSize}
         onChangeTheme={setTheme}
         posDisplay={posDisplay}
-        showBunproDecks={showBunproDecks}
+        showTocflLevel={showTocflLevel}
         showDefinitions={showDefinitions}
         hanvietDisplay={hanvietDisplay}
         pinyinDisplay={pinyinDisplay}

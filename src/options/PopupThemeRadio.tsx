@@ -19,7 +19,7 @@ type Props = {
   fontSize: FontSize;
   onChangeTheme: (theme: string) => void;
   posDisplay: PartOfSpeechDisplay;
-  showBunproDecks: boolean;
+  showTocflLevel: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   pinyinDisplay: boolean;
@@ -97,7 +97,7 @@ type PopupPreviewProps = {
   fontFace: FontFace;
   fontSize: FontSize;
   posDisplay: PartOfSpeechDisplay;
-  showBunproDecks: boolean;
+  showTocflLevel: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   showHskLevel: boolean;
@@ -171,7 +171,7 @@ function PopupPreview(props: PopupPreviewProps) {
           <span class="w-kanji">
             {renderHanzi(props.hanziDisplay)}
             {/* {props.hanvietDisplay && <Star />} */}
-            {(props.showHskLevel || props.showBunproDecks) && (
+            {(props.showHskLevel || props.showTocflLevel) && (
               <span
                 class="separator"
                 style="display: inline-block; width: 0.5em;"
@@ -184,7 +184,7 @@ function PopupPreview(props: PopupPreviewProps) {
                 <span>1</span>
               </span>
             )}
-            {props.showBunproDecks && (
+            {props.showTocflLevel && (
               <span class="bp-tag -vocab">
                 <span>{t('popup_bp_vocab_tag', ['1'])}</span>
               </span>
