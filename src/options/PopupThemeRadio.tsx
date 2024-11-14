@@ -111,27 +111,27 @@ const renderHanzi = (accentDisplay: AccentDisplay) => {
     case 'downstep':
       return (
         <>
-          <span class="dimmed">中國</span>
+          <span class="dimmed">電腦</span>
           <span class="separator" style="display: inline-block; width: 0.5em;">
             {' '}
           </span>
-          <span>中国</span>
+          <span>电脑</span>
         </>
       );
     case 'binary':
       return (
         <>
-          <span>中国</span>
+          <span>电脑</span>
           <span class="separator" style="display: inline-block; width: 0.5em;">
             {' '}
           </span>
-          <span class="dimmed">中國</span>
+          <span class="dimmed">電腦</span>
         </>
       );
     case 'binary-hi-contrast':
-      return <span>中国</span>;
+      return <span>电脑</span>;
     case 'none':
-      return <span>中國</span>;
+      return <span>電腦</span>;
   }
 };
 
@@ -139,11 +139,11 @@ const renderDefinition = (dictLang: DbLanguageId) => {
   let dictDef = '';
   switch (dictLang) {
     case 'vi':
-      dictDef = 'Trung Quốc';
+      dictDef = 'máy tính; LT:臺|台[tái]';
       break;
     case 'en':
     default:
-      dictDef = 'China';
+      dictDef = 'computer; CL:臺|台[tái]';
       break;
   }
   return (
@@ -196,7 +196,7 @@ function PopupPreview(props: PopupPreviewProps) {
           </span> */}
           {props.showRomaji && (
             <span class="w-romaji" lang="zh">
-              Zhōng guó
+              diàn nǎo
             </span>
           )}
           <span class="separator" style="display: inline-block; width: 0.5em;">
@@ -204,7 +204,7 @@ function PopupPreview(props: PopupPreviewProps) {
           </span>
           {props.showPriority && (
             <span class="w-hanviet" lang="vi">
-              trung quốc
+              điện não
             </span>
           )}
         </div>
