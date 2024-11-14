@@ -139,7 +139,7 @@ export interface ContentConfigParams {
   showPuck: 'show' | 'hide' | 'auto';
 
   // True if we should show romaji alongside each reading.
-  showRomaji: boolean;
+  pinyinDisplay: boolean;
 
   // Indicates the orientation / visibility of the popup tab bar.
   tabDisplay: TabDisplay;

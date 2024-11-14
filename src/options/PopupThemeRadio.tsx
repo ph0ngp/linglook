@@ -22,7 +22,7 @@ type Props = {
   showBunproDecks: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
-  showRomaji: boolean;
+  pinyinDisplay: boolean;
   showWaniKaniLevel: boolean;
   theme: string;
   dictLang: DbLanguageId;
@@ -101,7 +101,7 @@ type PopupPreviewProps = {
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   showWaniKaniLevel: boolean;
-  showRomaji: boolean;
+  pinyinDisplay: boolean;
   theme: string;
   dictLang: DbLanguageId;
 };
@@ -194,7 +194,7 @@ function PopupPreview(props: PopupPreviewProps) {
             {renderKana(props.accentDisplay)}
             {props.hanvietDisplay && <Star />}
           </span> */}
-          {props.showRomaji && (
+          {props.pinyinDisplay && (
             <span class="w-romaji" lang="zh">
               diàn nǎo
             </span>

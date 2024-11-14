@@ -25,14 +25,14 @@ type Props = {
   onChangeShowBunproDecks: (value: boolean) => void;
   onChangeShowDefinitions: (value: boolean) => void;
   onChangeHanvietDisplay: (value: boolean) => void;
-  onChangeShowRomaji: (value: boolean) => void;
+  onChangePinyinDisplay: (value: boolean) => void;
   onChangeShowWaniKaniLevel: (value: boolean) => void;
   onChangeTheme: (theme: string) => void;
   posDisplay: PartOfSpeechDisplay;
   showBunproDecks: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
-  showRomaji: boolean;
+  pinyinDisplay: boolean;
   showWaniKaniLevel: boolean;
   theme: string;
   dictLang: DbLanguageId;
@@ -88,13 +88,13 @@ export function PopupStyleForm(props: Props) {
         </CheckboxRow>
         {/* <CheckboxRow>
           <input
-            id="showRomaji"
-            name="showRomaji"
+            id="pinyinDisplay"
+            name="pinyinDisplay"
             type="checkbox"
-            checked={props.showRomaji}
-            onChange={(e) => props.onChangeShowRomaji(e.currentTarget.checked)}
+            checked={props.pinyinDisplay}
+            onChange={(e) => props.onChangePinyinDisplay(e.currentTarget.checked)}
           />
-          <label for="showRomaji">{t('options_show_romaji')}</label>
+          <label for="pinyinDisplay">{t('options_show_romaji')}</label>
         </CheckboxRow>
         <CheckboxRow>
           <input

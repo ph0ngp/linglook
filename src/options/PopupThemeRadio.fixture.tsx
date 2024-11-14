@@ -40,7 +40,7 @@ export default function PopupThemeRadioFixture() {
   const [hanvietDisplay] = useValue<boolean>('hanvietDisplay', {
     defaultValue: true,
   });
-  const [showRomaji] = useValue<boolean>('showRomaji', {
+  const [pinyinDisplay] = useValue<boolean>('pinyinDisplay', {
     defaultValue: false,
   });
   const [showWaniKaniLevel] = useValue<boolean>('showWaniKaniLevel', {
@@ -70,7 +70,7 @@ export default function PopupThemeRadioFixture() {
         showBunproDecks={showBunproDecks}
         showDefinitions={showDefinitions}
         hanvietDisplay={hanvietDisplay}
-        showRomaji={showRomaji}
+        pinyinDisplay={pinyinDisplay}
         showWaniKaniLevel={showWaniKaniLevel}
         theme={theme}
         dictLang={dictLang}

@@ -227,7 +227,7 @@ describe('Config', () => {
     expect(config.showKanjiComponents).toEqual(true);
     expect(config.hanvietDisplay).toEqual(false);
     expect(config.showPuck).toEqual('auto');
-    expect(config.showRomaji).toEqual(true);
+    expect(config.pinyinDisplay).toEqual(true);
     expect(config.tabDisplay).toEqual('top');
     expect(config.toolbarIcon).toEqual('default');
   });

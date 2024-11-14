@@ -202,8 +202,8 @@ export class ContentConfig implements ContentConfigParams {
         : 'show'
       : this.params.showPuck;
   }
-  get showRomaji() {
-    return this.params.showRomaji;
+  get pinyinDisplay() {
+    return this.params.pinyinDisplay;
   }
   get tabDisplay() {
     return this.params.tabDisplay;

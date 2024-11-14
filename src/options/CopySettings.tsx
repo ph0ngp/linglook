@@ -34,14 +34,14 @@ export function CopySettings(props: Props) {
     [props.config]
   );
 
-  const showRomaji = useConfigValue(props.config, 'showRomaji');
+  const pinyinDisplay = useConfigValue(props.config, 'pinyinDisplay');
 
   return (
     <>
       <SectionHeading>{t('options_copy_heading')}</SectionHeading>
       <div class="py-4">
         <CopySettingsForm
-          showRomaji={showRomaji}
+          pinyinDisplay={pinyinDisplay}
           simplifiedCopy={simplifiedCopy}
           onChangeSimplifiedCopy={onChangeSimplifiedCopy}
         />

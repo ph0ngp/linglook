@@ -62,10 +62,10 @@ export function PopupStyleSettings(props: Props) {
     [props.config]
   );
 
-  const showRomaji = useConfigValue(props.config, 'showRomaji');
-  const onChangeShowRomaji = useCallback(
+  const pinyinDisplay = useConfigValue(props.config, 'pinyinDisplay');
+  const onChangePinyinDisplay = useCallback(
     (value: boolean) => {
-      props.config.showRomaji = value;
+      props.config.pinyinDisplay = value;
     },
     [props.config]
   );
@@ -135,14 +135,14 @@ export function PopupStyleSettings(props: Props) {
           onChangeShowBunproDecks={onChangeShowBunproDecks}
           onChangeShowDefinitions={onChangeShowDefinitions}
           onChangeHanvietDisplay={onChangeHanvietDisplay}
-          onChangeShowRomaji={onChangeShowRomaji}
+          onChangePinyinDisplay={onChangePinyinDisplay}
           onChangeShowWaniKaniLevel={onChangeShowWaniKaniLevel}
           onChangeTheme={onChangeTheme}
           posDisplay={posDisplay}
           showBunproDecks={showBunproDecks}
           showDefinitions={showDefinitions}
           hanvietDisplay={hanvietDisplay}
-          showRomaji={showRomaji}
+          pinyinDisplay={pinyinDisplay}
           showWaniKaniLevel={hskDisplay === 'show-matches'}
           theme={theme}
           dictLang={dictLang}

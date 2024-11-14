@@ -6,7 +6,7 @@ import { NewBadge } from './NewBadge';
 
 type Props = {
   simplifiedCopy: boolean;
-  showRomaji?: boolean;
+  pinyinDisplay?: boolean;
   onChangeSimplifiedCopy: (value: boolean) => void;
 };
 
@@ -68,7 +68,7 @@ export function CopySettingsForm(props: Props) {
                     match: true,
                   },
                 ],
-                romaji: props.showRomaji ? ['tenten'] : undefined,
+                romaji: props.pinyinDisplay ? ['tenten'] : undefined,
               },
             },
             copyType: 'entry',

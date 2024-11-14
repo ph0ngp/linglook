@@ -7,13 +7,13 @@ import './options.css';
 export default {
   default: () => {
     const [simplified, setSimplified] = useState(false);
-    const [showRomaji] = useValue<boolean>('Show romaji?', {
+    const [pinyinDisplay] = useValue<boolean>('Show romaji?', {
       defaultValue: false,
     });
 
     return (
       <CopySettingsForm
-        showRomaji={showRomaji}
+        pinyinDisplay={pinyinDisplay}
         simplifiedCopy={simplified}
         onChangeSimplifiedCopy={setSimplified}
       />

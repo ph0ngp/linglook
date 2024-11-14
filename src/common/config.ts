@@ -85,7 +85,7 @@ interface Settings {
   readingOnly?: boolean;
   showKanjiComponents?: boolean;
   hanvietDisplay?: boolean;
-  showRomaji?: boolean;
+  pinyinDisplay?: boolean;
   tabDisplay?: TabDisplay;
   toolbarIcon?: 'default' | 'sky';
   hskDisplay?: 'hide' | 'show-matches';
@@ -1259,26 +1259,26 @@ export class Config {
     void browser.storage.local.set({ settings: localSettings });
   }
 
-  // showRomaji: Defaults to true
+  // pinyinDisplay: Defaults to true
 
-  get showRomaji(): boolean {
+  get pinyinDisplay(): boolean {
     return (
-      typeof this.settings.showRomaji === 'undefined' ||
-      this.settings.showRomaji
+      typeof this.settings.pinyinDisplay === 'undefined' ||
+      this.settings.pinyinDisplay
     );
   }
 
-  set showRomaji(value: boolean) {
-    if (this.showRomaji === value) {
+  set pinyinDisplay(value: boolean) {
+    if (this.pinyinDisplay === value) {
       return;
     }
 
     if (value) {
-      delete this.settings.showRomaji;
-      void browser.storage.sync.remove('showRomaji');
+      delete this.settings.pinyinDisplay;
+      void browser.storage.sync.remove('pinyinDisplay');
     } else {
-      this.settings.showRomaji = value;
-      void browser.storage.sync.set({ showRomaji: value });
+      this.settings.pinyinDisplay = value;
+      void browser.storage.sync.set({ pinyinDisplay: value });
     }
   }
 
@@ -1394,7 +1394,7 @@ export class Config {
       showKanjiComponents: this.showKanjiComponents,
       hanvietDisplay: this.hanvietDisplay,
       showPuck: this.showPuck,
-      showRomaji: this.showRomaji,
+      pinyinDisplay: this.pinyinDisplay,
       tabDisplay: this.tabDisplay,
       toolbarIcon: this.toolbarIcon,
       hskDisplay: this.hskDisplay,

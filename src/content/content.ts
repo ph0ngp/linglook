@@ -451,7 +451,7 @@ export class ContentHandler {
           setFontSize(value);
           break;
 
-        case 'showRomaji':
+        case 'pinyinDisplay':
           // Enabling romaji currently means we need to re-run the lookup
           if (
             this.isTopMostWindow() &&
@@ -1997,7 +1997,7 @@ export class ContentHandler {
     this.isPopupExpanded = false;
 
     const queryResult = await query(text, {
-      includeRomaji: this.config.showRomaji,
+      includeRomaji: this.config.pinyinDisplay,
       metaMatchLen: meta?.matchLen,
       wordLookup,
       updateQueryResult: (queryResult: QueryResult | null) => {
