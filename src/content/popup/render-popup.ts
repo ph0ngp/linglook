@@ -68,7 +68,7 @@ export function renderPopup(
     // we only consider the longest (first) match
     let chosenWord = undefined;
     switch (options.accentDisplay) {
-      case 'binary':
+      case 'simptrad':
       case 'downstep':
         for (const word of wordResult.k) {
           if (word.match) {

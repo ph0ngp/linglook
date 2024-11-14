@@ -440,7 +440,7 @@ export class Config {
 
   get accentDisplay(): AccentDisplay {
     return typeof this.settings.accentDisplay === 'undefined'
-      ? 'binary'
+      ? 'simptrad'
       : this.settings.accentDisplay;
   }
 

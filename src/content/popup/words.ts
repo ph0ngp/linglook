@@ -226,7 +226,7 @@ export function renderWordEntries({
 
     const showBothSimplifiedTraditional =
       options.accentDisplay === 'downstep' ||
-      options.accentDisplay === 'binary';
+      options.accentDisplay === 'simptrad';
     // Sort matched kanji entries first
     // disable sort because we want to keep the order of them: simplified, traditional
     // matchingKanji.sort((a, b) => Number(b.match) - Number(a.match));

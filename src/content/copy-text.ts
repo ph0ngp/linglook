@@ -30,7 +30,7 @@ export function getTextToCopy({
   includePartOfSpeech = true,
   kanjiReferences = [] as Array<ReferenceAbbreviation>,
   showKanjiComponents = true,
-  accentDisplay = 'binary',
+  accentDisplay = 'simptrad',
 }: {
   entry: CopyEntry;
   copyType: CopyType;
@@ -95,7 +95,7 @@ export function getWordToCopy(
         // Only show matches -- unless our only matches were search-only
         // terms -- in which case we want to include all headwords.
         switch (accentDisplay) {
-          case 'binary':
+          case 'simptrad':
           case 'downstep':
             if (headwords.some((h) => h.match)) {
               headwords = headwords.filter((entry) => entry.match);

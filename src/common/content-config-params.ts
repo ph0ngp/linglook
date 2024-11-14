@@ -36,7 +36,7 @@ export type KeyboardKeys = {
 
 export type AccentDisplay =
   | 'downstep'
-  | 'binary'
+  | 'simptrad'
   | 'binary-hi-contrast'
   | 'none';
 

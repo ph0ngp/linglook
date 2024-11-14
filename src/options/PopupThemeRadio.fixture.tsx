@@ -16,8 +16,8 @@ import './options.css';
 
 export default function PopupThemeRadioFixture() {
   const [accentDisplay] = useSelect<AccentDisplay>('accentDisplay', {
-    defaultValue: 'binary',
-    options: ['downstep', 'binary', 'binary-hi-contrast', 'none'],
+    defaultValue: 'simptrad',
+    options: ['downstep', 'simptrad', 'binary-hi-contrast', 'none'],
   });
   const [fontFace] = useSelect<FontFace>('fontFace', {
     defaultValue: 'bundled',

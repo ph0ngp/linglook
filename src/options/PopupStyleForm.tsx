@@ -126,7 +126,10 @@ export function PopupStyleForm(props: Props) {
           >
             {t('options_accent_display_downstep')}
           </option>
-          <option value="binary" selected={props.accentDisplay === 'binary'}>
+          <option
+            value="simptrad"
+            selected={props.accentDisplay === 'simptrad'}
+          >
             {t('options_accent_display_binary')}
           </option>
           <option

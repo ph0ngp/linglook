@@ -118,7 +118,7 @@ const renderHanzi = (accentDisplay: AccentDisplay) => {
           <span>电脑</span>
         </>
       );
-    case 'binary':
+    case 'simptrad':
       return (
         <>
           <span>电脑</span>
@@ -227,7 +227,7 @@ function renderKana(accentDisplay: AccentDisplay) {
     case 'downstep':
       return 'りꜜかい';
 
-    case 'binary':
+    case 'simptrad':
     case 'binary-hi-contrast':
       return (
         <span
