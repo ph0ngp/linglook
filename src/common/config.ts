@@ -436,7 +436,7 @@ export class Config {
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1781212) so one day they should
   // be available in esbuild and vitest too.
 
-  // hanziDisplay: Defaults to binary
+  // hanziDisplay: Defaults to simptrad
 
   get hanziDisplay(): HanziDisplay {
     return typeof this.settings.hanziDisplay === 'undefined'
