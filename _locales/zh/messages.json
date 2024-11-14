@@ -1987,16 +1987,20 @@
     "message": "恢复切换快捷键",
     "description": "Label for button to restore the toggle shortcut"
   },
-  "options_show_bunpro_decks": {
-    "message": "显示 TOCFL 级别信息",
-    "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
-  },
   "options_show_context_menu_item": {
     "message": "右键菜单中添加“启用 LingLook”",
     "description": "Option to enable context menu item with label `menu_enable_extension`"
   },
   "options_show_definitions": {
     "message": "显示释义"
+  },
+  "options_show_hanviet": {
+    "message": "显示汉越音译",
+    "description": "Label for enabling the ★ and ☆ markers next to dictionary headwords to indicate they occur frequently  or somewhat frequently respectively"
+  },
+  "options_show_hsk_levels": {
+    "message": "显示 HSK 级别信息",
+    "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_show_popup_explanation": {
     "message": "选择以下键时，按住键并将鼠标悬停在目标内容上以显示弹出窗口。 "
@@ -2009,10 +2013,6 @@
   },
   "options_show_popup_text_subheading": {
     "message": "文本"
-  },
-  "options_show_priority": {
-    "message": "显示汉越音译",
-    "description": "Label for enabling the ★ and ☆ markers next to dictionary headwords to indicate they occur frequently  or somewhat frequently respectively"
   },
   "options_show_puck_label": {
     "message": "显示圆形按钮：",
@@ -2030,9 +2030,9 @@
     "message": "显示",
     "description": "Option to always show the puck"
   },
-  "options_show_wanikani_levels": {
-    "message": "显示 HSK 级别信息",
-    "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
+  "options_show_tocfl_levels": {
+    "message": "显示 TOCFL 级别信息",
+    "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_simplified_copy": {
     "message": "复制简化条目摘要",

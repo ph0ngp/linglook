@@ -58,9 +58,7 @@ export function PopupStyleForm(props: Props) {
               props.onChangeShowWaniKaniLevel(e.currentTarget.checked)
             }
           />
-          <label for="showWaniKaniLevel">
-            {t('options_show_wanikani_levels')}
-          </label>
+          <label for="showWaniKaniLevel">{t('options_show_hsk_levels')}</label>
         </CheckboxRow>
         <CheckboxRow>
           <input
@@ -72,7 +70,7 @@ export function PopupStyleForm(props: Props) {
               props.onChangeShowBunproDecks(e.currentTarget.checked)
             }
           />
-          <label for="showBunproDecks">{t('options_show_bunpro_decks')}</label>
+          <label for="showBunproDecks">{t('options_show_tocfl_levels')}</label>
         </CheckboxRow>
         <CheckboxRow>
           <input
@@ -84,7 +82,7 @@ export function PopupStyleForm(props: Props) {
               props.onChangeHanvietDisplay(e.currentTarget.checked)
             }
           />
-          <label for="hanvietDisplay">{t('options_show_priority')}</label>
+          <label for="hanvietDisplay">{t('options_show_hanviet')}</label>
         </CheckboxRow>
         {/* <CheckboxRow>
           <input

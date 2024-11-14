@@ -1987,16 +1987,20 @@
     "message": "Restore toggle shortcut",
     "description": "Label for button to restore the toggle shortcut"
   },
-  "options_show_bunpro_decks": {
-    "message": "Hiển thị cấp độ TOCFL",
-    "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
-  },
   "options_show_context_menu_item": {
     "message": "Show “Enable LingLook” in context menu",
     "description": "Option to enable context menu item with label `menu_enable_extension`"
   },
   "options_show_definitions": {
     "message": "Show definitions"
+  },
+  "options_show_hanviet": {
+    "message": "Hiển thị phiên âm Hán-Việt",
+    "description": "Label for enabling display of Sino-Vietnamese transliteration (từ Hán-Việt) alongside headwords"
+  },
+  "options_show_hsk_levels": {
+    "message": "Hiển thị cấp độ HSK",
+    "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_show_popup_explanation": {
     "message": "Nếu tick chọn, popup chỉ hiển thị khi các phím sau được nhấn cùng lúc khi rê chuột qua chữ."
@@ -2009,10 +2013,6 @@
   },
   "options_show_popup_text_subheading": {
     "message": "Tra chữ"
-  },
-  "options_show_priority": {
-    "message": "Hiển thị phiên âm Hán-Việt",
-    "description": "Label for enabling display of Sino-Vietnamese transliteration (từ Hán-Việt) alongside headwords"
   },
   "options_show_puck_label": {
     "message": "Show puck:",
@@ -2030,9 +2030,9 @@
     "message": "Show",
     "description": "Option to always show the puck"
   },
-  "options_show_wanikani_levels": {
-    "message": "Hiển thị cấp độ HSK",
-    "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
+  "options_show_tocfl_levels": {
+    "message": "Hiển thị cấp độ TOCFL",
+    "description": "Label for enabling display of Bunpro vocab and grammar deck information alongside headwords"
   },
   "options_simplified_copy": {
     "message": "Copy simplified entry summary",
