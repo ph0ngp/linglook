@@ -27,7 +27,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 
 - Look up Chinese words by hovering over them, on both desktop and mobile.
 - Supports both simplified and traditional Chinese characters.
-- Displays the word's definition, pinyin, HSK level, and TOCFL level.
+- Displays the word's definition, pinyin, HSK level, TOCFL level.
 - Displays each character's stroke order.
 - Copy the word to clipboard.
 - Search the word with Google Images.
@@ -62,7 +62,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 - On mobile devices, there is a circular puck on the screen. Move that puck to hover over the target word and the popup window will appear.
   - Single-tap on the puck to temporarily disable/enable the lookup function.
   - Double-tap on the puck to switch the lookup direction between up and down.
-- Inside the popup window, you can see the word's meaning, pinyin, HSK level, TOCFL level.
+- Inside the popup window, you can see the word's definition, pinyin, HSK level, TOCFL level.
   - Click on the word, and you can copy it to clipboard or search it with Google Images.
 - In the "Strokes" tab, click on a character to see its stroke order.
 - Clicking on the Settings gear icon will open the extension's settings page. Here you can change various settings including theme, show/hide HSK/TOCFL levels, simplified/traditional character order, dictionary language, keyboard shortcuts, etc.
@@ -70,7 +70,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 
 ## Codebase state
 
-All functions are working as intended. However, for now, the codebase still contains unused code from the original project (10ten), making it more bloated and messy than necessary. Some components have been repurposed but retain their original names. For details, check [notes.md](notes.md).
+All functions are working as intended. However, for now, the codebase still contains unused code from the original project (10ten), making it more bloated and messy than necessary. Some components have been repurposed but still retain their original names. For details, check [notes.md](notes.md).
 
 ## Building from source
 
