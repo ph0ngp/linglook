@@ -3,10 +3,10 @@ import { useState } from 'preact/hooks';
 import '../../css/popup-fonts.css';
 
 import type {
-  AccentDisplay,
   AutoExpandableEntry,
   FontFace,
   FontSize,
+  HanziDisplay,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
@@ -24,7 +24,7 @@ export default function PopupStyleFormFixture() {
   const [pinyinDisplay, setPinyinDisplay] = useState<boolean>(false);
   const [showDefinitions, setShowDefinitions] = useState<boolean>(true);
 
-  const [hanziDisplay, setAccentDisplay] = useState<AccentDisplay>('simptrad');
+  const [hanziDisplay, setHanziDisplay] = useState<HanziDisplay>('simptrad');
 
   const [autoExpand, setAutoExpand] = useState<Array<AutoExpandableEntry>>([]);
   const onChangeAutoExpand = (type: AutoExpandableEntry, value: boolean) => {
@@ -46,7 +46,7 @@ export default function PopupStyleFormFixture() {
       autoExpand={autoExpand}
       fontFace={fontFace}
       fontSize={fontSize}
-      onChangeAccentDisplay={setAccentDisplay}
+      onChangeHanziDisplay={setHanziDisplay}
       onChangeAutoExpand={onChangeAutoExpand}
       onChangeFontFace={setFontFace}
       onChangeFontSize={setFontSize}

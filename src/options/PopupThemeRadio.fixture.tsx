@@ -3,9 +3,9 @@ import { useSelect, useValue } from 'react-cosmos/client';
 import '../../css/popup-fonts.css';
 
 import type {
-  AccentDisplay,
   FontFace,
   FontSize,
+  HanziDisplay,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
 import { DbLanguageId, dbLanguages } from '../common/db-languages';
@@ -15,7 +15,7 @@ import { PopupThemeRadio } from './PopupThemeRadio';
 import './options.css';
 
 export default function PopupThemeRadioFixture() {
-  const [hanziDisplay] = useSelect<AccentDisplay>('hanziDisplay', {
+  const [hanziDisplay] = useSelect<HanziDisplay>('hanziDisplay', {
     defaultValue: 'simptrad',
     options: ['tradsimp', 'simptrad', 'onlysimp', 'none'],
   });

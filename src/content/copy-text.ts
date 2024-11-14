@@ -5,7 +5,7 @@ import type {
   Sense,
   WordResult,
 } from '../background/search-result';
-import { AccentDisplay } from '../common/content-config-params';
+import { HanziDisplay } from '../common/content-config-params';
 import type { CopyType } from '../common/copy-keys';
 import type { TranslateFunctionType } from '../common/i18n';
 import { highPriorityLabels } from '../common/priority-labels';
@@ -40,7 +40,7 @@ export function getTextToCopy({
   includePartOfSpeech?: boolean;
   kanjiReferences?: Array<ReferenceAbbreviation>;
   showKanjiComponents?: boolean;
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
 }): string {
   if (entry.type === 'word') {
     // this is the only entry type
@@ -80,7 +80,7 @@ export function getWordToCopy(
   {
     hanziDisplay,
   }: {
-    hanziDisplay: AccentDisplay;
+    hanziDisplay: HanziDisplay;
   }
 ): string {
   let result: string;

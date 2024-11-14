@@ -1,10 +1,10 @@
 import type { MajorDataSeries } from '@birchill/jpdict-idb';
 
 import type {
-  AccentDisplay,
   ContentConfigParams,
   FontFace,
   FontSize,
+  HanziDisplay,
   PartOfSpeechDisplay,
 } from '../../common/content-config-params';
 import type { CopyType } from '../../common/copy-keys';
@@ -31,7 +31,7 @@ import { renderPopup, renderPopupArrow } from './render-popup';
 // we should be able to move some of this state into component state.
 export type ShowPopupOptions = {
   allowOverlap?: boolean;
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
   tocflDisplay: boolean;
   closeShortcuts?: ReadonlyArray<string>;
   container?: HTMLElement;

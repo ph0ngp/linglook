@@ -1,7 +1,7 @@
 import { MajorDataSeries } from '@birchill/jpdict-idb';
 import browser from 'webextension-polyfill';
 
-import { AccentDisplay } from '../../common/content-config-params';
+import { HanziDisplay } from '../../common/content-config-params';
 import { CopyType } from '../../common/copy-keys';
 import { ReferenceAbbreviation } from '../../common/refs';
 import { html, svg } from '../../utils/builder';
@@ -37,7 +37,7 @@ export function renderCopyOverlay({
   result?: QueryResult;
   series: MajorDataSeries;
   showKanjiComponents?: boolean;
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
 }): HTMLDivElement {
   const copyOverlay = html('div', { class: 'copy-overlay' });
 

@@ -1,8 +1,8 @@
 import type {
-  AccentDisplay,
   AutoExpandableEntry,
   FontFace,
   FontSize,
+  HanziDisplay,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
@@ -13,11 +13,11 @@ import { NewBadge } from './NewBadge';
 import { PopupThemeRadio } from './PopupThemeRadio';
 
 type Props = {
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
   autoExpand: Array<AutoExpandableEntry>;
   fontFace: FontFace;
   fontSize: FontSize;
-  onChangeAccentDisplay: (value: AccentDisplay) => void;
+  onChangeHanziDisplay: (value: HanziDisplay) => void;
   onChangeAutoExpand: (entry: AutoExpandableEntry, checked: boolean) => void;
   onChangeFontFace: (value: FontFace) => void;
   onChangeFontSize: (value: FontSize) => void;
@@ -115,9 +115,7 @@ export function PopupStyleForm(props: Props) {
           id="hanziDisplay"
           name="hanziDisplay"
           onChange={(evt) => {
-            props.onChangeAccentDisplay(
-              evt.currentTarget.value as AccentDisplay
-            );
+            props.onChangeHanziDisplay(evt.currentTarget.value as HanziDisplay);
           }}
         >
           <option value="tradsimp" selected={props.hanziDisplay === 'tradsimp'}>

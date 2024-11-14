@@ -3,9 +3,9 @@ import { forwardRef } from 'preact/compat';
 import { useId } from 'preact/hooks';
 
 import type {
-  AccentDisplay,
   FontFace,
   FontSize,
+  HanziDisplay,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
@@ -14,7 +14,7 @@ import { classes } from '../utils/classes';
 import { useThemeClass } from '../utils/use-theme-class';
 
 type Props = {
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
   fontFace: FontFace;
   fontSize: FontSize;
   onChangeTheme: (theme: string) => void;
@@ -93,7 +93,7 @@ const PopupRadio = forwardRef<HTMLInputElement, InputProps>(
 );
 
 type PopupPreviewProps = {
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
   fontFace: FontFace;
   fontSize: FontSize;
   posDisplay: PartOfSpeechDisplay;
@@ -106,7 +106,7 @@ type PopupPreviewProps = {
   dictLang: DbLanguageId;
 };
 
-const renderHanzi = (hanziDisplay: AccentDisplay) => {
+const renderHanzi = (hanziDisplay: HanziDisplay) => {
   switch (hanziDisplay) {
     case 'tradsimp':
       return (
@@ -222,7 +222,7 @@ function Star() {
   );
 }
 
-function renderKana(hanziDisplay: AccentDisplay) {
+function renderKana(hanziDisplay: HanziDisplay) {
   switch (hanziDisplay) {
     case 'tradsimp':
       return 'りꜜかい';

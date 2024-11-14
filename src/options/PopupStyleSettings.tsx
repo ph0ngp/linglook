@@ -2,10 +2,10 @@ import { useCallback } from 'preact/hooks';
 
 import type { Config } from '../common/config';
 import type {
-  AccentDisplay,
   AutoExpandableEntry,
   FontFace,
   FontSize,
+  HanziDisplay,
   PartOfSpeechDisplay,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
@@ -79,8 +79,8 @@ export function PopupStyleSettings(props: Props) {
   );
 
   const hanziDisplay = useConfigValue(props.config, 'hanziDisplay');
-  const onChangeAccentDisplay = useCallback(
-    (value: AccentDisplay) => {
+  const onChangeHanziDisplay = useCallback(
+    (value: HanziDisplay) => {
       props.config.hanziDisplay = value;
     },
     [props.config]
@@ -127,7 +127,7 @@ export function PopupStyleSettings(props: Props) {
           autoExpand={autoExpand}
           fontFace={fontFace}
           fontSize={fontSize}
-          onChangeAccentDisplay={onChangeAccentDisplay}
+          onChangeHanziDisplay={onChangeHanziDisplay}
           onChangeAutoExpand={onChangeAutoExpand}
           onChangeFontFace={onChangeFontFace}
           onChangeFontSize={onChangeFontSize}

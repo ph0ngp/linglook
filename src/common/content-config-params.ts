@@ -34,7 +34,7 @@ export type KeyboardKeys = {
   startCopy: string[];
 };
 
-export type AccentDisplay = 'tradsimp' | 'simptrad' | 'onlysimp' | 'none';
+export type HanziDisplay = 'tradsimp' | 'simptrad' | 'onlysimp' | 'none';
 
 export type AutoExpandableEntry = 'words' | 'kanji';
 
@@ -48,7 +48,7 @@ export type TabDisplay = 'top' | 'left' | 'right' | 'none';
 
 export interface ContentConfigParams {
   // Indicates the type of display to use for showing pitch accent information.
-  hanziDisplay: AccentDisplay;
+  hanziDisplay: HanziDisplay;
 
   // Which sections should have their entries expanded automatically rather than
   // being collapsed to show only the top entries.

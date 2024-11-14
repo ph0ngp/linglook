@@ -18,11 +18,11 @@ import { stripFields } from '../utils/strip-fields';
 import { isSafari } from '../utils/ua-utils';
 
 import type {
-  AccentDisplay,
   AutoExpandableEntry,
   ContentConfigParams,
   FontFace,
   FontSize,
+  HanziDisplay,
   HighlightStyle,
   KeyboardKeys,
   PartOfSpeechDisplay,
@@ -55,7 +55,7 @@ import {
 type KanjiReferenceFlagsV2 = { [key in ReferenceAbbreviation]?: boolean };
 
 interface Settings {
-  hanziDisplay?: AccentDisplay;
+  hanziDisplay?: HanziDisplay;
   autoExpand?: Array<AutoExpandableEntry>;
   tocflDisplay?: boolean;
   contextMenuEnable?: boolean;
@@ -438,13 +438,13 @@ export class Config {
 
   // hanziDisplay: Defaults to binary
 
-  get hanziDisplay(): AccentDisplay {
+  get hanziDisplay(): HanziDisplay {
     return typeof this.settings.hanziDisplay === 'undefined'
       ? 'simptrad'
       : this.settings.hanziDisplay;
   }
 
-  set hanziDisplay(value: AccentDisplay) {
+  set hanziDisplay(value: HanziDisplay) {
     if (
       typeof this.settings.hanziDisplay !== 'undefined' &&
       this.settings.hanziDisplay === value
