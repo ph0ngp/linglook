@@ -70,7 +70,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 
 ## Codebase state
 
-All functions are working as intended. However, for now, the codebase still contains unused code from the original project (10ten), making it more bloated and messy than necessary. Some components have been repurposed but still retain their original names. For details, check [notes.md](notes.md).
+All functions are working as intended. However, for now, the codebase still contains unused code from the original project (10ten), making it much more complex than necessary. Some components have been repurposed but still retain their original names. For details, check [notes.md](notes.md).
 
 ## Building from source
 

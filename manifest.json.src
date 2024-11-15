@@ -55,15 +55,8 @@
     /*#if active_tab_only*/
     "activeTab",
     /*#endif*/
-    "alarms",
-    /*#if needs_clipboard_write*/
-    "clipboardWrite",
-    /*#endif*/
     /*#if mail_extension*/
     "compose",
-    /*#endif*/
-    /*#if !mail_extension*/
-    "contextMenus",
     /*#endif*/
     /*#if mail_extension*/
     "menus",
@@ -72,8 +65,7 @@
     /*#if mv3&&active_tab_only*/
     "scripting",
     /*#endif*/
-    "storage",
-    "unlimitedStorage"
+    "storage"
   ],
   "background": {
     /*#if use_event_page */

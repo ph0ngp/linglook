@@ -19,6 +19,7 @@
   - create raw records; then convert to proper record to process. Check flat-file.ts for the record format. We are using 10ten's format to store our dict so many fields are not used.
   - FlatFileDatabaseLoader is the wrapper around flatFileDatabase.
     - it holds a lang field. When the dictLang change, it will dump the current lang and current flat file database and adopt the new lang. Then on the next load (await fallbackDatabaseLoader.database; when its loadState is 'unload' will load the new flat file database) it will load the new flat file database of the new lang.
+- to enable enable puck context menu, uncomment related code and add permssion "contextMenus" in manifest.json
 - pnpm commands:
   - pnpm check-keys: check for missing/extra keys and if passed, to see important keys
     - currently in \_locales/ dir we hold a lot of unused keys from 10ten. So it's neccessary to just look through the important keys.
