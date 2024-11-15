@@ -51,23 +51,23 @@ mkdir -p release-assets
 
 # Firefox package
 RELEASE_BUILD=1 pnpm package:firefox
-mv dist-firefox-package/linglook_-${version}.zip release-assets/linglook-${version}-firefox.zip
+mv dist-firefox-package/linglook-${version}.zip release-assets/linglook-${version}-firefox.zip
 
 # Chrome package
 RELEASE_BUILD=1 pnpm package:chrome
-mv dist-chrome-package/linglook_-${version}.zip release-assets/linglook-${version}-chrome.zip
+mv dist-chrome-package/linglook-${version}.zip release-assets/linglook-${version}-chrome.zip
 
 # Chrome-Electron package
 RELEASE_BUILD=1 pnpm package:chrome-electron
-mv dist-chrome-electron-package/linglook_-${version}.zip release-assets/linglook-${version}-chrome-electron.zip
+mv dist-chrome-electron-package/linglook-${version}.zip release-assets/linglook-${version}-chrome-electron.zip
 
 # Edge package
 RELEASE_BUILD=1 pnpm package:edge
-mv dist-edge-package/linglook_-${version}.zip release-assets/linglook-${version}-edge.zip
+mv dist-edge-package/linglook-${version}.zip release-assets/linglook-${version}-edge.zip
 
 # Thunderbird package
 RELEASE_BUILD=1 pnpm package:thunderbird
-mv dist-thunderbird-package/linglook_-${version}.zip release-assets/linglook-${version}-thunderbird.zip
+mv dist-thunderbird-package/linglook-${version}.zip release-assets/linglook-${version}-thunderbird.zip
 
 # Source package
 RELEASE_BUILD=1 pnpm zip-src
