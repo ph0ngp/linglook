@@ -37,6 +37,8 @@
       - pnpm playwright-test "tests/\*\*/\*.test.ts" --browser chromium
       - somehow pnpm playwright-test "tests/\*\*/\*.test.ts" --browser firefox fails while the chromium one passed. But on Github both passed so no worry, perhaps it's just a local problem. As long as chromium passed locally, it's fine.
     - pnpm lint
+  - pnpm version:
+    - the root version is in package.json, you only need to set the version here. Run this to sync this version number to manifest.json and xcode project file. Also, the xcode build number will be +=1
   - command list is declared in package.json
     - devDependencies: only used for development purposes
 - packages and tools:
