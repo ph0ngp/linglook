@@ -676,8 +676,8 @@
   }
 
   .w-kanji .wk-level {
-    color: var(--primary-highlight);
-    border: 1px solid var(--primary-highlight);
+    color: var(--bunpro-vocab);
+    border: 1px solid var(--bunpro-vocab);
     text-underline-offset: 2px;
   }
 
@@ -702,10 +702,10 @@
   }
 
   .window .entry.-selected .w-kanji .wk-level {
-    border-color: var(--selected-highlight);
+    border-color: var(--bunpro-vocab);
   }
 
-  @media (hover) {
+  /* @media (hover) {
     .container.interactive .w-kanji .wk-level:hover {
       background: color(from var(--selected-highlight) srgb r g b / 0.1);
     }
@@ -714,7 +714,7 @@
       color: var(--selected-highlight);
       border-color: var(--selected-highlight);
     }
-  }
+  } */
 
   .w-kanji .bp-tag.-vocab,
   .w-kana .bp-tag.-vocab {
