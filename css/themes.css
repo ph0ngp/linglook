@@ -148,7 +148,7 @@
  */
 
 .theme-dark {
-  --text-color: #eeeeee;
+  --text-color: #ffffff;
   --bg-rgb: 34, 40, 49;
   --bg-color: rgb(var(--bg-rgb));
   --border-color: #819293;
