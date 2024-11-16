@@ -49,7 +49,7 @@ export default function PopupThemeRadioFixture() {
 
   const [theme, setTheme] = useSelect<string>('theme', {
     defaultValue: 'default',
-    options: ['default', 'light', 'blue', 'lightblue', 'black', 'yellow'],
+    options: ['default', 'light', 'lightblue', 'dark', 'pink'],
   });
 
   const [dictLang] = useSelect<DbLanguageId>('dictLang', {

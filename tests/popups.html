@@ -26,7 +26,7 @@
       startCopy: ['c'],
     },
     noTextHighlight: false,
-    popupStyle: 'blue',
+    popupStyle: 'light',
     posDisplay: 'expl',
     readingOnly: false,
     showKanjiComponents: true,
@@ -100,14 +100,14 @@
         dictLang:
           test.description.indexOf('language') !== -1 ? 'fr' : undefined,
         dictToShow: getDictFromResult(test.queryResult),
-        popupStyle: 'blue',
+        popupStyle: 'light',
         showDefinitions: !test.extraConfig || !test.extraConfig.readingOnly,
         hskDisplay: 'show-matches',
       });
       popup.classList.add('-inline');
     }
 
-    const themes = ['light', 'blue', 'lightblue', 'black', 'yellow'];
+    const themes = ['light', 'lightblue', 'dark', 'pink'];
 
     // Name tag test
 

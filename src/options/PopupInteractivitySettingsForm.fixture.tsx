@@ -17,7 +17,7 @@ export default function PopupInteractivitySettingsFormFixture() {
   const [enableTapLookup, setEnableTapLookup] = useState<boolean>(true);
   const [tabDisplay, setTabDisplay] = useState<TabDisplay>('left');
   const [theme] = useSelect<string>('theme', {
-    options: ['default', 'light', 'blue', 'lightblue', 'black', 'yellow'],
+    options: ['default', 'light', 'lightblue', 'dark', 'pink'],
   });
 
   return (

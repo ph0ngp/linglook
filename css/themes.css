@@ -47,8 +47,8 @@
   --cell-link-fg: var(--primary-highlight);
 
   --selected-highlight: var(--primary-highlight);
-  --selected-bg: #fff8bf;
-  --hover-bg: rgb(255, 250, 210);
+  --hover-bg: var(--cell-highlight-bg);
+  --selected-bg: var(--hover-bg);
   --stroke-outline: rgb(230, 225, 190);
   --selected-conj-color: hsl(356, 70%, 40%);
   --selected-reading-highlight: #3e3a39;
@@ -147,19 +147,20 @@
  * Theme - black
  */
 
-.theme-black {
-  --text-color: white;
-  --bg-rgb: 29, 26, 25;
+.theme-dark {
+  --text-color: #eeeeee;
+  --bg-rgb: 34, 40, 49;
   --bg-color: rgb(var(--bg-rgb));
-  --border-color: #999493;
+  --border-color: #819293;
   --shadow-color: rgba(255, 255, 255, 0.2);
 
-  --primary-highlight: #4bbffb;
-  --reading-highlight: #7beb7e;
+  --primary-highlight: #76abae;
+  --reading-highlight: #afc5c5;
+  --selected-reading-highlight: var(--reading-highlight);
   --conj-color: #c1a4a0;
 
   --tag-border: rgba(255, 255, 255, 0.4);
-  --bunpro-vocab: #64a6e5;
+  --bunpro-vocab: #8ab2d7;
   --bunpro-grammar: #da918e;
   --selected-bunpro-grammar: var(--bunpro-grammar);
   --bunpro-src: #c5c0af;
@@ -170,13 +171,13 @@
   --reading-label: #e7ffe7;
   --okurigana-color: #ede8e6;
   --hi-contrast-pitch-accent: white;
-  --cell-highlight-bg: #504c4b;
-  --cell-highlight-fg: #f0ecea;
+  --cell-highlight-bg: #31363f;
+  --cell-highlight-fg: #aaaaaa;
   --cell-bg-hover: hsl(12, 4.4%, 22.2%);
   --cell-link-fg: var(--primary-highlight);
 
-  --selected-bg: #555;
-  --hover-bg: #484844;
+  --hover-bg: var(--cell-highlight-bg);
+  --selected-bg: var(--hover-bg);
   --stroke-outline: var(--hover-bg);
 
   /* Reset selection styles */
@@ -186,14 +187,14 @@
   --selected-tag-color: var(--text-color);
   --selected-tag-border: var(--tag-border);
 
-  --status-bg: rgba(255, 255, 255, 0.2);
+  --status-bg: var(--cell-highlight-bg);
   --meta-bg: rgba(255, 255, 255, 0.2);
 
   --scrollbar-fg: var(--cell-highlight-bg);
   --scrollbar-bg: var(--bg-color);
 
   --puck-bg: var(--bg-color);
-  --puck-bg-highlight: #555;
+  --puck-bg-highlight: #585e67;
 
   --status-button-color: white;
   --status-button-primary-text-color: var(--bg-color);
@@ -202,8 +203,8 @@
   --expand-button-color: rgb(var(--expand-button-rgb));
 }
 
-.window.theme-black .w-def .tag-masc,
-.window.theme-black .w-def .w-misc {
+.window.theme-dark .w-def .tag-masc,
+.window.theme-dark .w-def .w-misc {
   --tag-blue: #2698fb88;
   --tag-border: rgba(255, 255, 255, 0.3);
 }
@@ -213,14 +214,16 @@
  */
 
 .theme-lightblue {
-  --text-color: #1d1a19;
+  --text-color: #05131d;
+  --selected-def-color: var(--text-color);
   --bg-rgb: 227, 242, 254;
   --bg-color: rgb(var(--bg-rgb));
   --border-color: #65b7fc;
   --shadow-color: rgba(0, 0, 0, 0.2);
 
   --primary-highlight: #17588e;
-  --reading-highlight: #2e7d32;
+  --reading-highlight: #5c676d;
+  --selected-reading-highlight: var(--reading-highlight);
   --conj-color: #817470;
 
   --tag-border: rgba(0, 0, 0, 0.3);
@@ -241,8 +244,8 @@
   --cell-link-fg: var(--primary-highlight);
 
   --selected-highlight: var(--primary-highlight);
-  --selected-bg: #fffac5;
-  --hover-bg: #fffde5;
+  --hover-bg: var(--cell-highlight-bg);
+  --selected-bg: var(--cell-highlight-bg);
   --stroke-outline: rgb(190, 213, 231);
 
   --meta-bg: var(--cell-highlight-bg);
@@ -312,4 +315,73 @@
 
   --expand-button-rgb: 209, 195, 122;
   --expand-button-color: rgb(var(--expand-button-rgb));
+}
+
+/*
+ * Theme - pink
+ */
+
+ .theme-pink {
+  --text-color: #460b21;
+  /* background color */
+  --bg-rgb: 250, 232, 241;
+  --bg-color: rgb(var(--bg-rgb));
+  /* border color + puck logo color  */
+  --border-color: #c8729d;
+  /* popup's shadow  */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  
+  /* looked up words */
+  --primary-highlight: #a40c44;
+  /* pinyin  */
+  --reading-highlight: #6d5c63;
+  /* HSK  */
+  --conj-color: #7c3c9a;
+
+  --tag-border: rgba(0, 0, 0, 0.3);
+  /* TOCFL  */
+  --bunpro-vocab: #7c3c9a;
+  /* hanviet  */
+  --bunpro-grammar: #9f3833;
+  --selected-bunpro-grammar: var(--bunpro-grammar);
+  --bunpro-src: #525047;
+
+  /* no effect  */
+  --title-bg: #e4c35f;
+  --title-fg: var(--text-color);
+
+  --reading-label: #1b5e20;
+  --okurigana-color: #fc7600;
+  --hi-contrast-pitch-accent: var(--primary-highlight);
+  /* other tab  */
+  --cell-highlight-bg: #f7d3de;
+  --cell-highlight-fg: #3e3a39;
+  --cell-bg-hover: rgb(255, 254, 247);
+  --cell-link-fg: var(--primary-highlight);
+
+  /* hover background  */
+  --hover-bg: var(--cell-highlight-bg);
+  --selected-bg: var(--cell-highlight-bg);
+  /* stroke background colour  */
+  --stroke-outline: rgb(232, 199, 209);
+  /* words when hovering  */
+  --selected-highlight: var(--primary-highlight);
+
+  --meta-bg: var(--cell-highlight-bg);
+  --status-bg: var(--cell-highlight-bg);
+
+  --scrollbar-fg: var(--cell-highlight-bg);
+  --scrollbar-bg: var(--bg-color);
+/* icon  */
+--puck-bg: var(--bg-color);
+--puck-bg-highlight: #fffbfd;
+
+  --status-button-color: var(--primary-highlight);
+  --status-button-primary-text-color: var(--status-bg);
+/* no effect  */
+  --expand-button-rgb: 227, 127, 157;
+  --expand-button-color: rgb(var(--expand-button-rgb));
+
+  --selected-def-color: var(--text-color);
+  --selected-reading-highlight: var(--reading-highlight);
 }

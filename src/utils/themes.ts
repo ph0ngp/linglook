@@ -8,7 +8,7 @@ export function getThemeClass(theme: string): string {
   // however, the usage of this value is short-lived enough that it's not
   // needed.
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'theme-black';
+    return 'theme-dark';
   }
 
   return 'theme-light';

@@ -11,7 +11,7 @@ export default function TabDisplayRadioFixture() {
     defaultValue: 'top',
   });
   const [theme] = useSelect<string>('theme', {
-    options: ['default', 'light', 'blue', 'lightblue', 'black', 'yellow'],
+    options: ['default', 'light', 'lightblue', 'dark', 'pink'],
   });
 
   return <TabDisplayRadio onChange={setValue} theme={theme} value={value} />;

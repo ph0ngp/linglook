@@ -1026,8 +1026,8 @@
 
   @keyframes linglook-flash {
     from {
-      background: white;
-      color: white;
+      background: var(--selected-bg);
+      color: var(--selected-bg);
     }
   }
 

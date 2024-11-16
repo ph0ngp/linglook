@@ -8,7 +8,7 @@ export default function MouseInteractivityRadioFixture() {
     defaultValue: true,
   });
   const [theme] = useSelect<string>('theme', {
-    options: ['default', 'light', 'blue', 'lightblue', 'black', 'yellow'],
+    options: ['default', 'light', 'lightblue', 'dark', 'pink'],
   });
 
   return (

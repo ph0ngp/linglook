@@ -31,28 +31,26 @@ type Props = {
 export function PopupThemeRadio(props: Props) {
   return (
     <div class="grid grid-cols-1 sm:grid-cols-2">
-      {['default', 'light', 'blue', 'lightblue', 'black', 'yellow'].map(
-        (theme) => (
-          <PopupRadio
-            key={theme}
-            name="popupStyle"
-            value={theme}
-            checked={props.theme === theme}
-            onChange={() => props.onChangeTheme(theme)}
-          >
-            {theme === 'default' ? (
-              <div class="stacked">
-                <PopupPreview {...props} theme="light" />
-                <div class="cover-tl flex">
-                  <PopupPreview {...props} theme="black" />
-                </div>
+      {['default', 'light', 'lightblue', 'dark', 'pink'].map((theme) => (
+        <PopupRadio
+          key={theme}
+          name="popupStyle"
+          value={theme}
+          checked={props.theme === theme}
+          onChange={() => props.onChangeTheme(theme)}
+        >
+          {theme === 'default' ? (
+            <div class="stacked">
+              <PopupPreview {...props} theme="light" />
+              <div class="cover-tl flex">
+                <PopupPreview {...props} theme="dark" />
               </div>
-            ) : (
-              <PopupPreview {...props} theme={theme} />
-            )}
-          </PopupRadio>
-        )
-      )}
+            </div>
+          ) : (
+            <PopupPreview {...props} theme={theme} />
+          )}
+        </PopupRadio>
+      ))}
     </div>
   );
 }

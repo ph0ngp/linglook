@@ -15,7 +15,7 @@ export default function PopupDecorator({
   });
 
   const [themeName] = useFixtureSelect('theme', {
-    options: ['black', 'light', 'blue', 'lightblue', 'yellow'],
+    options: ['dark', 'light', 'lightblue', 'pink'],
     defaultValue: 'light',
   });
 
