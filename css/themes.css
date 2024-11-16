@@ -321,7 +321,7 @@
  * Theme - pink
  */
 
- .theme-pink {
+.theme-pink {
   --text-color: #460b21;
   /* background color */
   --bg-rgb: 250, 232, 241;
@@ -330,7 +330,7 @@
   --border-color: #c8729d;
   /* popup's shadow  */
   --shadow-color: rgba(0, 0, 0, 0.2);
-  
+
   /* looked up words */
   --primary-highlight: #a40c44;
   /* pinyin  */
@@ -372,13 +372,13 @@
 
   --scrollbar-fg: var(--cell-highlight-bg);
   --scrollbar-bg: var(--bg-color);
-/* icon  */
---puck-bg: var(--bg-color);
---puck-bg-highlight: #fffbfd;
+  /* icon  */
+  --puck-bg: var(--bg-color);
+  --puck-bg-highlight: #fffbfd;
 
   --status-button-color: var(--primary-highlight);
   --status-button-primary-text-color: var(--status-bg);
-/* no effect  */
+  /* no effect  */
   --expand-button-rgb: 227, 127, 157;
   --expand-button-color: rgb(var(--expand-button-rgb));
 

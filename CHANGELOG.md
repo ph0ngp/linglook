@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2024-11-15
+## [1.0.0] - 2024-11-16
 
 ### Added
+
 - Initial release of LingLook.
 
 [Unreleased]: https://github.com/ph0ngp/linglook/compare/v1.0.0...HEAD

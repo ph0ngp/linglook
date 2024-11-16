@@ -41,9 +41,9 @@
   - pnpm version:
     - the root version is in package.json, you only need to set the version here. This is to sync this version number to manifest.json and xcode project file. Also, the xcode build number will be +=1
       - this is actually a special script that typically runs automatically when you update your package version (like when running pnpm version patch or pnpm version minor).
-        - pnpm version patch  # for a bug fix (1.0.1 -> 1.0.2)
-        - pnpm version minor  # for new features (1.0.1 -> 1.1.0)
-        - pnpm version major  # for breaking changes (1.0.1 -> 2.0.0)
+        - pnpm version patch # for a bug fix (1.0.1 -> 1.0.2)
+        - pnpm version minor # for new features (1.0.1 -> 1.1.0)
+        - pnpm version major # for breaking changes (1.0.1 -> 2.0.0)
   - command list is declared in package.json
     - devDependencies: only used for development purposes
 - packages and tools:
