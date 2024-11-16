@@ -17,6 +17,8 @@ struct MacView: View {
             Image("LargeIcon")
                 .resizable()
                 .frame(width: 128, height: 128)
+            Text("LingLook")
+                .font(.largeTitle)
 
             Button(NSLocalizedString("open_safari_extension_preferences", comment: "")) {
                 openSafariExtensionPreferences()
@@ -30,7 +32,7 @@ struct MacView: View {
             )
             .foregroundColor(isExtensionEnabled ? .green : .red)
         }
-        .frame(width: 400, height: 300)
+        // .frame(width: 400, height: 300)
         .onAppear {
             checkExtensionState()
         }
