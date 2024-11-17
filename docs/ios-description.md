@@ -1,6 +1,6 @@
 ## Introduction
 
-Learn Chinese effortlessly while browsing! LingLook is a Safari extension that instantly looks up Chinese words as you hover over them on any webpage - no more switching between dictionary apps!
+Learn Chinese effortlessly while browsing! LingLook is a Safari extension that instantly looks up Chinese words as you hover over them on any webpage - no more switching to another dictionary apps!
 
 ## Features
 
@@ -33,6 +33,6 @@ If for some reason the extension does not work as expected, try enabling/disabli
 
 If you love using LingLook, please don't hesitate to rate it 5 stars in the App Store! It would make my day!
 
-## Source code:
+## Source code
 
-This is a completely free and open-source software licensed under GPL-3.0. The source code is available at https://github.com/ph0ngp/linglook
+LingLook is a completely free and open-source software licensed under GPL-3.0. The source code is available at https://github.com/ph0ngp/linglook
