@@ -1,3 +1,7 @@
+Please note: Most of the content in this file is from the original project, 10ten Japanese Reader, and has not been fully updated for LingLook yet. That said, most of it is still relevant for LingLook.
+
+---
+
 Hi!
 
 Thank you so much for offering to contribute! Here are a few tips that might help.
