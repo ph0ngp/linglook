@@ -1545,6 +1545,12 @@
     "message": "yojijukugo",
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
+  "options_about_linglook_link_text": {
+    "message": "open source project"
+  },
+  "options_about_linglook_text": {
+    "message": "LingLook is an open source project by Phong Phan, licensed under GPL-3.0"
+  },
   "options_accent_data_source": {
     "message": "Sino-Vietnamese transliteration data: Hán-Việt Pinyin wordlist by Phong Phan, licensed under the MIT License",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
@@ -1682,7 +1688,7 @@
     }
   },
   "options_dictionary_data_heading": {
-    "message": "Dictionary data"
+    "message": "About LingLook"
   },
   "options_dictionary_language_heading": {
     "message": "Dictionary language"

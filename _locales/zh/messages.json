@@ -1545,6 +1545,12 @@
     "message": "四字熟语",
     "description": "Label used to describe senses with the 'yoji' (yojijukugo) annotation"
   },
+  "options_about_linglook_link_text": {
+    "message": "开源项目"
+  },
+  "options_about_linglook_text": {
+    "message": "LingLook 是由 Phong Phan 开发的开源项目，采用 GPL-3.0 授权协议。"
+  },
   "options_accent_data_source": {
     "message": "汉越拼音数据: 由 Phong Phan 提供的汉越拼音词表, 依据MIT许可证授权。",
     "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
@@ -1682,7 +1688,7 @@
     }
   },
   "options_dictionary_data_heading": {
-    "message": "词典数据"
+    "message": "关于 LingLook"
   },
   "options_dictionary_language_heading": {
     "message": "词典语言"

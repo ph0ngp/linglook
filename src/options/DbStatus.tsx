@@ -29,21 +29,35 @@ type Props = {
 };
 
 export function DbStatus(props: Props) {
+  const { t } = useLocale();
   return (
-    <div class="flex flex-col gap-4 py-4">
-      <DbSummaryBlurb dictLang={props.dictLang} />
-      {/* <DbSummaryStatus
-        dbState={props.dbState}
-        onCancelDbUpdate={props.onCancelDbUpdate}
-        onUpdateDb={props.onUpdateDb}
-      />
-      {props.devMode && (
-        <div class="rounded-lg border border-solid border-red-900 bg-red-50 px-4 py-2 text-red-900 dark:border-red-200/50 dark:bg-red-900/30 dark:text-red-50">
-          <span>Database testing features: </span>
-          <button onClick={props.onDeleteDb}>Delete database</button>
-        </div>
-      )} */}
+    <div class="flex flex-col gap-4">
+      <p class="m-0">
+        <Linkify
+          text={t('options_about_linglook_text')}
+          links={[
+            {
+              keyword: t('options_about_linglook_link_text'),
+              href: 'https://github.com/ph0ngp/LingLook',
+            },
+          ]}
+        />
+      </p>
     </div>
+    // <div class="flex flex-col gap-4 py-4">
+    //   <DbSummaryBlurb dictLang={props.dictLang} />
+    //   {/* <DbSummaryStatus
+    //     dbState={props.dbState}
+    //     onCancelDbUpdate={props.onCancelDbUpdate}
+    //     onUpdateDb={props.onUpdateDb}
+    //   />
+    //   {props.devMode && (
+    //     <div class="rounded-lg border border-solid border-red-900 bg-red-50 px-4 py-2 text-red-900 dark:border-red-200/50 dark:bg-red-900/30 dark:text-red-50">
+    //       <span>Database testing features: </span>
+    //       <button onClick={props.onDeleteDb}>Delete database</button>
+    //     </div>
+    //   )} */}
+    // </div>
   );
 }
 
