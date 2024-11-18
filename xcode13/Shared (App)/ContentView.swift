@@ -50,7 +50,8 @@ struct ContentView: View {
                             .scaledToFit()  // make it fit the outer container, whose height we have specified
                             .cornerRadius(15)
                             .shadow(color: .primary.opacity(0.5), radius: 8)
-                            .padding(.top, PADDING)
+                            // (for big ipads) this means if 2/3 of screen height is taller than 750, then don't scale up the image, add extra padding to push the image down. Basically this is to cap the height of tabview to be 750
+                            .padding(.top, PADDING + max(0, geometry.size.height * 2 / 3 - 750))
                             .padding(.bottom, PADDING * 3)  // for the index dot to be outside the image
                             .tag(index)
                         // .border(Color.blue)
