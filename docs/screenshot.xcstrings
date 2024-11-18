@@ -1,0 +1,86 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "page1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "look up Chinese in any website"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tra tiếng Trung trên bất kỳ trang web nào"
+          }
+        }
+      }
+    },
+    "page2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "word definitions with pinyin, HSK, TOCFL level"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "nghĩa từ kèm pinyin, phiên âm Hán Việt, cấp độ HSK, TOCFL"
+          }
+        }
+      }
+    },
+    "page3" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "character stroke order animation"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "thứ tự nét viết của Hán tự"
+          }
+        }
+      }
+    },
+    "page4" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "copy words and search for images"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sao chép từ và tìm kiếm hình ảnh"
+          }
+        }
+      }
+    },
+    "page5" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "customizable appearance and behavior"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tuỳ chỉnh màu sắc, giao diện và hành vi"
+          }
+        }
+      }
+    },
+  },
+  "version" : "1.0"
+}
