@@ -10,6 +10,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Installation](#installation)
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [How to use](#how-to-use)
@@ -22,6 +23,10 @@
 ## Introduction
 
 LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS). It's a fork of [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader) but thoroughly adapted for Chinese learners.
+
+## Installation
+
+- [App Store](https://apps.apple.com/app/linglook/id6738310788) (macOS and iOS Safari Extension App)
 
 ## Features
 
