@@ -221,7 +221,7 @@ config.addChangeListener(async (changes) => {
   if (changes.hasOwnProperty('dictLang')) {
     const newLang: DbLanguageId = (changes as any).dictLang.newValue;
     Bugsnag.leaveBreadcrumb(`Changing language of database to ${newLang}.`);
-    updateDb({ lang: newLang, force: true });
+    await updateDb({ lang: newLang, force: true });
   }
 
   // Tell the content scripts about any changes
@@ -368,7 +368,7 @@ browser.runtime.onConnect.addListener((port: Runtime.Port) => {
         await config.ready;
 
         Bugsnag.leaveBreadcrumb('Manually triggering database update');
-        updateDb({ lang: config.dictLang, force: true });
+        await updateDb({ lang: config.dictLang, force: true });
         break;
 
       case 'cancelupdatedb':

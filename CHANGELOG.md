@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Change default shortcut from Alt+E to Alt+O.
+- Handle some unhandled promises.
 
 ## [1.0.0] - 2024-11-18
 

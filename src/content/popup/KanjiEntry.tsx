@@ -91,7 +91,7 @@ export function KanjiEntry(props: Props) {
         },
       });
       svgContainer.onclick = () => {
-        hanziWriter.animateCharacter();
+        void hanziWriter.animateCharacter();
       };
     }
   }, []);
