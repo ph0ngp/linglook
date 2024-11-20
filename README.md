@@ -18,11 +18,12 @@
 - [Building from source](#building-from-source)
 - [Contributing](#contributing)
 - [Data sources](#data-sources)
+- [Credits](#credits)
 - [License](#license)
 
 ## Introduction
 
-LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS). It's a fork of [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader) but thoroughly adapted for Chinese learners.
+LingLook is a browser extension that lets you look up Chinese words by hovering over them. It works on Chromium based browsers, Firefox (desktop and Android version), Safari (macOS and iOS).
 
 ## Installation
 
@@ -107,6 +108,10 @@ Contributions are welcome! Please feel free to submit a Pull Request or an Issue
 - Chinese-Vietnamese dictionary data: [CVDICT](https://github.com/ph0ngp/CVDICT) by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 - Chinese character stroke order data: [Hanzi Writer project](https://hanziwriter.org) by David Chanin, licensed under the [MIT License](https://hanziwriter.org/license.html)
 - Sino-Vietnamese transliteration data: [Hán-Việt Pinyin wordlist](https://github.com/ph0ngp/hanviet-pinyin-wordlist) by Phong Phan, licensed under the [MIT License](https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE)
+
+## Credits
+
+This project started as a fork of the [10ten Japanese Reader](https://github.com/birchill/10ten-ja-reader) project. So, huge thanks to the author [@birtles](https://github.com/birtles) for his wonderful work. It has served as the perfect cross-platform base for LingLook. I recommend anyone who is learning Japanese to check out his project.
 
 ## License
 
