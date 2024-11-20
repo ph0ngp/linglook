@@ -179,10 +179,10 @@
     /*#endif*/
       "suggested_key": {
         /*#if is_safari*/
-        "default": "Alt+E",
-        "mac": "MacCtrl+Ctrl+E"
+        "default": "Alt+O",
+        "mac": "MacCtrl+Ctrl+O"
         /*#else*/
-        "default": "Alt+E"
+        "default": "Alt+O"
         /*#endif*/
       },
       "description": "__MSG_command_toggle_description__"

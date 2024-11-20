@@ -12,7 +12,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
 - Hỗ trợ từ điển tiếng Anh và tiếng Việt
 
 ** Hướng dẫn sử dụng **
-- Ghim icon LingLook vào thanh công cụ để dễ dàng truy cập. Bạn có thể nhấn vào icon đó để bật/tắt chức năng tra từ, hoặc nhấn phím tắt Alt+E (hoặc Option+E trên Mac). Bạn có thể thay đổi phím tắt này trong trang cài đặt của tiện ích.
+- Ghim icon LingLook vào thanh công cụ để dễ dàng truy cập. Bạn có thể nhấn vào icon đó để bật/tắt chức năng tra từ, hoặc nhấn phím tắt Alt+O (hoặc Option+O trên Mac). Bạn có thể thay đổi phím tắt này trong trang cài đặt của tiện ích.
 - Khi rê chuột qua từ tiếng Trung, một cửa sổ popup sẽ xuất hiện.
 - Trong cửa sổ popup, bạn có thể xem nghĩa của từ, pinyin, phiên âm Hán Việt, cấp độ HSK, cấp độ TOCFL.
 - Khi bạn mới rê chuột qua từ, cửa sổ popup sẽ xuất hiện với đường viền đứt. Sau 400ms, đường viền sẽ chuyển thành nét liền. Lúc này, bạn có thể di chuột vào bên trong cửa sổ popup để thay đổi tab hoặc chọn các mục khác.

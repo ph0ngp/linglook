@@ -11,7 +11,7 @@ Learn Chinese effortlessly while browsing! LingLook is a browser extension that 
 - Supports English and Vietnamese dictionaries
 
 ** How to use **
-- Pin LingLook icon to your toolbar for easy access. You can click on it to enable/disable the popup function, or press the default shortcut Alt+E (or Option+E on Mac). You can configure this shortcut in the extension's settings page.
+- Pin LingLook icon to your toolbar for easy access. You can click on it to enable/disable the popup function, or press the default shortcut Alt+O (or Option+O on Mac). You can configure this shortcut in the extension's settings page.
 - Use the mouse to hover over a Chinese word, and a popup window will appear.
 - Inside the popup window, you can see the word's definition, pinyin, HSK level, TOCFL level.
 - When you first hover over a word, the popup window will appear with a dotted border. After 400ms, the popup will change to have a solid outline. From here, you can move the mouse into the popup to change tabs or select entries.
