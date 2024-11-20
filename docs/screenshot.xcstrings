@@ -17,6 +17,22 @@
         }
       }
     },
+    "page1b" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "look up Chinese by hovering over words in any website"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tra tiếng Trung bằng cách rê qua chữ trên bất kỳ trang web nào"
+          }
+        }
+      }
+    },
     "page2" : {
       "localizations" : {
         "en" : {
