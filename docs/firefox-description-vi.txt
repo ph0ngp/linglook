@@ -1,0 +1,51 @@
+Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở rộng giúp bạn tra cứu ngay lập tức các từ tiếng Trung khi rê qua chúng trên bất kỳ trang web nào!
+
+<strong>Tính năng</strong>
+<ul>
+    <li>Tra cứu từ tiếng Trung tức thì trên bất kỳ trang web nào chỉ bằng cách rê qua chúng</li>
+    <li>Dữ liệu từ điển gồm rất nhiều cụm từ mới, phổ biến trong ngôn ngữ tiếng Trung hiện đại, vốn không có trong các từ điển Hán Việt truyền thống khác</li>
+    <li>Hỗ trợ cả chữ Hán giản thể và phồn thể</li>
+    <li>Cung cấp nghĩa từ kèm pinyin, phiên âm Hán Việt, cấp độ HSK và TOCFL</li>
+    <li>Hiển thị thứ tự nét chữ viết (bút thuận)</li>
+    <li>Sao chép từ và tìm kiếm hình ảnh trên Google</li>
+    <li>Hỗ trợ phím tắt</li>
+    <li>Tùy chỉnh màu sắc, giao diện và cách thức hoạt động</li>
+    <li>Hỗ trợ từ điển tiếng Anh và tiếng Việt</li>
+</ul>
+
+<strong>Hướng dẫn sử dụng</strong>
+<ul>
+    <li>Với người dùng máy tính:
+        <ul>
+            <li>Ghim icon LingLook vào thanh công cụ để dễ dàng truy cập. Bạn có thể nhấn vào icon đó để bật/tắt chức năng tra từ, hoặc nhấn phím tắt Alt+O (hoặc Option+O trên Mac). Bạn có thể thay đổi phím tắt này trong trang cài đặt của tiện ích.</li>
+            <li>Khi rê chuột qua từ tiếng Trung, một cửa sổ popup sẽ xuất hiện.</li>
+            <li>Khi bạn mới rê chuột qua từ, cửa sổ popup sẽ xuất hiện với đường viền đứt. Sau 400ms, đường viền sẽ chuyển thành nét liền. Lúc này, bạn có thể di chuột vào bên trong cửa sổ popup để thay đổi tab hoặc chọn các mục khác.</li>
+            <li>Bạn cũng có thể cấu hình để cửa sổ popup chỉ xuất hiện khi bạn nhấn giữ một phím, ví dụ Control. Trong trường hợp này, cửa sổ popup sẽ không tương tác được cho đến khi bạn không giữ phím đó nữa. Khi nhả phím đó ra, bạn sẽ ngay lập tức có thể tương tác được với cửa sổ đó.</li>
+        </ul>
+    </li>
+    <li>Với người dùng thiết bị di động:
+        <ul>
+            <li>Bạn có thể bật/tắt tiện ích bằng cách nhấn vào icon của LingLook.</li>
+            <li>Sau khi kích hoạt, một con trỏ hình tròn sẽ xuất hiện trên trang web. Di chuyển con trỏ này để tra cứu từ tiếng Trung.</li>
+            <li>Điều khiển con trỏ:
+                <ul>
+                    <li>Nhấn một lần: Bật/tắt chức năng tra cứu.</li>
+                    <li>Nhấn đúp: Thay đổi hướng tra cứu (lên/xuống).</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Trong cửa sổ popup, bạn có thể xem nghĩa của từ, pinyin, phiên âm Hán Việt, cấp độ HSK, cấp độ TOCFL.</li>
+    <li>Nhấn vào từ, bạn có thể sao chép hoặc tìm kiếm hình ảnh trên Google.</li>
+    <li>Trong tab "Thứ tự nét", nhấn vào Hán tự để xem thứ tự nét viết (bút thuận).</li>
+    <li>Tùy chỉnh màu sắc, giao diện và cách thức hoạt động của LingLook bằng cách nhấn vào biểu tượng bánh răng trong cửa sổ popup.</li>
+</ul>
+
+<strong>Khi có vấn đề</strong>
+Nếu tiện ích không hoạt động như mong đợi, hãy thử bật/tắt tiện ích, tải lại trang hoặc khởi động lại trình duyệt. Nếu bạn muốn báo cáo lỗi hoặc có ý kiến đóng góp, có thể tạo issue tại GitHub của LingLook <a href="https://github.com/ph0ngp/linglook/issues" title="LingLook GitHub Issues">ở đây</a>.
+
+<strong>Đánh giá</strong>
+Nếu bạn cảm thấy LingLook có ích, xin đừng tiếc chút thời gian cho mình một đánh giá 5 sao! Mình sẽ rất cảm kích đó! Phần mềm làm hoàn toàn free nên rất mong mọi người ủng hộ ạ!
+
+<strong>Mã nguồn</strong>
+LingLook là một phần mềm hoàn toàn miễn phí và mã nguồn mở, được cấp phép theo GPL-3.0. Mã nguồn có sẵn <a href="https://github.com/ph0ngp/linglook" title="LingLook GitHub Repository">tại đây</a>.

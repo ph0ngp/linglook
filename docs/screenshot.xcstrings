@@ -97,6 +97,22 @@
         }
       }
     },
+    "page6" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "support both desktop and mobile devices"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hỗ trợ cả máy tính và thiết bị di động"
+          }
+        }
+      }
+    },
   },
   "version" : "1.0"
 }

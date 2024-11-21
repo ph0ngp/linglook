@@ -93,10 +93,15 @@
   - you can use that function to generate svg path for puck icon inside puck.ts also
   - python script with same function is in scripts/generate_svg_icon.py
 - picasso project structure:
-  - main variant - iphone ipad mac - english
-  - vn variant - iphone ipad mac - vietnamese
-  - desktop-browser-EN - mac - english
-  - desktop-browser-VI - mac - vietnamese
+  - app store:
+    - main variant - iphone ipad mac - english
+    - vn variant - iphone ipad mac - vietnamese
+  - chrome store:
+    - desktop-browser-EN - mac - english --> resized to half
+    - desktop-browser-VI - mac - vietnamese --> resized to half
+  - firefox:
+    - firefox-EN - mac - english -> cropped to 2400x1800
+    - firefox-VI - mac - vietnamese -> cropped to 2400x1800
   - all variants share same font type and color palette and xcstrings file
 - Firefox temporarily install addon from local source:
   - In Firefox: Open the about:debugging page, click the This Firefox option, click the Load Temporary Add-on button, then select any file in your extension's directory.
