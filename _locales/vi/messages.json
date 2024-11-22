@@ -314,11 +314,11 @@
     }
   },
   "content_stroke_animation_play": {
-    "message": "Play stroke animation",
+    "message": "Xem thứ tự nét",
     "description": "Tooltip to show when hovering over the play button for the stroke animation"
   },
   "content_stroke_animation_stop": {
-    "message": "Stop stroke animation",
+    "message": "Dừng xem thứ tự nét",
     "description": "Tooltip to show when hovering over the stop button for the stroke animation"
   },
   "content_wk_link_title": {
