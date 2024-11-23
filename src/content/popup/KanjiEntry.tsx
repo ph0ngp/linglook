@@ -26,17 +26,87 @@ export type Props = {
   showComponents?: boolean;
 };
 
+type CharData = {
+  radical: string;
+  definition: string;
+  pinyin: string;
+  decomposition: string;
+  etymology_string: string;
+};
+
+type Etymology = {
+  type: 1 | 2 | 3;
+  hint: string;
+  semantic?: string;
+  phonetic?: string;
+};
+
 const HANZI_WRITER_SIZE = 120;
 
-function getCharData(char: string) {
-  const fields = charsData[char].split('_');
-  return {
-    radical: fields[0],
-    definition: fields[1],
-    pinyin: fields[2],
-    decomposition: fields[3],
-    etymology: fields[4],
-  };
+function getCharData(char: string): CharData | null {
+  const { t } = useLocale();
+  const hasCharData = Object.prototype.hasOwnProperty.call(charsData, char);
+  if (!hasCharData) {
+    return null;
+  } else {
+    const fields = charsData[char].split('_');
+    const etymology_fields = fields[4].split('+');
+    const etymology_type = Number(etymology_fields[0]) as 0 | 1 | 2 | 3;
+    let etymology: Etymology | null = null;
+    let etymology_type_string = '';
+    let etymology_string = '';
+    switch (etymology_type) {
+      case 1:
+      case 2:
+        etymology = {
+          type: etymology_type,
+          hint: etymology_fields[1],
+        };
+        etymology_type_string =
+          etymology_type === 1
+            ? t('char_etymology_type_ideographic')
+            : t('char_etymology_type_pictographic');
+        // here hint is guaranteed to be non-empty, non-whitespace string
+        etymology_string = `${etymology_type_string}${t('lang_colon_space')}${etymology.hint}`;
+        break;
+      case 3: {
+        etymology = {
+          type: etymology_type,
+          hint: etymology_fields[1],
+          semantic: etymology_fields[2],
+          phonetic: etymology_fields[3],
+        };
+        etymology_type_string = t('char_etymology_type_pictophonetic');
+        const etymology_hint = etymology.hint
+          ? ` ${t('lang_open_parenthesis')}${etymology.hint}${t('lang_close_parenthesis')}`
+          : '';
+        const etymology_semantic = etymology.semantic
+          ? `${etymology.semantic}${etymology_hint} ${t('char_etymology_semantic')}`
+          : '';
+        const etymology_phonetic = etymology.phonetic
+          ? `${etymology.phonetic} ${t('char_etymology_phonetic')}`
+          : '';
+        const etymology_string_value = [etymology_semantic, etymology_phonetic]
+          .filter(Boolean) // removes empty strings
+          .join(t('lang_comma_space'));
+        // here etymology_string_value is guaranteed to be non-empty, non-whitespace string
+        etymology_string = `${etymology_type_string}${t('lang_colon_space')}${etymology_string_value}`;
+        break;
+      }
+      case 0:
+      default:
+        etymology = null;
+        etymology_string = '';
+        break;
+    }
+    return {
+      radical: fields[0],
+      definition: fields[1],
+      pinyin: fields[2],
+      decomposition: fields[3],
+      etymology_string: etymology_string,
+    };
+  }
 }
 
 export function KanjiEntry(props: Props) {
@@ -95,7 +165,9 @@ export function KanjiEntry(props: Props) {
   }, []);
 
   const isPlaying = false;
-  const charData = getCharData(props.entry.c);
+  const charData: CharData | null = getCharData(props.entry.c);
+  const radicalData: CharData | null =
+    charData && charData.radical ? getCharData(charData.radical) : null;
 
   return (
     <div
@@ -184,21 +256,47 @@ export function KanjiEntry(props: Props) {
         </div>
         <div class="tp-mt-1.5 tp-grow">
           <div class="tp-flex tp-flex-col tp-gap-3">
-            <div lang="en" class="tp-text-base tp-leading-snug">
-              {charData.radical}
-            </div>
-            <div lang="en" class="tp-text-base tp-leading-snug">
-              {charData.definition}
-            </div>
-            <div lang="en" class="tp-text-base tp-leading-snug">
-              {charData.pinyin}
-            </div>
-            <div lang="en" class="tp-text-base tp-leading-snug">
-              {charData.decomposition}
-            </div>
-            <div lang="en" class="tp-text-base tp-leading-snug">
-              {charData.etymology}
-            </div>
+            {charData && (
+              <>
+                {charData.radical && (
+                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                    {t('char_radical')}
+                    {t('lang_colon_space')}
+                    {charData.radical}
+                    {radicalData?.definition && ` - ${radicalData.definition}`}
+                  </div>
+                )}
+                {charData.definition && (
+                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                    {t('char_definition')}
+                    {t('lang_colon_space')}
+                    {charData.definition}
+                  </div>
+                )}
+                {charData.pinyin && (
+                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                    {t('char_pinyin')}
+                    {t('lang_colon_space')}
+                    {/* TODO: currently comma is without space */}
+                    {charData.pinyin}
+                  </div>
+                )}
+                {charData.decomposition && (
+                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                    {t('char_decomposition')}
+                    {t('lang_colon_space')}
+                    {charData.decomposition}
+                  </div>
+                )}
+                {charData.etymology_string && (
+                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                    {t('char_etymology')}
+                    {t('lang_colon_space')}
+                    {charData.etymology_string}
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

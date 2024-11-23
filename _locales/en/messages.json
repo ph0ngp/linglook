@@ -1,4 +1,44 @@
 {
+  "char_decomposition": {
+    "message": "Decomposition",
+    "description": "The message for the decomposition"
+  },
+  "char_definition": {
+    "message": "Definition",
+    "description": "The message for the definition"
+  },
+  "char_etymology": {
+    "message": "Etymology",
+    "description": "The message for the etymology"
+  },
+  "char_etymology_phonetic": {
+    "message": "provides the pronunciation",
+    "description": "The message for the pictophonetic etymology"
+  },
+  "char_etymology_semantic": {
+    "message": "provides the meaning",
+    "description": "The message for the pictophonetic etymology"
+  },
+  "char_etymology_type_ideographic": {
+    "message": "Ideographic",
+    "description": "The message for the ideographic etymology"
+  },
+  "char_etymology_type_pictographic": {
+    "message": "Pictographic",
+    "description": "The message for the pictographic etymology"
+  },
+  "char_etymology_type_pictophonetic": {
+    "message": "Pictophonetic",
+    "description": "The message for the pictophonetic etymology"
+  },
+  "char_pinyin": {
+    "message": "Pinyin",
+    "description": "The message for the pinyin"
+  },
+  "char_radical": {
+    "message": "Radical",
+    "description": "The message for the radical"
+  },
   "char_stroke_animation_not_found": {
     "message": "not found",
     "description": "The message for the stroke animation not found"
@@ -992,6 +1032,18 @@
     "message": "rare",
     "description": "Short annotation given to kanji headwords that use rarely-used kanji forms"
   },
+  "lang_close_parenthesis": {
+    "message": ")",
+    "description": "The message for the close parenthesis"
+  },
+  "lang_colon_space": {
+    "message": ": ",
+    "description": "The message for the colon with a space"
+  },
+  "lang_comma_space": {
+    "message": ", ",
+    "description": "The message for the comma with a space"
+  },
   "lang_label_af": {
     "message": "Afrikaans",
     "description": "Label used to describe senses whose source language is 'af' (Afrikaans)"
@@ -1288,6 +1340,10 @@
   "lang_lsrc_wasei_prefix": {
     "message": " (",
     "description": "The start of the text used to indicate a source language when the first source language is waseigo, e.g. ' (wasei English)'"
+  },
+  "lang_open_parenthesis": {
+    "message": "(",
+    "description": "The message for the open parenthesis"
   },
   "lang_tag": {
     "message": "en",

@@ -106,3 +106,22 @@
 - Firefox temporarily install addon from local source:
   - In Firefox: Open the about:debugging page, click the This Firefox option, click the Load Temporary Add-on button, then select any file in your extension's directory.
   - The extension now installs, and remains installed until you restart Firefox.
+- charsData:
+  - all fields are separated by underscore, null fields are empty string so they makes two consecutive underscores
+  - main char: never empty, guaranteed to be of length 1, non-whitespace string, unique
+  - radical: never empty, guaranteed to be of length 1, non-whitespace string
+  - definition: can be empty, if not empty, it's always non-whitespace string
+  - pinyin: can be empty, if not empty, it's always non-whitespace string: at least one pinyin separated by comma without space
+  - decomposition: can be empty, if not empty, it's always non-whitespace string.
+  - etymology: always starts with 0,1,2,3:
+    - 0: no etymology, string ends here.
+    - 1: ideographic
+      - always have format 1+hint where hint is guaranteed to be non-empty, non-whitespace string
+    - 2: pictographic
+      - always have format 2+hint where hint is guaranteed to be non-empty, non-whitespace string
+    - 3: pictophonetic:
+      - always have format 3+hint+semantic+phonetic where hint, semantic, phonetic can be empty, if not empty, they are always non-whitespace string
+      - among hint, semantic, phonetic, at least one is non-empty
+        - never: hint alone
+        - never: hint + phonetic alone
+      - meaning of them is like this: {semantic} ({hint}) provides the meaning; {phonetic} provides the pronunciation
