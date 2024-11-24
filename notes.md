@@ -110,6 +110,7 @@
   - all fields are separated by underscore, null fields are empty string so they makes two consecutive underscores
   - main char: never empty, guaranteed to be of length 1, non-whitespace string, unique
   - radical: never empty, guaranteed to be of length 1, non-whitespace string
+  - radical_definition: can be empty, if not empty, it's always non-whitespace string
   - definition: can be empty, if not empty, it's always non-whitespace string
   - pinyin: can be empty, if not empty, it's always non-whitespace string: at least one pinyin separated by comma without space
   - decomposition: can be empty, if not empty, it's always non-whitespace string.
@@ -125,3 +126,41 @@
         - never: hint alone
         - never: hint + phonetic alone
       - meaning of them is like this: {semantic} ({hint}) provides the meaning; {phonetic} provides the pronunciation
+- char_en.txt: generated from makemeahanzi repo
+  - radical definition is copied from the radical char's own row for convenience
+  - we must process this file in background rather than content because it's too big. And safari ios doesn't accept content.js > 4MB
+- generate idx file: scripts/generate_idx.py
+  - for each line in cedict: get all possible characters including both simp and trad. Then assign all of them to each word in that line. Then with each char, if they are available in char.txt, then include its index in char.txt, associated with that word.
+  - so, it can happen that sometimes a char is not found in char.txt, meaning that word will not have that char's associated data.
+- RawWordRecord:
+  - k: simp char, trad char (only these 2)
+  - km:
+          [
+            {
+              p: pField, (always ['bg1'], can have 'wkLevel' (HSK) or 'bvLevel' (TOCFL))
+              bg: characters data, including possible simp, trad chars' data. Can be empty string, or single line or multiple lines separated by \n
+            },
+          ],
+  - r: pinyin
+  - s: [
+      {
+        g: [definition],
+      },
+    ],
+- After converted to toDictionaryWordResult:
+  - k: 2 fields:
+    - first field: simp
+      - ent: character
+      - has metadata like:
+        - wk (can have or not): HSK level
+        - bv (can have or not): {l: level}
+        - bg:
+          - l: always 1
+          - src (can have or not): characters data string with \n inside (if multiple characters)
+            - If raw bg is empty string then there is no src here
+            - if src is available, it's always non-empty string
+      - match: true or false depending on if this char matches the search input
+    - second field: trad
+      - ent: character
+      - don't have metadata
+      - match: true or false depending on if this char matches the search input

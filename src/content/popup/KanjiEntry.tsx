@@ -8,8 +8,6 @@ import type { ReferenceAbbreviation } from '../../common/refs';
 import { classes } from '../../utils/classes';
 import { getCSSVariable, standardize_color } from '../../utils/themes';
 
-import { charsData } from '../char-data';
-
 import { KanjiInfo } from './KanjiInfo';
 import { KanjiReferencesTable } from './KanjiReferencesTable';
 import { KanjiStrokeAnimation } from './KanjiStrokeAnimation';
@@ -28,6 +26,7 @@ export type Props = {
 
 type CharData = {
   radical: string;
+  radicalDefinition: string;
   definition: string;
   pinyin: string;
   decomposition: string;
@@ -43,14 +42,14 @@ type Etymology = {
 
 const HANZI_WRITER_SIZE = 120;
 
-function getCharData(char: string): CharData | null {
+function getCharData(entry: KanjiResult): CharData | null {
   const { t } = useLocale();
-  const hasCharData = Object.prototype.hasOwnProperty.call(charsData, char);
+  const hasCharData = entry.m.length === 6; //actually can check !== 0, but this is more explicit and failsafe
   if (!hasCharData) {
     return null;
   } else {
-    const fields = charsData[char].split('_');
-    const etymology_fields = fields[4].split('+');
+    const fields = entry.m;
+    const etymology_fields = fields[5].split('+');
     const etymology_type = Number(etymology_fields[0]) as 0 | 1 | 2 | 3;
     let etymology: Etymology | null = null;
     let etymology_type_string = '';
@@ -101,9 +100,10 @@ function getCharData(char: string): CharData | null {
     }
     return {
       radical: fields[0],
-      definition: fields[1],
-      pinyin: fields[2],
-      decomposition: fields[3],
+      radicalDefinition: fields[1],
+      definition: fields[2],
+      pinyin: fields[3],
+      decomposition: fields[4],
       etymology_string: etymology_string,
     };
   }
@@ -165,9 +165,7 @@ export function KanjiEntry(props: Props) {
   }, []);
 
   const isPlaying = false;
-  const charData: CharData | null = getCharData(props.entry.c);
-  const radicalData: CharData | null =
-    charData && charData.radical ? getCharData(charData.radical) : null;
+  const charData: CharData | null = getCharData(props.entry);
 
   return (
     <div
@@ -263,7 +261,8 @@ export function KanjiEntry(props: Props) {
                     {t('char_radical')}
                     {t('lang_colon_space')}
                     {charData.radical}
-                    {radicalData?.definition && ` - ${radicalData.definition}`}
+                    {charData.radicalDefinition &&
+                      ` - ${charData.radicalDefinition}`}
                   </div>
                 )}
                 {charData.definition && (

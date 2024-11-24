@@ -65,7 +65,8 @@ export function renderPopup(
   if (hasResult && result.words && result.words.data?.[0]) {
     const allCharsToShowStrokes: Array<string> = [];
     const wordResult: WordResult = result.words.data[0];
-    // we only consider the longest (first) match
+    // we only consider the longest (first) match.
+    // TODOP: in the case of match one type but settings only show the other type, can miss characters. For example, 发 simp is the real matched char, but if the settings shows onlytrad, then we will have 2 different trad characters, 發 and 髮 but taking [0] will only show the first char.
     let chosenWord = undefined;
     switch (options.hanziDisplay) {
       case 'simptrad':
@@ -87,6 +88,15 @@ export function renderPopup(
         break;
     }
     if (chosenWord) {
+      // if .src is defined, it's not empty string. But check just in case
+      const allCharsData = wordResult.k[0].bg?.src
+        ? wordResult.k[0].bg.src.split('\n')
+        : [];
+      const allCharsDataMap = new Map<string, Array<string>>();
+      for (const charData of allCharsData) {
+        const allComponents = charData.split('_');
+        allCharsDataMap.set(allComponents[0], allComponents.slice(1));
+      }
       for (const char of chosenWord.ent) {
         allCharsToShowStrokes.push(char);
       }
@@ -96,6 +106,7 @@ export function renderPopup(
         type: 'kanji',
         data: allCharsToShowStrokes.map((char) => ({
           c: char,
+          m: allCharsDataMap.get(char) ?? [], // if key found (meaning this char has associated data in char.txt), then must be an array of 6 elements
         })),
         matchLen: result.words.matchLen,
       } as KanjiSearchResult;

@@ -38,7 +38,7 @@ type FlatFileDatabaseListener = (event: FlatFileDatabaseEvent) => void;
 
 interface CacheEntry {
   cedict_id: number[];
-  // ids_id: number | null;
+  ids_id: number[];
 }
 
 class FlatFileDatabase {
@@ -50,7 +50,7 @@ class FlatFileDatabase {
   cedictWordDict: string;
   // wordIndex: string;
   cedictWordIndex: string;
-  // idsDict: string;
+  idsDict: string;
 
   constructor(options: FlatFileDatabaseOptions & { lang: DbLanguageId }) {
     this.bugsnag = options.bugsnag;
@@ -76,9 +76,9 @@ class FlatFileDatabase {
       this.cedictWordIndex = await this.readFileWithAutoRetry(
         browser.runtime.getURL(`data/cedict_${lang}.idx`)
       );
-      // this.idsDict = await this.readFileWithAutoRetry(
-      //   browser.runtime.getURL('data/ids.data')
-      // );
+      this.idsDict = await this.readFileWithAutoRetry(
+        browser.runtime.getURL(`data/char_${lang}.txt`)
+      );
 
       this.notifyListeners({ type: 'loaded' });
     } catch (e) {
@@ -236,6 +236,7 @@ class FlatFileDatabase {
       cedict_idx: number;
       traditional: string;
       simplified: string;
+      ids_data: string;
     }> = [];
     let maxLen = 0;
 
@@ -246,7 +247,7 @@ class FlatFileDatabase {
         const parts = found.split(separatorChar).slice(1);
         this.cache.set(input, {
           cedict_id: parts[0].split(',').map(Number),
-          // ids_id: parts.length > 1 ? Number(parts[1]) : null,
+          ids_id: parts.length > 1 ? parts[1].split(',').map(Number) : [],
         });
       } else {
         this.cache.set(input, null);
@@ -257,13 +258,9 @@ class FlatFileDatabase {
     if (word_data) {
       // if this input is found in cedict
       const cedict_indices = word_data.cedict_id;
-      // const idsEntry: string | null =
-      //   word_data.ids_id !== null
-      //     ? this.idsDict.slice(
-      //         word_data.ids_id,
-      //         this.idsDict.indexOf('\n', word_data.ids_id)
-      //       )
-      //     : null;
+      const ids_data = word_data.ids_id
+        .map((idx) => this.idsDict.slice(idx, this.idsDict.indexOf('\n', idx)))
+        .join('\n');
       for (let i = 0; i < cedict_indices.length; i++) {
         const dataEntry: string = this.cedictWordDict.slice(
           cedict_indices[i],
@@ -282,6 +279,7 @@ class FlatFileDatabase {
           cedict_idx: cedict_indices[i],
           traditional: entry[1],
           simplified: entry[2],
+          ids_data, // can be empty string or single line or multiple lines separated by \n
         });
         maxLen = maxLen || input.length;
       }
@@ -302,7 +300,7 @@ class FlatFileDatabase {
         tocflData,
         matchedEntries[i].traditional
       );
-      const pField = [];
+      const pField = ['bg1'];
       if (hasHSK) {
         pField.push('wk' + hskData[matchedEntries[i].simplified]);
       }
@@ -312,14 +310,12 @@ class FlatFileDatabase {
 
       const rawWordRecord: RawWordRecord = {
         k: [matchedEntries[i].simplified, matchedEntries[i].traditional],
-        km:
-          pField.length > 0
-            ? [
-                {
-                  p: pField,
-                },
-              ]
-            : undefined,
+        km: [
+          {
+            p: pField,
+            bg: matchedEntries[i].ids_data,
+          },
+        ],
         r: [matchedEntries[i].pinyin],
         s: [
           {
