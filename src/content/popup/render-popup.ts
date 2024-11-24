@@ -98,7 +98,9 @@ export function renderPopup(
         allCharsDataMap.set(allComponents[0], allComponents.slice(1));
       }
       for (const char of chosenWord.ent) {
-        allCharsToShowStrokes.push(char);
+        if (!allCharsToShowStrokes.includes(char)) {
+          allCharsToShowStrokes.push(char);
+        }
       }
       // there is only one match (simplified or traditional)
       showTabs = true;
