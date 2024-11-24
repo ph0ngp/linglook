@@ -456,11 +456,11 @@ export class Config {
     void browser.storage.sync.set({ hanziDisplay: value });
   }
 
-  // autoExpand: Defaults to always expand words and kanji. If change this must also change toggleAutoExpand.
+  // autoExpand: Defaults to always expand words. If change this must also change toggleAutoExpand.
 
   get autoExpand(): Array<AutoExpandableEntry> {
     return typeof this.settings.autoExpand === 'undefined'
-      ? (['words', 'kanji'] as Array<AutoExpandableEntry>)
+      ? (['words'] as Array<AutoExpandableEntry>)
       : [...new Set(this.settings.autoExpand)];
   }
 
@@ -477,12 +477,12 @@ export class Config {
       enabled.delete(type);
     }
 
-    if (enabled.size < 2) {
-      this.settings.autoExpand = [...enabled];
-      void browser.storage.sync.set({ autoExpand: [...enabled] });
-    } else {
+    if (enabled.has('words') && !enabled.has('kanji')) {
       delete this.settings.autoExpand;
       void browser.storage.sync.remove('autoExpand');
+    } else {
+      this.settings.autoExpand = [...enabled];
+      void browser.storage.sync.set({ autoExpand: [...enabled] });
     }
   }
 
