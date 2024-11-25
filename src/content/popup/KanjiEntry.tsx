@@ -187,7 +187,7 @@ export function KanjiEntry(props: Props) {
         {/* Left side - Hanzi writer */}
         <div
           onClick={() => {
-            if (hanziWriterRef.current) {
+            if (hanziWriterRef.current && isCharacterLoaded) {
               void hanziWriterRef.current.animateCharacter();
             }
           }}
