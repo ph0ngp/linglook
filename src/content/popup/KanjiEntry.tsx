@@ -113,7 +113,8 @@ export function KanjiEntry(props: Props) {
   const { t } = useLocale();
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const hanziWriterRef = useRef<HanziWriter>(null);
-  const [isCharacterLoaded, setIsCharacterLoaded] = useState(false);
+  const [isCharacterLoaded, setIsCharacterLoaded] = useState(true);
+  // default true to show the play button by default initially (for expandable to calculate height correctly) If character is not loaded, we will hide it later
 
   useEffect(() => {
     if (svgContainerRef.current) {
