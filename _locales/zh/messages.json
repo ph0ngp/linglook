@@ -2705,8 +2705,8 @@
     "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
-    "message": "笔顺",
-    "description": "The label for the kanji dictionary tab"
+    "message": "汉字",
+    "description": "The label for the character tab"
   },
   "tabs_names_label": {
     "message": "名字",

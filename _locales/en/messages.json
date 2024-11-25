@@ -1036,10 +1036,6 @@
     "message": ")",
     "description": "The message for the close parenthesis"
   },
-  "lang_colon_space": {
-    "message": ": ",
-    "description": "The message for the colon with a space"
-  },
   "lang_comma_space": {
     "message": ", ",
     "description": "The message for the comma with a space"
@@ -2761,8 +2757,8 @@
     "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
-    "message": "Strokes",
-    "description": "The label for the strokes tab"
+    "message": "Character",
+    "description": "The label for the character tab"
   },
   "tabs_names_label": {
     "message": "Names",

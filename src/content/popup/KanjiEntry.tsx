@@ -30,6 +30,7 @@ type CharData = {
   definition: string;
   pinyin: string;
   decomposition: string;
+  etymology_type_string: string;
   etymology_string: string;
 };
 
@@ -66,7 +67,7 @@ function getCharData(entry: KanjiResult): CharData | null {
             ? t('char_etymology_type_ideographic')
             : t('char_etymology_type_pictographic');
         // here hint is guaranteed to be non-empty, non-whitespace string
-        etymology_string = `${etymology_type_string}${t('lang_colon_space')}${etymology.hint}`;
+        etymology_string = etymology.hint;
         break;
       case 3: {
         etymology = {
@@ -89,7 +90,7 @@ function getCharData(entry: KanjiResult): CharData | null {
           .filter(Boolean) // removes empty strings
           .join(t('lang_comma_space'));
         // here etymology_string_value is guaranteed to be non-empty, non-whitespace string
-        etymology_string = `${etymology_type_string}${t('lang_colon_space')}${etymology_string_value}`;
+        etymology_string = etymology_string_value;
         break;
       }
       case 0:
@@ -102,8 +103,9 @@ function getCharData(entry: KanjiResult): CharData | null {
       radical: fields[0],
       radicalDefinition: fields[1],
       definition: fields[2],
-      pinyin: fields[3],
+      pinyin: fields[3].split(',').join(', '), // Add space after comma
       decomposition: fields[4],
+      etymology_type_string: etymology_type_string,
       etymology_string: etymology_string,
     };
   }
@@ -254,50 +256,77 @@ export function KanjiEntry(props: Props) {
           )}
         </div>
         <div class="tp-mt-1.5 tp-grow">
-          <div class="tp-flex tp-flex-col tp-gap-3">
-            {charData && (
-              <>
-                {charData.radical && (
-                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+          {/* <div class="tp-flex tp-flex-col tp-gap-3"> */}
+          {charData && (
+            <div class="tp-flex tp-flex-col tp-gap-3">
+              {charData.radical && (
+                <div lang={t('lang_id')} class="tp-flex tp-flex-col tp-gap-1">
+                  <div class="tp-text-sm tp-font-bold tp-text-[--text-color] tp-tracking-wide tp-uppercase tp-opacity-75">
                     {t('char_radical')}
-                    {t('lang_colon_space')}
-                    {charData.radical}
+                  </div>
+                  <div class="tp-text-base tp-leading-snug">
+                    <span class="tp-text-[--primary-highlight]">
+                      {charData.radical}
+                    </span>
                     {charData.radicalDefinition &&
                       ` - ${charData.radicalDefinition}`}
                   </div>
-                )}
-                {charData.definition && (
-                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                </div>
+              )}
+
+              {charData.definition && (
+                <div lang={t('lang_id')} class="tp-flex tp-flex-col tp-gap-1">
+                  <div class="tp-text-sm tp-font-bold tp-text-[--text-color] tp-tracking-wide tp-uppercase tp-opacity-75">
                     {t('char_definition')}
-                    {t('lang_colon_space')}
+                  </div>
+                  <div class="tp-text-base tp-leading-snug">
                     {charData.definition}
                   </div>
-                )}
-                {charData.pinyin && (
-                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                </div>
+              )}
+
+              {charData.pinyin && (
+                <div lang={t('lang_id')} class="tp-flex tp-flex-col tp-gap-1">
+                  <div class="tp-text-sm tp-font-bold tp-text-[--text-color] tp-tracking-wide tp-uppercase tp-opacity-75">
                     {t('char_pinyin')}
-                    {t('lang_colon_space')}
-                    {/* TODO: currently comma is without space */}
+                  </div>
+                  <div class="tp-text-base tp-leading-snug">
                     {charData.pinyin}
                   </div>
-                )}
-                {charData.decomposition && (
-                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
+                </div>
+              )}
+
+              {charData.decomposition && (
+                <div lang={t('lang_id')} class="tp-flex tp-flex-col tp-gap-1">
+                  <div class="tp-text-sm tp-font-bold tp-text-[--text-color] tp-tracking-wide tp-uppercase tp-opacity-75">
                     {t('char_decomposition')}
-                    {t('lang_colon_space')}
-                    {charData.decomposition}
                   </div>
-                )}
-                {charData.etymology_string && (
-                  <div lang={t('lang_id')} class="tp-text-base tp-leading-snug">
-                    {t('char_etymology')}
-                    {t('lang_colon_space')}
+                  <div class="tp-text-base tp-leading-snug">
+                    {charData.decomposition.split('').map((char, i) => (
+                      <span
+                        key={i}
+                        class="tp-inline-block tp-px-1 tp-text-[--primary-highlight]"
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {charData.etymology_string && (
+                <div lang={t('lang_id')} class="tp-flex tp-flex-col tp-gap-1">
+                  <div class="tp-text-sm tp-font-bold tp-text-[--text-color] tp-tracking-wide tp-uppercase tp-opacity-75">
+                    {t('char_etymology')} - {charData.etymology_type_string}
+                  </div>
+                  <div class="tp-text-base tp-leading-snug">
                     {charData.etymology_string}
                   </div>
-                )}
-              </>
-            )}
-          </div>
+                </div>
+              )}
+            </div>
+          )}
+          {/* </div> */}
         </div>
       </div>
     </div>

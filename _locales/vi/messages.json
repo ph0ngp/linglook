@@ -2705,8 +2705,8 @@
     "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
-    "message": "Thứ tự nét",
-    "description": "The label for the strokes tab"
+    "message": "Hán tự",
+    "description": "The label for the character tab"
   },
   "tabs_names_label": {
     "message": "Names",
