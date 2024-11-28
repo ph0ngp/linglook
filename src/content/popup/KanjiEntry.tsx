@@ -267,7 +267,7 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
           <svg
             // class="tp-w-big-kanji"
             // ref={timelineSvg}
-            viewBox="0 0 100 70"
+            viewBox="0 0 100 50"
             style={{
               webkitTapHighlightColor: 'transparent',
             }}
@@ -280,7 +280,7 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
               pointer-events="all"
               class="tp-cursor-pointer tp-opacity-30 hh:hover:tp-opacity-100 tp-fill-[--text-color] hh:hover:tp-fill-[--primary-highlight] tp-transition-transform tp-duration-500"
               style={{
-                transform: isPlaying ? 'none' : 'translate(40px, 20px)',
+                transform: isPlaying ? 'none' : 'translate(40px, 10px)',
               }}
             >
               <title>
@@ -292,9 +292,9 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
               </title>
               <rect
                 x={isPlaying ? 0 : -40}
-                y={isPlaying ? 0 : -20}
+                y={isPlaying ? 0 : -10}
                 width={isPlaying ? 25 : 100}
-                height={70}
+                height={50}
                 fill="none"
               />
               <path
