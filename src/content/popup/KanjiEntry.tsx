@@ -259,7 +259,7 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
               void hanziWriterRef.current.animateCharacter();
             }
           }}
-          class="tp-flex tp-justify-center tp-items-center"
+          // class="tp-flex tp-justify-center tp-items-center"
           style={{
             width: `${HANZI_WRITER_SIZE}px`,
           }}
