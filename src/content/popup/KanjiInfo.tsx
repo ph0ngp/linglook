@@ -21,21 +21,28 @@ export function KanjiInfo(props: Props) {
 
   return (
     <div class="tp-flex tp-flex-col tp-gap-3">
-      <KanjiReadings r={props.r} />
-      {!!props.misc.meta?.length && (
+      {props.r && <KanjiReadings r={props.r} />}
+      {!!props.misc?.meta?.length && (
         <div class="-tp-mt-1.5">
           <KanjiMeta tags={props.misc.meta} />
         </div>
       )}
-      <div class="tp-text-base tp-leading-snug" lang={props.m_lang}>
-        {props.m.join(', ')}
-      </div>
+      {props.m?.[0] && (
+        <div class="tp-text-base tp-leading-snug" lang={props.m_lang}>
+          {props.m[0]}
+        </div>
+      )}
+      {props.m?.[1] && (
+        <div class="tp-text-base tp-leading-snug" lang={props.m_lang}>
+          {props.m[1]}
+        </div>
+      )}
       <div class="tp-flex tp-items-base tp-gap-3.5 *:tp-grow" lang={langTag}>
-        <StrokeCount sc={props.misc.sc} />
-        <FrequencyIndicator frequency={props.misc.freq} />
-        <GradeIndicator gr={props.misc.gr} />
+        {props.misc?.sc && <StrokeCount sc={props.misc.sc} />}
+        {props.misc?.freq && <FrequencyIndicator frequency={props.misc.freq} />}
+        {props.misc?.gr && <GradeIndicator gr={props.misc.gr} />}
       </div>
-      {props.showComponents !== false && (
+      {props.showComponents !== false && props.comp && (
         <KanjiComponents rad={props.rad} comp={props.comp} />
       )}
     </div>

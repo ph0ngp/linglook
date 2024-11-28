@@ -42,8 +42,8 @@ export function getTextToCopy({
   showKanjiComponents?: boolean;
   hanziDisplay: HanziDisplay;
 }): string {
-  if (entry.type === 'word') {
-    // this is the only entry type
+  if (entry.type === 'word' || entry.type === 'kanji') {
+    // we only have these two types
     return getWordToCopy(entry, { hanziDisplay });
   } else {
     return '';

@@ -13,8 +13,8 @@ export default {
     keyframes: {
       flash: {
         from: {
-          background: 'white',
-          color: 'white',
+          background: 'var(--cell-highlight-bg)',
+          color: 'var(--cell-highlight-bg)',
         },
       },
     },

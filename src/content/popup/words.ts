@@ -678,7 +678,8 @@ function renderDefinitions(
 
   if (senses.length === 1) {
     definitionsDiv.append(renderSense(senses[0], options, entry));
-    definitionsDiv.lang = senses[0].lang || 'en';
+    // definitionsDiv.lang = senses[0].lang || 'en';
+    definitionsDiv.lang = options.dictLang || 'en';
     if (
       options.dictLang &&
       options.dictLang !== 'en' &&

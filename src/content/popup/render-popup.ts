@@ -1,5 +1,5 @@
 /// <reference path="../../common/css.d.ts" />
-import { WordResult } from '@birchill/jpdict-idb';
+import { KanjiResult, WordResult } from '@birchill/jpdict-idb';
 
 import { KanjiSearchResult } from '../../background/search-result';
 import type { FontFace, FontSize } from '../../common/content-config-params';
@@ -106,10 +106,54 @@ export function renderPopup(
       showTabs = true;
       result.kanji = {
         type: 'kanji',
-        data: allCharsToShowStrokes.map((char) => ({
-          c: char,
-          m: allCharsDataMap.get(char) ?? [], // if key found (meaning this char has associated data in char.txt), then must be an array of 6 elements
-        })),
+        data: allCharsToShowStrokes.map((char) => {
+          const charData = allCharsDataMap.get(char);
+          // if key found (meaning this char has associated data in char.txt), then must be an array of 11 elements
+          if (!charData || charData.length !== 12) {
+            //CY: actually this 'as' keyword suppresses Typescript type check (not recommended), and we return a not-full KanjiResult, so we must check for undefined value even for mandatory type of KanjiResult later when we use this data. Same for below "as KanjiResult"
+            return { c: char } as KanjiResult;
+          }
+          const pinyins = charData[0].split(',');
+          const gloss = charData[1];
+          const hint = charData[2];
+          const tradVariants = charData[3];
+          const simpVariants = charData[4];
+          const variantOf = charData[5];
+          const isVerified = charData[6];
+          const strokeCount = charData[7];
+          const movieCharRank = charData[8];
+          const bookCharRank = charData[9];
+          const movieCharPercent = charData[10];
+          const components = charData[11];
+
+          return {
+            c: char,
+            r: {
+              on: pinyins,
+            },
+            misc: {
+              meta: isVerified === '1' ? ['kokuji'] : undefined,
+              sc: bookCharRank ? Number(bookCharRank) : undefined,
+              freq: movieCharRank ? Number(movieCharRank) : undefined,
+              gr: movieCharPercent
+                ? Number((Number(movieCharPercent) * 100).toFixed(2))
+                : undefined,
+            },
+            m_lang: options.dictLang || 'en',
+            m: [gloss, hint],
+            comp: components
+              ? components.split('|').map((component) => {
+                  const component_parts = component.split('&');
+                  return {
+                    c: component_parts[0],
+                    na: [component_parts[1].split(',').join(', ')],
+                    m: component_parts[2] ? [component_parts[2]] : [],
+                    m_lang: options.dictLang || 'en',
+                  };
+                })
+              : [],
+          } as KanjiResult;
+        }),
         matchLen: result.words.matchLen,
       } as KanjiSearchResult;
     }

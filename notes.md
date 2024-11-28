@@ -108,26 +108,25 @@
   - The extension now installs, and remains installed until you restart Firefox.
 - charsData:
   - all fields are separated by underscore, null fields are empty string so they makes two consecutive underscores
+  - common guarantees: no FIELD_SEPARATOR in any field (FIELD_SEPARATOR only used as separator). Item in list does not contain LIST_SEPARATOR
   - main char: never empty, guaranteed to be of length 1, non-whitespace string, unique
-  - radical: never empty, guaranteed to be of length 1, non-whitespace string
-  - radical_definition: can be empty, if not empty, it's always non-whitespace string
-  - definition: can be empty, if not empty, it's always non-whitespace string
-  - pinyin: can be empty, if not empty, it's always non-whitespace string: at least one pinyin separated by comma without space
-  - decomposition: can be empty, if not empty, it's always non-whitespace string.
-  - etymology: always starts with 0,1,2,3:
-    - 0: no etymology, string ends here.
-    - 1: ideographic
-      - always have format 1+hint where hint is guaranteed to be non-empty, non-whitespace string
-    - 2: pictographic
-      - always have format 2+hint where hint is guaranteed to be non-empty, non-whitespace string
-    - 3: pictophonetic:
-      - always have format 3+hint+semantic+phonetic where hint, semantic, phonetic can be empty, if not empty, they are always non-whitespace string
-      - among hint, semantic, phonetic, at least one is non-empty
-        - never: hint alone
-        - never: hint + phonetic alone
-      - meaning of them is like this: {semantic} ({hint}) provides the meaning; {phonetic} provides the pronunciation
-- char_en.txt: generated from makemeahanzi repo
-  - radical definition is copied from the radical char's own row for convenience
+  - pinyin: never empty, at least one pinyin, if multiple, separated by comma without space. Ordered by most popular to least popular (if have frequency data)
+  - gloss: can be empty, if not empty, it's always non-whitespace string
+  - hint: can be empty, if not empty, it's always non-whitespace string
+  - trad_variants: can be empty, if not empty, it's always non-whitespace string: at least one trad character of length 1 separated by comma without space
+  - simp_variants: can be empty, if not empty, it's always non-whitespace string: at least one simp character of length 1 separated by comma without space
+  - variantOf: can be empty, if not empty, it's always length 1 non whitespace character, different from main char
+  - isVerified: empty or 1
+  - strokeCount: empty or guaranteed to be an integer > 0
+  - movieCharRank: empty or guaranteed to be an integer > 0
+  - bookCharRank: empty or guaranteed to be an integer > 0
+  - movieCharContextsPercent: empty or guaranteed to be 0 < a float <= 1 with max 4 decimal places. It does not have trailing 0 or trailing decimal point (in case 1)
+  - components: can be empty, if not empty, it's a list of components of at least 1 component. Each component is separated by COMPONENT_SEPARATOR, inside each component, fields are separated by SUBCOMPONENT_SEPARATOR.
+    - First field is character, always available, always length 1, non whitespace.
+    - Second field is type, always available, always a list of at least 1 type, each type must be one of these: 'unknown', 'deleted', 'remnant', 'iconic', 'meaning', 'distinguishing', 'simplified', 'sound' separated by LIST_SEPARATOR
+    - Third field is hint, can be empty, if not empty, it's always non whitespace string
+    - 4th,5th,6th fields are isOldPronunciation, isGlyphChanged, isFromOriginalMeaning, all can be empty, if not empty, must be 0 or 1
+- char_en.txt: generated from dong-chinese.com data
   - we must process this file in background rather than content because it's too big. And safari ios doesn't accept content.js > 4MB
 - generate idx file: scripts/generate_idx.py
   - for each line in cedict: get all possible characters including both simp and trad. Then assign all of them to each word in that line. Then with each char, if they are available in char.txt, then include its index in char.txt, associated with that word.

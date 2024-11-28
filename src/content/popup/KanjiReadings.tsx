@@ -8,8 +8,8 @@ export function KanjiReadings(props: Props) {
   const { t, langTag } = useLocale();
 
   return (
-    <div lang="ja" class="tp-text-[--reading-highlight] tp-text-base">
-      {props.r.on?.join('、') || null}
+    <div lang="zh" class="tp-text-[--reading-highlight] tp-text-base">
+      {props.r.on?.join(', ') || null}
       {props.r.kun?.map((k, i) => {
         const hasPreceding = i !== 0 || !!props.r.on?.length;
         return (
