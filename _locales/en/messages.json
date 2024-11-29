@@ -1,43 +1,19 @@
 {
-  "char_decomposition": {
-    "message": "Decomposition",
-    "description": "The message for the decomposition"
-  },
   "char_definition": {
-    "message": "Definition",
+    "message": "Meaning",
     "description": "The message for the definition"
   },
-  "char_etymology": {
-    "message": "Etymology",
-    "description": "The message for the etymology"
+  "char_hanviet": {
+    "message": "Han Viet",
+    "description": "The message for the HanViet"
   },
-  "char_etymology_phonetic": {
-    "message": "provides the pronunciation",
-    "description": "The message for the pictophonetic etymology"
-  },
-  "char_etymology_semantic": {
-    "message": "provides the meaning",
-    "description": "The message for the pictophonetic etymology"
-  },
-  "char_etymology_type_ideographic": {
-    "message": "Ideographic",
-    "description": "The message for the ideographic etymology"
-  },
-  "char_etymology_type_pictographic": {
-    "message": "Pictographic",
-    "description": "The message for the pictographic etymology"
-  },
-  "char_etymology_type_pictophonetic": {
-    "message": "Pictophonetic",
-    "description": "The message for the pictophonetic etymology"
+  "char_hint": {
+    "message": "Origin",
+    "description": "The message for the hint"
   },
   "char_pinyin": {
     "message": "Pinyin",
     "description": "The message for the pinyin"
-  },
-  "char_radical": {
-    "message": "Radical",
-    "description": "The message for the radical"
   },
   "char_stroke_animation_not_found": {
     "message": "not found",
@@ -178,7 +154,7 @@
     "description": "The label to give to kanji components when copying a kanji entry"
   },
   "content_kanji_frequency_label": {
-    "message": "Freq. ",
+    "message": "Frequency rank",
     "description": "The prefix to the xxx / 2,500 frequency information"
   },
   "content_kanji_grade_general_use": {

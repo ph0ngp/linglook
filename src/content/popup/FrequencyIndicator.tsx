@@ -48,8 +48,8 @@ export function FrequencyIndicator(props: Props) {
       <span>
         {props.frequency ? (
           <>
-            {`${t('content_kanji_frequency_label')} ${props.frequency.toLocaleString()}`}
-            <span class="tp-text-xs"> / {Number(2500).toLocaleString()}</span>
+            {`${t('content_kanji_frequency_label')} ${props.frequency}`}
+            {/* <span class="tp-text-xs"> / {Number(2500).toLocaleString()}</span> */}
           </>
         ) : (
           '-'

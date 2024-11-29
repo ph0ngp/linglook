@@ -1,4 +1,20 @@
 {
+  "char_definition": {
+    "message": "释义",
+    "description": "The message for the definition"
+  },
+  "char_hanviet": {
+    "message": "汉越词",
+    "description": "The message for the HanViet"
+  },
+  "char_hint": {
+    "message": "字源",
+    "description": "The message for the hint"
+  },
+  "char_pinyin": {
+    "message": "拼音",
+    "description": "The message for the pinyin"
+  },
   "char_stroke_animation_not_found": {
     "message": "未找到",
     "description": "The message for the stroke animation not found"
@@ -138,7 +154,7 @@
     "description": "The label to give to kanji components when copying a kanji entry"
   },
   "content_kanji_frequency_label": {
-    "message": "字频",
+    "message": "频率排名",
     "description": "The prefix to the xxx / 2,500 frequency information"
   },
   "content_kanji_grade_general_use": {

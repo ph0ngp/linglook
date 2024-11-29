@@ -1,4 +1,20 @@
 {
+  "char_definition": {
+    "message": "Nghĩa",
+    "description": "The message for the definition"
+  },
+  "char_hanviet": {
+    "message": "Hán Việt",
+    "description": "The message for the HanViet"
+  },
+  "char_hint": {
+    "message": "Nguồn gốc",
+    "description": "The message for the hint"
+  },
+  "char_pinyin": {
+    "message": "Pinyin",
+    "description": "The message for the pinyin"
+  },
   "char_stroke_animation_not_found": {
     "message": "Không tìm thấy",
     "description": "The message for the stroke animation not found"
@@ -138,7 +154,7 @@
     "description": "The label to give to kanji components when copying a kanji entry"
   },
   "content_kanji_frequency_label": {
-    "message": "Freq. ",
+    "message": "Hạng phổ biến",
     "description": "The prefix to the xxx / 2,500 frequency information"
   },
   "content_kanji_grade_general_use": {
@@ -194,7 +210,7 @@
     "description": "The title given to the box showing radical information"
   },
   "content_kanji_strokes_label": {
-    "message": "$strokes$ strokes",
+    "message": "$strokes$ nét",
     "description": "The description of the number of strokes",
     "placeholders": {
       "strokes": {
@@ -204,7 +220,7 @@
     }
   },
   "content_kanji_strokes_label_1": {
-    "message": "1 stroke",
+    "message": "1 nét",
     "description": "The description of the number of strokes when there is exactly 1 stroke"
   },
   "content_names_age": {
@@ -1752,7 +1768,7 @@
     "description": "Label for font size drop-down."
   },
   "options_font_size_large": {
-    "message": "To",
+    "message": "Lớn",
     "description": "Label for larger font size option."
   },
   "options_font_size_normal": {
@@ -1760,7 +1776,7 @@
     "description": "Label for default font size option."
   },
   "options_font_size_xl": {
-    "message": "Siêu bự",
+    "message": "Rất lớn",
     "description": "Label for largest font size option."
   },
   "options_general_heading": {
