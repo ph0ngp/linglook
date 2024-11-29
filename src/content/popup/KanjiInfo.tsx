@@ -37,11 +37,15 @@ export function KanjiInfo(props: Props) {
           {props.m[1]}
         </div>
       )}
-      <div class="tp-flex tp-items-base tp-gap-3.5 *:tp-grow" lang={langTag}>
-        {props.misc?.sc && <StrokeCount sc={props.misc.sc} />}
-        {props.misc?.freq && <FrequencyIndicator frequency={props.misc.freq} />}
-        {props.misc?.gr && <GradeIndicator gr={props.misc.gr} />}
-      </div>
+      {(props.misc?.sc || props.misc?.freq || props.misc?.gr) && (
+        <div class="tp-flex tp-items-base tp-gap-3.5 *:tp-grow" lang={langTag}>
+          {props.misc?.sc && <StrokeCount sc={props.misc.sc} />}
+          {props.misc?.freq && (
+            <FrequencyIndicator frequency={props.misc.freq} />
+          )}
+          {props.misc?.gr && <GradeIndicator gr={props.misc.gr} />}
+        </div>
+      )}
       {props.showComponents !== false && props.comp && (
         <KanjiComponents rad={props.rad} comp={props.comp} />
       )}

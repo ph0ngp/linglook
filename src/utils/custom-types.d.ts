@@ -11,4 +11,6 @@ declare module 'hanviet-pinyin-words' {
     pinyinArray: string[],
     firstCharUpperCase?: boolean
   ): string;
+
+  export function getAllHanvietsOfChar(tradHanziChar: string): string[];
 }
