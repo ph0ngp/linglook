@@ -114,12 +114,13 @@
   - gloss: can be empty, if not empty, it's always non-whitespace string
   - hint: can be empty, if not empty, it's always non-whitespace string
   - trad_variants: can be empty, if not empty, it's always non-whitespace string: at least one trad character of length 1 separated by comma without space
+  - strokeCount: empty or guaranteed to be an integer > 0
+  - bookCharRank: empty or guaranteed to be an integer > 0
+- chardData unavailable fields:
   - simp_variants: can be empty, if not empty, it's always non-whitespace string: at least one simp character of length 1 separated by comma without space
   - variantOf: can be empty, if not empty, it's always length 1 non whitespace character, different from main char
   - isVerified: empty or 1
-  - strokeCount: empty or guaranteed to be an integer > 0
   - movieCharRank: empty or guaranteed to be an integer > 0
-  - bookCharRank: empty or guaranteed to be an integer > 0
   - movieCharContextsPercent: empty or guaranteed to be 0 < a float <= 1 with max 4 decimal places. It does not have trailing 0 or trailing decimal point (in case 1)
   - components: can be empty, if not empty, it's a list of components of at least 1 component. Each component is separated by COMPONENT_SEPARATOR, inside each component, fields are separated by SUBCOMPONENT_SEPARATOR.
     - First field is character, always available, always length 1, non whitespace.
