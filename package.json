@@ -65,7 +65,7 @@
     "@birchill/jpdict-idb": "2.6.0",
     "@birchill/normal-jp": "1.5.0",
     "classname-variants": "1.5.0",
-    "hanviet-pinyin-words": "^2.1.5",
+    "hanviet-pinyin-words": "^2.1.6",
     "hanzi-writer": "^3.7.2",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
