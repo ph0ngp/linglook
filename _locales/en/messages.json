@@ -1012,14 +1012,6 @@
     "message": "rare",
     "description": "Short annotation given to kanji headwords that use rarely-used kanji forms"
   },
-  "lang_close_parenthesis": {
-    "message": ")",
-    "description": "The message for the close parenthesis"
-  },
-  "lang_comma_space": {
-    "message": ", ",
-    "description": "The message for the comma with a space"
-  },
   "lang_label_af": {
     "message": "Afrikaans",
     "description": "Label used to describe senses whose source language is 'af' (Afrikaans)"
@@ -1316,10 +1308,6 @@
   "lang_lsrc_wasei_prefix": {
     "message": " (",
     "description": "The start of the text used to indicate a source language when the first source language is waseigo, e.g. ' (wasei English)'"
-  },
-  "lang_open_parenthesis": {
-    "message": "(",
-    "description": "The message for the open parenthesis"
   },
   "lang_tag": {
     "message": "en",
