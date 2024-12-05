@@ -118,7 +118,7 @@
   - bookCharRank: empty or guaranteed to be an integer > 0
   - radical_str:
     - case 1: empty. Means no radical.
-    - case 2: "*". Means itself is a radical. Guaranteed to have non-empty gloss and gloss_vi
+    - case 2: "\*". Means itself is a radical. Guaranteed to have non-empty gloss and gloss_vi
     - case 3: non-empty, with 2 components separated by COMPONENT_SEPARATOR: radical|gloss . Each component is guaranteed to be non-empty. Radical is guaranteed to be different from char and of length 1.
 - chardData unavailable fields:
   - simp_variants: can be empty, if not empty, it's always non-whitespace string: at least one simp character of length 1 separated by comma without space
@@ -139,18 +139,11 @@
 - RawWordRecord:
   - k: simp char, trad char (only these 2)
   - km:
-          [
-            {
-              p: pField, (always ['bg1'], can have 'wkLevel' (HSK) or 'bvLevel' (TOCFL))
-              bg: characters data, including possible simp, trad chars' data. Can be empty string, or single line or multiple lines separated by \n
-            },
-          ],
+    - p: pField, (always ['bg1'], can have 'wkLevel' (HSK) or 'bvLevel' (TOCFL))
+    - bg: characters data, including possible simp, trad chars' data. Can be empty string, or single line or multiple lines separated by \n
   - r: pinyin
-  - s: [
-      {
-        g: [definition],
-      },
-    ],
+  - s:
+    - g: [definition],
 - After converted to toDictionaryWordResult:
   - k: 2 fields:
     - first field: simp
