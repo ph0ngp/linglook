@@ -15,6 +15,10 @@
     "message": "Pinyin",
     "description": "The message for the pinyin"
   },
+  "char_radical": {
+    "message": "Bộ thủ",
+    "description": "The message for the radical"
+  },
   "char_stroke_animation_not_found": {
     "message": "Không tìm thấy",
     "description": "The message for the stroke animation not found"

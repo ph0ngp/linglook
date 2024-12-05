@@ -110,7 +110,7 @@ export function renderPopup(
         data: allCharsToShowStrokes.map((char) => {
           const charData = allCharsDataMap.get(char);
           // if key found (meaning this char has associated data in char.txt), then must be an array of 11 elements
-          if (!charData || charData.length !== 6) {
+          if (!charData || charData.length !== 7) {
             //CY: actually this 'as' keyword suppresses Typescript type check (not recommended), and we return a not-full KanjiResult, so we must check for undefined value even for mandatory type of KanjiResult later when we use this data. Same for below "as KanjiResult"
             return { c: char } as KanjiResult;
           }
@@ -141,6 +141,13 @@ export function renderPopup(
           const strokeCount = charData[4];
           // const movieCharRank = charData[8];
           const bookCharRank = charData[5];
+          const radicalStr = charData[6];
+          let radicalText = '';
+          if (radicalStr && radicalStr !== '*') {
+            const radical = radicalStr.split('|')[0];
+            const gloss = radicalStr.split('|')[1];
+            radicalText = `${radical} (${gloss})`;
+          }
           // const movieCharPercent = charData[10];
           // const components = charData[11];
 
@@ -159,7 +166,7 @@ export function renderPopup(
               //   : undefined,
             },
             m_lang: options.dictLang || 'en',
-            m: [gloss, hint],
+            m: [gloss, hint, radicalText],
             // comp: components
             //   ? components.split('|').map((component) => {
             //       const component_parts = component.split('&');

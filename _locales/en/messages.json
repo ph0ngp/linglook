@@ -15,6 +15,10 @@
     "message": "Pinyin",
     "description": "The message for the pinyin"
   },
+  "char_radical": {
+    "message": "Radical",
+    "description": "The message for the radical"
+  },
   "char_stroke_animation_not_found": {
     "message": "not found",
     "description": "The message for the stroke animation not found"

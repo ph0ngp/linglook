@@ -78,6 +78,19 @@ export function KanjiInfo(props: Props) {
             </div>
           </>
         )}
+        {props.m?.[2] && (
+          <>
+            <div
+              lang={t('lang_tag')}
+              class="tp-text-sm tp-font-bold tp-text-[--text-color] tp-tracking-wide tp-uppercase tp-opacity-75"
+            >
+              {t('char_radical')}
+            </div>
+            <div lang={props.m_lang} class="tp-text-base tp-leading-snug">
+              {props.m[2]}
+            </div>
+          </>
+        )}
       </div>
 
       {props.m?.[1] && (
