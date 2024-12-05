@@ -178,7 +178,7 @@
 
   --hover-bg: var(--cell-highlight-bg);
   --selected-bg: var(--hover-bg);
-  --stroke-outline: var(--hover-bg);
+  --stroke-outline: #3e434d;
 
   /* Reset selection styles */
   --selected-highlight: var(--primary-highlight);
