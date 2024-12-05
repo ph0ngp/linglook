@@ -5,7 +5,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
 - Dữ liệu từ điển gồm rất nhiều cụm từ mới, phổ biến trong ngôn ngữ tiếng Trung hiện đại, vốn không có trong các từ điển Hán Việt truyền thống khác
 - Hỗ trợ cả chữ Hán giản thể và phồn thể
 - Cung cấp nghĩa từ kèm pinyin, phiên âm Hán Việt, cấp độ HSK và TOCFL
-- Hiển thị thứ tự nét chữ viết (bút thuận)
+- Thông tin chi tiết về Hán tự: thứ tự nét viết, tần suất, bộ thủ, nguồn gốc,...
 - Sao chép nhanh và tìm kiếm hình ảnh trên Google
 - Tùy chỉnh màu sắc, giao diện và cách thức hoạt động
 - Hỗ trợ từ điển tiếng Anh và tiếng Việt
@@ -19,7 +19,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
   - Nhấn đúp: Thay đổi hướng tra cứu (lên/xuống).
 - Trong cửa sổ popup, bạn có thể xem nghĩa của từ, pinyin, phiên âm Hán Việt, cấp độ HSK, cấp độ TOCFL.
 - Nhấn vào từ, bạn có thể sao chép hoặc tìm kiếm hình ảnh trên Google.
-- Trong tab "Thứ tự nét", nhấn vào Hán tự để xem thứ tự nét viết (bút thuận).
+- Chuyển sang tab "Hán tự", bạn có thể xem các thông tin chi tiết về chữ như thứ tự nét viết, tần suất, bộ thủ, nguồn gốc,...
 - Tùy chỉnh màu sắc, giao diện và cách thức hoạt động của LingLook bằng cách nhấn vào biểu tượng bánh răng trong cửa sổ popup.
 
 ** Khi có vấn đề **

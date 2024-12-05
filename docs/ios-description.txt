@@ -4,7 +4,7 @@ Learn Chinese effortlessly while browsing! LingLook is a Safari extension that i
 - Instant Chinese word lookup in any web page by hovering over text
 - Support for both simplified and traditional Chinese characters
 - Word definitions with pinyin, HSK level, and TOCFL level
-- Interactive character stroke order animations
+- Detailed character information: stroke order animation, frequency, radical, origin, etc.
 - Quick copy and Google Images search
 - Customizable appearance and behavior
 - Supports English and Vietnamese dictionaries
@@ -18,7 +18,7 @@ Learn Chinese effortlessly while browsing! LingLook is a Safari extension that i
   - Double-tap on the puck: Switch lookup direction (up/down).
 - Inside the popup window, you can see the word's definition, pinyin, HSK level, TOCFL level.
 - Tap on the word, and you can copy it to clipboard or search it with Google Images.
-- In the "Strokes" tab, tap on a character to see its stroke order animation.
+- Switch to the "Character" tab, here you can see detailed character information like stroke order animation, frequency, radical, origin, etc.
 - Customize the appearance and behavior of LingLook by clicking on the settings gear icon in the popup window.
 
 ** Troubleshooting **
