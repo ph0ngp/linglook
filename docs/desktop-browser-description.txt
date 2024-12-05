@@ -4,7 +4,7 @@ Learn Chinese effortlessly while browsing! LingLook is a browser extension that 
 - Instant Chinese word lookup in any web page by hovering over text
 - Support for both simplified and traditional Chinese characters
 - Word definitions with pinyin, HSK level, and TOCFL level
-- Interactive character stroke order animations
+- Detailed character information: stroke order animation, frequency, radical, origin, etc.
 - Quick word copy and Google Images search
 - Support for keyboard shortcuts
 - Customizable appearance and behavior
@@ -17,7 +17,7 @@ Learn Chinese effortlessly while browsing! LingLook is a browser extension that 
 - When you first hover over a word, the popup window will appear with a dotted border. After 400ms, the popup will change to have a solid outline. From here, you can move the mouse into the popup to change tabs or select entries.
 - You can also configure the popup to show only when you hold a key like Control. In that case, the popup will not be interactive until you release that key. After you release the key, it will immediately become interactive.
 - Click on the word, and you can copy it to clipboard or search it with Google Images.
-- In the "Strokes" tab, click on a character to see its stroke order animation.
+- Switch to the "Character" tab, here you can see detailed character information like stroke order animation, frequency, radical, origin, etc.
 - Customize the appearance and behavior of LingLook by clicking on the settings gear icon in the popup window.
 
 ** Troubleshooting **
