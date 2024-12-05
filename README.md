@@ -110,7 +110,8 @@ Contributions are welcome! Please feel free to submit a Pull Request or an Issue
 - Chinese-English dictionary data: [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict) by MDBG, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 - Chinese-Vietnamese dictionary data: [CVDICT](https://github.com/ph0ngp/CVDICT) by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 - Chinese character stroke order data: [Hanzi Writer project](https://hanziwriter.org) by David Chanin, licensed under the [MIT License](https://hanziwriter.org/license.html)
-- Chinese character data: [Dong Chinese Character Wiki](https://www.dong-chinese.com/wiki) by Peter Olson, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+- Chinese character data - English version: originally from [Dong Chinese Character Wiki](https://www.dong-chinese.com/wiki) by Peter Olson, edited by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+- Chinese character data - Vietnamese version: translated and edited by Phong Phan from the original source of Dong Chinese data, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 - Sino-Vietnamese transliteration data: [Hán-Việt Pinyin wordlist](https://github.com/ph0ngp/hanviet-pinyin-wordlist) by Phong Phan, licensed under the [MIT License](https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE)
 
 ## Credits
@@ -119,4 +120,6 @@ This project started as a fork of the [10ten Japanese Reader](https://github.com
 
 ## License
 
-This software is licensed under the [GNU General Public License v3.0](LICENSE) by [Phong Phan](https://github.com/ph0ngp).
+The included data sources are licensed as specified in the [Data sources](#data-sources) section.
+
+The remaining part of the software is licensed under the [GNU General Public License v3.0](LICENSE) by [Phong Phan](https://github.com/ph0ngp).
