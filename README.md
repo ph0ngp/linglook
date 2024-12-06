@@ -107,11 +107,14 @@ Contributions are welcome! Please feel free to submit a Pull Request or an Issue
 
 ## Data sources
 
-- Chinese-English dictionary data: [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict) by MDBG, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
-- Chinese-Vietnamese dictionary data: [CVDICT](https://github.com/ph0ngp/CVDICT) by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+- Dictionary definition data:
+  - [Chinese-English dictionary data](data/cedict_en.u8): [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict) by MDBG, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+  - [Chinese-Vietnamese dictionary data](data/cedict_vi.u8): [CVDICT](https://github.com/ph0ngp/CVDICT) by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+- Chinese character data:
+  - [English version](data/char_en.txt): originally from [Dong Chinese Character Wiki](https://www.dong-chinese.com/wiki) by Peter Olson, edited by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+  - [Vietnamese version](data/char_vi.txt): translated and edited by Phong Phan from the original source of Dong Chinese data, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+  - Note: to see the format of these files, refer to [notes.md](notes.md).
 - Chinese character stroke order data: [Hanzi Writer project](https://hanziwriter.org) by David Chanin, licensed under the [MIT License](https://hanziwriter.org/license.html)
-- Chinese character data - English version: originally from [Dong Chinese Character Wiki](https://www.dong-chinese.com/wiki) by Peter Olson, edited by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
-- Chinese character data - Vietnamese version: translated and edited by Phong Phan from the original source of Dong Chinese data, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 - Sino-Vietnamese transliteration data: [Hán-Việt Pinyin wordlist](https://github.com/ph0ngp/hanviet-pinyin-wordlist) by Phong Phan, licensed under the [MIT License](https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE)
 
 ## Credits

@@ -106,7 +106,7 @@
 - Firefox temporarily install addon from local source:
   - In Firefox: Open the about:debugging page, click the This Firefox option, click the Load Temporary Add-on button, then select any file in your extension's directory.
   - The extension now installs, and remains installed until you restart Firefox.
-- charsData:
+- character data format:
   - all fields are separated by underscore, null fields are empty string so they makes two consecutive underscores
   - common guarantees: no FIELD_SEPARATOR in any field (FIELD_SEPARATOR only used as separator). Item in list does not contain LIST_SEPARATOR
   - main char: never empty, guaranteed to be of length 1, non-whitespace string, unique
@@ -120,17 +120,6 @@
     - case 1: empty. Means no radical.
     - case 2: "\*". Means itself is a radical. Guaranteed to have non-empty gloss and gloss_vi
     - case 3: non-empty, with 2 components separated by COMPONENT_SEPARATOR: radical|gloss . Each component is guaranteed to be non-empty. Radical is guaranteed to be different from char and of length 1.
-- chardData unavailable fields:
-  - simp_variants: can be empty, if not empty, it's always non-whitespace string: at least one simp character of length 1 separated by comma without space
-  - variantOf: can be empty, if not empty, it's always length 1 non whitespace character, different from main char
-  - isVerified: empty or 1
-  - movieCharRank: empty or guaranteed to be an integer > 0
-  - movieCharContextsPercent: empty or guaranteed to be 0 < a float <= 1 with max 4 decimal places. It does not have trailing 0 or trailing decimal point (in case 1)
-  - components: can be empty, if not empty, it's a list of components of at least 1 component. Each component is separated by COMPONENT_SEPARATOR, inside each component, fields are separated by SUBCOMPONENT_SEPARATOR.
-    - First field is character, always available, always length 1, non whitespace.
-    - Second field is type, always available, always a list of at least 1 type, each type must be one of these: 'unknown', 'deleted', 'remnant', 'iconic', 'meaning', 'distinguishing', 'simplified', 'sound' separated by LIST_SEPARATOR
-    - Third field is hint, can be empty, if not empty, it's always non whitespace string
-    - 4th,5th,6th fields are isOldPronunciation, isGlyphChanged, isFromOriginalMeaning, all can be empty, if not empty, must be 0 or 1
 - char_en.txt: generated from dong-chinese.com data
   - we must process this file in background rather than content because it's too big. And safari ios doesn't accept content.js > 4MB
 - generate idx file: scripts/generate_idx.py
