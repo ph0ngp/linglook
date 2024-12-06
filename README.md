@@ -29,7 +29,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 
 - [Chrome Extension](https://chromewebstore.google.com/detail/linglook/iokfkfickldinmejhpfcngiocoedkpkh)
 - [App Store](https://apps.apple.com/app/linglook/id6738310788) (macOS and iOS Safari Extension App)
-- [Firefox Add-on](https://addons.mozilla.org/firefox/addon/linglook/)
+- [Firefox Add-on](https://addons.mozilla.org/firefox/addon/linglook/) (desktop and Android version)
 - [Edge Add-on](https://microsoftedge.microsoft.com/addons/detail/hmfcnlmcekaglkfokhajekokgojpeidk)
 
 ## Features

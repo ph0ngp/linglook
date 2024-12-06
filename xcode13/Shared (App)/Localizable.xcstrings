@@ -317,25 +317,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To view the stroke order of characters, click on the \"Strokes\" tab. Then, click on each character to see its stroke order."
+            "value" : "Switch to the \"Character\" tab, here you can play stroke order animation and see other character information like its frequency rank, radical, origin, etc."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Để xem thứ tự nét của chữ cần tra, nhấn vào tab \"Thứ tự nét\". Sau đó, nhấn vào từng chữ để xem thứ tự nét của nó."
+            "value" : "Chuyển sang tab \"Hán tự\", ở đây bạn có thể xem minh hoạ thứ tự nét viết và các thông tin khác như thứ hạng phổ biến, bộ thủ, nguồn gốc,..."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要查看汉字的笔顺，请点击“笔顺”标签。然后，点击每个汉字以查看其笔顺。"
+            "value" : "切换到“汉字”标签，在这里你可以播放笔顺动画，并查看其他汉字信息，比如频率排名、部首、字源等。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要查看漢字的筆順，請點擊「筆順」標籤。然後，點擊每個漢字以查看其筆順。"
+            "value" : "切換到「漢字」標籤，在這裡你可以播放筆順動畫，並查看其他漢字資訊，比如頻率排名、部首、字源等。"
           }
         }
       }
