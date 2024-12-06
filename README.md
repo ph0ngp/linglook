@@ -37,7 +37,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 - Look up Chinese words by hovering over them, on both desktop and mobile.
 - Supports both simplified and traditional Chinese characters.
 - Displays the word's definition, pinyin, HSK level, TOCFL level.
-- Displays each character's stroke order.
+- Detailed character information: stroke order animation, frequency, radical, origin, etc.
 - Copy the word to clipboard.
 - Search the word with Google Images.
 - Supports keyboard shortcuts for desktop users.
@@ -50,17 +50,17 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 #### On desktop
 
 <div align="center">
-  <img src="docs/definitions.png" alt="definitions"/>
+  <img src="docs/definitions.png" alt="definitions" width="700"/>
   <br>
-  <img src="docs/strokes.gif" alt="strokes"/>
+  <img src="docs/character.gif" alt="character" width="700"/>
   <br>
-  <img src="docs/copy-search.png" alt="copy-search"/>
+  <img src="docs/copy-search.png" alt="copy-search" width="700"/>
 </div>
 
 #### On mobile
 
 <div align="center">
-  <img src="docs/iphone.png" alt="mobile" width="590" />
+  <img src="docs/iphone.png" alt="mobile" width="642" />
 </div>
 
 ## How to use
@@ -73,7 +73,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
   - Double-tap on the puck to switch the lookup direction between up and down.
 - Inside the popup window, you can see the word's definition, pinyin, HSK level, TOCFL level.
   - Click on the word, and you can copy it to clipboard or search it with Google Images.
-- In the "Strokes" tab, click on a character to see its stroke order.
+- Switch to the "Character" tab, here you can play stroke order animation and see other character information like frequency, radical, origin, etc.
 - Clicking on the Settings gear icon will open the extension's settings page. Here you can change various settings including theme, show/hide HSK/TOCFL levels, simplified/traditional character order, dictionary language, keyboard shortcuts, etc.
 - Troubleshooting: If for some reason the extension does not work as expected, try enabling/disabling the extension, reloading the page, or restarting the browser.
 
