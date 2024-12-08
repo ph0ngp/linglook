@@ -54,13 +54,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "character stroke order animation"
+            "value" : "detailed character information"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "thứ tự nét viết của Hán tự"
+            "value" : "thông tin chi tiết\nvề chữ Hán"
           }
         }
       }
