@@ -16,7 +16,7 @@
     "description": "The message for the pinyin"
   },
   "char_radical": {
-    "message": "Radical",
+    "message": "Clé",
     "description": "The message for the radical"
   },
   "char_stroke_animation_not_found": {
@@ -128,7 +128,7 @@
     "description": "Fallback label used for the button to copy a kanji character when we fail to look up the kanji"
   },
   "content_copy_overlay_tab_separated_button": {
-    "message": "Rechercher images",
+    "message": "Rechercher des images",
     "description": "Label for the button to copy an entry with fields separated by tabs"
   },
   "content_copy_overlay_word_button": {
@@ -158,7 +158,7 @@
     "description": "The label to give to kanji components when copying a kanji entry"
   },
   "content_kanji_frequency_label": {
-    "message": "Freq. ",
+    "message": "Rang de fréquence",
     "description": "The prefix to the xxx / 2,500 frequency information"
   },
   "content_kanji_grade_general_use": {
@@ -1310,7 +1310,7 @@
     "description": "The start of the text used to indicate a source language when the first source language is waseigo, e.g. ' (wasei English)'"
   },
   "lang_tag": {
-    "message": "en",
+    "message": "fr",
     "description": "The BCP-47 compatible language code used to tag content from this localization"
   },
   "measure_expl_chuukyouma": {
@@ -1711,7 +1711,7 @@
     "message": "À propos de LingLook"
   },
   "options_dictionary_language_heading": {
-    "message": "Dictionnaire de langue"
+    "message": "Langue du dictionnaire"
   },
   "options_disable_toggle_shortcut": {
     "message": "Désactiver le raccourci",
@@ -1760,7 +1760,7 @@
     "description": "Label for bundled font option."
   },
   "options_font_face_label": {
-    "message": "Font face",
+    "message": "Type de police",
     "description": "Label for font face drop-down."
   },
   "options_font_face_system": {
@@ -1960,10 +1960,10 @@
     "message": "Copier un mot ou un kanji"
   },
   "options_popup_expand_popup": {
-    "message": "Agrandir le pop-up"
+    "message": "Agrandir le popup"
   },
   "options_popup_interactivity_heading": {
-    "message": "Interactivité de le pop-up",
+    "message": "Interactivité de le popup",
     "description": "Heading for the section for configuring popup interactivity features"
   },
   "options_popup_kanji_lookup": {
@@ -1971,7 +1971,7 @@
     "description": "Label for the key to force looking up the kanji dictionary only"
   },
   "options_popup_keys_subheading": {
-    "message": "Touche pop-up"
+    "message": "Touche popup"
   },
   "options_popup_move_popup_down_or_up": {
     "message": "Déplacer le popup vers le bas / haut",
@@ -1984,7 +1984,7 @@
     "message": "Entrer dans le mode copie"
   },
   "options_popup_style_heading": {
-    "message": "Style du pop-up",
+    "message": "Style du popup",
     "description": "Heading for options to configure popup display"
   },
   "options_popup_switch_dictionaries": {
@@ -2029,7 +2029,7 @@
     "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_show_popup_explanation": {
-    "message": "Si cette option est sélectionnée, les touches suivantes doivent être maintenues enfoncées lorsque la souris se trouve au-dessus d'un élément afin d'afficher la fenêtre contextuelle."
+    "message": "Si cette option est sélectionnée, les touches suivantes doivent être maintenues enfoncées lorsque la souris se trouve au-dessus d'un élément afin d'afficher la popup."
   },
   "options_show_popup_images_subheading": {
     "message": "Images"
@@ -2725,7 +2725,7 @@
     "description": "The hint for the stroke animation"
   },
   "tabs_kanji_label": {
-    "message": "Traits",
+    "message": "Caractère",
     "description": "The label for the strokes tab"
   },
   "tabs_names_label": {

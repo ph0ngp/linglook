@@ -62,3 +62,4 @@ def generate_indices(cedict_path, chars_path, output_path, cedict_crlf, cedict_l
 if __name__ == "__main__":
     generate_indices('../data/cedict_en.u8',"../data/char_en.txt", "../data/cedict_en.idx", True, 30)
     generate_indices('../data/cedict_vi.u8', "../data/char_vi.txt", "../data/cedict_vi.idx", False, 30)
+    generate_indices('../data/cedict_fr.u8', "../data/char_en.txt", "../data/cedict_fr.idx", True, 26)

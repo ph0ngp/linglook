@@ -26,7 +26,7 @@ const i18nContext = createContext<i18nContextType>({
   langTag: 'en',
 });
 
-const SUPPORTED_LOCALES = ['en', 'vi', 'zh'] as const;
+const SUPPORTED_LOCALES = ['en', 'vi', 'zh', 'fr'] as const;
 type LocaleType = (typeof SUPPORTED_LOCALES)[number];
 
 type I18nProviderProps = {
@@ -50,6 +50,7 @@ export function I18nProvider(props: RenderableProps<I18nProviderProps>) {
         en: new Map(),
         vi: new Map(),
         zh: new Map(),
+        fr: new Map(),
         // ja: new Map(),
         // zh_hans: new Map(),
       };

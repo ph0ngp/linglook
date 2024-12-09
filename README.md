@@ -42,7 +42,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 - Search the word with Google Images.
 - Supports keyboard shortcuts for desktop users.
 - Customize the extension's appearance and behavior through the settings page.
-- Supports English and Vietnamese dictionaries.
+- Supports English, Vietnamese, and French dictionaries.
 - (For Vietnamese learners only) Displays the word's Sino-Vietnamese transliteration (phiên âm Hán Việt).
 
 ## Screenshots
