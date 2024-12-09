@@ -42,7 +42,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 - Search the word with Google Images.
 - Supports keyboard shortcuts for desktop users.
 - Customize the extension's appearance and behavior through the settings page.
-- Supports English and Vietnamese dictionaries.
+- Supports English, Vietnamese, and French dictionaries.
 - (For Vietnamese learners only) Displays the word's Sino-Vietnamese transliteration (phiên âm Hán Việt).
 
 ## Screenshots
@@ -110,6 +110,7 @@ Contributions are welcome! Please feel free to submit a Pull Request or an Issue
 - Dictionary definition data:
   - [Chinese-English dictionary data](data/cedict_en.u8): [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cedict) by MDBG, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
   - [Chinese-Vietnamese dictionary data](data/cedict_vi.u8): [CVDICT](https://github.com/ph0ngp/CVDICT) by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+  - [Chinese-French dictionary data](data/cedict_fr.u8): [CFDICT](https://chine.in/mandarin/dictionnaire/CFDICT/) by Chine Informations under the [Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/)
 - Chinese character data:
   - [English version](data/char_en.txt): originally from [Dong Chinese Character Wiki](https://www.dong-chinese.com/wiki) by Peter Olson, edited by Phong Phan, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
   - [Vietnamese version](data/char_vi.txt): translated and edited by Phong Phan from the original source of Dong Chinese data, licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)

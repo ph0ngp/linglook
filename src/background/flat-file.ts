@@ -77,7 +77,7 @@ class FlatFileDatabase {
         browser.runtime.getURL(`data/cedict_${lang}.idx`)
       );
       this.idsDict = await this.readFileWithAutoRetry(
-        browser.runtime.getURL(`data/char_${lang}.txt`)
+        browser.runtime.getURL(`data/char_${lang === 'fr' ? 'en' : lang}.txt`) // TODOP: sync this with default dict lang
       );
 
       this.notifyListeners({ type: 'loaded' });

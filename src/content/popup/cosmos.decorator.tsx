@@ -11,7 +11,7 @@ export default function PopupDecorator({
   children,
 }: RenderableProps<EmptyProps>) {
   const [locale] = useFixtureSelect('locale', {
-    options: ['en', 'vi', 'zh'],
+    options: ['en', 'vi', 'zh', 'fr'],
   });
 
   const [themeName] = useFixtureSelect('theme', {

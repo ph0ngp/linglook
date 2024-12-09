@@ -319,8 +319,8 @@ describe('Config', () => {
     expect(config.dictLang).toEqual('en');
 
     // Explicitly override
-    config.dictLang = 'pt';
-    expect(config.dictLang).toEqual('pt');
+    config.dictLang = 'fr';
+    expect(config.dictLang).toEqual('fr');
 
     // // Revert to default
     // config.dictLang = 'fr';
@@ -389,10 +389,10 @@ describe('Config', () => {
     // Override the language so that we no longer depend on the user's
     // accept-languages setting.
     nextChangePromise = listenForNextChange();
-    config.dictLang = 'pt';
+    config.dictLang = 'fr';
     nextChange = await nextChangePromise;
     expect(nextChange).toEqual({
-      dictLang: { oldValue: 'es', newValue: 'pt' },
+      dictLang: { oldValue: 'es', newValue: 'fr' },
     });
 
     // Check that we don't report a change if the user's accept-language changes
@@ -401,6 +401,6 @@ describe('Config', () => {
     noChangePromise = listenForNoChange();
     window.dispatchEvent(languageChangeEvent);
     await noChangePromise;
-    expect(config.dictLang).toEqual('pt');
+    expect(config.dictLang).toEqual('fr');
   });
 });

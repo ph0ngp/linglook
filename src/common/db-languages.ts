@@ -1,16 +1,4 @@
-export const dbLanguages = [
-  'de',
-  'en',
-  'vi',
-  'es',
-  'fr',
-  'hu',
-  'nl',
-  'pt',
-  'ru',
-  'sl',
-  'sv',
-] as const;
+export const dbLanguages = ['en', 'vi', 'fr'] as const;
 
 export type DbLanguageId = (typeof dbLanguages)[number];
 
@@ -21,7 +9,7 @@ export const dbLanguageMeta: Array<
   ['en', { name: 'English', hasKanji: true, hasWords: true }],
   ['vi', { name: 'Tiếng Việt', hasKanji: true, hasWords: true }],
   // ['es', { name: 'Español', hasKanji: true, hasWords: true }],
-  // ['fr', { name: 'Français', hasKanji: true, hasWords: true }],
+  ['fr', { name: 'Français', hasKanji: true, hasWords: true }],
   // ['hu', { name: 'Magyar', hasWords: true }],
   // ['nl', { name: 'Nederlands', hasWords: true }],
   // ['pt', { name: 'Português', hasKanji: true }],

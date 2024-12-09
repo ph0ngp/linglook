@@ -139,6 +139,9 @@ const renderDefinition = (dictLang: DbLanguageId) => {
     case 'vi':
       dictDef = 'máy tính; LT:臺|台[tái]';
       break;
+    case 'fr':
+      dictDef = 'ordinateur';
+      break;
     case 'en':
     default:
       dictDef = 'computer; CL:臺|台[tái]';
