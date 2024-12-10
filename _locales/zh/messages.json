@@ -1871,6 +1871,10 @@
   "options_lang_warning_change_lang_redownload": {
     "message": "更改语言时会重新下载数据文件。"
   },
+  "options_lang_warning_fr_only_words": {
+    "message": "只有词典释义支持法语，而汉字数据仍然是英文。",
+    "description": "Warning shown when French is selected as the dictionary language"
+  },
   "options_lang_warning_names_en_only": {
     "message": "名字词典仅有英语版可用。"
   },

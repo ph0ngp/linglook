@@ -1871,6 +1871,10 @@
   "options_lang_warning_change_lang_redownload": {
     "message": "Changing the language will cause the corresponding data files to be re-downloaded."
   },
+  "options_lang_warning_fr_only_words": {
+    "message": "Chỉ từ điển định nghĩa hỗ trợ tiếng Pháp, còn dữ liệu Hán tự vẫn bằng tiếng Anh.",
+    "description": "Warning shown when French is selected as the dictionary language"
+  },
   "options_lang_warning_names_en_only": {
     "message": "The names dictionary is only available in English."
   },

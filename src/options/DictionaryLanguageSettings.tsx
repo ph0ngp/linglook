@@ -32,6 +32,11 @@ export function DictionaryLanguageSettings(props: Props) {
           dictLang={dictLang}
           onChangeDictLang={onChangeDictLang}
         />
+        {dictLang === 'fr' && (
+          <div class="mt-2 text-sm text-yellow-800 dark:text-yellow-200">
+            {t('options_lang_warning_fr_only_words')}
+          </div>
+        )}
       </div>
     </>
   );

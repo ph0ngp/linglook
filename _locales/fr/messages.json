@@ -1871,6 +1871,10 @@
   "options_lang_warning_change_lang_redownload": {
     "message": "Le changement de langue entraîne le rechargement des fichiers de données correspondants."
   },
+  "options_lang_warning_fr_only_words": {
+    "message": "Seul le dictionnaire de définitions prend en charge le français, tandis que les données de caractères restent en anglais.",
+    "description": "Warning shown when French is selected as the dictionary language"
+  },
   "options_lang_warning_names_en_only": {
     "message": "Le dictionnaire des noms n'est disponible qu'en anglais."
   },
