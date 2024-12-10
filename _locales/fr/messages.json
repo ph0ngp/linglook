@@ -1756,7 +1756,7 @@
     "description": "Label for font size drop-down."
   },
   "options_font_size_large": {
-    "message": "Large",
+    "message": "Grande",
     "description": "Label for larger font size option."
   },
   "options_font_size_normal": {
@@ -1764,7 +1764,7 @@
     "description": "Label for default font size option."
   },
   "options_font_size_xl": {
-    "message": "Extra large",
+    "message": "Très grande",
     "description": "Label for largest font size option."
   },
   "options_general_heading": {
@@ -1776,7 +1776,7 @@
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
   },
   "options_hanzi_display_onlysimp": {
-    "message": "Simplifié seulement",
+    "message": "Simplifié uniquement",
     "description": "Label for displaying the pitch accent using box outlines with higher contrast"
   },
   "options_hanzi_display_onlytrad": {
@@ -1788,7 +1788,7 @@
     "description": "Label for displaying the pitch accent using box outlines to show high and low"
   },
   "options_hanzi_display_tradsimp": {
-    "message": "Traditionnel avant simplifié",
+    "message": "Traditionnel avant Simplifié",
     "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
   },
   "options_highlight_matched_text": {
@@ -1798,7 +1798,7 @@
     "message": "Bleu"
   },
   "options_highlight_style_label": {
-    "message": "Style de soulignement du texte",
+    "message": "Style de surlignage du texte",
     "description": "Title for the section for selection the highlight style"
   },
   "options_highlight_style_none": {
@@ -1921,7 +1921,7 @@
     "message": "Show romaji"
   },
   "options_popup_close_popup": {
-    "message": "Fermer le popup"
+    "message": "Fermer la fenêtre contextuelle"
   },
   "options_popup_copy_entry": {
     "message": "Copier l'entrée"
@@ -1936,10 +1936,10 @@
     "message": "Copier un mot ou un kanji"
   },
   "options_popup_expand_popup": {
-    "message": "Agrandir le popup"
+    "message": "Agrandir la fenêtre contextuelle"
   },
   "options_popup_interactivity_heading": {
-    "message": "Interactivité de le popup",
+    "message": "Interactivité de la fenêtre contextuelle",
     "description": "Heading for the section for configuring popup interactivity features"
   },
   "options_popup_kanji_lookup": {
@@ -1947,20 +1947,20 @@
     "description": "Label for the key to force looking up the kanji dictionary only"
   },
   "options_popup_keys_subheading": {
-    "message": "Touche popup"
+    "message": "Touches de la fenêtre contextuelle."
   },
   "options_popup_move_popup_down_or_up": {
-    "message": "Déplacer le popup vers le bas / haut",
+    "message": "Déplacer la fenêtre contextuelle vers le bas / haut",
     "description": "Note that it is important that down comes before up"
   },
   "options_popup_pin_popup": {
-    "message": "Epingler popup"
+    "message": "Épingler la fenêtre contextuelle"
   },
   "options_popup_start_copy": {
     "message": "Entrer dans le mode copie"
   },
   "options_popup_style_heading": {
-    "message": "Style du popup",
+    "message": "Style de la fenêtre contextuelle",
     "description": "Heading for options to configure popup display"
   },
   "options_popup_switch_dictionaries": {
@@ -2005,13 +2005,13 @@
     "description": "Label for enabling display of WaniKani level information alongside kanji headwords"
   },
   "options_show_popup_explanation": {
-    "message": "Si cette option est sélectionnée, les touches suivantes doivent être maintenues enfoncées lorsque la souris se trouve au-dessus d'un élément afin d'afficher la popup."
+    "message": "Si cette option est sélectionnée, les touches suivantes doivent être maintenues enfoncées lorsque la souris se trouve au-dessus d'un élément afin d'afficher la fenêtre contextuelle."
   },
   "options_show_popup_images_subheading": {
     "message": "Images"
   },
   "options_show_popup_subheading": {
-    "message": "Afficher le popup"
+    "message": "Afficher la fenêtre contextuelle"
   },
   "options_show_popup_text_subheading": {
     "message": "Texte"
@@ -2149,11 +2149,11 @@
     "description": "The aria-label associated with the button to close the popup"
   },
   "popup_expand_label": {
-    "message": "Elargir",
+    "message": "Agrandir",
     "description": "The title associated with the button to expand the popup"
   },
   "popup_pin_label": {
-    "message": "Epingler popup",
+    "message": "Épingler la fenêtre contextuelle",
     "description": "The aria-label associated with the button to pin the popup"
   },
   "popup_settings_label": {
