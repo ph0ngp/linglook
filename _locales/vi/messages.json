@@ -1571,10 +1571,6 @@
   "options_about_linglook_text": {
     "message": "LingLook là một phần mềm mã nguồn mở của tác giả Phong Phan, sử dụng giấy phép GPL-3.0"
   },
-  "options_accent_data_source": {
-    "message": "Dữ liệu phiên âm Hán Việt: Danh sách từ vựng Hán Việt Pinyin của Phong Phan, được cấp phép theo giấy phép MIT License",
-    "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
-  },
   "options_browser_commands_no_toggle_key": {
     "message": "Không thể thay đổi phím tắt trong trình duyệt này.",
     "description": "Descriptive text used for other browsers which do not permit configuring extension keys from the extension itself."
@@ -1610,10 +1606,6 @@
   "options_copy_preview": {
     "message": "Preview",
     "description": "Label preceding the copy text preview"
-  },
-  "options_creative_commons_license": {
-    "message": "Creative Commons Attribution-ShareAlike 4.0 International License",
-    "description": "Creative Commons Attribution-ShareAlike 4.0 International License"
   },
   "options_currency_conversion_heading": {
     "message": "Currency conversion",
@@ -1656,14 +1648,6 @@
         "example": "2019-10-19"
       }
     }
-  },
-  "options_data_source": {
-    "message": "Dữ liệu từ điển Hán-Anh: CC-CEDICT của MDBG, được cấp phép theo giấy phép Creative Commons Attribution-ShareAlike 4.0 International License",
-    "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
-  },
-  "options_data_source_vn": {
-    "message": "Dữ liệu từ điển Hán-Việt: CVDICT của Phong Phan, được cấp phép theo giấy phép Creative Commons Attribution-ShareAlike 4.0 International License",
-    "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
     "message": "Database initializing",
@@ -1787,10 +1771,6 @@
     "message": "Tổng quan",
     "description": "Heading for common preferences."
   },
-  "options_hanviet_pinyin_project": {
-    "message": "Danh sách từ vựng Hán Việt Pinyin",
-    "description": "Han-Viet Pinyin wordlist"
-  },
   "options_hanzi_display_label": {
     "message": "Thứ tự hiển thị chữ Hán",
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
@@ -1810,10 +1790,6 @@
   "options_hanzi_display_tradsimp": {
     "message": "Phồn thể trước Giản thể",
     "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
-  "options_hanzi_writer_project": {
-    "message": "Dự án Hanzi Writer",
-    "description": "Hanzi Writer project"
   },
   "options_highlight_matched_text": {
     "message": "Highlight matched text"
@@ -1904,10 +1880,6 @@
   "options_lookup_puck_heading": {
     "message": "Lookup puck",
     "description": "Heading for the section containing options controlling the lookup puck used on touch devices"
-  },
-  "options_mit_license": {
-    "message": "MIT License",
-    "description": "MIT License"
   },
   "options_mouse_interactivity_disable": {
     "message": "Disable"
@@ -2067,10 +2039,6 @@
   "options_simplified_copy": {
     "message": "Copy simplified entry summary",
     "description": "Heading for the section for configuring the copy to clipboard feature"
-  },
-  "options_stroke_data_source": {
-    "message": "Dữ liệu thứ tự nét viết Hán tự: Dự án Hanzi Writer của David Chanin, được cấp phép theo giấy phép MIT License",
-    "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {
     "message": "Tab position",

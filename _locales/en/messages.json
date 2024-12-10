@@ -1571,10 +1571,6 @@
   "options_about_linglook_text": {
     "message": "LingLook is an open source project by Phong Phan, licensed under GPL-3.0"
   },
-  "options_accent_data_source": {
-    "message": "Sino-Vietnamese transliteration data: Hán-Việt Pinyin wordlist by Phong Phan, licensed under the MIT License",
-    "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
-  },
   "options_browser_commands_no_toggle_key": {
     "message": "This shortcut key cannot be configured in this browser.",
     "description": "Descriptive text used for other browsers which do not permit configuring extension keys from the extension itself."
@@ -1610,10 +1606,6 @@
   "options_copy_preview": {
     "message": "Preview",
     "description": "Label preceding the copy text preview"
-  },
-  "options_creative_commons_license": {
-    "message": "Creative Commons Attribution-ShareAlike 4.0 International License",
-    "description": "Creative Commons Attribution-ShareAlike 4.0 International License"
   },
   "options_currency_conversion_heading": {
     "message": "Currency conversion",
@@ -1656,14 +1648,6 @@
         "example": "2019-10-19"
       }
     }
-  },
-  "options_data_source": {
-    "message": "Chinese-English dictionary data: CC-CEDICT by MDBG, licensed under the Creative Commons Attribution-ShareAlike 4.0 International License",
-    "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
-  },
-  "options_data_source_vn": {
-    "message": "Chinese-Vietnamese dictionary data: CVDICT by Phong Phan, licensed under the Creative Commons Attribution-ShareAlike 4.0 International License",
-    "description": "Attribute of source data. The strings 'JMdict/EDICT', 'KANJIDIC' and 'JMnedict/ENAMDICT' must appear so that they can be link-ified to the corresponding project home pages."
   },
   "options_database_initializing": {
     "message": "Database initializing",
@@ -1787,10 +1771,6 @@
     "message": "General",
     "description": "Heading for common preferences."
   },
-  "options_hanviet_pinyin_project": {
-    "message": "Hán-Việt Pinyin wordlist",
-    "description": "Han-Viet Pinyin wordlist"
-  },
   "options_hanzi_display_label": {
     "message": "Character display order",
     "description": "Label for the drop-down list used to configure how pitch accent information is displayed"
@@ -1810,10 +1790,6 @@
   "options_hanzi_display_tradsimp": {
     "message": "Traditional before Simplified",
     "description": "Label for displaying the pitch accent down-step as a small downward arrow ꜜ"
-  },
-  "options_hanzi_writer_project": {
-    "message": "Hanzi Writer project",
-    "description": "Hanzi Writer project"
   },
   "options_highlight_matched_text": {
     "message": "Highlight matched text"
@@ -1904,10 +1880,6 @@
   "options_lookup_puck_heading": {
     "message": "Lookup puck",
     "description": "Heading for the section containing options controlling the lookup puck used on touch devices"
-  },
-  "options_mit_license": {
-    "message": "MIT License",
-    "description": "MIT License"
   },
   "options_mouse_interactivity_disable": {
     "message": "Disable"
@@ -2067,10 +2039,6 @@
   "options_simplified_copy": {
     "message": "Copy simplified entry summary",
     "description": "Heading for the section for configuring the copy to clipboard feature"
-  },
-  "options_stroke_data_source": {
-    "message": "Character stroke order data: Hanzi Writer project by David Chanin, licensed under the MIT License",
-    "description": "Attribution for pitch accent data as described here: https://github.com/mifunetoshiro/kanjium"
   },
   "options_tab_position_label": {
     "message": "Tab position",

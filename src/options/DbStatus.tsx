@@ -61,104 +61,104 @@ export function DbStatus(props: Props) {
   );
 }
 
-function DbSummaryBlurb(props: { dictLang: DbLanguageId }) {
-  const { t } = useLocale();
+// function DbSummaryBlurb(props: { dictLang: DbLanguageId }) {
+//   const { t } = useLocale();
 
-  const attribution = t('options_data_source');
-  const attribution_vn = t('options_data_source_vn');
-  // const license = t('options_edrdg_license');
-  // const licenseKeyword = t('options_edrdg_license_keyword');
-  const accentAttribution = t('options_accent_data_source');
-  const strokeAttribution = t('options_stroke_data_source');
-  const mitLicense = t('options_mit_license');
-  const creativeCommonsLicense = t('options_creative_commons_license');
-  const hanziWriterProject = t('options_hanzi_writer_project');
-  const hanvietPinyinProject = t('options_hanviet_pinyin_project');
+//   const attribution = t('options_data_source');
+//   const attribution_vn = t('options_data_source_vn');
+//   // const license = t('options_edrdg_license');
+//   // const licenseKeyword = t('options_edrdg_license_keyword');
+//   const accentAttribution = t('options_accent_data_source');
+//   const strokeAttribution = t('options_stroke_data_source');
+//   const mitLicense = t('options_mit_license');
+//   const creativeCommonsLicense = t('options_creative_commons_license');
+//   const hanziWriterProject = t('options_hanzi_writer_project');
+//   const hanvietPinyinProject = t('options_hanviet_pinyin_project');
 
-  return (
-    <>
-      {props.dictLang === 'vi' && (
-        <p class="m-0">
-          <Linkify
-            text={attribution_vn}
-            links={[
-              {
-                keyword: 'CVDICT',
-                href: 'https://github.com/ph0ngp/CVDICT',
-              },
-              {
-                keyword: creativeCommonsLicense,
-                href: 'https://creativecommons.org/licenses/by-sa/4.0/',
-              },
-            ]}
-          />
-        </p>
-      )}
-      <p class="m-0">
-        <Linkify
-          text={attribution}
-          links={[
-            {
-              keyword: 'CC-CEDICT',
-              href: 'https://www.mdbg.net/chinese/dictionary?page=cedict',
-            },
-            {
-              keyword: creativeCommonsLicense,
-              href: 'https://creativecommons.org/licenses/by-sa/4.0/',
-            },
-          ]}
-        />
-      </p>
-      {props.dictLang !== 'vi' && (
-        <p class="m-0">
-          <Linkify
-            text={attribution_vn}
-            links={[
-              {
-                keyword: 'CVDICT',
-                href: 'https://github.com/ph0ngp/CVDICT',
-              },
-              {
-                keyword: creativeCommonsLicense,
-                href: 'https://creativecommons.org/licenses/by-sa/4.0/',
-              },
-            ]}
-          />
-        </p>
-      )}
-      <p class="m-0">
-        <Linkify
-          text={strokeAttribution}
-          links={[
-            {
-              keyword: hanziWriterProject,
-              href: 'https://hanziwriter.org',
-            },
-            {
-              keyword: mitLicense,
-              href: 'https://hanziwriter.org/license.html',
-            },
-          ]}
-        />
-      </p>
-      <p class="m-0">
-        <Linkify
-          text={accentAttribution}
-          links={[
-            {
-              keyword: hanvietPinyinProject,
-              href: 'https://github.com/ph0ngp/hanviet-pinyin-wordlist',
-            },
-            {
-              keyword: mitLicense,
-              href: 'https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE',
-            },
-          ]}
-        />
-      </p>
-    </>
-  );
-}
+//   return (
+//     <>
+//       {props.dictLang === 'vi' && (
+//         <p class="m-0">
+//           <Linkify
+//             text={attribution_vn}
+//             links={[
+//               {
+//                 keyword: 'CVDICT',
+//                 href: 'https://github.com/ph0ngp/CVDICT',
+//               },
+//               {
+//                 keyword: creativeCommonsLicense,
+//                 href: 'https://creativecommons.org/licenses/by-sa/4.0/',
+//               },
+//             ]}
+//           />
+//         </p>
+//       )}
+//       <p class="m-0">
+//         <Linkify
+//           text={attribution}
+//           links={[
+//             {
+//               keyword: 'CC-CEDICT',
+//               href: 'https://www.mdbg.net/chinese/dictionary?page=cedict',
+//             },
+//             {
+//               keyword: creativeCommonsLicense,
+//               href: 'https://creativecommons.org/licenses/by-sa/4.0/',
+//             },
+//           ]}
+//         />
+//       </p>
+//       {props.dictLang !== 'vi' && (
+//         <p class="m-0">
+//           <Linkify
+//             text={attribution_vn}
+//             links={[
+//               {
+//                 keyword: 'CVDICT',
+//                 href: 'https://github.com/ph0ngp/CVDICT',
+//               },
+//               {
+//                 keyword: creativeCommonsLicense,
+//                 href: 'https://creativecommons.org/licenses/by-sa/4.0/',
+//               },
+//             ]}
+//           />
+//         </p>
+//       )}
+//       <p class="m-0">
+//         <Linkify
+//           text={strokeAttribution}
+//           links={[
+//             {
+//               keyword: hanziWriterProject,
+//               href: 'https://hanziwriter.org',
+//             },
+//             {
+//               keyword: mitLicense,
+//               href: 'https://hanziwriter.org/license.html',
+//             },
+//           ]}
+//         />
+//       </p>
+//       <p class="m-0">
+//         <Linkify
+//           text={accentAttribution}
+//           links={[
+//             {
+//               keyword: hanvietPinyinProject,
+//               href: 'https://github.com/ph0ngp/hanviet-pinyin-wordlist',
+//             },
+//             {
+//               keyword: mitLicense,
+//               href: 'https://github.com/ph0ngp/hanviet-pinyin-wordlist/blob/main/LICENSE',
+//             },
+//           ]}
+//         />
+//       </p>
+//     </>
+//   );
+// }
 
 function DbSummaryStatus(props: {
   dbState: JpdictState;
