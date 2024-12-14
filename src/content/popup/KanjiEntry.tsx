@@ -156,6 +156,11 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
   const [isCharacterLoaded, setIsCharacterLoaded] = useState(true);
   // default true to show the play button by default initially (for expandable to calculate height correctly) If character is not loaded, we will hide it later
 
+  // playState can be 'idle' (not playing), 'playing' (animation in progress), or 'paused' (animation paused)
+  const [playState, setPlayState] = useState<'idle' | 'playing' | 'paused'>(
+    'idle'
+  );
+
   useEffect(() => {
     if (svgContainerRef.current) {
       const hanziWriter = HanziWriter.create(svgContainerRef.current, props.c, {
@@ -200,7 +205,36 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
       hanziWriterRef.current = hanziWriter;
     }
   }, []);
-  const isPlaying = false;
+
+  // Handle animation completion
+  const handleAnimationComplete = () => {
+    // After finishing animation, return to idle (play button)
+    setPlayState('idle');
+  };
+
+  const handlePlayPauseClick = () => {
+    if (!hanziWriterRef.current || !isCharacterLoaded) {
+      return;
+    }
+
+    if (playState === 'idle') {
+      // Start animation
+      setPlayState('playing');
+      void hanziWriterRef.current.animateCharacter({
+        onComplete: handleAnimationComplete,
+      });
+    } else if (playState === 'playing') {
+      // Pause animation
+      void hanziWriterRef.current.pauseAnimation();
+      setPlayState('paused');
+    } else if (playState === 'paused') {
+      // Resume animation
+      void hanziWriterRef.current.resumeAnimation();
+      setPlayState('playing');
+    }
+  };
+
+  const showPlayIcon = playState === 'idle' || playState === 'paused';
 
   return (
     <div class="tp-flex tp-flex-col tp-items-center tp-gap-3">
@@ -254,11 +288,7 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
       {/* Only render the play button controls if character is loaded */}
       {isCharacterLoaded && (
         <div
-          onClick={() => {
-            if (hanziWriterRef.current && isCharacterLoaded) {
-              void hanziWriterRef.current.animateCharacter();
-            }
-          }}
+          onClick={handlePlayPauseClick}
           // class="tp-flex tp-justify-center tp-items-center"
           style={{
             width: `${HANZI_WRITER_SIZE}px`,
@@ -280,28 +310,26 @@ function StaticKanjiCharacter(props: KanjiCharacterProps) {
               pointer-events="all"
               class="tp-cursor-pointer tp-opacity-30 hh:hover:tp-opacity-100 tp-fill-[--text-color] hh:hover:tp-fill-[--primary-highlight] tp-transition-transform tp-duration-500"
               style={{
-                transform: isPlaying ? 'none' : 'translate(40px, 10px)',
+                transform: 'translate(40px, 10px)',
               }}
             >
               <title>
                 {t(
-                  isPlaying
-                    ? 'content_stroke_animation_stop'
-                    : 'content_stroke_animation_play'
+                  showPlayIcon
+                    ? 'content_stroke_animation_play'
+                    : 'content_stroke_animation_stop'
                 )}
               </title>
-              <rect
-                x={isPlaying ? 0 : -40}
-                y={isPlaying ? 0 : -10}
-                width={isPlaying ? 25 : 100}
-                height={50}
-                fill="none"
-              />
+              <rect x={-40} y={-10} width={100} height={50} fill="none" />
               <path
                 d={
-                  isPlaying
-                    ? 'M20 12.5v6a4 4 0 01-4 4l-12 0c0 0 0 0 0 0a4 4 90 01-4-4v-12a4 4 90 014-4c0 0 0 0 0 0l12 0a4 4 0 014 4z'
-                    : 'M20 12.5v0a2 2 0 01-1 1.7l-16.1 8.1c-.3.1-.6.2-.9.2a2 2 90 01-2-2v-16a2 2 90 012-2c.3 0 .7.1 1 .2l16 8.1a2 2 0 011 1.7z'
+                  showPlayIcon
+                    ? // Play icon
+                      'M20 12.5v0a2 2 0 01-1 1.7l-16.1 8.1c-.3.1-.6.2-.9.2a2 2 90 01-2-2v-16a2 2 90 012-2c.3 0 .7.1 1 .2l16 8.1a2 2 0 011 1.7z'
+                    : // Pause icon
+                      'M20 12.5v6a4 4 0 01-4 4l-12 0c0 0 0 0 0 0a4 4 90 01-4-4v-12a4 4 90 014-4c0 0 0 0 0 0l12 0a4 4 0 014 4z'
+                  // 'M8 8h2v9H8zM12 8h2v9h-2z'
+                  // "M5,10 h3 a2,2 0 0 1 2,2 v6 a2,2 0 0 1 -2,2 h-3 a2,2 0 0 1 -2,-2 v-6 a2,2 0 0 1 2,-2 z M12,10 h3 a2,2 0 0 1 2,2 v6 a2,2 0 0 1 -2,2 h-3 a2,2 0 0 1 -2,-2 v-6 a2,2 0 0 1 2,-2 z"
                 }
                 class="tp-transition-[d] tp-duration-500"
                 transform="scale(0.8)"
