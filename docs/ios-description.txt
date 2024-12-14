@@ -7,7 +7,7 @@ Learn Chinese effortlessly while browsing! LingLook is a Safari extension that i
 - Detailed character information: stroke order animation, frequency, radical, origin, etc.
 - Quick copy and Google Images search
 - Customizable appearance and behavior
-- Supports English and Vietnamese dictionaries
+- Supports English, Vietnamese and partial support for French dictionaries
 
 ** How to use **
 - First, enable the extension by following the in-app instructions.

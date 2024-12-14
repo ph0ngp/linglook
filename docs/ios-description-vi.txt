@@ -8,7 +8,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
 - Thông tin chi tiết về Hán tự: thứ tự nét viết, tần suất, bộ thủ, nguồn gốc,...
 - Sao chép nhanh và tìm kiếm hình ảnh trên Google
 - Tùy chỉnh màu sắc, giao diện và cách thức hoạt động
-- Hỗ trợ từ điển tiếng Anh và tiếng Việt
+- Hỗ trợ từ điển tiếng Anh, tiếng Việt và hỗ trợ một phần từ điển tiếng Pháp
 
 ** Hướng dẫn sử dụng **
 - Đầu tiên, bạn cần kích hoạt LingLook theo hướng dẫn bên trong ứng dụng.

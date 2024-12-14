@@ -9,7 +9,7 @@ Learn Chinese effortlessly while browsing! LingLook is a browser extension that 
     <li>Quick word copy and Google Images search</li>
     <li>Support for keyboard shortcuts</li>
     <li>Customizable appearance and behavior</li>
-    <li>Supports English and Vietnamese dictionaries</li>
+    <li>Supports English, Vietnamese and partial support for French dictionaries</li>
 </ul>
 
 <strong>How to use</strong>

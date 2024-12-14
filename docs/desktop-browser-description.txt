@@ -8,7 +8,7 @@ Learn Chinese effortlessly while browsing! LingLook is a browser extension that 
 - Quick word copy and Google Images search
 - Support for keyboard shortcuts
 - Customizable appearance and behavior
-- Supports English and Vietnamese dictionaries
+- Supports English, Vietnamese and partial support for French dictionaries
 
 ** How to use **
 - Pin LingLook icon to your toolbar for easy access. You can click on it to enable/disable the popup function, or press the default shortcut Alt+O (or Option+O on Mac). You can configure this shortcut in the extension's settings page.

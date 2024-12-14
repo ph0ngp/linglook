@@ -9,7 +9,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
 - Sao chép nhanh và tìm kiếm hình ảnh trên Google
 - Hỗ trợ phím tắt
 - Tùy chỉnh màu sắc, giao diện và cách thức hoạt động
-- Hỗ trợ từ điển tiếng Anh và tiếng Việt
+- Hỗ trợ từ điển tiếng Anh, tiếng Việt và hỗ trợ một phần từ điển tiếng Pháp
 
 ** Hướng dẫn sử dụng **
 - Đầu tiên, bạn cần kích hoạt LingLook trong tuỳ chọn Phần mở rộng của Safari. Sau đó, trong thanh công cụ Safari, click vào biểu tượng LingLook và chọn "Luôn luôn cho phép trên mọi trang web". Xin yên tâm, LingLook sẽ không bao giờ truy cập hay lưu trữ bất kỳ dữ liệu nào của bạn. LingLook chỉ cần quyền này để đọc chữ tiếng Trung trên trang web nhằm phục vụ chức năng tra từ.

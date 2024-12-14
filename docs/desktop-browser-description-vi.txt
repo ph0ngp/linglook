@@ -9,7 +9,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
 - Sao chép từ và tìm kiếm hình ảnh trên Google
 - Hỗ trợ phím tắt
 - Tùy chỉnh màu sắc, giao diện và cách thức hoạt động
-- Hỗ trợ từ điển tiếng Anh và tiếng Việt
+- Hỗ trợ từ điển tiếng Anh, tiếng Việt và hỗ trợ một phần từ điển tiếng Pháp
 
 ** Hướng dẫn sử dụng **
 - Ghim icon LingLook vào thanh công cụ để dễ dàng truy cập. Bạn có thể nhấn vào icon đó để bật/tắt chức năng tra từ, hoặc nhấn phím tắt Alt+O (hoặc Option+O trên Mac). Bạn có thể thay đổi phím tắt này trong trang cài đặt của tiện ích.

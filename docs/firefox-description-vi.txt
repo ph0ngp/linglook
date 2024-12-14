@@ -10,7 +10,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
     <li>Sao chép từ và tìm kiếm hình ảnh trên Google</li>
     <li>Hỗ trợ phím tắt</li>
     <li>Tùy chỉnh màu sắc, giao diện và cách thức hoạt động</li>
-    <li>Hỗ trợ từ điển tiếng Anh và tiếng Việt</li>
+    <li>Hỗ trợ từ điển tiếng Anh, tiếng Việt và hỗ trợ một phần từ điển tiếng Pháp</li>
 </ul>
 
 <strong>Hướng dẫn sử dụng</strong>

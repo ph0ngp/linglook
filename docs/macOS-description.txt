@@ -8,7 +8,7 @@ Learn Chinese effortlessly while browsing! LingLook is a Safari extension that i
 - Quick copy and Google Images search
 - Support for keyboard shortcuts
 - Customizable appearance and behavior
-- Supports English and Vietnamese dictionaries
+- Supports English, Vietnamese and partial support for French dictionaries
 
 ** How to use **
 - First, enable the extension in Safari Extension Preferences. Then, in Safari toolbar, click on LingLook icon and select "Always Allow on Every Website". Rest assured, LingLook will never access or store any of your personal data. LingLook only needs this permission to read Chinese text on the webpage to look them up for you.
