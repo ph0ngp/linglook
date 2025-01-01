@@ -110,6 +110,7 @@ export function renderPopup(
         data: allCharsToShowStrokes.map((char) => {
           const charData = allCharsDataMap.get(char);
           // if key found (meaning this char has associated data in char.txt), then must be an array of 11 elements
+          // CY: if change number 7, must change in word-match-sorting.ts too
           if (!charData || charData.length !== 7) {
             //CY: actually this 'as' keyword suppresses Typescript type check (not recommended), and we return a not-full KanjiResult, so we must check for undefined value even for mandatory type of KanjiResult later when we use this data. Same for below "as KanjiResult"
             return { c: char } as KanjiResult;

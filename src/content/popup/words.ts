@@ -14,6 +14,7 @@ import { Sense, WordResult } from '../../background/search-result';
 import { PartOfSpeechDisplay } from '../../common/content-config-params';
 import { highPriorityLabels } from '../../common/priority-labels';
 import { html } from '../../utils/builder';
+import { convert_to_toned_pinyin } from '../../utils/romaji';
 import { getFilteredTags } from '../../utils/verb-tags';
 
 import { NamePreview } from '../query';
@@ -439,12 +440,6 @@ export function renderWordEntries({
   }
 
   return container;
-}
-
-function convert_to_toned_pinyin(text: string): string {
-  // in cases like xx5 and r5, PinyinConverter does not delete digit 5 so we manually delete them
-  text = text.replace(/u:/g, 'v').replace(/xx5/g, '??5').replace(/5/g, '');
-  return PinyinConverter.convert(text);
 }
 
 function renderNamePreview(

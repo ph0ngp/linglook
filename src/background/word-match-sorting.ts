@@ -3,6 +3,8 @@
 // We only use it for sorting in the case where we've fallen back to the
 // flat file database so it doesn't need to be perfect or even keep in sync
 // with changes to jpdict-idb. It's really just a stop-gap measure.
+import { convert_to_toned_pinyin } from '../utils/romaji';
+
 import { WordResult } from './search-result';
 
 // As with Array.prototype.sort, sorts `results` in-place, but returns the
@@ -92,6 +94,7 @@ const PRIORITY_DEFINITIONS: Array<Array<string>> = [
   ['variant of', 'biến thể của'],
 ];
 
+// from lowest to highest priority: archaic variant of, old variant of, surname, variant of, then if single caharacter: from lowest to highest priority of pinyin frequency list. Inside these, if same pinyin, give less priority for uppercase character
 function getPriority(result: WordResult): number {
   const def = result.s[0].g[0].str;
 
@@ -101,7 +104,45 @@ function getPriority(result: WordResult): number {
     }
   }
 
-  return PRIORITY_DEFINITIONS.length; // Default priority if no matches found
+  let finalPriority = PRIORITY_DEFINITIONS.length; // Default priority if no matches found
+
+  // only for single character: compare this character's pinyin with the pinyin frequency list to get priority
+  if (result.k[0].ent.length === 1 && result.k[0].bg?.src) {
+    const allCharsData = result.k[0].bg.src.split('\n');
+    if (allCharsData.length > 0) {
+      // certainly pass, check just in case
+      // TODOP: here only check first char because allCharsData[1] is just other variant of same character, which has the same pinyin frequency list (currently we just assume that, actually we haven't really checked if this is really true in the character database from dong-chinese data, but at a glance it seems to be true). Actually not, for example 发 and 發 have different pinyin frequency list. But this is just for simplicity. 以 same situation. Might need to fix later.
+      const firstCharData = allCharsData[0].split('_');
+      // CY: if change number 8, must change in render-popup.ts too. For details of all the fields see notes.md
+      // TODOP2: currently this part is quite duplicated with render-popup.ts . Might need to optimize later
+      if (firstCharData.length === 8) {
+        const firstCharPinyinList = firstCharData[1]
+          .split(',')
+          .map((pinyin) => pinyin.toLowerCase());
+        if (firstCharPinyinList.length > 0) {
+          // certainly pass, check just in case
+          const pinyin = result.r?.[0]?.ent;
+          if (pinyin) {
+            // console.log(result)
+            // console.log(firstCharData)
+            // console.log(firstCharPinyinList)
+            const tonedPinyin = convert_to_toned_pinyin(pinyin.toLowerCase());
+            const pinyinIndex = firstCharPinyinList.indexOf(tonedPinyin);
+            // need to reverse it because the frequency list is sorted from most popular to least popular
+            const pinyinPriority =
+              pinyinIndex > -1 ? firstCharPinyinList.length - pinyinIndex : 0;
+            finalPriority += pinyinPriority + 1;
+            // for same pinyin entries, give less priority for uppercase character
+            if (pinyin !== pinyin.toLowerCase()) {
+              finalPriority -= 0.5;
+            }
+            // console.log('tonedPinyin', convert_to_toned_pinyin(pinyin), 'pinyinIndex', pinyinIndex, 'pinyinPriority', pinyinPriority, 'finalPriority', finalPriority)
+          }
+        }
+      }
+    }
+  }
+  return finalPriority;
 
   // const scores: Array<number> = [0];
 
