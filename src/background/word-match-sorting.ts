@@ -111,33 +111,44 @@ function getPriority(result: WordResult): number {
     const allCharsData = result.k[0].bg.src.split('\n');
     if (allCharsData.length > 0) {
       // certainly pass, check just in case
-      // TODOP: here only check first char because allCharsData[1] is just other variant of same character, which has the same pinyin frequency list (currently we just assume that, actually we haven't really checked if this is really true in the character database from dong-chinese data, but at a glance it seems to be true). Actually not, for example 发 and 發 have different pinyin frequency list. But this is just for simplicity. 以 same situation. Might need to fix later.
-      const firstCharData = allCharsData[0].split('_');
-      // CY: if change number 8, must change in render-popup.ts too. For details of all the fields see notes.md
-      // TODOP2: currently this part is quite duplicated with render-popup.ts . Might need to optimize later
-      if (firstCharData.length === 8) {
-        const firstCharPinyinList = firstCharData[1]
-          .split(',')
-          .map((pinyin) => pinyin.toLowerCase());
-        if (firstCharPinyinList.length > 0) {
-          // certainly pass, check just in case
-          const pinyin = result.r?.[0]?.ent;
-          if (pinyin) {
-            // console.log(result)
-            // console.log(firstCharData)
-            // console.log(firstCharPinyinList)
-            const tonedPinyin = convert_to_toned_pinyin(pinyin.toLowerCase());
-            const pinyinIndex = firstCharPinyinList.indexOf(tonedPinyin);
-            // need to reverse it because the frequency list is sorted from most popular to least popular
-            const pinyinPriority =
-              pinyinIndex > -1 ? firstCharPinyinList.length - pinyinIndex : 0;
-            finalPriority += pinyinPriority + 1;
-            // for same pinyin entries, give less priority for uppercase character
-            if (pinyin !== pinyin.toLowerCase()) {
-              finalPriority -= 0.5;
-            }
-            // console.log('tonedPinyin', convert_to_toned_pinyin(pinyin), 'pinyinIndex', pinyinIndex, 'pinyinPriority', pinyinPriority, 'finalPriority', finalPriority)
+      // CY: our longestPinyinList is not always the same as our character's possible pinyins (longestPinyinList can be longer). For example, 發 and 以. But this approach is for simplicity, and it works well enough.
+      // Create array to store all pinyin lists
+      const allPinyinList: string[][] = [];
+      // Process each character's data
+      for (const charData of allCharsData) {
+        const info = charData.split('_');
+        // CY: if change number 8, must change in render-popup.ts too. For details of all the fields see notes.md
+        // TODOP2: currently this part is quite duplicated with render-popup.ts . Might need to optimize later
+        if (info.length === 8) {
+          allPinyinList.push(
+            info[1].split(',').map((pinyin) => pinyin.toLowerCase())
+          );
+        }
+      }
+      // Find the list with maximum length
+      const longestPinyinList = allPinyinList.reduce(
+        (longest, current) =>
+          current.length > longest.length ? current : longest,
+        []
+      );
+
+      if (longestPinyinList.length > 0) {
+        // certainly pass, check just in case
+        const pinyin = result.r?.[0]?.ent;
+        if (pinyin) {
+          // console.log(result)
+          // console.log(longestPinyinList)
+          const tonedPinyin = convert_to_toned_pinyin(pinyin.toLowerCase());
+          const pinyinIndex = longestPinyinList.indexOf(tonedPinyin);
+          // need to reverse it because the frequency list is sorted from most popular to least popular
+          const pinyinPriority =
+            pinyinIndex > -1 ? longestPinyinList.length - pinyinIndex : 0;
+          finalPriority += pinyinPriority + 1;
+          // for same pinyin entries, give less priority for uppercase character
+          if (pinyin !== pinyin.toLowerCase()) {
+            finalPriority -= 0.5;
           }
+          // console.log('tonedPinyin', convert_to_toned_pinyin(pinyin), 'pinyinIndex', pinyinIndex, 'pinyinPriority', pinyinPriority, 'finalPriority', finalPriority)
         }
       }
     }
