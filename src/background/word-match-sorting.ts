@@ -97,10 +97,13 @@ const PRIORITY_DEFINITIONS: Array<Array<string>> = [
 // from lowest to highest priority: archaic variant of, old variant of, surname, variant of, then if single caharacter: from lowest to highest priority of pinyin frequency list. Inside these, if same pinyin, give less priority for uppercase character
 function getPriority(result: WordResult): number {
   const def = result.s[0].g[0].str;
+  const pinyin = result.r?.[0]?.ent;
+  // for same pinyin entries, give less priority for uppercase character
+  const subtractUppercase = pinyin !== pinyin.toLowerCase() ? -0.5 : 0;
 
   for (let priority = 0; priority < PRIORITY_DEFINITIONS.length; priority++) {
     if (PRIORITY_DEFINITIONS[priority].some((phrase) => def.includes(phrase))) {
-      return priority;
+      return priority + subtractUppercase;
     }
   }
 
@@ -134,7 +137,6 @@ function getPriority(result: WordResult): number {
 
       if (longestPinyinList.length > 0) {
         // certainly pass, check just in case
-        const pinyin = result.r?.[0]?.ent;
         if (pinyin) {
           // console.log(result)
           // console.log(longestPinyinList)
@@ -144,16 +146,12 @@ function getPriority(result: WordResult): number {
           const pinyinPriority =
             pinyinIndex > -1 ? longestPinyinList.length - pinyinIndex : 0;
           finalPriority += pinyinPriority + 1;
-          // for same pinyin entries, give less priority for uppercase character
-          if (pinyin !== pinyin.toLowerCase()) {
-            finalPriority -= 0.5;
-          }
           // console.log('tonedPinyin', convert_to_toned_pinyin(pinyin), 'pinyinIndex', pinyinIndex, 'pinyinPriority', pinyinPriority, 'finalPriority', finalPriority)
         }
       }
     }
   }
-  return finalPriority;
+  return finalPriority + subtractUppercase;
 
   // const scores: Array<number> = [0];
 
