@@ -1775,11 +1775,13 @@ export class ContentHandler {
     const fixPopup = this.shouldFixPopupWhenExitingCopyMode();
     const { index, mode } = this.copyState;
     try {
+      // Properly encode Chinese characters for the URL
+      const encodedQuery = encodeURIComponent(message);
       switch (copyType) {
         case 'tab':
           // TODOP: make this link configurable
           window.open(
-            `https://google.com/search?q=${message}&tbm=isch`,
+            `https://google.com/search?q=${encodedQuery}&tbm=isch`,
             '_blank'
           );
           break;
