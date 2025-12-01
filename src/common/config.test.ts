@@ -248,10 +248,19 @@ describe('Config', () => {
     mockI18n.getUILanguage = () => 'en';
   });
 
-  it('defaults pronunciationType to zhuyin for zh-Hant locale', () => {
-    mockI18n.getUILanguage = () => 'zh-Hant';
+  it('defaults pronunciationType to zhuyin for zh-Hant-TW locale', () => {
+    mockI18n.getUILanguage = () => 'zh-Hant-TW';
     const config = new Config();
     expect(config.pronunciationType).toEqual('zhuyin');
+
+    // Reset for other tests
+    mockI18n.getUILanguage = () => 'en';
+  });
+
+  it('defaults pronunciationType to pinyin for zh-Hant locale', () => {
+    mockI18n.getUILanguage = () => 'zh-Hant';
+    const config = new Config();
+    expect(config.pronunciationType).toEqual('pinyin');
 
     // Reset for other tests
     mockI18n.getUILanguage = () => 'en';
