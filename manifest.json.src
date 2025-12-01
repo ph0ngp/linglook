@@ -10,7 +10,7 @@
   "name": "LingLook",
   /*#endif*/
   "author": "Phong Phan",
-  "version": "1.2.0",
+  "version": "1.2.1",
   /*#if supports_browser_specific_settings*/
   "browser_specific_settings": {
     "gecko": {
