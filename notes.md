@@ -23,6 +23,7 @@
 - to release:
   - `pnpm test:unit`, `pnpm test:chromium`, `pnpm lint`
   - bump version code by `pnpm version patch/minor/major`
+  - `git push`, `git push --tags`
   - for non-apple platforms: `BUGSNAG_API_KEY=XXX ./scripts/build-assets.sh`, then use the zip files under `release-assets` folder
   - for apple xcode:
     - `pnpm build:safari`
