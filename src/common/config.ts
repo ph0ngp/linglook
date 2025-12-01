@@ -1289,11 +1289,7 @@ export class Config {
   private getDefaultPronunciationType(): PronunciationType {
     const locale = browser.i18n.getUILanguage().toLowerCase();
     // Taiwan uses Traditional Chinese and zhuyin (bopomofo)
-    if (
-      locale === 'zh-tw' ||
-      locale.startsWith('zh-hant-tw') ||
-      locale === 'zh-hant'
-    ) {
+    if (locale === 'zh-tw' || locale.startsWith('zh-hant-tw')) {
       return 'zhuyin';
     }
     return 'pinyin';
