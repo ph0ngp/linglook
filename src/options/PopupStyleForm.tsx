@@ -4,6 +4,7 @@ import type {
   FontSize,
   HanziDisplay,
   PartOfSpeechDisplay,
+  PronunciationType,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
@@ -27,12 +28,14 @@ type Props = {
   onChangeHanvietDisplay: (value: boolean) => void;
   onChangePinyinDisplay: (value: boolean) => void;
   onChangeShowHskLevel: (value: boolean) => void;
+  onChangePronunciationType: (value: PronunciationType) => void;
   onChangeTheme: (theme: string) => void;
   posDisplay: PartOfSpeechDisplay;
   showTocflLevel: boolean;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   pinyinDisplay: boolean;
+  pronunciationType: PronunciationType;
   showHskLevel: boolean;
   theme: string;
   dictLang: DbLanguageId;
@@ -127,6 +130,35 @@ export function PopupStyleForm(props: Props) {
           </option>
           <option value="onlytrad" selected={props.hanziDisplay === 'onlytrad'}>
             {t('options_hanzi_display_onlytrad')}
+          </option>
+        </select>
+        <label for="pronunciationType">
+          {t('options_pronunciation_type_label')}
+          <NewBadge expiry={new Date('2026-03-01')} />
+        </label>
+        <select
+          id="pronunciationType"
+          name="pronunciationType"
+          onChange={(evt) => {
+            props.onChangePronunciationType(
+              evt.currentTarget.value as PronunciationType
+            );
+          }}
+        >
+          <option
+            value="pinyin"
+            selected={props.pronunciationType === 'pinyin'}
+          >
+            {t('options_pronunciation_type_pinyin')}
+          </option>
+          <option
+            value="zhuyin"
+            selected={props.pronunciationType === 'zhuyin'}
+          >
+            {t('options_pronunciation_type_zhuyin')}
+          </option>
+          <option value="both" selected={props.pronunciationType === 'both'}>
+            {t('options_pronunciation_type_both')}
           </option>
         </select>
         {/* <label for="posDisplay">{t('options_pos_display_label')}</label>

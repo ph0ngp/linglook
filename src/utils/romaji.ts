@@ -1,5 +1,6 @@
 import { kanaToHiragana } from '@birchill/normal-jp';
 import PinyinConverter from 'pinyin-converter';
+import { fromPinyinSyllable } from 'zhuyin';
 
 // Convert using a modified Hepburn-ish romajification
 
@@ -296,4 +297,36 @@ export function convert_to_toned_pinyin(text: string): string {
   // in cases like xx5 and r5, PinyinConverter does not delete digit 5 so we manually delete them
   text = text.replace(/u:/g, 'v').replace(/xx5/g, '??5').replace(/5/g, '');
   return PinyinConverter.convert(text);
+}
+
+export function convert_to_zhuyin(text: string): string {
+  // Preprocess: replace u: with v for ü handling (lü -> lv, nü -> nv)
+  // The zhuyin library expects 'v' format for ü after l and n
+  const processed = text.replace(/u:/g, 'v');
+
+  // Split by spaces and convert each syllable individually
+  // Using fromPinyinSyllable because fromPinyin has bugs with lv/nv syllables
+  const syllables = processed.split(/\s+/);
+
+  const zhuyinParts = syllables.map((syllable) => {
+    // Skip empty strings (from leading/trailing/multiple spaces)
+    if (syllable === '') {
+      return '';
+    }
+
+    // Handle xx5 placeholder (unknown pronunciation) - keep as ??
+    if (syllable === 'xx5' || syllable.startsWith('xx')) {
+      return '??';
+    }
+
+    const result = fromPinyinSyllable(syllable);
+    // If conversion fails (library returns literal "undefined..." string), fallback to original
+    if (!result || result.startsWith('undefined')) {
+      return syllable;
+    }
+    return result;
+  });
+
+  // Filter empty strings and join with spaces
+  return zhuyinParts.filter((p) => p !== '').join(' ');
 }

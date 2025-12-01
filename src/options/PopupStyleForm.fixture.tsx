@@ -8,6 +8,7 @@ import type {
   FontSize,
   HanziDisplay,
   PartOfSpeechDisplay,
+  PronunciationType,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
 import '../content/popup/popup.css';
@@ -22,6 +23,8 @@ export default function PopupStyleFormFixture() {
   const [showHskLevel, setShowHskLevel] = useState<boolean>(false);
   const [showTocflLevel, setShowTocflLevel] = useState<boolean>(false);
   const [pinyinDisplay, setPinyinDisplay] = useState<boolean>(false);
+  const [pronunciationType, setPronunciationType] =
+    useState<PronunciationType>('pinyin');
   const [showDefinitions, setShowDefinitions] = useState<boolean>(true);
 
   const [hanziDisplay, setHanziDisplay] = useState<HanziDisplay>('simptrad');
@@ -55,6 +58,7 @@ export default function PopupStyleFormFixture() {
       onChangeShowDefinitions={setShowDefinitions}
       onChangeHanvietDisplay={setHanvietDisplay}
       onChangePinyinDisplay={setPinyinDisplay}
+      onChangePronunciationType={setPronunciationType}
       onChangeShowHskLevel={setShowHskLevel}
       onChangeTheme={setTheme}
       posDisplay={posDisplay}
@@ -62,6 +66,7 @@ export default function PopupStyleFormFixture() {
       showDefinitions={showDefinitions}
       hanvietDisplay={hanvietDisplay}
       pinyinDisplay={pinyinDisplay}
+      pronunciationType={pronunciationType}
       showHskLevel={showHskLevel}
       theme={theme}
       dictLang={dictLang}

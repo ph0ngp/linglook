@@ -36,7 +36,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 
 - Look up Chinese words by hovering over them, on both desktop and mobile.
 - Supports both simplified and traditional Chinese characters.
-- Displays the word's definition, pinyin, HSK level, TOCFL level.
+- Displays the word's definition, pronunciation (pinyin, zhuyin/bopomofo), HSK level, TOCFL level.
 - Detailed character information: stroke order animation, frequency, radical, origin, etc.
 - Copy the word to clipboard.
 - Search the word with Google Images.
@@ -71,7 +71,7 @@ LingLook is a browser extension that lets you look up Chinese words by hovering 
 - On mobile devices, there is a circular puck on the screen. Move that puck to hover over the target word and the popup window will appear.
   - Single-tap on the puck to temporarily disable/enable the lookup function.
   - Double-tap on the puck to switch the lookup direction between up and down.
-- Inside the popup window, you can see the word's definition, pinyin, HSK level, TOCFL level.
+- Inside the popup window, you can see the word's definition, pronunciation (pinyin or zhuyin), HSK level, TOCFL level.
   - Click on the word, and you can copy it to clipboard or search it with Google Images.
 - Switch to the "Character" tab, here you can play stroke order animation and see other character information like frequency, radical, origin, etc.
 - Clicking on the Settings gear icon will open the extension's settings page. Here you can change various settings including theme, show/hide HSK/TOCFL levels, simplified/traditional character order, dictionary language, keyboard shortcuts, etc.

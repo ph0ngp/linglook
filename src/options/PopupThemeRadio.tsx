@@ -7,6 +7,7 @@ import type {
   FontSize,
   HanziDisplay,
   PartOfSpeechDisplay,
+  PronunciationType,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
@@ -23,6 +24,7 @@ type Props = {
   showDefinitions: boolean;
   hanvietDisplay: boolean;
   pinyinDisplay: boolean;
+  pronunciationType: PronunciationType;
   showHskLevel: boolean;
   theme: string;
   dictLang: DbLanguageId;
@@ -100,6 +102,7 @@ type PopupPreviewProps = {
   hanvietDisplay: boolean;
   showHskLevel: boolean;
   pinyinDisplay: boolean;
+  pronunciationType: PronunciationType;
   theme: string;
   dictLang: DbLanguageId;
 };
@@ -195,11 +198,28 @@ function PopupPreview(props: PopupPreviewProps) {
             {renderKana(props.hanziDisplay)}
             {props.hanvietDisplay && <Star />}
           </span> */}
-          {props.pinyinDisplay && (
-            <span class="w-romaji" lang="zh">
-              diàn nǎo
+          {props.pinyinDisplay &&
+            (props.pronunciationType === 'pinyin' ||
+              props.pronunciationType === 'both') && (
+              <span class="w-romaji" lang="zh">
+                diàn nǎo
+              </span>
+            )}
+          {props.pinyinDisplay && props.pronunciationType === 'both' && (
+            <span
+              class="separator"
+              style="display: inline-block; width: 0.5em;"
+            >
+              {' '}
             </span>
           )}
+          {props.pinyinDisplay &&
+            (props.pronunciationType === 'zhuyin' ||
+              props.pronunciationType === 'both') && (
+              <span class="w-romaji" lang="zh-TW">
+                ㄉㄧㄢˋ ㄋㄠˇ
+              </span>
+            )}
           <span class="separator" style="display: inline-block; width: 0.5em;">
             {' '}
           </span>

@@ -7,6 +7,7 @@ import type {
   FontSize,
   HanziDisplay,
   PartOfSpeechDisplay,
+  PronunciationType,
 } from '../common/content-config-params';
 import { DbLanguageId, dbLanguages } from '../common/db-languages';
 import '../content/popup/popup.css';
@@ -43,6 +44,13 @@ export default function PopupThemeRadioFixture() {
   const [pinyinDisplay] = useValue<boolean>('pinyinDisplay', {
     defaultValue: false,
   });
+  const [pronunciationType] = useSelect<PronunciationType>(
+    'pronunciationType',
+    {
+      defaultValue: 'pinyin',
+      options: ['pinyin', 'zhuyin', 'both'],
+    }
+  );
   const [showHskLevel] = useValue<boolean>('showHskLevel', {
     defaultValue: false,
   });
@@ -71,6 +79,7 @@ export default function PopupThemeRadioFixture() {
         showDefinitions={showDefinitions}
         hanvietDisplay={hanvietDisplay}
         pinyinDisplay={pinyinDisplay}
+        pronunciationType={pronunciationType}
         showHskLevel={showHskLevel}
         theme={theme}
         dictLang={dictLang}

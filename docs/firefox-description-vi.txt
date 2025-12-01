@@ -5,7 +5,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
     <li>Tra cứu từ tiếng Trung tức thì trên bất kỳ trang web nào chỉ bằng cách rê qua chúng</li>
     <li>Dữ liệu từ điển gồm rất nhiều cụm từ mới, phổ biến trong ngôn ngữ tiếng Trung hiện đại, vốn không có trong các từ điển Hán Việt truyền thống khác</li>
     <li>Hỗ trợ cả chữ Hán giản thể và phồn thể</li>
-    <li>Cung cấp nghĩa từ kèm pinyin, phiên âm Hán Việt, cấp độ HSK và TOCFL</li>
+    <li>Cung cấp nghĩa từ kèm phiên âm (pinyin, chú âm/bopomofo), phiên âm Hán Việt, cấp độ HSK và TOCFL</li>
     <li>Thông tin chi tiết về Hán tự: thứ tự nét viết, tần suất, bộ thủ, nguồn gốc,...</li>
     <li>Sao chép từ và tìm kiếm hình ảnh trên Google</li>
     <li>Hỗ trợ phím tắt</li>
@@ -35,7 +35,7 @@ Vừa lướt web vừa học tiếng Trung! LingLook là một tiện ích mở
             </li>
         </ul>
     </li>
-    <li>Trong cửa sổ popup, bạn có thể xem nghĩa của từ, pinyin, phiên âm Hán Việt, cấp độ HSK, cấp độ TOCFL.</li>
+    <li>Trong cửa sổ popup, bạn có thể xem nghĩa của từ, phiên âm (pinyin hoặc chú âm), phiên âm Hán Việt, cấp độ HSK, cấp độ TOCFL.</li>
     <li>Nhấn vào từ, bạn có thể sao chép hoặc tìm kiếm hình ảnh trên Google.</li>
     <li>Chuyển sang tab "Hán tự", bạn có thể xem các thông tin chi tiết về chữ như thứ tự nét viết, tần suất, bộ thủ, nguồn gốc,...</li>
     <li>Tùy chỉnh màu sắc, giao diện và cách thức hoạt động của LingLook bằng cách nhấn vào biểu tượng bánh răng trong cửa sổ popup.</li>

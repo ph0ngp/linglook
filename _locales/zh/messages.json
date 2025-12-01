@@ -1985,6 +1985,22 @@
     "message": "无",
     "description": "Label for hiding part-of-speech labels"
   },
+  "options_pronunciation_type_both": {
+    "message": "两者皆显示",
+    "description": "Label for displaying both Pinyin and Zhuyin pronunciation"
+  },
+  "options_pronunciation_type_label": {
+    "message": "注音方式",
+    "description": "Label for the drop-down list used to select pronunciation display type"
+  },
+  "options_pronunciation_type_pinyin": {
+    "message": "拼音",
+    "description": "Label for displaying pronunciation as Pinyin (romanized)"
+  },
+  "options_pronunciation_type_zhuyin": {
+    "message": "注音符号",
+    "description": "Label for displaying pronunciation as Zhuyin/Bopomofo phonetic symbols"
+  },
   "options_restore_toggle_shortcut": {
     "message": "恢复切换快捷键",
     "description": "Label for button to restore the toggle shortcut"

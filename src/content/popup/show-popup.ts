@@ -6,6 +6,7 @@ import type {
   FontSize,
   HanziDisplay,
   PartOfSpeechDisplay,
+  PronunciationType,
 } from '../../common/content-config-params';
 import type { CopyType } from '../../common/copy-keys';
 import type { ReferenceAbbreviation } from '../../common/refs';
@@ -75,6 +76,7 @@ export type ShowPopupOptions = {
   safeArea: Box;
   showDefinitions: boolean;
   hanvietDisplay: boolean;
+  pronunciationType: PronunciationType;
   showKanjiComponents?: boolean;
   switchDictionaryKeys: ReadonlyArray<string>;
   tabDisplay: 'top' | 'left' | 'right' | 'none';

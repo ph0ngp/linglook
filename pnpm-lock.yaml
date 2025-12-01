@@ -56,6 +56,9 @@ importers:
       webextension-polyfill:
         specifier: 0.12.0
         version: 0.12.0
+      zhuyin:
+        specifier: ^1.14.0
+        version: 1.14.0
     devDependencies:
       '@actions/core':
         specifier: 1.10.1
@@ -4443,6 +4446,12 @@ packages:
     resolution: {tarball: https://codeload.github.com/quizlet/pinyin-converter/tar.gz/e9a4fe774142d8bdcf37c6e13fe69ccab93562fb}
     version: 0.0.2
 
+  pinyin-split@1.170.0:
+    resolution: {integrity: sha512-7hlVgPSxAg2qDrStiOJy0kSWT1/uxo5jw0FPdqr/yIS1ugR3YXawRR6LWrkBOQCe+FSci1mr4Z1MOiCEG3gi4Q==}
+
+  pinyin-utils@2.32.0:
+    resolution: {integrity: sha512-jgPlD0lhF9GCxhFkUD+KZ0NEHw3QCIGX1n11DPmPvvgqvrX3YUdlp2p7bdrbejnjmzNK+BJaDwG9uyApw3xL8Q==}
+
   pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
@@ -6100,6 +6109,9 @@ packages:
   yoctocolors@2.1.1:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
+
+  zhuyin@1.14.0:
+    resolution: {integrity: sha512-m0gpSLP77jPZj2l+Pyiws01T51/UhZZlpGEtWldGxkulzBF4lCywaFJ1gGhzfSHWrC8uC8qaKLuymld2JvW38A==}
 
   zip-dir@2.0.0:
     resolution: {integrity: sha512-uhlsJZWz26FLYXOD6WVuq+fIcZ3aBPGo/cFdiLlv3KNwpa52IF3ISV8fLhQLiqVu5No3VhlqlgthN6gehil1Dg==}
@@ -10589,6 +10601,10 @@ snapshots:
 
   pinyin-converter@https://codeload.github.com/quizlet/pinyin-converter/tar.gz/e9a4fe774142d8bdcf37c6e13fe69ccab93562fb: {}
 
+  pinyin-split@1.170.0: {}
+
+  pinyin-utils@2.32.0: {}
+
   pirates@4.0.6: {}
 
   playwright-core@1.47.0: {}
@@ -12470,6 +12486,11 @@ snapshots:
   yoctocolors-cjs@2.1.2: {}
 
   yoctocolors@2.1.1: {}
+
+  zhuyin@1.14.0:
+    dependencies:
+      pinyin-split: 1.170.0
+      pinyin-utils: 2.32.0
 
   zip-dir@2.0.0:
     dependencies:

@@ -46,6 +46,8 @@ export type PartOfSpeechDisplay = 'expl' | 'code' | 'none';
 
 export type TabDisplay = 'top' | 'left' | 'right' | 'none';
 
+export type PronunciationType = 'pinyin' | 'zhuyin' | 'both';
+
 export interface ContentConfigParams {
   // Indicates the type of display to use for showing pitch accent information.
   hanziDisplay: HanziDisplay;
@@ -134,8 +136,11 @@ export interface ContentConfigParams {
   // Should we show the puck or not?
   showPuck: 'show' | 'hide' | 'auto';
 
-  // True if we should show romaji alongside each reading.
+  // True if we should show pronunciation alongside each word.
   pinyinDisplay: boolean;
+
+  // Indicates the type of pronunciation to display (pinyin, zhuyin, or both).
+  pronunciationType: PronunciationType;
 
   // Indicates the orientation / visibility of the popup tab bar.
   tabDisplay: TabDisplay;

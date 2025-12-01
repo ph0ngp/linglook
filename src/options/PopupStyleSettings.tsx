@@ -7,6 +7,7 @@ import type {
   FontSize,
   HanziDisplay,
   PartOfSpeechDisplay,
+  PronunciationType,
 } from '../common/content-config-params';
 import { DbLanguageId } from '../common/db-languages';
 import { useLocale } from '../common/i18n';
@@ -66,6 +67,14 @@ export function PopupStyleSettings(props: Props) {
   const onChangePinyinDisplay = useCallback(
     (value: boolean) => {
       props.config.pinyinDisplay = value;
+    },
+    [props.config]
+  );
+
+  const pronunciationType = useConfigValue(props.config, 'pronunciationType');
+  const onChangePronunciationType = useCallback(
+    (value: PronunciationType) => {
+      props.config.pronunciationType = value;
     },
     [props.config]
   );
@@ -136,6 +145,7 @@ export function PopupStyleSettings(props: Props) {
           onChangeShowDefinitions={onChangeShowDefinitions}
           onChangeHanvietDisplay={onChangeHanvietDisplay}
           onChangePinyinDisplay={onChangePinyinDisplay}
+          onChangePronunciationType={onChangePronunciationType}
           onChangeShowHskLevel={onChangeShowHskLevel}
           onChangeTheme={onChangeTheme}
           posDisplay={posDisplay}
@@ -143,6 +153,7 @@ export function PopupStyleSettings(props: Props) {
           showDefinitions={showDefinitions}
           hanvietDisplay={hanvietDisplay}
           pinyinDisplay={pinyinDisplay}
+          pronunciationType={pronunciationType}
           showHskLevel={hskDisplay === 'show-matches'}
           theme={theme}
           dictLang={dictLang}

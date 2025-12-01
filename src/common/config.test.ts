@@ -13,7 +13,12 @@ import {
   vi,
 } from 'vitest';
 
-const { mockStorage } = vi.hoisted(() => {
+const { mockStorage, mockI18n } = vi.hoisted(() => {
+  const mockI18n = {
+    getUILanguage: () => 'en',
+    getMessage: () => 'en',
+  };
+
   class MockStorage {
     onChanged = new MockOnChanged();
     sync = new MockStorageArea(this.onChanged, 'sync');
@@ -136,12 +141,13 @@ const { mockStorage } = vi.hoisted(() => {
     }
   }
 
-  return { mockStorage: new MockStorage() };
+  return { mockStorage: new MockStorage(), mockI18n };
 });
 
 vi.mock('webextension-polyfill', () => ({
   default: {
     storage: mockStorage,
+    i18n: mockI18n,
   },
 }));
 
@@ -228,8 +234,36 @@ describe('Config', () => {
     expect(config.hanvietDisplay).toEqual(false);
     expect(config.showPuck).toEqual('auto');
     expect(config.pinyinDisplay).toEqual(true);
+    expect(config.pronunciationType).toEqual('pinyin');
     expect(config.tabDisplay).toEqual('top');
     expect(config.toolbarIcon).toEqual('default');
+  });
+
+  it('defaults pronunciationType to zhuyin for Taiwan locale', () => {
+    mockI18n.getUILanguage = () => 'zh-TW';
+    const config = new Config();
+    expect(config.pronunciationType).toEqual('zhuyin');
+
+    // Reset for other tests
+    mockI18n.getUILanguage = () => 'en';
+  });
+
+  it('defaults pronunciationType to zhuyin for zh-Hant locale', () => {
+    mockI18n.getUILanguage = () => 'zh-Hant';
+    const config = new Config();
+    expect(config.pronunciationType).toEqual('zhuyin');
+
+    // Reset for other tests
+    mockI18n.getUILanguage = () => 'en';
+  });
+
+  it('defaults pronunciationType to pinyin for zh-CN locale', () => {
+    mockI18n.getUILanguage = () => 'zh-CN';
+    const config = new Config();
+    expect(config.pronunciationType).toEqual('pinyin');
+
+    // Reset for other tests
+    mockI18n.getUILanguage = () => 'en';
   });
 
   it('reports changes to all listeners', async () => {

@@ -14,7 +14,7 @@ import { Sense, WordResult } from '../../background/search-result';
 import { PartOfSpeechDisplay } from '../../common/content-config-params';
 import { highPriorityLabels } from '../../common/priority-labels';
 import { html } from '../../utils/builder';
-import { convert_to_toned_pinyin } from '../../utils/romaji';
+import { convert_to_toned_pinyin, convert_to_zhuyin } from '../../utils/romaji';
 import { getFilteredTags } from '../../utils/verb-tags';
 
 import { NamePreview } from '../query';
@@ -377,13 +377,40 @@ export function renderWordEntries({
 
     if (entry.romaji?.length) {
       const pinyin_words = preprocess_pinyin(entry.romaji[0]);
-      headingDiv.append(
-        html(
-          'span',
-          { class: 'w-romaji', lang: 'zh' },
-          convert_to_toned_pinyin(entry.romaji[0])
-        )
-      );
+
+      // Render pronunciation based on pronunciationType setting
+      const { pronunciationType } = options;
+      if (pronunciationType === 'pinyin' || pronunciationType === 'both') {
+        headingDiv.append(
+          html(
+            'span',
+            { class: 'w-romaji', lang: 'zh' },
+            convert_to_toned_pinyin(entry.romaji[0])
+          )
+        );
+      }
+      if (pronunciationType === 'zhuyin' || pronunciationType === 'both') {
+        if (pronunciationType === 'both') {
+          headingDiv.append(
+            html(
+              'span',
+              {
+                class: 'separator',
+                style: 'display: inline-block; width: 0.5em;',
+              },
+              ' '
+            )
+          );
+        }
+        headingDiv.append(
+          html(
+            'span',
+            { class: 'w-romaji', lang: 'zh-TW' },
+            convert_to_zhuyin(entry.romaji[0])
+          )
+        );
+      }
+
       if (options.hanvietDisplay) {
         // CY: entry.k.length > 1 is only for the original japanese dict testing. For chinese dict, entry.k.length always = 2
         if (

@@ -26,6 +26,7 @@ import type {
   HighlightStyle,
   KeyboardKeys,
   PartOfSpeechDisplay,
+  PronunciationType,
   TabDisplay,
 } from './content-config-params';
 import { DbLanguageId, dbLanguages } from './db-languages';
@@ -86,6 +87,7 @@ interface Settings {
   showKanjiComponents?: boolean;
   hanvietDisplay?: boolean;
   pinyinDisplay?: boolean;
+  pronunciationType?: PronunciationType;
   tabDisplay?: TabDisplay;
   toolbarIcon?: 'default' | 'sky';
   hskDisplay?: 'hide' | 'show-matches';
@@ -1282,6 +1284,42 @@ export class Config {
     }
   }
 
+  // pronunciationType: Defaults to 'zhuyin' for Taiwan locales, 'pinyin' otherwise
+
+  private getDefaultPronunciationType(): PronunciationType {
+    const locale = browser.i18n.getUILanguage().toLowerCase();
+    // Taiwan uses Traditional Chinese and zhuyin (bopomofo)
+    if (
+      locale === 'zh-tw' ||
+      locale.startsWith('zh-hant-tw') ||
+      locale === 'zh-hant'
+    ) {
+      return 'zhuyin';
+    }
+    return 'pinyin';
+  }
+
+  get pronunciationType(): PronunciationType {
+    return (
+      this.settings.pronunciationType ?? this.getDefaultPronunciationType()
+    );
+  }
+
+  set pronunciationType(value: PronunciationType) {
+    if (this.pronunciationType === value) {
+      return;
+    }
+
+    // Only store if different from the locale-based default
+    if (value === this.getDefaultPronunciationType()) {
+      delete this.settings.pronunciationType;
+      void browser.storage.sync.remove('pronunciationType');
+    } else {
+      this.settings.pronunciationType = value;
+      void browser.storage.sync.set({ pronunciationType: value });
+    }
+  }
+
   // hskDisplay: Defaults to 'show-matches'
 
   get hskDisplay(): 'hide' | 'show-matches' {
@@ -1395,6 +1433,7 @@ export class Config {
       hanvietDisplay: this.hanvietDisplay,
       showPuck: this.showPuck,
       pinyinDisplay: this.pinyinDisplay,
+      pronunciationType: this.pronunciationType,
       tabDisplay: this.tabDisplay,
       toolbarIcon: this.toolbarIcon,
       hskDisplay: this.hskDisplay,

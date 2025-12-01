@@ -205,6 +205,9 @@ export class ContentConfig implements ContentConfigParams {
   get pinyinDisplay() {
     return this.params.pinyinDisplay;
   }
+  get pronunciationType() {
+    return this.params.pronunciationType;
+  }
   get tabDisplay() {
     return this.params.tabDisplay;
   }

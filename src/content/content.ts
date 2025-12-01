@@ -2299,6 +2299,7 @@ export class ContentHandler {
       showDefinitions: !this.config.readingOnly,
       showKanjiComponents: this.config.showKanjiComponents,
       hanvietDisplay: this.config.hanvietDisplay,
+      pronunciationType: this.config.pronunciationType,
       switchDictionaryKeys: this.config.keys.nextDictionary,
       tabDisplay: this.config.tabDisplay,
       hskDisplay: this.config.hskDisplay,
