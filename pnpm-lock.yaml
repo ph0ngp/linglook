@@ -151,8 +151,8 @@ importers:
         specifier: 10.7.3
         version: 10.7.3
       playwright:
-        specifier: 1.47.2
-        version: 1.47.2
+        specifier: 1.55.1
+        version: 1.55.1
       playwright-test:
         specifier: 14.1.6
         version: 14.1.6
@@ -4525,8 +4525,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright-core@1.47.2:
-    resolution: {integrity: sha512-3JvMfF+9LJfe16l7AbSmU555PaTl2tPyQsVInqm3id16pdDfvZ8TTZ/pyzmkbDrZTQefyzU7AIHlZqQnxpqHVQ==}
+  playwright-core@1.55.1:
+    resolution: {integrity: sha512-Z6Mh9mkwX+zxSlHqdr5AOcJnfp+xUWLCt9uKV18fhzA8eyxUd8NUWzAjxUh55RZKSYwDGX0cfaySdhZJGMoJ+w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4535,8 +4535,8 @@ packages:
     engines: {node: '>=16.0.0'}
     hasBin: true
 
-  playwright@1.47.2:
-    resolution: {integrity: sha512-nx1cLMmQWqmA3UsnjaaokyoUpdVaaDhJhMoxX2qj3McpjnsqFHs516QAKYhqHAgOP+oCFTEOCOAaD1RgD/RQfA==}
+  playwright@1.55.1:
+    resolution: {integrity: sha512-cJW4Xd/G3v5ovXtJJ52MAOclqeac9S/aGGgRzLabuF8TnIb6xHvMzKIa6JmrRzUkeXJgfL1MhukP0NK6l39h3A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -10715,7 +10715,7 @@ snapshots:
 
   playwright-core@1.47.0: {}
 
-  playwright-core@1.47.2: {}
+  playwright-core@1.55.1: {}
 
   playwright-test@14.1.6:
     dependencies:
@@ -10756,9 +10756,9 @@ snapshots:
     transitivePeerDependencies:
       - monocart-coverage-reports
 
-  playwright@1.47.2:
+  playwright@1.55.1:
     dependencies:
-      playwright-core: 1.47.2
+      playwright-core: 1.55.1
     optionalDependencies:
       fsevents: 2.3.2
 
