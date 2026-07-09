@@ -86,7 +86,7 @@
     display: none;
   }
 
-  .-inline > .container {
+  .-inline>.container {
     position: revert;
     z-index: revert;
     pointer-events: revert;
@@ -109,16 +109,12 @@
 
   .container:not(.interactive) {
     max-height: var(--max-height, none);
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      black calc(var(--max-height) - 5px),
-      transparent
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      black calc(var(--max-height) - 5px),
-      transparent
-    );
+    -webkit-mask-image: linear-gradient(to bottom,
+        black calc(var(--max-height) - 5px),
+        transparent);
+    mask-image: linear-gradient(to bottom,
+        black calc(var(--max-height) - 5px),
+        transparent);
   }
 
   .container .window {
@@ -199,11 +195,11 @@
     overflow: hidden;
   }
 
-  .window .status-bar-wrapper > :first-child {
+  .window .status-bar-wrapper> :first-child {
     flex-grow: 1;
   }
 
-  .window .status-bar-wrapper > .status-bar {
+  .window .status-bar-wrapper>.status-bar {
     flex-shrink: 0;
   }
 
@@ -213,7 +209,7 @@
     flex-direction: column;
   }
 
-  .window .content > :first-child {
+  .window .content> :first-child {
     flex-grow: 1;
   }
 
@@ -305,9 +301,11 @@
     .window[data-tab-side='top'] .tabs .tab {
       flex-grow: 0;
     }
+
     .window[data-tab-side='top'] .tabs .tab button span {
       display: none;
     }
+
     .window[data-tab-side='top'] .tabs .tab button .icon {
       margin-right: 0px;
     }
@@ -569,11 +567,9 @@
     text-decoration: none;
 
     /* Colors */
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--bg-rgb), 0.3),
-      var(--bg-color) 80%
-    );
+    background: linear-gradient(to bottom,
+        rgba(var(--bg-rgb), 0.3),
+        var(--bg-color) 80%);
     color: rgba(var(--expand-button-rgb), 0.8);
   }
 
@@ -590,11 +586,9 @@
     * blend with the underlying element since you can't have a fully transparent
     * border on a non-transparent background. */
     outline: 1px var(--expand-button-color) dotted;
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--bg-rgb), 0.8),
-      var(--bg-color) 80%
-    );
+    background: linear-gradient(to bottom,
+        rgba(var(--bg-rgb), 0.8),
+        var(--bg-color) 80%);
   }
 
   .window .content .expand-button .icon {
@@ -721,6 +715,7 @@
     border: 1px solid var(--bunpro-vocab);
     color: var(--bunpro-vocab);
   }
+
   .w-kanji .bp-tag.-grammar,
   .w-kana .bp-tag.-grammar {
     border: 1px solid var(--bunpro-grammar);
@@ -738,17 +733,17 @@
     margin-right: 0.3em;
   }
 
-  .w-kana > .w-heiban {
+  .w-kana>.w-heiban {
     border-top: 1.5px dotted currentcolor !important;
   }
 
-  .w-kana > .w-binary {
+  .w-kana>.w-binary {
     /* Add a gap below so the border doesn't overlap with the definition */
     display: inline-block;
     margin-bottom: 0.2em;
   }
 
-  .w-kana > .w-binary > * {
+  .w-kana>.w-binary>* {
     /* Drop gaps between borders */
     margin: 0;
     /* Make room for the borders
@@ -758,26 +753,26 @@
     --border-width: 1.5px;
   }
 
-  .w-kana > .w-binary.-hi-contrast > * {
+  .w-kana>.w-binary.-hi-contrast>* {
     border-color: var(--hi-contrast-pitch-accent);
     --border-width: 2px;
   }
 
-  .w-kana > .w-binary > .h-l {
+  .w-kana>.w-binary>.h-l {
     border-top-width: var(--border-width);
     border-right-width: var(--border-width);
   }
 
-  .w-kana > .w-binary > .l-h {
+  .w-kana>.w-binary>.l-h {
     border-bottom-width: var(--border-width);
     border-right-width: var(--border-width);
   }
 
-  .w-kana > .w-binary > .h {
+  .w-kana>.w-binary>.h {
     border-top-width: var(--border-width);
   }
 
-  .w-kana > .w-binary > .l {
+  .w-kana>.w-binary>.l {
     border-bottom-width: var(--border-width);
   }
 
@@ -787,7 +782,7 @@
     margin-right: 0.3em;
   }
 
-  .w-kana + .w-romaji {
+  .w-kana+.w-romaji {
     margin-left: 0.3em;
   }
 
@@ -795,6 +790,61 @@
   .w-romaji {
     color: var(--reading-highlight);
   }
+
+
+  /*////////////////////////////////////////////
+// Tone Coloring Styles (Added By Huzaifa Irfan (huzaifairfan2001@gmail.com))
+////////////////////////////////////////////*/
+
+  /* Tone colors — Pleco style — shared by pinyin & zhuyin */
+  .toned-syllable {
+    display: inline-block;
+  }
+
+  /* Light background (default) */
+  .toned-syllable.tone-1 {
+    color: #e6003c;
+  }
+
+  .toned-syllable.tone-2 {
+    color: #009944;
+  }
+
+  .toned-syllable.tone-3 {
+    color: #0066cc;
+  }
+
+  .toned-syllable.tone-4 {
+    color: #7b2d9e;
+  }
+
+  .toned-syllable.tone-5 {
+    color: #000000;
+  }
+
+  /* Dark background */
+  @media (prefers-color-scheme: dark) {
+    .toned-syllable.tone-1 {
+      color: #ff5c6c;
+    }
+
+    .toned-syllable.tone-2 {
+      color: #4ade80;
+    }
+
+    .toned-syllable.tone-3 {
+      color: #60a5fa;
+    }
+
+    .toned-syllable.tone-4 {
+      color: #c084fc;
+    }
+
+    .toned-syllable.tone-5 {
+      color: #d1d5db;
+    }
+  }
+
 
   .w-hanviet {
     color: var(--bunpro-grammar);
@@ -844,7 +894,7 @@
 
   /* Especially when we have group headings amongst other definitions, we want a
   * bit more vertical space before they start. */
-  .w-def ol + .w-group-head {
+  .w-def ol+.w-group-head {
     margin-top: 6px;
   }
 
@@ -855,8 +905,8 @@
 
   /* Add a little breathing space between native language definitions and
   * subsequent English definitions. */
-  .w-def ul + .w-group-head,
-  .w-def ul + ol {
+  .w-def ul+.w-group-head,
+  .w-def ul+ol {
     margin-top: 6px;
   }
 
@@ -943,12 +993,14 @@
     .container.interactive .entry:not(:hover) {
       transition: background-color 0.08s ease-out;
     }
+
     .container.interactive .entry:hover {
       color: var(--selected-highlight);
       background: var(--hover-bg);
       border-radius: 2px;
       cursor: pointer;
     }
+
     .container.interactive .entry.-selected:hover {
       background: var(--selected-bg);
     }
@@ -982,6 +1034,7 @@
   }
 
   @media (hover) {
+
     .container.interactive .entry:hover .w-kana,
     .container.interactive .entry:hover .w-romaji {
       color: var(--selected-reading-highlight);
@@ -1004,6 +1057,7 @@
   }
 
   @media (hover) {
+
     .container.interactive .entry:hover .w-def,
     .container.interactive .entry:hover .w-def * {
       color: var(--selected-def-color);
@@ -1102,12 +1156,12 @@
     font-size: calc(0.8 * var(--base-font-size));
   }
 
-  .status-bar > .status {
+  .status-bar>.status {
     display: flex;
     align-items: baseline;
   }
 
-  .status-bar > * {
+  .status-bar>* {
     padding: 5px 8px 5px;
   }
 
@@ -1135,12 +1189,12 @@
     animation: spin-ccw 0.8s linear infinite;
   }
 
-  .window.-copy-finished .status-bar > .keys,
-  .window.-copy-error .status-bar > .keys {
+  .window.-copy-finished .status-bar>.keys,
+  .window.-copy-error .status-bar>.keys {
     animation: fade-out 0.4s linear forwards;
   }
 
-  .window.-copy-finished .status-bar > .status {
+  .window.-copy-finished .status-bar>.status {
     opacity: 0;
     animation:
       fade-in 0.4s linear forwards,
@@ -1175,7 +1229,7 @@
     }
   }
 
-  .window.-copy-error .status-bar > .status {
+  .window.-copy-error .status-bar>.status {
     opacity: 0;
     animation: fade-in 0.4s linear forwards;
     background: rgba(255, 204, 204, 0.8);
@@ -1222,9 +1276,9 @@
   }
 
   .wordlist .meta.era,
-  .wordlist .meta.measure > *,
+  .wordlist .meta.measure>*,
   .name-table .meta.era,
-  .name-table .meta.measure > * {
+  .name-table .meta.measure>* {
     display: flex;
     align-items: baseline;
   }
@@ -1237,11 +1291,11 @@
 
   /* Meta: currency */
 
-  .meta.currency > .main {
+  .meta.currency>.main {
     font-size: calc(18 / 14 * var(--base-font-size));
   }
 
-  .meta.currency > .main .equation-part {
+  .meta.currency>.main .equation-part {
     display: inline-flex;
     align-items: baseline;
   }
@@ -1252,7 +1306,7 @@
     margin-right: 0.3em;
   }
 
-  .meta.currency > .timestamp {
+  .meta.currency>.timestamp {
     opacity: 0.6;
     font-size: calc(10 / 14 * var(--base-font-size));
   }
@@ -1336,13 +1390,13 @@
   }
 
   /* Blurring for the entry area when the copy overlay is showing */
-  .window.-has-overlay .content .grid-stack > :first-child {
+  .window.-has-overlay .content .grid-stack> :first-child {
     pointer-events: none;
     filter: blur(20px);
     transition: filter 0.3s ease-in-out;
   }
 
-  .window.-has-overlay .content .grid-stack > .copy-overlay {
+  .window.-has-overlay .content .grid-stack>.copy-overlay {
     background: hsla(0, 0%, 97%, 0.6);
     transition: background-color 0.3s ease-in-out;
   }
@@ -1361,7 +1415,7 @@
   * Ideally we'd only do this if we were actually going to constrain the height
   * anyway, but that's hard to detect so we just do this unconditionally and so
   * far it seems to work ok. */
-  .window.-has-overlay .content .grid-stack > .entry-data {
+  .window.-has-overlay .content .grid-stack>.entry-data {
     position: absolute;
     width: 100%;
   }
@@ -1470,8 +1524,8 @@
     grid-template-rows: [stack-start] auto [stack-end];
   }
 
-  .grid-stack > *,
-  .-stack > * {
+  .grid-stack>*,
+  .-stack>* {
     grid-column: 1 / -1;
     grid-row: stack-start / stack-end;
   }

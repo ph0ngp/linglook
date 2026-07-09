@@ -375,18 +375,82 @@ export function renderWordEntries({
     //   headingDiv.append(kanaSpan);
     // }
 
+    /////////////////////////////////////////////
+    // Tone Coloring Helper Functions (Added By Huzaifa Irfan (huzaifairfan2001@gmail.com))
+    /////////////////////////////////////////////
+
+    // ---------- Zhuyin ----------
+    const ZHUYIN_TONE_MARKS: Record<string, number> = {
+      '\u02CA': 2, // ˊ
+      '\u02C7': 3, // ˇ
+      '\u02CB': 4, // ˋ
+      '`': 4, // backtick variant used in your data
+      '\u02D9': 5, // ˙
+    };
+
+    function getZhuyinTone(syllable: string): number {
+      for (const ch of syllable) {
+        const tone = ZHUYIN_TONE_MARKS[ch];
+        if (tone) {return tone;}
+      }
+      return 1; // no mark = 1st tone
+    }
+
+    // ---------- Pinyin ----------
+    const PINYIN_TONE_VOWELS: Record<number, string> = {
+      1: 'āēīōūǖĀĒĪŌŪǕ',
+      2: 'áéíóúǘÁÉÍÓÚǗ',
+      3: 'ǎěǐǒǔǚǍĚǏǑǓǙ',
+      4: 'àèìòùǜÀÈÌÒÙǛ',
+    };
+
+    function getPinyinTone(syllable: string): number {
+      for (const [toneStr, vowels] of Object.entries(PINYIN_TONE_VOWELS)) {
+        for (const ch of syllable) {
+          if (vowels.includes(ch)) {return Number(toneStr);}
+        }
+      }
+      return 5; // no diacritic = neutral tone
+    }
+
+    // ---------- Shared wrapper ----------
+    function toSpans(
+      text: string,
+      getTone: (syllable: string) => number,
+      lang: string
+    ): HTMLElement[] {
+      return text
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((syllable) => {
+          const tone = getTone(syllable);
+          return html(
+            'span',
+            { class: `toned-syllable tone-${tone}`, lang },
+            syllable
+          );
+        });
+    }
+
+    const zhuyinToSpans = (text: string) =>
+      toSpans(text, getZhuyinTone, 'zh-TW');
+    const pinyinToSpans = (text: string) => toSpans(text, getPinyinTone, 'zh');
+
     if (entry.romaji?.length) {
       const pinyin_words = preprocess_pinyin(entry.romaji[0]);
 
       // Render pronunciation based on pronunciationType setting
       const { pronunciationType } = options;
       if (pronunciationType === 'pinyin' || pronunciationType === 'both') {
+        // headingDiv.append(
+        //   html(
+        //     'span',
+        //     { class: 'w-romaji', lang: 'zh' },
+        //     convert_to_toned_pinyin(entry.romaji[0])
+        //   )
+        // );
         headingDiv.append(
-          html(
-            'span',
-            { class: 'w-romaji', lang: 'zh' },
-            convert_to_toned_pinyin(entry.romaji[0])
-          )
+          ...pinyinToSpans(convert_to_toned_pinyin(entry.romaji[0]))
         );
       }
       if (pronunciationType === 'zhuyin' || pronunciationType === 'both') {
@@ -402,13 +466,14 @@ export function renderWordEntries({
             )
           );
         }
-        headingDiv.append(
-          html(
-            'span',
-            { class: 'w-romaji', lang: 'zh-TW' },
-            convert_to_zhuyin(entry.romaji[0])
-          )
-        );
+        // headingDiv.append(
+        //   html(
+        //     'span',
+        //     { class: 'w-romaji', lang: 'zh-TW' },
+        //     convert_to_zhuyin(entry.romaji[0])
+        //   )
+        // );
+        headingDiv.append(...zhuyinToSpans(convert_to_zhuyin(entry.romaji[0])));
       }
 
       if (options.hanvietDisplay) {
