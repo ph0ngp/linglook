@@ -111,7 +111,7 @@
     "mocha": "10.7.3",
     "playwright": "1.55.1",
     "playwright-test": "14.1.6",
-    "postcss": "8.4.47",
+    "postcss": "8.5.23",
     "postcss-import": "16.1.0",
     "postcss-loader": "8.1.1",
     "prettier": "3.3.3",
