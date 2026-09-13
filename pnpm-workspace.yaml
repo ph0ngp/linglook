@@ -1,0 +1,5 @@
+allowBuilds:
+  '@birchill/jpdict-idb': false
+  core-js: false
+  esbuild: true
+  spawn-sync: false
