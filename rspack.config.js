@@ -376,6 +376,8 @@ function getExtConfig(options) {
 
   const plugins = [
     new rspack.DefinePlugin({
+      // Hanzi Writer's Node global fallback otherwise pulls in an eval-based shim.
+      global: 'globalThis',
       __ACTIVE_TAB_ONLY__: !!options.activeTabOnly,
       __MV3__: !!options.mv3,
       __SUPPORTS_SVG_ICONS__: !!options.supportsSvgIcons,
@@ -549,6 +551,8 @@ function getExtConfig(options) {
     ...commonConfig,
     name: 'extension',
     devtool,
+    // DefinePlugin supplies globalThis instead of Rspack's Node global shim.
+    node: { global: false },
     entry: {
       'linglook-content': './src/content/content.ts',
       'linglook-gdocs-bootstrap': './src/content/gdocs-bootstrap.ts',

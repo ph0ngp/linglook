@@ -8,6 +8,8 @@ import type { SafeAreaProvider } from './safe-area-provider';
 
 vi.mock('../utils/ua-utils', () => ({ isIOS: vi.fn(() => true) }));
 vi.mock('webextension-polyfill', () => ({ default: {} }));
+// Gesture tests use jsdom without layout and do not need to compile styles.
+vi.mock('../../css/puck.css?inline', () => ({ default: '' }));
 
 describe('LookupPuck taps', () => {
   let subject: LookupPuck;

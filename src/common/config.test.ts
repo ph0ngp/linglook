@@ -22,8 +22,10 @@ const { mockStorage, mockI18n } = vi.hoisted(() => {
   class MockStorage {
     onChanged = new MockOnChanged();
     sync = new MockStorageArea(this.onChanged, 'sync');
+    local = new MockStorageArea(this.onChanged, 'local');
     reset() {
       this.sync.reset();
+      this.local.reset();
     }
   }
 

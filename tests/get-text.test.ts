@@ -1308,6 +1308,8 @@ describe('getTextAtPoint', () => {
   });
 
   it('should return the rt text if it is positioned over an rt element', () => {
+    // Leave room above the base text for Firefox's ruby annotations.
+    testDiv.style.top = '40px';
     testDiv.innerHTML = '<ruby>仙<rt>你好</rt>台<rt>狗毛</ruby>';
     const senNode = testDiv.firstChild!.childNodes[1].firstChild as Text;
     const bbox = getBboxForOffset(senNode, 0);
@@ -1323,6 +1325,8 @@ describe('getTextAtPoint', () => {
   });
 
   it('should return the rt text if it is positioned over a child of an rt element', () => {
+    // Leave room above the base text for Firefox's ruby annotations.
+    testDiv.style.top = '40px';
     testDiv.innerHTML = '<ruby>仙<rt><b>你</b>好</rt>台<rt>狗毛</ruby>';
     const seNode = testDiv.firstChild!.childNodes[1].firstChild!
       .firstChild as Text;
