@@ -720,9 +720,9 @@ export class LookupPuck {
   // As a result these event listeners are _only_ interested in when we are
   // detecting the second tap of a double-tap gesture.
   //
-  // When the pointer events are _not_ swallowed, because we call preventDefault
-  // on the pointerdown / pointerup events, these functions should never be
-  // called.
+  // Normally preventDefault on pointerdown / pointerup suppresses the matching
+  // mouse events, but recent iOS 26 releases emit them even for the first tap.
+  // Check the mouse click count so those events don't look like a second tap.
 
   private readonly onPuckMouseDown = (event: MouseEvent) => {
     // This is only needed for iOS Safari and on Firefox for Android, calling
@@ -743,8 +743,13 @@ export class LookupPuck {
       return;
     }
 
+    // Keep this before the second-tap guard. WebKit bug 313688 exposes the
+    // first tap's mouse events, whose default action can zoom the page:
+    // https://bugs.webkit.org/show_bug.cgi?id=313688
+    event.preventDefault();
+
     // We only care about detecting the start of a second tap
-    if (this.clickState.kind !== 'firstclick') {
+    if (event.detail < 2 || this.clickState.kind !== 'firstclick') {
       return;
     }
 
@@ -756,8 +761,6 @@ export class LookupPuck {
       ...this.clickState,
       kind: 'secondpointerdown',
     };
-
-    event.preventDefault();
 
     // See note in onPointerDown for why we need to register in the capture
     // phase.
@@ -787,13 +790,14 @@ export class LookupPuck {
       return;
     }
 
+    event.preventDefault();
+
     // We only care about detecting the end of the second tap in a double-tap
     // gesture.
-    if (this.clickState.kind !== 'secondpointerdown') {
+    if (event.detail < 2 || this.clickState.kind !== 'secondpointerdown') {
       return;
     }
 
-    event.preventDefault();
     event.stopPropagation();
 
     this.stopDraggingPuck();
