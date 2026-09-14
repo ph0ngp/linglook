@@ -8,6 +8,8 @@ import {
 // import { empty } from '../src/utils/dom-utils';
 import { isChromium } from '../src/utils/ua-utils';
 
+import { getTextWidth } from './text-metrics';
+
 describe('getTextAtPoint', () => {
   let testDiv: HTMLDivElement;
 
@@ -1555,21 +1557,25 @@ describe('getTextAtPoint', () => {
     );
   });
 
-  it('should find text in textarea elements', () => {
-    testDiv.innerHTML = '<textarea>你我他她它</textarea>';
-    const textAreaNode = testDiv.firstChild as HTMLTextAreaElement;
+  for (const fontSize of [12, 20]) {
+    it(`should find text in textarea elements with a ${fontSize}px font`, () => {
+      testDiv.innerHTML = '<textarea>你我他她它</textarea>';
+      const textAreaNode = testDiv.firstChild as HTMLTextAreaElement;
 
-    textAreaNode.style.cssText = 'padding:0;border:0;font:20px/30px monospace';
-    const bbox = textAreaNode.getBoundingClientRect();
+      textAreaNode.style.cssText = `padding:0;border:0;font:${fontSize}px/30px monospace`;
+      const bbox = textAreaNode.getBoundingClientRect();
+      const firstGlyphWidth = getTextWidth(textAreaNode, '你');
 
-    // Point inside the second CJK glyph, rather than on the boundary where
-    // native caret APIs and the mirror fallback can choose different offsets.
-    const result = getTextAtPoint({
-      point: { x: bbox.left + 22, y: bbox.top + 15 },
+      // Point near the start of the second glyph, regardless of the platform's
+      // fallback font. Firefox's native caret API can select the next character
+      // when pointing in the second half of a glyph.
+      const result = getTextAtPoint({
+        point: { x: bbox.left + firstGlyphWidth + 2, y: bbox.top + 15 },
+      });
+
+      assertTextResultEqual(result, '我他她它', [textAreaNode, 1, 5]);
     });
-
-    assertTextResultEqual(result, '我他她它', [textAreaNode, 1, 5]);
-  });
+  }
 
   it('should NOT report results in textarea elements when at the end', () => {
     testDiv.innerHTML = '<textarea cols=80>你我他她它</textarea>';

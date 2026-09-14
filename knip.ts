@@ -7,6 +7,8 @@ const config: KnipConfig = {
     // A utility we used to generate all the icon variations once that might yet
     // be useful again some day.
     'scripts/generate-icons.ts',
+    // Automatically loaded by playwright-test, whose config Knip doesn't detect.
+    'playwright-test.config.js',
     // This file is conditionally included in some configurations in a way knip
     // can't be expected to follow. Hopefully we'll eventually remove this
     // quirk and use the same tab manager everywhere.

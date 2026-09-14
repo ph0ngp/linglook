@@ -3,6 +3,8 @@ import { assert } from 'chai';
 import { clearPreviousResult, getTextAtPoint } from '../src/content/get-text';
 import { isChromium } from '../src/utils/ua-utils';
 
+import { getTextWidth } from './text-metrics';
+
 describe('subtitle and multiline textarea lookup', () => {
   let fixture: HTMLDivElement;
 
@@ -132,18 +134,24 @@ describe('subtitle and multiline textarea lookup', () => {
   function textarea(value: string) {
     const input = document.createElement('textarea');
     input.value = value;
-    // CJK glyphs are 20px wide; explicit line-height makes each row predictable.
+    // Explicit line-height makes each row predictable; measure glyph widths
+    // separately since fallback fonts vary across platforms.
     input.style.cssText =
       'display:block;box-sizing:border-box;width:240px;height:160px;padding:0;border:0;margin:0;font:20px/30px monospace;resize:none';
     fixture.append(input);
+    input.style.width = `${getTextWidth(input, '你') * 12}px`;
     return input;
   }
 
   function lookupRow(input: HTMLTextAreaElement, row: number, column = 0) {
     clearPreviousResult();
     const box = input.getBoundingClientRect();
+    const columnWidth = getTextWidth(input, '你');
     return getTextAtPoint({
-      point: { x: box.left + column * 20 + 2, y: box.top + row * 30 + 15 },
+      point: {
+        x: box.left + column * columnWidth + 2,
+        y: box.top + row * 30 + 15,
+      },
     });
   }
 
@@ -163,7 +171,9 @@ describe('subtitle and multiline textarea lookup', () => {
 
   it('finds text after wrapping within a paragraph following a newline', () => {
     const input = textarea('你好\n世界学习中文');
-    input.style.width = '65px';
+    // Fit exactly three glyphs from the second paragraph, with some room to
+    // spare so rounding cannot move the third glyph onto the following row.
+    input.style.width = `${getTextWidth(input, '世界学') + 2}px`;
     const result = lookupRow(input, 2);
     assert.strictEqual(result?.text, '习中文');
     assert.strictEqual(result?.textRange?.[0].start, 6);
