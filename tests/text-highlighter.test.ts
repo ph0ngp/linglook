@@ -53,4 +53,32 @@ describe('TextHighligher', () => {
     assert.strictEqual(textBox.selectionStart, 1);
     assert.strictEqual(textBox.selectionEnd, 4);
   });
+
+  it('preserves scroll when focusing an unfocused multiline textarea to highlight it', async () => {
+    const textBox = document.createElement('textarea');
+    textBox.value = '你好\n世界\n学习\n中文\n朋友\n学校';
+    textBox.style.cssText =
+      'height:60px;width:200px;padding:0;border:0;font:20px/30px monospace';
+    testDiv.append(textBox);
+    // Initialize Firefox's editor, then prepare an unfocused, scrolled field.
+    textBox.focus();
+    textBox.blur();
+    textBox.setSelectionRange(0, 0);
+    textBox.scrollTop = 90;
+    const scrollTop = textBox.scrollTop;
+    assert.isAbove(scrollTop, 0);
+    assert.notStrictEqual(document.activeElement, textBox);
+
+    subject.highlight({
+      length: 2,
+      textRange: [{ node: textBox, start: 9, end: 11 }],
+    });
+    // Highlighting restores scroll on the next animation frame.
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
+
+    assert.strictEqual(textBox.selectionStart, 9);
+    assert.strictEqual(textBox.selectionEnd, 11);
+    assert.strictEqual(textBox.scrollTop, scrollTop);
+  });
 });

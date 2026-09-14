@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix popup positioning on sites such as Facebook that register conflicting CSS properties.
 - Fix hover lookup inside Notion popups, including calendar entries.
 - Display the lookup popup and puck above native dialogs and popovers.
+- Support lookup in Plex text subtitles.
+- Fix multiline textarea lookup in Chromium and WebKit 26, including fields inside dialogs and popovers.
+- Keep scrolled textareas in place when highlighting lookup results.
 
 ## [1.0.1] - 2024-11-20
 

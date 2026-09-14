@@ -1559,15 +1559,14 @@ describe('getTextAtPoint', () => {
     testDiv.innerHTML = '<textarea>你我他她它</textarea>';
     const textAreaNode = testDiv.firstChild as HTMLTextAreaElement;
 
-    textAreaNode.style.padding = '0px';
-    textAreaNode.style.fontSize = '10px';
-    textAreaNode.style.fontFamily = 'monospace';
+    textAreaNode.style.cssText = 'padding:0;border:0;font:20px/30px monospace';
     const bbox = textAreaNode.getBoundingClientRect();
 
-    // See notes above about how we arrived at this offset.
-    const offset = isChromium() ? 10 : 15;
-
-    const result = getTextAtPoint({ point: { x: bbox.left + offset, y: 5 } });
+    // Point inside the second CJK glyph, rather than on the boundary where
+    // native caret APIs and the mirror fallback can choose different offsets.
+    const result = getTextAtPoint({
+      point: { x: bbox.left + 22, y: bbox.top + 15 },
+    });
 
     assertTextResultEqual(result, '我他她它', [textAreaNode, 1, 5]);
   });

@@ -15,15 +15,15 @@ import {
   getBboxForSingleCodepointRange,
   getRangeForSingleCodepoint,
 } from '../utils/range';
-import { isChromium } from '../utils/ua-utils';
+import { isChromium, isSafari } from '../utils/ua-utils';
 
+import { canUseTopLayer } from './content-container';
 import { isGdocsOverlayElem } from './gdocs-canvas';
 import { isPopupWindowHostElem } from './popup/popup-container';
 import { toPageCoords } from './scroll-offset';
 
 declare global {
-  // The following definitions were dropped from lib.dom.d.ts in TypeScript 4.4
-  // since only Firefox supports them.
+  // These APIs are missing from our TypeScript version's DOM definitions.
   interface CaretPosition {
     readonly offsetNode: Node;
     readonly offset: number;
@@ -101,27 +101,39 @@ export function getCursorPosition({
         continue;
       }
 
-      // Skip elements that are already visible
+      // Skip elements that are already visible, with two exceptions:
       //
-      // We need special handling here to account for "covering links".
+      // 1. We need special handling here to account for "covering links".
       //
-      // Normally we can just check if the current element is invisible or not
-      // but for asahi.com we have a special case where it effectively makes the
-      // covering content invisible by setting the dimensions of a _child_
-      // element to 1x1.
+      //    Normally we can just check if the current element is invisible or
+      //    not but for asahi.com we have a special case where it effectively
+      //    makes the covering content invisible by setting the dimensions of a
+      //    _child_ element to 1x1.
       //
-      // To detect that case we check for a non-auto z-index since that has
-      // proven to be the most reliable indicator of this pattern. If we simply
-      // decide to treat the element as invisible whenever its bounding box
-      // doesn't line up, we'll run this too often and cause a performance
-      // regression when the the cursor is moving around empty space on the Web
-      // page.
+      //    To detect that case we check for a non-auto z-index since that has
+      //    proven to be the most reliable indicator of this pattern. If we
+      //    simply decide to treat the element as invisible whenever its
+      //    bounding box doesn't line up, we'll run this too often and cause a
+      //    performance regression when the cursor is moving around empty space
+      //    on the Web page.
       //
-      // We only do this for the initial lookup for now because so far that's
-      // proved sufficient (and is probably cheaper than trying to perform this
-      // check on every element in the hit list).
+      //    We only do this for the initial lookup for now because so far that's
+      //    proved sufficient (and is probably cheaper than trying to perform
+      //    this check on every element in the hit list).
+      //
+      // 2. For Plex subtitles, there is a Play/Pause overlay element that
+      //    covers the whole screen and is not technically invisible
+      //    (e.g. by having zero opacity etc.), it's simply empty and has no
+      //    background or anything else defined on it.
+      //
+      //    It has a class like `PlayPauseOverlay-overlay-lF71cy` so we could
+      //    just look for that but it's probably a bit more robust to try to
+      //    detect an element with no children and no background.
+      //
       const treatElementAsInvisible =
-        firstElement && getComputedStyle(element).zIndex !== 'auto';
+        firstElement &&
+        (getComputedStyle(element).zIndex !== 'auto' ||
+          isVisiblyEmptyElement(element));
       if (!treatElementAsInvisible && isVisible(element)) {
         continue;
       }
@@ -205,26 +217,52 @@ function getCursorPositionForElement({
     return position;
   }
 
-  // If we have any other kind of node, see if we need to override the
-  // user-select style to get a better result.
-  //
-  // This addresses two issues:
-  //
-  // 1. In Firefox, content with `user-select: all` will cause
-  //    caretPositionFromPoint to return the parent element.
-  //
-  // 2. In Safari, content with `-webkit-user-select: none` will not be found by
-  //    caretRangeFromPoint.
-  //
   if (!isTextNodePosition(position)) {
-    const userSelectResult = lookupPointWithNormalizedUserSelect({
-      point,
-      element,
-    });
+    let adjustedPosition: CursorPosition | null = null;
+
+    // If we have a non-text node, there are a few things we can try to
+    // get a better result.
+    //
+    // 1. For Plex subtitles, the subtitles are rendered inside a `libjass-subs`
+    //    container which has the following CSS:
+    //
+    //    .libjass-subs, .libjass-subs * {
+    //       ...
+    //       pointer-events: none;
+    //    }
+    //
+    //    As a result, `position` will point to the parent element (with class
+    //    `Subtitles-renderer-f7uT59 libjass-wrapper`) and not the text in the
+    //    subtitles.
+    //
+    //    If we're pretty sure we're looking at such subtitles, we should force
+    //    all the descendants to have pointer-events: auto while we do the
+    //    lookup.
+    if (position && isSubtitleContainer(position.offsetNode)) {
+      adjustedPosition = lookupPointWithOverriddenPointerEvents({
+        point,
+        element: position.offsetNode,
+      });
+    } else {
+      // 2. Try forcing `user-select: 'text'`
+      //
+      //    This addresses two issues:
+      //
+      //    a. In Firefox, content with `user-select: all` will cause
+      //       caretPositionFromPoint to return the parent element.
+      //
+      //    b. In Safari, content with `-webkit-user-select: none` will not be
+      //       found by caretRangeFromPoint.
+      //
+      adjustedPosition = lookupPointWithNormalizedUserSelect({
+        point,
+        element,
+      });
+    }
 
     // If we got back a text node, prefer it to our previous result
-    if (isTextNodePosition(userSelectResult)) {
-      position = userSelectResult;
+    if (isTextNodePosition(adjustedPosition)) {
+      position = adjustedPosition;
     }
   }
 
@@ -266,6 +304,31 @@ function isVisible(element: Element) {
   return opacity !== '0' && visibility !== 'hidden';
 }
 
+/** Detect if an element will probably not render anything, even if it's
+ * technically visible. */
+function isVisiblyEmptyElement(element: Element) {
+  // Elements that, even if empty, will render something meaningful
+  const replacedElements = [
+    'IMG',
+    'VIDEO',
+    'CANVAS',
+    'IFRAME',
+    'EMBED',
+    'OBJECT',
+    'INPUT',
+  ];
+
+  return (
+    element instanceof HTMLElement &&
+    !replacedElements.includes(element.tagName) &&
+    !element.hasChildNodes() &&
+    getComputedStyle(element).backgroundColor === 'rgba(0, 0, 0, 0)' &&
+    getComputedStyle(element).backgroundImage === 'none'
+    // We could check for border styles etc. but typically if an element is
+    // simply rendering a border, we still want to treat it as empty.
+  );
+}
+
 function lookupPoint({
   point,
   element,
@@ -297,6 +360,23 @@ function getCaretPosition({
     const position = document.caretPositionFromPoint(point.x, point.y, {
       shadowRoots,
     });
+
+    //
+    // Chrome can report a line-relative offset for multi-line textareas.
+    // WebKit 26's caretPositionFromPoint returns offset 0 for textareas.
+    // Use our caretRangeFromPoint wrapper, which measures a mirror element,
+    // for both browsers.
+    //
+    // https://issues.chromium.org/issues/446475645
+    //
+    if (
+      (isChromium() || isSafari()) &&
+      position?.offsetNode.nodeType === Node.ELEMENT_NODE &&
+      (position.offsetNode as Element).tagName === 'TEXTAREA'
+    ) {
+      return caretRangeFromPoint({ point, element });
+    }
+
     return position?.offsetNode
       ? { offset: position.offset, offsetNode: position.offsetNode }
       : null;
@@ -339,6 +419,54 @@ function getVisualOffset({
     bboxIncludesPoint({ bbox: previousCharacterBbox, point })
     ? range.startOffset
     : position.offset;
+}
+
+function isSubtitleContainer(node: Node): node is Element {
+  return (
+    node instanceof Element &&
+    (node.classList.contains('libjass-wrapper') ||
+      Array.from(node.children).some((child) =>
+        child.classList.contains('libjass-subs')
+      ))
+  );
+}
+
+function lookupPointWithOverriddenPointerEvents({
+  point,
+  element,
+}: {
+  point: Point;
+  element: Element;
+}): CursorPosition | null {
+  const stylesToRestore = new Map<Element, string | null>();
+  overridePointerEvents(element, stylesToRestore);
+
+  if (!stylesToRestore.size) {
+    return null;
+  }
+
+  try {
+    return lookupPoint({ point, element });
+  } finally {
+    restoreStyles(stylesToRestore);
+  }
+}
+
+function overridePointerEvents(
+  element: Element,
+  stylesToRestore: Map<Element, string | null>
+) {
+  if (element instanceof HTMLElement || element instanceof SVGElement) {
+    const { pointerEvents } = getComputedStyle(element);
+    if (pointerEvents === 'none') {
+      stylesToRestore.set(element, element.getAttribute('style'));
+      element.style.setProperty('pointer-events', 'auto', 'important');
+    }
+  }
+
+  for (const child of element.children) {
+    overridePointerEvents(child, stylesToRestore);
+  }
 }
 
 function lookupPointWithNormalizedUserSelect({
@@ -531,8 +659,7 @@ function getDistanceFromTextNode(
 
 /**
  * Wrapper for document.caretRangeFromPoint that fixes some deficiencies when
- * compared with caretPositionFromPoint (at least with regards to the Firefox
- * implementation of caretPositionFromPoint).
+ * compared with caretPositionFromPoint.
  */
 function caretRangeFromPoint({
   point,
@@ -610,8 +737,7 @@ function getCursorPositionFromTextInput({
   // result so we need to synthesize an element with the same layout as the
   // text area, read the text position, then drop it.
   //
-  // We currently only expect to use it together with caretRangeFromPoint since
-  // caretPositionFromPoint should look up text inputs correctly.
+  // Use the range API on the mirror to avoid the native textarea offset bugs.
   if (!('caretRangeFromPoint' in document)) {
     throw new Error('caretRangeFromPoint not available');
   }
@@ -756,7 +882,17 @@ function createMirrorElement(source: HTMLElement, text?: string): HTMLElement {
 
   // Append the element to the document. We need to do this before adjusting
   // the scroll offset or else it won't update.
-  document.documentElement.appendChild(mirrorElement);
+  if (canUseTopLayer()) {
+    // A mirror at the document root is covered by popovers and made inert by
+    // modal dialogs. Keep it beside the source and put it in the top
+    // layer so caret hit testing works there too. Top-layer positioning still
+    // uses the document coordinates calculated above.
+    source.after(mirrorElement);
+    mirrorElement.popover = 'manual';
+    mirrorElement.showPopover();
+  } else {
+    document.documentElement.appendChild(mirrorElement);
+  }
 
   // Match the scroll position
   const { scrollLeft, scrollTop } = source;

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>LingLook subtitle and textarea lookup checks</title>
+  <style>
+    body {
+      max-width: 900px;
+      margin: 30px auto;
+      font: 16px/1.5 system-ui;
+    }
+    button {
+      margin: 8px 8px 8px 0;
+      padding: 6px 12px;
+    }
+    #player {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      background: #142333;
+    }
+    #player:fullscreen {
+      height: 100%;
+    }
+    video,
+    .libjass-wrapper,
+    .libjass-subs {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .libjass-subs {
+      overflow: hidden;
+      line-height: 0;
+    }
+    .libjass-subs,
+    .libjass-subs * {
+      pointer-events: none;
+    }
+    .an2 {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+    }
+    #subtitle {
+      color: white;
+      font: 36px/54px sans-serif;
+      text-shadow: 0 2px 4px black;
+    }
+    #play-pause-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+    textarea {
+      display: block;
+      box-sizing: border-box;
+      width: 440px;
+      height: 160px;
+      padding: 10px;
+      border: 1px solid #555;
+      font: 24px/36px monospace;
+      resize: both;
+    }
+    #wrapped {
+      width: 170px;
+    }
+    #scrolled {
+      height: 94px;
+    }
+  </style>
+  <h1>Subtitle and multiline textarea lookup</h1>
+  <p>
+    Enable LingLook. Hover the Chinese text, then use the popup controls. The
+    player below reproduces Plex's libjass subtitle structure and invisible
+    play/pause overlay.
+  </p>
+  <div id="player">
+    <video muted autoplay playsinline></video>
+    <div class="libjass-wrapper">
+      <div class="libjass-subs paused">
+        <div class="layer layer0">
+          <div class="an an2">
+            <span style="display: inline-block"
+              ><span id="subtitle">你好世界</span></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="play-pause-overlay" class="PlayPauseOverlay-overlay-lF71cy"></div>
+  </div>
+  <p id="playback-status" role="status">Playing · overlay clicks: 0</p>
+  <button id="next-subtitle">Change subtitle</button>
+  <button id="fullscreen">Fullscreen player</button>
+  <h2>Explicit newlines</h2>
+  <textarea id="multiline" aria-label="Explicit newlines">
+你好
+世界
+
+学习中文</textarea
+  >
+  <h2>Wrapped lines after a newline</h2>
+  <textarea id="wrapped" aria-label="Wrapped text">
+你好
+世界学习中文朋友学校老师</textarea
+  >
+  <h2>Scrolled textarea</h2>
+  <textarea id="scrolled" aria-label="Scrolled text">
+你好
+世界
+学习
+中文
+朋友
+学校
+老师</textarea
+  >
+  <p>
+    Check each line, including after resizing and scrolling. Lookup must
+    preserve the text and selection; hovering blank space should dismiss the
+    popup. Click the player after lookup to verify playback still toggles.
+    Repeat subtitle lookup in fullscreen.
+  </p>
+  <script>
+    const video = document.querySelector('video');
+    // Locally generated silent video; no external media or Plex account needed.
+    const canvas = document.createElement('canvas');
+    canvas.width = 900;
+    canvas.height = 320;
+    const context = canvas.getContext('2d');
+    function draw() {
+      context.fillStyle = '#142333';
+      context.fillRect(0, 0, 900, 320);
+      context.fillStyle = '#33536f';
+      context.fillRect(((performance.now() / 20) % 1000) - 100, 80, 100, 60);
+    }
+    draw();
+    setInterval(draw, 100);
+    video.srcObject = canvas.captureStream(10);
+    let clicks = 0;
+    document.querySelector('#play-pause-overlay').onclick = async () => {
+      clicks++;
+      if (video.paused) await video.play();
+      else video.pause();
+      document.querySelector('#playback-status').textContent =
+        `${video.paused ? 'Paused' : 'Playing'} · overlay clicks: ${clicks}`;
+    };
+    document.querySelector('#next-subtitle').onclick = () => {
+      const subtitle = document.querySelector('#subtitle');
+      subtitle.textContent =
+        subtitle.textContent === '你好世界' ? '学习中文' : '你好世界';
+    };
+    document.querySelector('#fullscreen').onclick = () =>
+      document.querySelector('#player').requestFullscreen();
+    document.querySelector('#scrolled').scrollTop = 108;
+  </script>
+</html>

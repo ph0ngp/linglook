@@ -231,6 +231,9 @@ export class TextHighlighter {
   }) {
     const start = offset;
     const end = start + length;
+    // Focusing an unfocused textarea can scroll it to its previous caret, so
+    // save the visible position before changing either focus or selection.
+    const { scrollTop, scrollLeft } = textBox;
 
     // If we were previously interacting with a different text box, restore
     // its range.
@@ -252,7 +255,7 @@ export class TextHighlighter {
       // and changes to focus made by us.
       const previousUpdatingFocus = this.updatingFocus;
       this.updatingFocus = true;
-      textBox.focus();
+      textBox.focus({ preventScroll: true });
       this.updatingFocus = previousUpdatingFocus;
 
       this.selectedTextBox = {
@@ -262,9 +265,6 @@ export class TextHighlighter {
         previousDirection: textBox.selectionDirection || undefined,
       };
     }
-
-    // Store the current scroll range so we can restore it.
-    const { scrollTop, scrollLeft } = textBox;
 
     // Clear any other selection happening in the page.
     selectedWindow.getSelection()?.removeAllRanges();
