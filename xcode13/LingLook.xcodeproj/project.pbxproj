@@ -615,7 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LingLook Extension";
@@ -626,7 +626,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
 				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = iphoneos;
@@ -641,7 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LingLook Extension";
@@ -652,7 +652,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
 				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = iphoneos;
@@ -671,7 +671,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
@@ -687,7 +687,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = iphoneos;
@@ -705,7 +705,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = LingLook;
@@ -721,7 +721,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = iphoneos;
@@ -737,7 +737,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -752,7 +752,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
 				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = macosx;
@@ -767,7 +767,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -782,7 +782,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook.Extension;
 				PRODUCT_NAME = "LingLook Extension";
 				SDKROOT = macosx;
@@ -801,7 +801,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/LingLook.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -816,7 +816,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = macosx;
@@ -835,7 +835,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/LingLook.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -850,7 +850,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phongp.linglook;
 				PRODUCT_NAME = LingLook;
 				SDKROOT = macosx;
