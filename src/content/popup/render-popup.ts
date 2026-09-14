@@ -404,6 +404,8 @@ function getDefaultContainer(): HTMLElement {
     styles: popupStyles.toString(),
     // Make sure the popup container appears _before_ the puck container so that
     // we can assign them the same z-index and have the puck appear on top.
+    // We also add containers to the top layer in document order, keeping the
+    // puck above the popup there too.
     before: LookupPuckId,
     legacyIds: [],
   });

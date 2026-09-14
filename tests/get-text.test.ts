@@ -8,8 +8,6 @@ import {
 // import { empty } from '../src/utils/dom-utils';
 import { isChromium } from '../src/utils/ua-utils';
 
-mocha.setup('bdd');
-
 describe('getTextAtPoint', () => {
   let testDiv: HTMLDivElement;
 

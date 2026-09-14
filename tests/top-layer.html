@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LingLook over dialogs and popovers</title>
+    <style>
+      body {
+        margin: 40px;
+        color: #242424;
+        background: #f5f4f1;
+        font:
+          18px/1.6 system-ui,
+          sans-serif;
+      }
+      button {
+        padding: 8px 16px;
+        font: inherit;
+      }
+      .chinese {
+        font-size: 32px;
+      }
+      dialog,
+      [popover] {
+        max-width: min(80vw, 480px);
+        padding: 24px;
+        border: 2px solid #64748b;
+        border-radius: 12px;
+        background: #fff;
+        color: #242424;
+      }
+      dialog::backdrop {
+        background: #0006;
+      }
+      #nested-dialog {
+        transform: translate(35px, 25px) rotate(-3deg);
+        overflow: hidden;
+      }
+      #fullscreen-area {
+        padding: 24px;
+        background: #f5f4f1;
+      }
+      #fullscreen-area:fullscreen {
+        overflow: auto;
+      }
+      .spacer {
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lookup over dialogs and popovers</h1>
+    <p>
+      Enable LingLook. Check lookup, popup tabs, pinning, closing, and puck
+      dragging.
+    </p>
+    <p><a href="top-layer.svg">Check lookup in a standalone SVG document</a></p>
+    <p class="chinese"><span id="page-word">学习</span>中文</p>
+    <div class="spacer"></div>
+    <section id="fullscreen-area">
+      <h2>Native overlays</h2>
+      <p>Scroll here before testing so incorrect scroll offsets are visible.</p>
+      <p class="chinese"><span id="scrolled-word">世界</span></p>
+      <button id="open-modal">Open modal dialog</button>
+      <button id="open-dialog">Open non-modal dialog</button>
+      <button id="open-popover" popovertarget="page-popover">
+        Toggle popover
+      </button>
+      <button id="fullscreen">Toggle fullscreen</button>
+      <p id="status">Ready</p>
+      <dialog id="modal-dialog">
+        <h2>Modal dialog</h2>
+        <p class="chinese"><span id="modal-word">你好</span></p>
+        <button id="open-nested">Open second modal</button>
+        <button id="open-modal-popover" popovertarget="modal-popover">
+          Toggle inner popover
+        </button>
+        <form method="dialog">
+          <button id="close-modal">Close modal</button>
+        </form>
+        <div id="modal-popover" popover>
+          <p class="chinese"><span id="modal-popover-word">朋友</span></p>
+          <button popovertarget="modal-popover" popovertargetaction="hide">
+            Close inner popover
+          </button>
+        </div>
+      </dialog>
+      <dialog id="nested-dialog">
+        <h2>Transformed, clipped modal</h2>
+        <p class="chinese"><span id="nested-word">日历</span></p>
+        <form method="dialog">
+          <button id="close-nested">Close second modal</button>
+        </form>
+      </dialog>
+      <dialog id="plain-dialog">
+        <h2>Non-modal dialog</h2>
+        <p class="chinese"><span id="dialog-word">中文</span></p>
+        <form method="dialog">
+          <button id="close-dialog">Close dialog</button>
+        </form>
+      </dialog>
+      <div id="page-popover" popover>
+        <h2>Page popover</h2>
+        <p class="chinese"><span id="popover-word">学校</span></p>
+        <button id="replace-popover" popovertarget="second-popover">
+          Open another popover
+        </button>
+        <button
+          id="close-popover"
+          popovertarget="page-popover"
+          popovertargetaction="hide"
+        >
+          Close popover
+        </button>
+      </div>
+      <div id="second-popover" popover>
+        <h2>Newer page popover</h2>
+        <p class="chinese"><span id="second-popover-word">老师</span></p>
+        <button
+          id="close-second-popover"
+          popovertarget="second-popover"
+          popovertargetaction="hide"
+        >
+          Close newer popover
+        </button>
+      </div>
+    </section>
+    <div class="spacer"></div>
+    <script>
+      for (const [buttonId, dialogId] of [
+        ['open-modal', 'modal-dialog'],
+        ['open-nested', 'nested-dialog'],
+      ]) {
+        document.getElementById(buttonId).addEventListener('click', () => {
+          document.getElementById(dialogId).showModal();
+        });
+      }
+      document.getElementById('open-dialog').addEventListener('click', () => {
+        document.getElementById('plain-dialog').show();
+      });
+      document
+        .getElementById('fullscreen')
+        .addEventListener('click', async () => {
+          if (document.fullscreenElement) {
+            await document.exitFullscreen();
+          } else {
+            await document
+              .getElementById('fullscreen-area')
+              .requestFullscreen();
+          }
+        });
+      for (const id of ['page-popover', 'second-popover', 'modal-popover']) {
+        document.getElementById(id).addEventListener('toggle', (event) => {
+          document.getElementById('status').textContent =
+            `${id}: ${event.newState}`;
+        });
+      }
+    </script>
+  </body>
+</html>

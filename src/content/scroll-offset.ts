@@ -1,11 +1,15 @@
 import { Point, Rect } from '../utils/geometry';
 
+import { canUseTopLayer } from './content-container';
+
 export type ScrollOffset = { scrollX: number; scrollY: number };
 
 export function getScrollOffset(): ScrollOffset {
   // If we're in full screen mode, we should use the scroll position of the
   // full-screen element (which is always zero?).
-  if (document.fullscreenElement) {
+  // Top-layer containers are positioned relative to the initial containing
+  // block, so they use the document's scroll offset even in fullscreen.
+  if (!canUseTopLayer() && document.fullscreenElement) {
     return {
       scrollX: document.fullscreenElement.scrollLeft,
       scrollY: document.fullscreenElement.scrollTop,

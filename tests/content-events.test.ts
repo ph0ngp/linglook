@@ -5,8 +5,6 @@ import type { ContentHandler as ContentHandlerClass } from '../src/content/conte
 
 import { browser } from './browser-polyfill';
 
-mocha.setup('bdd');
-
 describe('Hover lookup in popups that stop pointer events', () => {
   let ContentHandler: typeof ContentHandlerClass;
   let subject: ContentHandlerClass;

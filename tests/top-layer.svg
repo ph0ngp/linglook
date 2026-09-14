@@ -1,0 +1,12 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1100"
+  height="800"
+  viewBox="0 0 1100 800"
+>
+  <rect width="1100" height="800" fill="#f5f4f1" />
+  <text x="80" y="90" font-family="sans-serif" font-size="24">
+    LingLook: standalone SVG fallback
+  </text>
+  <text id="svg-word" x="200" y="180" font-size="32">你好</text>
+</svg>

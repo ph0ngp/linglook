@@ -2,8 +2,6 @@ import { assert } from 'chai';
 
 import { getRangeForSingleCodepoint } from '../src/utils/range';
 
-mocha.setup('bdd');
-
 describe('getRangeForSingleCodepoint', () => {
   it('should handle non-BMP characters', () => {
     const source = new Text('𠏹沢');

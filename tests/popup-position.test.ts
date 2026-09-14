@@ -3,8 +3,6 @@ import { assert } from 'chai';
 import type { ShowPopupOptions } from '../src/content/popup/show-popup';
 import type { QueryResult } from '../src/content/query';
 
-mocha.setup('bdd');
-
 describe('Popup positioning with page CSS registrations', () => {
   let showPopup: typeof import('../src/content/popup/show-popup').showPopup;
   let pageStyles: HTMLStyleElement;

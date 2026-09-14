@@ -17,8 +17,6 @@ import type { TextHighlighter as TextHighlighterClass } from '../src/content/tex
 
 let TextHighlighter: typeof TextHighlighterClass;
 
-mocha.setup('bdd');
-
 describe('TextHighligher', () => {
   let testDiv: HTMLDivElement;
   let subject: TextHighlighterClass;
