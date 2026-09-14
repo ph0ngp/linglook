@@ -290,7 +290,10 @@ export class ContentHandler {
     this.onConfigChange = this.onConfigChange.bind(this);
     this.config.addListener(this.onConfigChange);
 
-    window.addEventListener('pointermove', this.onPointerMove);
+    // Notion and other sites stop pointer events inside their popups.
+    window.addEventListener('pointermove', this.onPointerMove, {
+      capture: true,
+    });
     window.addEventListener('mousedown', this.onMouseDown);
     window.addEventListener('keydown', this.onKeyDown, { capture: true });
     window.addEventListener('keyup', this.onKeyUp, { capture: true });
@@ -527,7 +530,9 @@ export class ContentHandler {
   detach() {
     this.config.removeListener(this.onConfigChange);
 
-    window.removeEventListener('pointermove', this.onPointerMove);
+    window.removeEventListener('pointermove', this.onPointerMove, {
+      capture: true,
+    });
     window.removeEventListener('mousedown', this.onMouseDown);
     window.removeEventListener('keydown', this.onKeyDown, { capture: true });
     window.removeEventListener('keyup', this.onKeyUp, { capture: true });

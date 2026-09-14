@@ -1,11 +1,13 @@
 export const browser = {
   runtime: {
+    id: 'test',
     getURL: () => '#',
     sendMessage: () => new Promise((resolve) => resolve),
     onMessage: {
       addListener: () => {
         // Probably should do something with this...
       },
+      removeListener: () => {},
     },
   },
   i18n: {

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LingLook hover inside popups</title>
+    <style>
+      body {
+        margin: 48px;
+        color: #242424;
+        background: #f5f4f1;
+        font:
+          18px/1.6 system-ui,
+          sans-serif;
+      }
+      button {
+        padding: 8px 16px;
+        font: inherit;
+      }
+      #overlay {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: #0005;
+      }
+      #overlay[hidden] {
+        display: none;
+      }
+      #popup {
+        width: min(480px, calc(100vw - 100px));
+        padding: 32px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 16px 60px #0003;
+      }
+      .chinese {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hover lookup inside popups</h1>
+    <p>Enable LingLook, then check the words on the page and in the popup.</p>
+    <p class="chinese"><span id="page-word">学习</span>中文。</p>
+    <button id="open">Open popup</button>
+    <div id="overlay" hidden>
+      <section id="popup" role="dialog" aria-labelledby="popup-title">
+        <h2 id="popup-title">Calendar entry</h2>
+        <p>
+          This popup stops pointer events from bubbling, reproducing the Notion
+          hover lookup issue.
+        </p>
+        <p class="chinese"><span id="popup-word">你好</span>，世界。</p>
+        <p class="chinese"><span id="calendar-word">日历</span></p>
+        <p id="status">Waiting for pointer movement…</p>
+        <button id="close">Close popup</button>
+      </section>
+    </div>
+    <script>
+      const overlay = document.getElementById('overlay');
+      document.getElementById('open').addEventListener('click', () => {
+        overlay.hidden = false;
+      });
+      document.getElementById('close').addEventListener('click', () => {
+        overlay.hidden = true;
+      });
+      overlay.addEventListener('pointermove', (event) => {
+        event.stopPropagation();
+        document.getElementById('status').textContent =
+          'The popup handled this pointer event and stopped it from bubbling.';
+      });
+    </script>
+  </body>
+</html>

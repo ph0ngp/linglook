@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Safari) Fix lookup puck taps and double-taps on recent iOS 26 releases.
 - Fix popup positioning on sites such as Facebook that register conflicting CSS properties.
+- Fix hover lookup inside Notion popups, including calendar entries.
 
 ## [1.0.1] - 2024-11-20
 
