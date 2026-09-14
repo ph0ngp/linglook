@@ -137,6 +137,54 @@ describe('Popup positioning with page CSS registrations', () => {
     assert.isAtMost(bounds.bottom, 180);
   });
 
+  for (const position of ['left', 'right', 'auto'] as const) {
+    it(`recalculates height after wrapping with ${position} positioning`, () => {
+      registerPageProperties();
+      const longResult = { ...result, title: '你好 — hello '.repeat(40) };
+      const widePopup = showPopup(longResult, options)!;
+      const wideHeight = widePopup.popup
+        .shadowRoot!.querySelector('.window')!
+        .getBoundingClientRect().height;
+      // The original height fits. Only wrapping at the narrower width should
+      // require a height limit, regardless of the platform's font metrics.
+      const bottom = 30 + wideHeight + 10;
+      const popup = showPopup(longResult, {
+        ...options,
+        fixedPosition:
+          position === 'auto'
+            ? undefined
+            : {
+                x: position === 'left' ? 20 : 215,
+                y: 20,
+                anchor: position,
+                direction: 'disjoint',
+                side: 'disjoint',
+              },
+        getCursorClearanceAndPos: () => ({
+          cursorClearance: { top: 0, right: 0, bottom: 0, left: 0 },
+          cursorPos: { x: 100, y: 20 },
+        }),
+        safeArea: {
+          top: 0,
+          left: 0,
+          right: document.documentElement.clientWidth - 220,
+          bottom: window.innerHeight - bottom,
+        },
+      });
+      assert.isNotNull(popup);
+      assertPosition(popup!);
+      const shadow = popup!.popup.shadowRoot!;
+      const windowElement = shadow.querySelector('.window')!;
+      const content = shadow.querySelector('.expandable')!;
+      const bounds = windowElement.getBoundingClientRect();
+      assert.isAbove(content.scrollHeight, content.clientHeight);
+      assert.isAtLeast(bounds.left, 5);
+      assert.isAtMost(bounds.right, 220);
+      assert.isAtMost(bounds.bottom, bottom);
+      assert.closeTo(popup!.size.height, bounds.height, 2);
+    });
+  }
+
   it('preserves minimum height and resets constraints when the popup is reused', () => {
     registerPageProperties();
     const popup = showPopup(result, {

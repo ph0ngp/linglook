@@ -120,7 +120,7 @@ export function showPopup(
 
   // Get the popup position
 
-  const popupPos = getPopupPosition({
+  const positionOptions = {
     allowVerticalOverlap: options.allowOverlap || !!options.fixMinHeight,
     cursorClearance,
     cursorPos,
@@ -128,10 +128,10 @@ export function showPopup(
     interactive: options.interactive,
     isVerticalText: options.isVerticalText,
     positionMode: options.positionMode,
-    popupSize,
     safeArea: options.safeArea,
     pointerType: options.pointerType,
-  });
+  };
+  let popupPos = getPopupPosition({ ...positionOptions, popupSize });
 
   //
   // Apply the popup position
@@ -154,6 +154,25 @@ export function showPopup(
       wrapper.transform.baseVal.initialize(transform);
     }
   } else {
+    // Narrowing the window can wrap its contents and increase its height.
+    // Measure at that width before choosing the final position/height limit.
+    // Only tighten the width if repositioning needs an even narrower window,
+    // so layouts cannot oscillate between different widths.
+    let maxWidth: number | null = null;
+    while (
+      popupPos.constrainWidth !== null &&
+      (maxWidth === null || popupPos.constrainWidth < maxWidth)
+    ) {
+      maxWidth = popupPos.constrainWidth;
+      popup.style.setProperty('--linglook-popup-max-width', `${maxWidth}px`);
+      popupSize = getPopupDimensions(popup);
+      popupSize.height = Math.max(popupSize.height, minHeight);
+      popupPos = getPopupPosition({ ...positionOptions, popupSize });
+    }
+    if (maxWidth !== null) {
+      popupPos.constrainWidth = maxWidth;
+    }
+
     popup.style.setProperty('--linglook-popup-left', `${popupPos.x}px`);
     popup.style.setProperty('--linglook-popup-top', `${popupPos.y}px`);
 
