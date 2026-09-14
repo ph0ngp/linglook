@@ -154,24 +154,30 @@ export function showPopup(
       wrapper.transform.baseVal.initialize(transform);
     }
   } else {
-    popup.style.setProperty('--left', `${popupPos.x}px`);
-    popup.style.setProperty('--top', `${popupPos.y}px`);
+    popup.style.setProperty('--linglook-popup-left', `${popupPos.x}px`);
+    popup.style.setProperty('--linglook-popup-top', `${popupPos.y}px`);
 
     if (popupPos.constrainWidth) {
-      popup.style.setProperty('--max-width', `${popupPos.constrainWidth}px`);
+      popup.style.setProperty(
+        '--linglook-popup-max-width',
+        `${popupPos.constrainWidth}px`
+      );
     } else {
-      popup.style.removeProperty('--max-width');
+      popup.style.removeProperty('--linglook-popup-max-width');
     }
 
     if (popupPos.constrainHeight) {
-      popup.style.removeProperty('--min-height');
-      popup.style.setProperty('--max-height', `${popupPos.constrainHeight}px`);
+      popup.style.removeProperty('--linglook-popup-min-height');
+      popup.style.setProperty(
+        '--linglook-popup-max-height',
+        `${popupPos.constrainHeight}px`
+      );
     } else if (minHeight) {
-      popup.style.setProperty('--min-height', `${minHeight}px`);
-      popup.style.removeProperty('--max-height');
+      popup.style.setProperty('--linglook-popup-min-height', `${minHeight}px`);
+      popup.style.removeProperty('--linglook-popup-max-height');
     } else {
-      popup.style.removeProperty('--min-height');
-      popup.style.removeProperty('--max-height');
+      popup.style.removeProperty('--linglook-popup-min-height');
+      popup.style.removeProperty('--linglook-popup-max-height');
     }
   }
 

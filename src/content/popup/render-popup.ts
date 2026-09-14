@@ -464,10 +464,10 @@ function resetContainer({
 
   // Reset the container position and size so that we can consistently measure
   // the size of the popup.
-  host.style.removeProperty('--left');
-  host.style.removeProperty('--top');
-  host.style.removeProperty('--max-width');
-  host.style.removeProperty('--max-height');
+  host.style.removeProperty('--linglook-popup-left');
+  host.style.removeProperty('--linglook-popup-top');
+  host.style.removeProperty('--linglook-popup-max-width');
+  host.style.removeProperty('--linglook-popup-max-height');
 
   return windowDiv;
 }

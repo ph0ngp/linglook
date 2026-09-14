@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LingLook popup positioning regression</title>
+    <style>
+      /* Reproduce the property registrations that interfere with the popup
+         on Facebook, plus equivalent registrations for its size limits. */
+      @property --left {
+        syntax: '*';
+        inherits: false;
+      }
+      @property --top {
+        syntax: '*';
+        inherits: false;
+      }
+      @property --max-width {
+        syntax: '*';
+        inherits: false;
+      }
+      @property --max-height {
+        syntax: '*';
+        inherits: false;
+      }
+      @property --min-height {
+        syntax: '*';
+        inherits: false;
+      }
+
+      body {
+        margin: 0;
+        color: #172b40;
+        background: #edf1f5;
+        font:
+          17px/1.6 system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 720px;
+        margin: 60px auto;
+        padding: 0 24px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      article {
+        margin-top: 80px;
+        padding: 32px;
+        border-radius: 12px;
+        background: white;
+      }
+      .chinese {
+        font-size: 32px;
+        line-height: 2;
+      }
+      #lower-card {
+        margin-top: 900px;
+      }
+      #status {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 8px 16px;
+        background: #172b40;
+        color: white;
+        font-size: 13px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Popup positioning regression</h1>
+      <p>
+        Enable LingLook and hover over the Chinese text. The popup should stay
+        near the text, including after scrolling or narrowing the window.
+      </p>
+      <p>
+        This page registers non-inheriting <code>--left</code>,
+        <code>--top</code>, and size properties, reproducing the Facebook
+        collision.
+      </p>
+      <article>
+        <p>First lookup</p>
+        <p class="chinese"><span id="first-word">你好</span>，世界。</p>
+        <p class="chinese">今天学习<span id="second-word">中文</span>。</p>
+      </article>
+      <article id="lower-card">
+        <p>Lookup after scrolling</p>
+        <p class="chinese"><span id="scrolled-word">谢谢</span>，再见。</p>
+      </article>
+    </main>
+    <output id="status">Waiting for a LingLook popup…</output>
+    <script>
+      function updateStatus() {
+        const host = document.getElementById('linglook-window');
+        const popup = host?.shadowRoot?.querySelector('.container');
+        if (popup) {
+          const bounds = popup.getBoundingClientRect();
+          document.getElementById('status').textContent =
+            `Popup viewport position: ${Math.round(bounds.left)}, ${Math.round(bounds.top)} · size: ${Math.round(bounds.width)} × ${Math.round(bounds.height)}`;
+        }
+        requestAnimationFrame(updateStatus);
+      }
+      updateStatus();
+    </script>
+  </body>
+</html>
