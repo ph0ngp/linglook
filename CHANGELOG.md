@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support lookup in Plex text subtitles.
 - Fix multiline textarea lookup in Chromium and WebKit 26, including fields inside dialogs and popovers.
 - Keep scrolled textareas in place when highlighting lookup results.
+- Fix popup positioning measurements that split rare Chinese characters encoded as surrogate pairs. Ported from [10ten](https://github.com/birchill/10ten-ja-reader/commit/e0e39434411740b55b61b1e6a7f4aab5b8fd2cff), by Brian Birtles.
 
 ## [1.0.1] - 2024-11-20
 
